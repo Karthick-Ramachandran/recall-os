@@ -100,6 +100,11 @@ and is not accepted until a human reviews and accepts it.
 
 - Captures a framework already in use as reviewable repository memory.
 - Requires explicit human acceptance before it becomes repository truth.
+
+## Related Documents
+
+- \`docs/10-architecture/ARCHITECTURE.md\` — record the accepted architecture here once promoted.
+- The adoption report generated alongside this proposal.
 `;
 }
 

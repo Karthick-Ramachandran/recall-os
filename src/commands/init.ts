@@ -12,9 +12,13 @@ import { executeWritePlan, type WriteResult } from "../core/filesystem/write-fil
 import { generateInitFiles } from "../core/generator/generate-init.js";
 import { detectPreCommitGates } from "../core/hooks/detect-gates.js";
 import {
+  CLAUDE_SETTINGS_PATH,
   HOOKS_PATH_ACTIVATION_COMMAND,
   PRE_COMMIT_HOOK_PATH,
+  SESSION_START_HOOK_PATH,
+  renderClaudeSettings,
   renderPreCommitHook,
+  renderSessionStartHook,
 } from "../core/hooks/generate-hook.js";
 import { getPreset } from "../core/presets/preset-registry.js";
 import type { Preset } from "../core/presets/preset-schema.js";
@@ -106,7 +110,7 @@ export function formatInitResult(result: InitResult): string {
 
   if (!result.dryRun) {
     lines.push(
-      `Generated repository memory, ${listCatalogSkillNames().length} agent skills, a pre-commit hook, and a CI workflow.`,
+      `Generated repository memory, ${listCatalogSkillNames().length} agent skills, a pre-commit hook, a CI workflow, a Claude SessionStart hook, and a Cursor rule that load memory automatically.`,
     );
   }
 
@@ -133,6 +137,7 @@ export function formatInitResult(result: InitResult): string {
     appendNextSteps(lines, [
       "Read CLAUDE.md and AGENTS.md, then the docs/ memory they point to.",
       "AI agent skills are in .claude/skills/ and .agents/skills/ — restart your AI tool to load them.",
+      "Memory loads automatically per tool: a Claude SessionStart hook (.claude/hooks/session-start.sh), a Cursor rule (.cursor/rules/recall-memory.mdc), and AGENTS.md for Codex.",
       "CI is wired in .github/workflows/recall.yml; the pre-commit hook is in .recall/hooks/.",
       "Plan your first feature: `recall feature create <name>`.",
       "Record a decision: `recall adr create <title>`, then accept it with `recall adr accept`.",
@@ -172,6 +177,17 @@ function createInitWriteFiles(
       path: PRE_COMMIT_HOOK_PATH,
       content: renderPreCommitHook(config.preCommitGates),
       executable: true,
+    },
+    // A Claude Code SessionStart hook that injects a memory map every session, so a fresh agent
+    // reliably loads durable memory, plus the settings that wire it (skipped if settings exist).
+    {
+      path: SESSION_START_HOOK_PATH,
+      content: renderSessionStartHook(),
+      executable: true,
+    },
+    {
+      path: CLAUDE_SETTINGS_PATH,
+      content: renderClaudeSettings(),
     },
     // Generate the agent skill set so a fresh repo has the workflows that guide AI agents,
     // not just the docs. Written to both the Claude and portable Agent Skills targets.

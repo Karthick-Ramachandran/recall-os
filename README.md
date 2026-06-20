@@ -16,7 +16,8 @@ decisions, module ownership, testing and security expectations, AI agent rules �
 code generation.
 
 [Install](#install) · [Quickstart](#quickstart) · [Commands](#commands) ·
-[What Doctor Checks](#what-doctor-checks) · [Presets](#presets) · [Contributing](CONTRIBUTING.md)
+[What Doctor Checks](#what-doctor-checks) · [Presets](#presets) · [Why I built this](PHILOSOPHY.md)
+· [Contributing](CONTRIBUTING.md)
 
 ![Recall OS — guided memory creation, ADR acceptance, and the doctor gate](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/media/recall-demo.gif)
 
@@ -142,14 +143,17 @@ Presets are opinion packs. They ship **proposed** guidance and proposed ADRs for
 decision forks — and they can never silently accept a choice for you (the schema enforces `Proposed`
 status on every preset decision).
 
-| Preset           | Stack            | Proposes (always as proposed ADRs)                          |
-| ---------------- | ---------------- | ----------------------------------------------------------- |
-| `kotlin-android` | Kotlin / Android | Compose, Coroutines + Flow, Hilt, Room, MVVM                |
-| `python-fastapi` | Python / FastAPI | FastAPI, PostgreSQL + SQLAlchemy, Pydantic, pytest, Redis   |
-| `ios-swift`      | iOS / Swift      | SwiftUI, async/await + Observation, SwiftData, MVVM         |
-| `nextjs`         | Next.js / TS     | App Router, typed data layer, Tailwind, Vitest + Playwright |
-| `flutter`        | Flutter          | Platform and state-management guidance                      |
-| `generic`        | none             | Architecture-neutral memory                                 |
+| Preset           | Stack            | Proposes (always as proposed ADRs)                                                  |
+| ---------------- | ---------------- | ----------------------------------------------------------------------------------- |
+| `laravel-react`  | Laravel + React  | Laravel, Inertia + React, Eloquent, Sanctum, Form Requests + Policies, queues, Pest |
+| `laravel-vue`    | Laravel + Vue    | Laravel, Inertia + Vue, Eloquent, Sanctum, Form Requests + Policies, queues, Pest   |
+| `laravel-api`    | Laravel (API)    | Laravel, versioned REST + API Resources, Eloquent, Sanctum, queues, Pest            |
+| `kotlin-android` | Kotlin / Android | Compose, Coroutines + Flow, Hilt, Room, MVVM                                        |
+| `python-fastapi` | Python / FastAPI | FastAPI, PostgreSQL + SQLAlchemy, Pydantic, pytest, Redis                           |
+| `ios-swift`      | iOS / Swift      | SwiftUI, async/await + Observation, SwiftData, MVVM                                 |
+| `nextjs`         | Next.js / TS     | App Router, typed data layer, Tailwind, Vitest + Playwright                         |
+| `flutter`        | Flutter          | Platform and state-management guidance                                              |
+| `generic`        | none             | Architecture-neutral memory                                                         |
 
 Adding a preset is a small contribution — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -166,6 +170,21 @@ Adding a preset is a small contribution — see [CONTRIBUTING.md](CONTRIBUTING.m
                                        ▼
                                  recall doctor  ──►  0 / 1 / 2  ──►  hook or CI gate
 ```
+
+## How agents load the memory
+
+Writing memory only helps if the agent reads it, so `recall init` wires each tool with its own
+native mechanism:
+
+| Tool            | How memory loads                                                                                                           |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Claude Code** | `CLAUDE.md` (auto) imports `AGENTS.md`; a SessionStart hook injects a live map of accepted ADRs and modules every session. |
+| **Cursor**      | `.cursor/rules/recall-memory.mdc` is an always-apply rule that loads the memory rules into every request.                  |
+| **Codex**       | `AGENTS.md` is auto-discovered and loaded.                                                                                 |
+
+The portable guarantee across every tool is `AGENTS.md` plus the generated Agent Skills
+(`.agents/skills/`). The dynamic per-session ADR/module map is a Claude Code bonus; the Cursor rule
+and `AGENTS.md` carry the same rules everywhere else.
 
 ## Repository Memory
 
@@ -198,9 +217,11 @@ Recall OS does not:
 Committed sample outputs show the exact memory each preset generates:
 
 ```txt
-examples/generated-generic/        examples/generated-kotlin-android/
-examples/generated-nextjs/         examples/generated-python-fastapi/
-examples/generated-ios-swift/      examples/generated-flutter/
+examples/generated-generic/         examples/generated-kotlin-android/
+examples/generated-nextjs/          examples/generated-python-fastapi/
+examples/generated-ios-swift/       examples/generated-flutter/
+examples/generated-laravel-react/   examples/generated-laravel-vue/
+examples/generated-laravel-api/
 ```
 
 ## Development

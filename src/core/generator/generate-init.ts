@@ -1,5 +1,6 @@
 import path from "node:path";
 
+import { ensureRequiredAdrSections } from "../adr/adr-sections.js";
 import type { WriteFileInput } from "../filesystem/write-plan.js";
 import type { Preset } from "../presets/preset-schema.js";
 import { createTemplateContext } from "./template-context.js";
@@ -39,11 +40,41 @@ Repository rules override model preferences. If instructions conflict, stop and 
     path: "CLAUDE.md",
     content: `# {{repositoryName}} Claude Instructions
 
-Use this file as a short routing guide.
+This file is loaded automatically every Claude session. The durable project memory lives in \`docs/\`;
+do not rely on chat history as source of truth, and repository rules override model preference.
 
-The durable project memory lives in \`docs/\`. Do not rely on chat history as source of truth.
+@AGENTS.md
 
-Read \`AGENTS.md\` and the relevant docs before changing code or repository memory.
+Read the docs that \`AGENTS.md\` routes to before changing code or repository memory. A SessionStart
+hook (\`.claude/hooks/session-start.sh\`) also injects a memory map at the start of each session.
+`,
+  },
+  {
+    // Cursor auto-applies rules under .cursor/rules. alwaysApply makes this the portable equivalent
+    // of the Claude Code SessionStart hook: Cursor injects it into every request so the agent loads
+    // repository memory even though it cannot run the Claude-specific hook.
+    path: ".cursor/rules/recall-memory.mdc",
+    content: `---
+description: {{repositoryName}} repository memory and rules (Recall OS). Read before non-trivial work.
+globs:
+alwaysApply: true
+---
+
+# {{repositoryName}} repository memory
+
+This repository uses Recall OS. Durable memory lives in \`docs/\` and is the source of truth over chat
+history. Do not treat chat history as truth, and repository rules override model preference.
+
+Before non-trivial work:
+
+- Read \`AGENTS.md\` and the docs it routes to.
+- Accepted decisions live in \`docs/adrs/\`; module memory lives in \`docs/30-modules/\`.
+- If an instruction conflicts with accepted repository memory, stop and report the conflict.
+
+Source-of-truth order: accepted ADRs and repository decisions, then architecture docs, engineering
+standards, the current PRD, security and testing docs, module docs, feature plans, then chat history.
+
+Before claiming work is complete, run \`recall doctor\` and fix reported errors.
 `,
   },
   {
@@ -453,7 +484,8 @@ function generatePresetFiles(preset: Preset): WriteFileInput[] {
     })),
     ...preset.proposedDecisions.map((decision) => ({
       path: decision.destination,
-      content: decision.body,
+      // Normalize every preset's proposed ADR so it stays Doctor-healthy once accepted.
+      content: ensureRequiredAdrSections(decision.body),
     })),
   ];
 }

@@ -2,6 +2,9 @@ import { flutterPreset } from "../../presets/flutter/preset.js";
 import { genericPreset } from "../../presets/generic/preset.js";
 import { iosSwiftPreset } from "../../presets/ios-swift/preset.js";
 import { kotlinAndroidPreset } from "../../presets/kotlin-android/preset.js";
+import { laravelApiPreset } from "../../presets/laravel-api/preset.js";
+import { laravelReactPreset } from "../../presets/laravel-react/preset.js";
+import { laravelVuePreset } from "../../presets/laravel-vue/preset.js";
 import { nextjsPreset } from "../../presets/nextjs/preset.js";
 import { pythonFastapiPreset } from "../../presets/python-fastapi/preset.js";
 import { validatePresetRegistry } from "./validate-preset.js";
@@ -12,6 +15,9 @@ const builtInPresets = validatePresetRegistry([
   genericPreset,
   iosSwiftPreset,
   kotlinAndroidPreset,
+  laravelApiPreset,
+  laravelReactPreset,
+  laravelVuePreset,
   nextjsPreset,
   pythonFastapiPreset,
 ]);

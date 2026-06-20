@@ -19,6 +19,9 @@ const requiredFiles = [
   "examples/generated-nextjs/README.md",
   "examples/generated-ios-swift/README.md",
   "examples/generated-flutter/README.md",
+  "examples/generated-laravel-react/README.md",
+  "examples/generated-laravel-vue/README.md",
+  "examples/generated-laravel-api/README.md",
   "package.json",
 ];
 

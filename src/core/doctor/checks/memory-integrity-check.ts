@@ -1,6 +1,7 @@
 import { lstat, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
+import { REQUIRED_ADR_SECTIONS } from "../../adr/adr-sections.js";
 import type { DoctorCheckContext, DoctorFinding } from "../doctor-check.js";
 
 const featureFolderPattern = /^F-\d{3,}-[a-z0-9]+(?:-[a-z0-9]+)*$/u;
@@ -20,14 +21,7 @@ const requiredFeatureDocs = [
 
 const requiredModuleDocs = ["MODULE.md", "TASKS.md", "TEST_PLAN.md", "DECISIONS.md"];
 
-const requiredAdrSections = [
-  "## Status",
-  "## Context",
-  "## Decision",
-  "## Alternatives Considered",
-  "## Consequences",
-  "## Related Documents",
-];
+const requiredAdrSections = REQUIRED_ADR_SECTIONS;
 
 export async function checkMemoryIntegrity(context: DoctorCheckContext): Promise<DoctorFinding[]> {
   if (context.config === undefined) {

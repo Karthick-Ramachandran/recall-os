@@ -20,6 +20,9 @@ describe("preset validation and registry", () => {
       "generic",
       "ios-swift",
       "kotlin-android",
+      "laravel-api",
+      "laravel-react",
+      "laravel-vue",
       "nextjs",
       "python-fastapi",
     ]);

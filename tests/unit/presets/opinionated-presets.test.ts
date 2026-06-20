@@ -3,7 +3,15 @@ import { describe, expect, it } from "vitest";
 import { getPreset, listPresets } from "../../../src/core/presets/preset-registry.js";
 import { parsePreset } from "../../../src/core/presets/preset-schema.js";
 
-const OPINIONATED_PRESET_IDS = ["kotlin-android", "python-fastapi", "ios-swift", "nextjs"];
+const OPINIONATED_PRESET_IDS = [
+  "kotlin-android",
+  "python-fastapi",
+  "ios-swift",
+  "nextjs",
+  "laravel-react",
+  "laravel-vue",
+  "laravel-api",
+];
 
 describe("opinionated presets", () => {
   it("registers the new kotlin-android and python-fastapi presets", () => {
@@ -49,5 +57,8 @@ describe("opinionated presets", () => {
     expect(getPreset("python-fastapi")!.templates[0].content).toContain("FastAPI");
     expect(getPreset("ios-swift")!.templates[0].content).toContain("SwiftUI");
     expect(getPreset("nextjs")!.templates[0].content).toContain("App Router");
+    expect(getPreset("laravel-react")!.templates[0].content).toContain("Inertia 2 + React 19");
+    expect(getPreset("laravel-vue")!.templates[0].content).toContain("Inertia 2 + Vue 3");
+    expect(getPreset("laravel-api")!.templates[0].content).toContain("Laravel Sanctum");
   });
 });

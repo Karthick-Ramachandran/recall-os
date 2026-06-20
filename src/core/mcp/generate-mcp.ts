@@ -23,7 +23,7 @@ export function generateMcpFiles(options: GenerateMcpOptions): WriteFileInput[] 
     },
     {
       path: `${options.adrDir}/proposed/ADR-PROPOSED-mcp-${options.server}.md`,
-      content: renderProposedAdr(title),
+      content: renderProposedAdr(title, options.server),
     },
   ];
 }
@@ -73,7 +73,7 @@ Promote any decision you accept into an ADR with \`recall adr create\`.
 `;
 }
 
-function renderProposedAdr(title: string): string {
+function renderProposedAdr(title: string, server: string): string {
   return `# Proposed ADR: Use ${title} MCP
 
 ## Status
@@ -100,6 +100,11 @@ not accepted until a human reviews and accepts it.
 - The team gains durable, reviewable context from ${title}.
 - MCP context never overrides accepted repository memory.
 - Captured context remains proposed until promoted to an ADR.
+
+## Related Documents
+
+- \`docs/ai/mcp/${server}.md\` — captured ${title} MCP context.
+- \`docs/ai/MCP_STRATEGY.md\` — how MCP context is captured and ranked.
 `;
 }
 
