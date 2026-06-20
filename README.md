@@ -7,6 +7,20 @@ It does not generate application code. It gives a repository durable memory: pro
 architecture decisions, module ownership, testing expectations, engineering standards, AI
 instructions, and health checks.
 
+Core promise:
+
+```txt
+AI can write the code.
+Recall OS makes sure the repository does not forget what it is doing.
+```
+
+Simple explanation:
+
+```txt
+Git tracks what changed.
+Recall OS tracks why it changed.
+```
+
 ## Why It Exists
 
 AI coding tools are useful, but their context is temporary. Repositories need a stable source of
@@ -14,6 +28,9 @@ truth that humans and agents can re-read, review, and validate.
 
 Recall OS treats the repository as the authority. Agents are executors. Accepted repository memory
 wins over model preference and chat history.
+
+Recall OS is not an AI coding agent, app generator, architecture generator, framework generator, IDE
+competitor, agent runtime, or model hosting platform.
 
 ## Install
 
@@ -101,6 +118,21 @@ The default source-of-truth order is:
 10. Chat history
 
 If external context or chat history conflicts with repository memory, repository memory wins.
+
+## Product Direction
+
+Recall OS grows in layers:
+
+1. Create repository memory.
+2. Validate memory with Doctor.
+3. Make Doctor part of the AI completion gate.
+4. Detect drift from accepted repository memory.
+5. Distribute context across AI tools.
+6. Make engineering standards increasingly checkable.
+7. Adopt memory from legacy repositories without silently accepting inferred decisions.
+8. Support organization memory across repositories.
+
+The long-term moat is memory, discipline, governance, decision tracking, and drift detection.
 
 ## Local-First Runtime
 

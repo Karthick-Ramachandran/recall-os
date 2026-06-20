@@ -4,29 +4,52 @@
 
 ## 1.1 Product Summary
 
-Recall OS is a local-first open-source CLI that initializes and maintains AI-ready engineering memory inside software repositories.
+Recall OS is a local-first open-source CLI that initializes and maintains AI-ready engineering
+memory inside software repositories.
 
 Recall OS is an Engineering Memory Operating System.
 
-It preserves product intent, architecture decisions, module ownership, testing requirements, security assumptions, engineering standards, and operational discipline, and makes them durable, reviewable, and AI-readable.
+Core promise:
+
+```txt
+AI can write the code.
+Recall OS makes sure the repository does not forget what it is doing.
+```
+
+Simple explanation:
+
+```txt
+Git tracks what changed.
+Recall OS tracks why it changed.
+```
+
+Durable product vision lives in:
+
+- `docs/00-product/PRODUCT_VISION.md`
+- `docs/00-product/POSITIONING.md`
+- `docs/00-product/ROADMAP.md`
+
+It preserves product intent, architecture decisions, module ownership, testing requirements,
+security assumptions, engineering standards, and operational discipline, and makes them durable,
+reviewable, and AI-readable.
 
 It generates and manages:
 
-* AI agent instruction files
-* Architecture docs
-* ADR templates and ADR files
-* Feature PRDs
-* Acceptance criteria
-* Architecture impact docs
-* Change request docs
-* Module memory docs
-* Engineering standards docs
-* Testing strategy docs
-* Security and threat model docs
-* Review checklists
-* Architecture drift checklists
-* Completion report templates
-* Optional preset guidance
+- AI agent instruction files
+- Architecture docs
+- ADR templates and ADR files
+- Feature PRDs
+- Acceptance criteria
+- Architecture impact docs
+- Change request docs
+- Module memory docs
+- Engineering standards docs
+- Testing strategy docs
+- Security and threat model docs
+- Review checklists
+- Architecture drift checklists
+- Completion report templates
+- Optional preset guidance
 
 Recall OS should help humans and AI agents work from the same durable source of truth.
 
@@ -34,7 +57,8 @@ Recall OS is intentionally architecture-neutral.
 
 Its role is not to determine what architecture a team should adopt.
 
-Its role is to ensure that architecture decisions, regardless of their content, become durable, reviewable, AI-readable repository memory.
+Its role is to ensure that architecture decisions, regardless of their content, become durable,
+reviewable, AI-readable repository memory.
 
 ---
 
@@ -54,11 +78,11 @@ and receive a professional engineering memory structure.
 
 Recall OS should generate files usable by:
 
-* Claude Code
-* Codex
-* Cursor
-* GitHub Copilot
-* Generic AI coding agents
+- Claude Code
+- Codex
+- Cursor
+- GitHub Copilot
+- Generic AI coding agents
 
 ### Goal 3: Prevent architecture drift
 
@@ -68,12 +92,12 @@ It should not prevent change.
 
 It should require change to be documented through:
 
-* Change requests
-* PRD updates
-* Architecture impact updates
-* ADRs
-* Module docs
-* Test plans
+- Change requests
+- PRD updates
+- Architecture impact updates
+- ADRs
+- Module docs
+- Test plans
 
 ### Goal 4: Make tests professional
 
@@ -81,11 +105,11 @@ Generated testing docs should help AI agents write meaningful tests.
 
 Tests should derive from:
 
-* Acceptance criteria
-* Risk
-* Security invariants
-* Module boundaries
-* Regression history
+- Acceptance criteria
+- Risk
+- Security invariants
+- Module boundaries
+- Regression history
 
 Not random happy-path examples.
 
@@ -95,15 +119,15 @@ Recall OS’s own repository should use the same structure it generates.
 
 The project should prove its own usefulness by using:
 
-* PRD
-* BRD
-* ADRs
-* module docs
-* feature plans
-* testing strategy
-* security model
-* architecture drift checks
-* completion reports
+- PRD
+- BRD
+- ADRs
+- module docs
+- feature plans
+- testing strategy
+- security model
+- architecture drift checks
+- completion reports
 
 ---
 
@@ -113,11 +137,8 @@ The project should prove its own usefulness by using:
 
 The CLI must be predictable.
 
-No hidden overwrites.
-No network calls.
-No surprise code generation.
-No repo upload.
-No telemetry in MVP.
+No hidden overwrites. No network calls. No surprise code generation. No repo upload. No telemetry in
+MVP.
 
 ## 1.3.2 Durable memory over perfect prompts
 
@@ -131,10 +152,10 @@ Generated docs should not be fake enterprise paperwork.
 
 Each generated document should help either:
 
-* A human make a decision
-* An AI agent implement safely
-* A reviewer catch problems
-* A future contributor understand context
+- A human make a decision
+- An AI agent implement safely
+- A reviewer catch problems
+- A future contributor understand context
 
 ## 1.3.4 Human owns architecture
 
@@ -146,9 +167,12 @@ Humans own final product intent, architecture decisions, risk acceptance, and me
 
 Recall OS Core does not choose architecture.
 
-It does not decide whether a repository should use Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, Auth0, Okta, Postgres, MongoDB, CQRS, event sourcing, Clean Architecture, or feature-first architecture.
+It does not decide whether a repository should use Redis, Kafka, CloudWatch, Datadog, Supabase,
+Firebase, Auth0, Okta, Postgres, MongoDB, CQRS, event sourcing, Clean Architecture, or feature-first
+architecture.
 
-Those choices may enter the repository through accepted repository decisions, organization memory, or optional presets.
+Those choices may enter the repository through accepted repository decisions, organization memory,
+or optional presets.
 
 Recall OS records, distributes, validates, and protects those decisions.
 
@@ -174,7 +198,8 @@ Recall OS initializes repository memory.
 
 Code may come before or after Recall OS.
 
-`recall init` must work in an empty folder and must not require a Flutter app, Next.js app, Swift package, Android project, backend service, or any other existing framework.
+`recall init` must work in an empty folder and must not require a Flutter app, Next.js app, Swift
+package, Android project, backend service, or any other existing framework.
 
 ---
 
@@ -184,15 +209,15 @@ Code may come before or after Recall OS.
 
 Engineering memory is the durable knowledge that lets a team or AI agent understand:
 
-* What is being built
-* Why it is built this way
-* Which decisions already exist
-* Which modules own what
-* Which engineering standards must be followed
-* What tests matter
-* What security risks exist
-* What changed recently
-* What remains risky
+- What is being built
+- Why it is built this way
+- Which decisions already exist
+- Which modules own what
+- Which engineering standards must be followed
+- What tests matter
+- What security risks exist
+- What changed recently
+- What remains risky
 
 ## 1.4.2 Memory Engine
 
@@ -215,7 +240,8 @@ Use Next.js
 Use internal IAM
 ```
 
-Repository decisions become source of truth when they are accepted in ADRs or equivalent repository memory.
+Repository decisions become source of truth when they are accepted in ADRs or equivalent repository
+memory.
 
 ## 1.4.4 Opinion Pack
 
@@ -245,13 +271,15 @@ Storage = S3
 Observability = OpenTelemetry
 ```
 
-Recall OS records organization memory so AI follows the team's decisions, not Recall OS's preferences.
+Recall OS records organization memory so AI follows the team's decisions, not Recall OS's
+preferences.
 
 ## 1.4.6 Engineering Standards Memory
 
 Engineering Standards Memory records how work must be done in a repository.
 
-It includes rules for secrets, dependencies, documentation, git hygiene, releases, migrations, operations, code review, and AI agent behavior.
+It includes rules for secrets, dependencies, documentation, git hygiene, releases, migrations,
+operations, code review, and AI agent behavior.
 
 Repository rules override model preferences.
 
@@ -273,7 +301,8 @@ Legacy adoption: mature repo -> future recall adopt
 
 Git is recommended for normal development, but a Git repository must not be required for init.
 
-Technology detection may suggest guidance or opinion packs. Detection must not become accepted repository memory by itself.
+Technology detection may suggest guidance or opinion packs. Detection must not become accepted
+repository memory by itself.
 
 ## 1.4.8 ADR
 
@@ -281,12 +310,12 @@ ADR means Architecture Decision Record.
 
 It records:
 
-* Context
-* Decision
-* Alternatives
-* Consequences
-* Status
-* Related documents
+- Context
+- Decision
+- Alternatives
+- Consequences
+- Status
+- Related documents
 
 ADR statuses:
 
@@ -300,15 +329,15 @@ Superseded
 
 ADR is required when:
 
-* Adding dependency
-* Changing architecture style
-* Changing auth provider
-* Adding telemetry
-* Adding network access
-* Changing file write policy
-* Changing module boundaries
-* Supporting remote plugins/presets
-* Changing security posture
+- Adding dependency
+- Changing architecture style
+- Changing auth provider
+- Adding telemetry
+- Adding network access
+- Changing file write policy
+- Changing module boundaries
+- Supporting remote plugins/presets
+- Changing security posture
 
 ## 1.4.9 RFC
 
@@ -337,13 +366,13 @@ Module docs help AI agents avoid rediscovering the same context repeatedly.
 
 When requirements change, a change request records:
 
-* Previous behavior
-* New behavior
-* Reason
-* Affected docs
-* Architecture impact
-* Required test updates
-* Approval status
+- Previous behavior
+- New behavior
+- Reason
+- Affected docs
+- Architecture impact
+- Required test updates
+- Approval status
 
 Example:
 
@@ -402,22 +431,22 @@ recall init --force
 
 Responsibilities:
 
-* Create `.recall/config.json`
-* Generate AI instruction files
-* Generate neutral docs structure by default
-* Generate selected preset guidance, when explicitly requested
-* Generate selected AI tool files
-* Skip existing files by default
-* Print write summary
+- Create `.recall/config.json`
+- Generate AI instruction files
+- Generate neutral docs structure by default
+- Generate selected preset guidance, when explicitly requested
+- Generate selected AI tool files
+- Skip existing files by default
+- Print write summary
 
 Semantics:
 
-* `recall init` initializes repository memory.
-* `recall init` must work in an empty folder.
-* Existing app code is not required.
-* Existing framework files are not required.
-* A Git repository is optional, though recommended for normal development.
-* `recall init` must not generate production application code.
+- `recall init` initializes repository memory.
+- `recall init` must work in an empty folder.
+- Existing app code is not required.
+- Existing framework files are not required.
+- A Git repository is optional, though recommended for normal development.
+- `recall init` must not generate production application code.
 
 ---
 
@@ -444,11 +473,11 @@ docs/40-features/F-001-auth-provider/
 
 Rules:
 
-* Feature name must be safe.
-* Feature names are slugified.
-* Path traversal is rejected.
-* Existing feature folders are not overwritten by default.
-* Feature number increments from existing features.
+- Feature name must be safe.
+- Feature names are slugified.
+- Path traversal is rejected.
+- Existing feature folders are not overwritten by default.
+- Feature number increments from existing features.
 
 ---
 
@@ -466,11 +495,11 @@ docs/adrs/ADR-0001-auth-provider.md
 
 Rules:
 
-* Find highest existing valid ADR number.
-* Add one.
-* Ignore malformed ADR filenames.
-* Never reuse numbers automatically.
-* Reject unsafe names.
+- Find highest existing valid ADR number.
+- Add one.
+- Ignore malformed ADR filenames.
+- Never reuse numbers automatically.
+- Reject unsafe names.
 
 ---
 
@@ -492,9 +521,9 @@ docs/30-modules/auth/
 
 Rules:
 
-* Reject unsafe names.
-* Skip existing docs by default.
-* Module names are slugified.
+- Reject unsafe names.
+- Skip existing docs by default.
+- Module names are slugified.
 
 ---
 
@@ -523,16 +552,16 @@ recall doctor
 
 Checks repository health:
 
-* Config exists
-* Required docs exist
-* AI instruction files exist
-* ADR directory exists
-* Feature directory exists
-* Module directory exists
-* Quality docs exist
-* Security docs exist
-* Config is valid
-* Required preset files exist
+- Config exists
+- Required docs exist
+- AI instruction files exist
+- ADR directory exists
+- Feature directory exists
+- Module directory exists
+- Quality docs exist
+- Security docs exist
+- Config is valid
+- Required preset files exist
 
 Example output:
 
@@ -578,11 +607,14 @@ The architecture should support more presets without rewriting command logic.
 
 In architecture docs, presets are opinion packs.
 
-Presets may provide starter guidance and proposed ADRs, but they must not silently create accepted architecture decisions.
+Presets may provide starter guidance and proposed ADRs, but they must not silently create accepted
+architecture decisions.
 
-`recall init --preset flutter` means neutral repository memory plus Flutter-aware guidance and proposed decisions.
+`recall init --preset flutter` means neutral repository memory plus Flutter-aware guidance and
+proposed decisions.
 
-Presets must not silently accept architecture, state management, backend, folder structure, vendor, or infrastructure choices.
+Presets must not silently accept architecture, state management, backend, folder structure, vendor,
+or infrastructure choices.
 
 The default `recall init` path remains neutral and architecture-opinion-free.
 
@@ -702,14 +734,14 @@ Example:
 
 Requirements:
 
-* Must be valid JSON.
-* Must not include secrets.
-* Must be validated with schema.
-* Must track template version.
-* Must support future upgrades.
-* Must be read by every command.
-* Must not require architecture IDs that imply Recall OS owns the user's architecture.
-* P2 must not include decision indexes or organization standards.
+- Must be valid JSON.
+- Must not include secrets.
+- Must be validated with schema.
+- Must track template version.
+- Must support future upgrades.
+- Must be read by every command.
+- Must not require architecture IDs that imply Recall OS owns the user's architecture.
+- P2 must not include decision indexes or organization standards.
 
 ---
 
@@ -732,19 +764,19 @@ fail-on-conflict
 
 MVP must implement:
 
-* skip existing
-* dry run
-* force overwrite
+- skip existing
+- dry run
+- force overwrite
 
 Rules:
 
-* Never delete user files during init.
-* Never overwrite without `--force`.
-* Never write outside project root.
-* Reject path traversal.
-* Reject unsafe symlink writes by default.
-* Never execute generated files.
-* Never fetch remote templates in MVP.
+- Never delete user files during init.
+- Never overwrite without `--force`.
+- Never write outside project root.
+- Reject path traversal.
+- Reject unsafe symlink writes by default.
+- Never execute generated files.
+- Never fetch remote templates in MVP.
 
 ---
 
@@ -754,37 +786,37 @@ Recall OS is a local-first CLI.
 
 Security promises:
 
-* No telemetry in MVP
-* No network calls in MVP
-* No API keys
-* No repo upload
-* No reading `.env`
-* No secret collection
-* No dependency installation in user project
-* No remote preset execution
-* No hidden background process
+- No telemetry in MVP
+- No network calls in MVP
+- No API keys
+- No repo upload
+- No reading `.env`
+- No secret collection
+- No dependency installation in user project
+- No remote preset execution
+- No hidden background process
 
 Primary risks:
 
-* Path traversal
-* Symlink writes
-* Unsafe overwrites
-* Template injection
-* Malicious preset definitions
-* Supply chain vulnerabilities
-* Accidental secret exposure
+- Path traversal
+- Symlink writes
+- Unsafe overwrites
+- Template injection
+- Malicious preset definitions
+- Supply chain vulnerabilities
+- Accidental secret exposure
 
 Required security tests:
 
-* Reject `../../evil`
-* Reject absolute output paths
-* Reject null-byte input
-* Reject empty names
-* Reject reserved filenames where relevant
-* Refuse symlink writes by default
-* Skip existing files by default
-* Ensure dry-run writes nothing
-* Ensure no network calls exist in MVP
+- Reject `../../evil`
+- Reject absolute output paths
+- Reject null-byte input
+- Reject empty names
+- Reject reserved filenames where relevant
+- Refuse symlink writes by default
+- Skip existing files by default
+- Ensure dry-run writes nothing
+- Ensure no network calls exist in MVP
 
 ---
 
@@ -861,12 +893,12 @@ test utils
 
 Definition of done for tests:
 
-* Core logic has unit tests.
-* Command behavior has integration tests.
-* Generated output has golden tests.
-* File path inputs have security tests.
-* Changed generated output updates snapshots intentionally.
-* Completion report lists test commands and results.
+- Core logic has unit tests.
+- Command behavior has integration tests.
+- Generated output has golden tests.
+- File path inputs have security tests.
+- Changed generated output updates snapshots intentionally.
+- Completion report lists test commands and results.
 
 ---
 
@@ -946,7 +978,9 @@ Skill file structure:
 ```md
 ---
 name: create-prd
-description: Create a feature PRD with user stories, acceptance criteria, non-goals, security notes, testing expectations, and source-of-truth links.
+description:
+  Create a feature PRD with user stories, acceptance criteria, non-goals, security notes, testing
+  expectations, and source-of-truth links.
 ---
 
 # Skill: Create PRD
@@ -978,14 +1012,14 @@ Recall OS should be designed so others can extend it.
 
 Future extensions may contribute:
 
-* Presets / opinion packs
-* AI tool targets
-* Quality checklists
-* Security templates
-* Skills
-* Workflow packs
-* Doctor checks
-* Generated examples
+- Presets / opinion packs
+- AI tool targets
+- Quality checklists
+- Security templates
+- Skills
+- Workflow packs
+- Doctor checks
+- Generated examples
 
 MVP should not implement external plugins, but internal architecture should be plugin-shaped.
 
@@ -1000,11 +1034,11 @@ plugins/
 
 Plugin safety rules:
 
-* No remote execution in MVP.
-* Future plugins must be declarative where possible.
-* Plugin output paths must pass safe path validation.
-* Plugin templates must pass schema validation.
-* Plugin packages must not bypass write policy.
+- No remote execution in MVP.
+- Future plugins must be declarative where possible.
+- Plugin output paths must pass safe path validation.
+- Plugin templates must pass schema validation.
+- Plugin packages must not bypass write policy.
 
 ---
 
@@ -1012,17 +1046,17 @@ Plugin safety rules:
 
 Every preset must include:
 
-* Preset name
-* Scope and intended audience
-* Proposed decisions, if any
-* Required docs
-* AI agent instructions
-* Testing expectations
-* Security expectations
-* File output map
-* Example generated output
-* Golden tests
-* README
+- Preset name
+- Scope and intended audience
+- Proposed decisions, if any
+- Required docs
+- AI agent instructions
+- Testing expectations
+- Security expectations
+- File output map
+- Example generated output
+- Golden tests
+- README
 
 No preset should be accepted without:
 
@@ -1034,7 +1068,8 @@ security notes
 test strategy
 ```
 
-Preset-generated architecture choices must be optional guidance or proposed ADRs. They must not become accepted decisions without human action.
+Preset-generated architecture choices must be optional guidance or proposed ADRs. They must not
+become accepted decisions without human action.
 
 ---
 
@@ -1059,9 +1094,9 @@ Output:
 
 Purpose:
 
-* Help AI agents consume repo memory efficiently.
-* Complement RTK-style token reduction tools.
-* Provide concise context packs derived from source-of-truth docs.
+- Help AI agents consume repo memory efficiently.
+- Complement RTK-style token reduction tools.
+- Provide concise context packs derived from source-of-truth docs.
 
 Recall OS owns the durable memory.
 
@@ -1075,11 +1110,11 @@ Recall OS must support existing repositories.
 
 Default behavior:
 
-* Detect existing files.
-* Skip existing files.
-* Create missing files.
-* Report conflicts.
-* Never overwrite by default.
+- Detect existing files.
+- Skip existing files.
+- Create missing files.
+- Report conflicts.
+- Never overwrite by default.
 
 Future command:
 
@@ -1087,9 +1122,11 @@ Future command:
 recall adopt
 ```
 
-Adoption mode may suggest mapping existing docs, code structure, and technology signals into Recall OS memory.
+Adoption mode may suggest mapping existing docs, code structure, and technology signals into Recall
+OS memory.
 
-Adoption must produce reviewable memory, proposed decisions, or guidance. It must not silently accept inferred architecture decisions.
+Adoption must produce reviewable memory, proposed decisions, or guidance. It must not silently
+accept inferred architecture decisions.
 
 Do not implement smart migration in MVP.
 
@@ -1099,9 +1136,9 @@ Do not implement smart migration in MVP.
 
 MVP:
 
-* Allow init in current directory.
-* Detect obvious monorepo indicators.
-* Warn that workspace mode is not supported yet.
+- Allow init in current directory.
+- Detect obvious monorepo indicators.
+- Warn that workspace mode is not supported yet.
 
 Future config:
 
@@ -1142,12 +1179,12 @@ recall upgrade
 
 Purpose:
 
-* Detect old templates.
-* Show changed templates.
-* Suggest updates.
-* Never overwrite local edits blindly.
-* Show diff first.
-* Skip modified files by default.
+- Detect old templates.
+- Show changed templates.
+- Suggest updates.
+- Never overwrite local edits blindly.
+- Show diff first.
+- Skip modified files by default.
 
 Generated files may include lightweight metadata:
 
@@ -1230,13 +1267,13 @@ Distribution: npm
 
 Why:
 
-* Easy `npx` usage
-* Strong TypeScript typing
-* AI tools handle it well
-* Good OSS contributor experience
-* Deterministic builds
-* Fast tests
-* Minimal framework ceremony
+- Easy `npx` usage
+- Strong TypeScript typing
+- AI tools handle it well
+- Good OSS contributor experience
+- Deterministic builds
+- Fast tests
+- Minimal framework ceremony
 
 Advanced template engines such as Eta are deferred until a future ADR shows they are needed.
 
@@ -1246,26 +1283,26 @@ Advanced template engines such as Eta are deferred until a future ADR shows they
 
 Recall OS v0.1 is acceptable when:
 
-* `recall init` creates expected docs.
-* `recall init` works in an empty folder.
-* Existing files are skipped by default.
-* `--dry-run` writes nothing and shows intended changes.
-* `--force` overwrites only when explicit.
-* `.recall/config.json` is created and validated.
-* `feature create` creates feature docs.
-* `adr create` creates correctly numbered ADRs.
-* `module create` creates module memory docs.
-* `preset list` shows presets.
-* `doctor` reports repo health.
-* Built-in presets validate.
-* Default `recall init` generates neutral memory with no technology or architecture choices.
-* Preset-generated choices are proposed, not silently accepted.
-* Technology detection does not become accepted repository memory by itself.
-* Golden tests exist for generated outputs.
-* Security tests cover unsafe file paths.
-* README explains philosophy and quickstart.
-* Examples are committed.
-* The project dogfoods its own docs.
+- `recall init` creates expected docs.
+- `recall init` works in an empty folder.
+- Existing files are skipped by default.
+- `--dry-run` writes nothing and shows intended changes.
+- `--force` overwrites only when explicit.
+- `.recall/config.json` is created and validated.
+- `feature create` creates feature docs.
+- `adr create` creates correctly numbered ADRs.
+- `module create` creates module memory docs.
+- `preset list` shows presets.
+- `doctor` reports repo health.
+- Built-in presets validate.
+- Default `recall init` generates neutral memory with no technology or architecture choices.
+- Preset-generated choices are proposed, not silently accepted.
+- Technology detection does not become accepted repository memory by itself.
+- Golden tests exist for generated outputs.
+- Security tests cover unsafe file paths.
+- README explains philosophy and quickstart.
+- Examples are committed.
+- The project dogfoods its own docs.
 
 ---
 

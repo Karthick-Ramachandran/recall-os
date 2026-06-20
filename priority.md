@@ -4,7 +4,8 @@
 
 Recall OS should dogfood the memory structure it generates.
 
-Recall OS Core is architecture-neutral. It records, distributes, validates, and protects decisions; it does not make architecture choices for users.
+Recall OS Core is architecture-neutral. It records, distributes, validates, and protects decisions;
+it does not make architecture choices for users.
 
 Recommended repository structure:
 
@@ -389,12 +390,12 @@ tests/security/symlink-policy.test.ts
 
 Acceptance criteria:
 
-* Reject path traversal.
-* Reject unsafe names.
-* Skip existing files by default.
-* Dry run writes nothing.
-* Force overwrite only when explicit.
-* Never write outside project root.
+- Reject path traversal.
+- Reject unsafe names.
+- Skip existing files by default.
+- Dry run writes nothing.
+- Force overwrite only when explicit.
+- Never write outside project root.
 
 Reason:
 
@@ -424,12 +425,12 @@ tests/unit/config/load-config.test.ts
 
 Acceptance criteria:
 
-* Creates `.recall/config.json`.
-* Validates config.
-* Rejects invalid config.
-* Does not store secrets.
-* Commands can read paths from config.
-* P2 config does not include decision indexes or organization standards.
+- Creates `.recall/config.json`.
+- Validates config.
+- Rejects invalid config.
+- Does not store secrets.
+- Commands can read paths from config.
+- P2 config does not include decision indexes or organization standards.
 
 Reason:
 
@@ -454,11 +455,11 @@ tests/unit/generator/render-template.test.ts
 
 Acceptance criteria:
 
-* Renders deterministic templates.
-* Fails clearly on missing required values.
-* Validates context keys before rendering.
-* Does not execute user-provided code.
-* Supports common markdown templates.
+- Renders deterministic templates.
+- Fails clearly on missing required values.
+- Validates context keys before rendering.
+- Does not execute user-provided code.
+- Supports common markdown templates.
 
 Reason:
 
@@ -472,9 +473,11 @@ In architecture terms, presets are opinion packs.
 
 The CLI term remains `preset`.
 
-Presets may provide optional starter guidance and proposed ADRs. They must not silently create accepted architecture decisions.
+Presets may provide optional starter guidance and proposed ADRs. They must not silently create
+accepted architecture decisions.
 
-P4 should prove the preset contract with minimal built-in content. Rich framework guidance is deferred until real usage proves the model works.
+P4 should prove the preset contract with minimal built-in content. Rich framework guidance is
+deferred until real usage proves the model works.
 
 Build:
 
@@ -498,11 +501,11 @@ tests/unit/presets/validate-preset.test.ts
 
 Acceptance criteria:
 
-* All built-in presets validate.
-* Preset template destinations are safe.
-* Duplicate output paths are rejected.
-* Preset-generated decisions are marked as proposed or optional guidance.
-* Preset list can read registry.
+- All built-in presets validate.
+- Preset template destinations are safe.
+- Duplicate output paths are rejected.
+- Preset-generated decisions are marked as proposed or optional guidance.
+- Preset list can read registry.
 
 Reason:
 
@@ -530,16 +533,16 @@ tests/golden/generated-flutter.test.ts
 
 Acceptance criteria:
 
-* `recall init` creates config and docs.
-* Neutral `recall init` creates memory docs without architecture or technology choices.
-* `recall init` works in an empty folder.
-* `recall init` does not require existing app code, framework files, or Git.
-* `--preset nextjs` uses the Next.js preset as optional opinion-pack guidance.
-* Preset guidance and detected technologies do not become accepted repository memory by themselves.
-* Existing files are skipped.
-* `--dry-run` shows planned writes.
-* `--force` overwrites explicitly.
-* Generated output matches golden snapshots.
+- `recall init` creates config and docs.
+- Neutral `recall init` creates memory docs without architecture or technology choices.
+- `recall init` works in an empty folder.
+- `recall init` does not require existing app code, framework files, or Git.
+- `--preset nextjs` uses the Next.js preset as optional opinion-pack guidance.
+- Preset guidance and detected technologies do not become accepted repository memory by themselves.
+- Existing files are skipped.
+- `--dry-run` shows planned writes.
+- `--force` overwrites explicitly.
+- Generated output matches golden snapshots.
 
 Reason:
 
@@ -567,11 +570,12 @@ tests/unit/naming/feature-number.test.ts
 
 Acceptance criteria:
 
-* Creates feature folder with required docs.
-* Feature number increments.
-* Unsafe names are rejected.
-* Existing same-slug feature memory is reused and skipped by default.
-* Generated feature docs include PRD, acceptance, architecture impact, change requests, task plan, test plan, review, and completion report.
+- Creates feature folder with required docs.
+- Feature number increments.
+- Unsafe names are rejected.
+- Existing same-slug feature memory is reused and skipped by default.
+- Generated feature docs include PRD, acceptance, architecture impact, change requests, task plan,
+  test plan, review, and completion report.
 
 Reason:
 
@@ -599,12 +603,12 @@ tests/unit/generator/generate-adr.test.ts
 
 Acceptance criteria:
 
-* Creates next ADR number.
-* Ignores malformed ADR files.
-* Rejects unsafe names.
-* Existing same-slug ADR memory is reused and skipped by default.
-* Generated ADRs are proposed by default.
-* Includes status, context, decision, alternatives, consequences, related docs.
+- Creates next ADR number.
+- Ignores malformed ADR files.
+- Rejects unsafe names.
+- Existing same-slug ADR memory is reused and skipped by default.
+- Generated ADRs are proposed by default.
+- Includes status, context, decision, alternatives, consequences, related docs.
 
 Reason:
 
@@ -630,11 +634,11 @@ tests/unit/generator/generate-module.test.ts
 
 Acceptance criteria:
 
-* Creates module docs.
-* Rejects unsafe names.
-* Skips existing module docs by default.
-* Respects configured `modulesDir`.
-* Includes MODULE.md, TASKS.md, TEST_PLAN.md, DECISIONS.md.
+- Creates module docs.
+- Rejects unsafe names.
+- Skips existing module docs by default.
+- Respects configured `modulesDir`.
+- Includes MODULE.md, TASKS.md, TEST_PLAN.md, DECISIONS.md.
 
 Reason:
 
@@ -661,12 +665,12 @@ tests/integration/doctor-command.test.ts
 
 Acceptance criteria:
 
-* Detects missing config.
-* Detects missing required docs.
-* Detects missing AI files.
-* Detects invalid config.
-* Gives clear actionable output.
-* Exits with appropriate status code.
+- Detects missing config.
+- Detects missing required docs.
+- Detects missing AI files.
+- Detects invalid config.
+- Gives clear actionable output.
+- Exits with appropriate status code.
 
 Reason:
 
@@ -690,12 +694,12 @@ examples/generated-flutter/
 
 Acceptance criteria:
 
-* README explains philosophy clearly.
-* Quickstart works.
-* Examples show generated output.
-* CI runs lint, typecheck, tests.
-* Package can be published to npm.
-* Release process is documented.
+- README explains philosophy clearly.
+- Quickstart works.
+- Examples show generated output.
+- CI runs lint, typecheck, tests.
+- Package can be published to npm.
+- Release process is documented.
 
 Reason:
 
@@ -756,13 +760,13 @@ Add this to each feature review:
 
 Recall OS is useful if its own generated system catches:
 
-* Missing tests
-* Unsafe file writes
-* Unclear requirements
-* Architecture drift
-* Missing ADRs
-* Stale module docs
-* Weak completion reports
+- Missing tests
+- Unsafe file writes
+- Unclear requirements
+- Architecture drift
+- Missing ADRs
+- Stale module docs
+- Weak completion reports
 
 If it cannot help build itself, it is not ready to help other projects.
 
@@ -843,6 +847,11 @@ P7  ADR create
 P8  Module create
 P9  Doctor command
 P10 Docs, examples, release
+P11 Product vision and roadmap alignment
+P12 Doctor standards checks
+P13 Drift detection MVP
+P14 Legacy adoption planning
+P15 Organization memory planning
 ```
 
 Do not skip P1.
@@ -858,3 +867,14 @@ Do not start with AI generation.
 Start with safe, deterministic, boring engineering.
 
 That is what will make Recall OS respected.
+
+After P10, the product should stay focused on the core thesis:
+
+```txt
+Git tracks what changed.
+Recall OS tracks why it changed.
+```
+
+The next milestones should deepen memory, discipline, governance, and drift detection. They should
+not turn Recall OS into an AI coding agent, IDE competitor, app generator, architecture generator,
+agent runtime, model host, or cloud execution platform.

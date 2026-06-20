@@ -7,6 +7,9 @@ Read these first before non-trivial work:
 
 - `docs/00-product/PRD.md`
 - `docs/00-product/BRD.md`
+- `docs/00-product/PRODUCT_VISION.md`
+- `docs/00-product/POSITIONING.md`
+- `docs/00-product/ROADMAP.md`
 - `docs/00-product/BUILD_PRIORITY.md`
 - `docs/10-architecture/ARCHITECTURE.md`
 - `docs/10-architecture/MEMORY_ENGINE.md`

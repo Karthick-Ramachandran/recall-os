@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-008-init-command/`
+- `docs/40-features/F-014-product-vision-roadmap-alignment/`
 
 ## Tasks
 
@@ -11,3 +11,5 @@
 - Done: Update product and architecture docs.
 - Done: Complete verification.
 - Done: Generate minimal neutral repository memory through `init`.
+- Done: Add roadmap from repository memory creation to validation, completion gates, drift
+  detection, adoption, and organization memory.
