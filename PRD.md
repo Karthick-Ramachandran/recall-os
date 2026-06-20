@@ -553,6 +553,7 @@ recall doctor
 Checks repository health:
 
 - Config exists
+- Config is valid
 - Required docs exist
 - AI instruction files exist
 - ADR directory exists
@@ -560,8 +561,10 @@ Checks repository health:
 - Module directory exists
 - Quality docs exist
 - Security docs exist
-- Config is valid
-- Required preset files exist
+- Feature completion evidence exists when features are marked complete
+- Review evidence exists when features are marked complete
+- ADR consequence evidence exists
+- Security-impact evidence exists for security-sensitive feature planning
 
 Example output:
 
@@ -1293,7 +1296,7 @@ Recall OS v0.1 is acceptable when:
 - `adr create` creates correctly numbered ADRs.
 - `module create` creates module memory docs.
 - `preset list` shows presets.
-- `doctor` reports repo health.
+- `doctor` reports repository memory health and standards evidence.
 - Built-in presets validate.
 - Default `recall init` generates neutral memory with no technology or architecture choices.
 - Preset-generated choices are proposed, not silently accepted.

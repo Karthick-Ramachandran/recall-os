@@ -68,7 +68,7 @@ recall adr create auth-strategy
 recall module create auth
 ```
 
-Check whether the repository memory is structurally healthy:
+Check whether the repository memory is healthy enough for AI-assisted work:
 
 ```bash
 recall doctor
@@ -84,7 +84,7 @@ recall doctor
 | `recall feature create <name>` | Create feature memory docs.                          |
 | `recall adr create <title>`    | Create a proposed ADR.                               |
 | `recall module create <name>`  | Create module memory docs.                           |
-| `recall doctor`                | Validate repository memory structure.                |
+| `recall doctor`                | Validate repository memory health and evidence.      |
 
 ## Presets
 

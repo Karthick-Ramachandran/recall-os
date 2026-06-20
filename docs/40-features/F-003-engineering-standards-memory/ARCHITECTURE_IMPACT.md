@@ -14,6 +14,15 @@ No runtime impact.
 
 P1.6 is docs-only.
 
+## Security Impact
+
+P1.6 added security-relevant engineering standards as repository memory but did not add runtime
+enforcement, file writes, dependency changes, network calls, telemetry, MCP runtime, AI API
+behavior, cloud behavior, or generated application code.
+
+Future Doctor enforcement of engineering standards must stay read-only unless an ADR approves
+auto-fix behavior.
+
 ## Source-Of-Truth Impact
 
 The source-of-truth order becomes:
@@ -31,6 +40,8 @@ The source-of-truth order becomes:
 
 ## ADR Impact
 
-No ADR is required for P1.6 because this is a product/memory-model documentation change without runtime architecture change.
+No ADR is required for P1.6 because this is a product/memory-model documentation change without
+runtime architecture change.
 
-Future enforcement, doctor checks, or template generation for engineering standards may require ADR review.
+Future enforcement, doctor checks, or template generation for engineering standards may require ADR
+review.

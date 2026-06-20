@@ -71,4 +71,7 @@ Before claiming implementation work is complete, run:
 - `pnpm typecheck`
 - `recall doctor` when the CLI binary is available
 
+Fix Doctor errors before claiming completion. Address Doctor warnings or record why they are
+acceptable.
+
 Package binary behavior is covered by binary integration tests.

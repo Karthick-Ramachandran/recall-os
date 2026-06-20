@@ -12,7 +12,8 @@ pnpm typecheck
 recall doctor
 ```
 
-If `recall doctor` reports errors, fix them or report why they cannot be fixed.
+If `recall doctor` reports errors, fix them or report why they cannot be fixed. If it reports
+warnings, address them or record why they are acceptable.
 
 Package binary behavior is covered by binary integration tests.
 
@@ -61,7 +62,8 @@ Options:
 
 ### `recall doctor`
 
-Check whether repository memory is structurally healthy enough for AI-assisted work.
+Check whether repository memory is structurally healthy enough for AI-assisted work and whether
+basic engineering evidence is present.
 
 Exit codes:
 

@@ -13,6 +13,8 @@ It validates whether repository memory is structurally healthy enough for AI-ass
 - Doctor report formatting.
 - Doctor exit-code mapping.
 - Config, required-doc, feature-doc, module-doc, and ADR-section health checks.
+- Standards checks for completion evidence, review evidence, ADR consequences, and security impact
+  notes.
 - Recall command memory health checks.
 
 ## Does Not Own
@@ -20,8 +22,8 @@ It validates whether repository memory is structurally healthy enough for AI-ass
 - File writes.
 - Init generation.
 - CLI parser wiring.
-- Semantic architecture drift detection in P9.
-- Dependency drift detection in P9.
+- Semantic architecture drift detection.
+- Dependency drift detection.
 - JSON reporting in P9.
 - Auto-fix behavior.
 - Network, telemetry, MCP runtime, AI API, or cloud behavior.
@@ -44,7 +46,12 @@ Doctor must not mutate files.
 
 ## Current Decision
 
-P9 implements structural memory health checks only.
+P12 implements deterministic standards checks for repository memory evidence:
+
+- completed features require review evidence;
+- completed features require test and result evidence;
+- ADRs require consequence substance;
+- security-sensitive feature planning requires security-impact notes.
 
 Semantic drift detection remains future work.
 

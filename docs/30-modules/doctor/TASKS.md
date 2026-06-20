@@ -13,3 +13,5 @@
 - Done: Complete verification.
 - Done: Rename Doctor config and command-memory checks.
 - Done: Validate Doctor through built binary integration tests.
+- Done: Add deterministic standards checks for completion, ADR consequence, and security-impact
+  evidence.

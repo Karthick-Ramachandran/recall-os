@@ -126,6 +126,92 @@ describe("doctor command", () => {
     expect(result.stdout).toContain("ADR file is missing required section");
   });
 
+  it("returns one for standards warnings without errors", async () => {
+    const rootDir = await createRoot("doctor-standards-warning");
+    await runInitCommand(rootDir);
+    await writeFile(
+      path.join(rootDir, "docs/adrs/ADR-0001-draft.md"),
+      `# ADR-0001: Draft
+
+## Status
+
+Proposed
+
+## Context
+
+Draft context.
+
+## Decision
+
+Draft decision.
+
+## Alternatives Considered
+
+Draft alternative.
+
+## Consequences
+
+TBD
+
+## Related Documents
+
+- Draft.
+`,
+      "utf8",
+    );
+
+    const result = await runCommand(rootDir, ["doctor"]);
+
+    expect(result.exitCode).toBe(1);
+    expect(result.stdout).toContain("WARNING");
+    expect(result.stdout).toContain("ADR consequence evidence is incomplete.");
+    expect(result.stdout).toContain("Result: WARNINGS");
+  });
+
+  it("returns two for standards errors", async () => {
+    const rootDir = await createRoot("doctor-standards-error");
+    await runInitCommand(rootDir);
+    await runCommand(rootDir, ["feature", "create", "auth-provider"]);
+    const featureDir = path.join(rootDir, "docs/40-features/F-001-auth-provider");
+    await writeFile(
+      path.join(featureDir, "COMPLETION_REPORT.md"),
+      `# Completion Report: Auth Provider
+
+## Status
+
+Complete.
+
+## Tests Run
+
+TBD
+
+## Results
+
+Passed.
+`,
+      "utf8",
+    );
+    await writeFile(
+      path.join(featureDir, "REVIEW.md"),
+      `# Review: Auth Provider
+
+## Status
+
+Pending review.
+`,
+      "utf8",
+    );
+
+    const result = await runCommand(rootDir, ["doctor"]);
+
+    expect(result.exitCode).toBe(2);
+    expect(result.stdout).toContain("Feature is marked complete but review is still pending.");
+    expect(result.stdout).toContain(
+      "Feature is marked complete but completion report is missing test evidence.",
+    );
+    expect(result.stdout).toContain("Result: FAILED");
+  });
+
   it("generates command reference memory during init", async () => {
     const rootDir = await createRoot("doctor-command-reference");
     await runInitCommand(rootDir);

@@ -16,7 +16,9 @@ It clarifies future init semantics without changing runtime architecture.
 
 ## Architecture Decisions
 
-No ADR is required for P1.7 because no runtime architecture, dependency policy, file write policy, security posture, network behavior, telemetry behavior, MCP behavior, or preset execution model changes.
+No ADR is required for P1.7 because no runtime architecture, dependency policy, file write policy,
+security posture, network behavior, telemetry behavior, MCP behavior, or preset execution model
+changes.
 
 The documented decision is:
 
@@ -53,4 +55,13 @@ Future technology detection must not:
 
 P1.7 does not implement runtime behavior.
 
-No TypeScript interfaces, commands, config schemas, templates, presets, MCP behavior, network calls, telemetry, dependencies, or generated app code change.
+No TypeScript interfaces, commands, config schemas, templates, presets, MCP behavior, network calls,
+telemetry, dependencies, or generated app code change.
+
+## Security Impact
+
+P1.7 did not change runtime security posture.
+
+The future init behavior documented by P1.7 must preserve the safe write policy: no path traversal,
+no overwrite by default, no network calls, no telemetry, no runtime MCP, no AI API calls, and no
+generated production application code.

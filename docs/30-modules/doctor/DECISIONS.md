@@ -27,3 +27,12 @@ Semantic drift detection remains future work.
 ## P10: Recall Paths
 
 Doctor treats `.recall/config.json` and `docs/ai/RECALL_COMMANDS.md` as required repository memory.
+
+## P12: Standards Evidence Checks
+
+Doctor now checks deterministic engineering evidence in repository memory.
+
+Completed features require review, test evidence, and result evidence. ADRs require consequence
+substance. Security-sensitive feature planning requires security impact notes.
+
+These checks are read-only and deterministic. Semantic drift detection remains future work.

@@ -26,9 +26,17 @@
 - Accepted ADR drift detection.
 - Module ownership drift detection.
 - Dependency drift detection.
-- Stale completion evidence detection.
 
 ## P10 Results
 
 - Doctor tests passed after the `.recall/config.json` and `RECALL_COMMANDS.md` rename.
 - Binary integration tests verify built `recall doctor` succeeds after `recall init`.
+
+## P12 Tests
+
+- Completed feature with pending review exits with standards errors.
+- Completed feature with missing tests or result evidence exits with standards errors.
+- Proposed ADR with placeholder consequences exits with warnings.
+- Accepted ADR with placeholder consequences exits with standards errors.
+- Security-sensitive feature planning without security impact notes exits with warnings or errors
+  based on completion status.

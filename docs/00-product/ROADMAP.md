@@ -12,6 +12,7 @@ Completed capabilities:
 - Proposed ADR creation.
 - Module memory creation.
 - Structural Doctor checks.
+- Doctor standards checks for completion, review, ADR consequence, and security-impact evidence.
 - AI command memory.
 - Packaged `recall` CLI build.
 - README, examples, CI, release-candidate workflow, and package validation.
@@ -29,10 +30,11 @@ The current release foundation proves:
 
 The next major product leap is drift detection.
 
-Doctor currently answers:
+Doctor now answers:
 
 ```txt
 Is the memory structure present?
+Is the required engineering evidence present when memory claims completion or acceptance?
 ```
 
 Drift detection should begin answering:
@@ -61,6 +63,8 @@ Lock the product thesis, future levels, anti-scope, and roadmap into durable pro
 ### P12: Doctor Standards Checks
 
 Extend Doctor from structural checks into deterministic governance checks.
+
+Status: implemented.
 
 Examples:
 

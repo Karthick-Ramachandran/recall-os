@@ -58,7 +58,8 @@ recall doctor
 ```
 
 Doctor checks required docs, config validity, feature structure, ADR structure, module structure,
-and repository health. This is where the product becomes more than a generator.
+completion evidence, ADR consequence evidence, security-impact evidence, and repository health. This
+is where the product becomes more than a generator.
 
 ### Level 3: AI Completion Gate
 
