@@ -59,10 +59,11 @@ tool slipped in.
   point: it's the durable layer the agent has been missing.
 - Not magic recall. It's something better for a codebase: external memory you can read, review, and
   trust, because it lives in the repo instead of a model's context.
-- It won't tell you your architecture is _good_ — that judgment stays with you and the agent, which
-  is exactly where it belongs. What it guarantees is that the reasoning is **captured, consistent,
-  and backed by evidence** — the part teams almost always lose, and the part everything else builds
-  on.
+- It won't _rubber-stamp_ your architecture as good — that judgment stays with you and the agent,
+  which is exactly where it belongs. But it does help you get there: presets propose vetted,
+  stack-specific defaults (Laravel, Next.js, FastAPI, and more) that you accept or reject, never
+  silently. And it guarantees the reasoning is **captured, consistent, and backed by evidence** —
+  the part teams almost always lose, and the part everything else builds on.
 
 ## The short version
 
