@@ -1,3 +1,4 @@
+import { checkCodeReferences } from "./checks/code-reference-check.js";
 import { checkConfig } from "./checks/config-check.js";
 import { checkContent } from "./checks/content-check.js";
 import { checkDrift } from "./checks/drift-check.js";
@@ -55,6 +56,7 @@ export async function runDoctor(rootDir: string): Promise<DoctorReport> {
     findings.push(...(await checkStandards(context)));
     findings.push(...(await checkDrift(context)));
     findings.push(...(await checkContent(context)));
+    findings.push(...(await checkCodeReferences(context)));
   }
 
   return createDoctorReport(findings);

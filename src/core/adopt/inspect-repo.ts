@@ -76,6 +76,36 @@ export async function inspectRepo(rootDir: string): Promise<RepoSignals> {
     frameworks.add("Django");
   }
 
+  if (has("go.mod")) {
+    const goModules = `${await readText(rootDir, "go.mod")}${await readText(rootDir, "go.sum")}`;
+    if (goModules.includes("gin-gonic/gin")) {
+      frameworks.add("Gin");
+    } else if (goModules.includes("labstack/echo")) {
+      frameworks.add("Echo");
+    } else if (goModules.includes("gofiber/fiber")) {
+      frameworks.add("Fiber");
+    } else if (goModules.includes("go-chi/chi")) {
+      frameworks.add("Chi");
+    }
+  }
+
+  const jvmManifest =
+    `${await readText(rootDir, "pom.xml")}${await readText(rootDir, "build.gradle")}${await readText(rootDir, "build.gradle.kts")}`.toLowerCase();
+  if (jvmManifest.includes("spring-boot") || jvmManifest.includes("springframework")) {
+    frameworks.add("Spring Boot");
+  }
+
+  if (has("Cargo.toml")) {
+    const cargo = (await readText(rootDir, "Cargo.toml")).toLowerCase();
+    if (cargo.includes("actix-web")) {
+      frameworks.add("Actix Web");
+    } else if (cargo.includes("axum")) {
+      frameworks.add("Axum");
+    } else if (cargo.includes("rocket")) {
+      frameworks.add("Rocket");
+    }
+  }
+
   let packageManager: string | null = null;
   if (has("pnpm-lock.yaml")) {
     packageManager = "pnpm";
