@@ -15,9 +15,9 @@ decisions, module ownership, testing and security expectations, AI agent rules �
 **validates** that memory with `recall doctor`. Architecture-neutral. No network, no telemetry, no
 code generation.
 
-[Install](#install) · [Quickstart](#quickstart) · [Commands](#commands) ·
-[What Doctor Checks](#what-doctor-checks) · [Presets](#presets) · [Why I built this](PHILOSOPHY.md)
-· [Contributing](CONTRIBUTING.md)
+[Website](https://recall-os.pages.dev) · [Install](#install) · [Quickstart](#quickstart) ·
+[Commands](#commands) · [What Doctor Checks](#what-doctor-checks) · [Presets](#presets) ·
+[Why I built this](PHILOSOPHY.md) · [Contributing](CONTRIBUTING.md)
 
 ![Recall OS — guided memory creation, ADR acceptance, and the doctor gate](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/media/recall-demo.gif)
 
@@ -50,17 +50,19 @@ them.
 
 ## Install
 
-Install the CLI globally from npm:
+Run it without installing — the quickest way to try it:
+
+```bash
+npx recall-os@latest init
+```
+
+Every command works the same way: `npx recall-os <command>` (e.g. `npx recall-os doctor`).
+
+Or install the CLI globally:
 
 ```bash
 npm install -g recall-os
 recall --help
-```
-
-Or run it without installing:
-
-```bash
-npx recall-os --help
 ```
 
 (Requires Node.js >= 20. Published at
@@ -229,6 +231,11 @@ pnpm pack:check
 Run the gates above and `recall doctor` before claiming work is complete. See
 [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow and how to add a preset, and
 [SECURITY.md](SECURITY.md) for the security model.
+
+## Acknowledgments
+
+The [landing page](https://recall-os.pages.dev) is deployed with
+[Pagecast](https://github.com/Amal-David/pagecast) — thank you.
 
 ## License
 
