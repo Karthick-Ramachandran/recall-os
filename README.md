@@ -18,6 +18,8 @@ code generation.
 [Install](#install) · [Quickstart](#quickstart) · [Commands](#commands) ·
 [What Doctor Checks](#what-doctor-checks) · [Presets](#presets) · [Contributing](CONTRIBUTING.md)
 
+![Recall OS — guided memory creation, ADR acceptance, and the doctor gate](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/media/recall-demo.gif)
+
 ---
 
 AI can write code fast, but its context is temporary — it forgets decisions, compacts conversations,
