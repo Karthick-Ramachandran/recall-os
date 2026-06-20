@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-009-feature-create-command/`
+- `docs/40-features/F-010-adr-create-command/`
 
 ## Tasks
 
@@ -11,3 +11,6 @@
 - Done: Implement feature number scanning.
 - Done: Implement same-slug feature folder reuse.
 - Done: Add feature numbering tests.
+- Done: Implement ADR number scanning.
+- Done: Implement same-slug ADR file reuse.
+- Done: Add ADR numbering tests.

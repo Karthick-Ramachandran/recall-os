@@ -11,6 +11,7 @@ The generator module owns deterministic rendering and future document generation
 - Future generation plans for feature, ADR, module, and init documents.
 - Init memory file planning.
 - Feature memory file planning.
+- ADR file planning.
 
 ## Does Not Own
 
@@ -32,6 +33,7 @@ The generator module owns deterministic rendering and future document generation
 - `renderTemplate`
 - `generateInitFiles`
 - `generateFeatureFiles`
+- `generateAdrFile`
 
 ## Boundaries
 

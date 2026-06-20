@@ -594,6 +594,7 @@ Tests:
 ```txt
 tests/integration/adr-create-command.test.ts
 tests/unit/naming/adr-number.test.ts
+tests/unit/generator/generate-adr.test.ts
 ```
 
 Acceptance criteria:
@@ -601,6 +602,8 @@ Acceptance criteria:
 * Creates next ADR number.
 * Ignores malformed ADR files.
 * Rejects unsafe names.
+* Existing same-slug ADR memory is reused and skipped by default.
+* Generated ADRs are proposed by default.
 * Includes status, context, decision, alternatives, consequences, related docs.
 
 Reason:

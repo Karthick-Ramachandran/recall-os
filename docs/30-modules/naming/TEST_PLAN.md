@@ -21,3 +21,17 @@
 
 - Covered by `tests/unit/naming/feature-number.test.ts`.
 - Full verification passed with `pnpm test:run` and `pnpm typecheck`.
+
+## ADR Number Tests
+
+- Starts at `ADR-0001` when the ADR directory is missing.
+- Increments from the highest valid existing ADR file.
+- Ignores malformed ADR files.
+- Reuses a valid existing file for the same slug.
+- Allocates the next ADR file for a new slug.
+- Parses and formats valid ADR numbers.
+
+## P7 Results
+
+- Covered by `tests/unit/naming/adr-number.test.ts`.
+- Full verification passed with `pnpm test:run` and `pnpm typecheck`.

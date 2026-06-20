@@ -31,3 +31,9 @@ Template file loading remains future work.
 P6 generates concise feature document structure, not complete PRDs or implementation plans.
 
 Humans or agents fill in feature substance after the feature memory folder exists.
+
+## P7: ADR Docs Are Proposed Drafts
+
+P7 generates concise ADR drafts with status `Proposed`.
+
+Humans accept ADRs by reviewing and editing repository memory.

@@ -33,7 +33,7 @@ Command code should orchestrate. Core modules should own decisions and be testab
 
 `core/naming`
 
-- Owns safe name normalization, feature numbering, and future ADR numbering.
+- Owns safe name normalization, feature numbering, and ADR numbering.
 - Must reject unsafe user-facing names before generated paths are planned.
 - Must not write files directly.
 

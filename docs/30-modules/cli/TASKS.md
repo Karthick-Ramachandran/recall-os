@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-009-feature-create-command/`
+- `docs/40-features/F-010-adr-create-command/`
 
 ## Tasks
 
@@ -14,3 +14,5 @@
 - Done: Complete verification.
 - Done: Route `feature create <name>` to command orchestration.
 - Done: Add feature create integration tests.
+- Done: Route `adr create <title>` to command orchestration.
+- Done: Add ADR create integration tests.

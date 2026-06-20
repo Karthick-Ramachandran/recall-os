@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-009-feature-create-command/`
+- `docs/40-features/F-010-adr-create-command/`
 
 ## Tasks
 
@@ -15,3 +15,4 @@
 - Done: Complete verification.
 - Done: Add init memory file planning.
 - Done: Add feature memory file planning.
+- Done: Add ADR file planning.

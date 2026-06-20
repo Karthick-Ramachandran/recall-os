@@ -1,6 +1,11 @@
 import { Command, CommanderError } from "commander";
 
 import {
+  createAdr,
+  AdrCreateError,
+  formatAdrCreateResult
+} from "../commands/adr/create.js";
+import {
   createFeature,
   FeatureCreateError,
   formatFeatureCreateResult
@@ -70,6 +75,27 @@ export function createCliProgram(io: CliIo = {}): Command {
       stdout.write(formatFeatureCreateResult(result));
     });
 
+  const adrCommand = program
+    .command("adr")
+    .description("Manage SpecForge ADR memory.");
+
+  adrCommand
+    .command("create")
+    .description("Create a proposed ADR.")
+    .argument("<title>", "ADR title.")
+    .option("--dry-run", "Show planned writes without writing files.")
+    .option("--force", "Overwrite existing files explicitly.")
+    .action(async (title: string, options: { dryRun?: boolean; force?: boolean }) => {
+      const result = await createAdr({
+        rootDir: cwd,
+        title,
+        dryRun: options.dryRun,
+        force: options.force
+      });
+
+      stdout.write(formatAdrCreateResult(result));
+    });
+
   return program;
 }
 
@@ -90,6 +116,14 @@ export async function main(argv: string[] = process.argv.slice(2), io: CliIo = {
     }
 
     if (error instanceof FeatureCreateError) {
+      stderr.write(`${error.message}\n`);
+      for (const detail of error.details) {
+        stderr.write(`- ${detail}\n`);
+      }
+      return 1;
+    }
+
+    if (error instanceof AdrCreateError) {
       stderr.write(`${error.message}\n`);
       for (const detail of error.details) {
         stderr.write(`- ${detail}\n`);

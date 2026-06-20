@@ -31,3 +31,16 @@
 
 - Covered by `tests/integration/feature-create-command.test.ts`.
 - Full verification passed with `pnpm test:run` and `pnpm typecheck`.
+
+## P7 Tests
+
+- `main(["adr", "create", "<title>"])` requires initialized config.
+- `adr create` creates proposed ADR files.
+- `adr create --dry-run` writes nothing and reports planned files.
+- `adr create --force` overwrites explicitly.
+- Unsafe ADR titles return failure output.
+
+## P7 Results
+
+- Covered by `tests/integration/adr-create-command.test.ts`.
+- Full verification passed with `pnpm test:run` and `pnpm typecheck`.

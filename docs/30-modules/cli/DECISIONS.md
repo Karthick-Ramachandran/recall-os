@@ -17,3 +17,9 @@ Completion claims must be backed by write results.
 `feature create` command code loads config, calls naming, generator, and filesystem modules, then formats output.
 
 The CLI layer does not own feature numbering, document content, or write safety rules.
+
+## P7: ADR Create Follows Command Boundary
+
+`adr create` command code loads config, calls naming, generator, and filesystem modules, then formats output.
+
+The CLI layer does not own ADR numbering, document content, or write safety rules.

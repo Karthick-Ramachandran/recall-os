@@ -34,3 +34,15 @@
 
 - Covered by `tests/unit/generator/generate-feature.test.ts`.
 - Full verification passed with `pnpm test:run` and `pnpm typecheck`.
+
+## P7 Tests
+
+- `generateAdrFile` emits required ADR sections.
+- `generateAdrFile` returns write inputs only.
+- `generateAdrFile` sets status to `Proposed`.
+- Unsafe ADR titles are rejected before write planning.
+
+## P7 Results
+
+- Covered by `tests/unit/generator/generate-adr.test.ts`.
+- Full verification passed with `pnpm test:run` and `pnpm typecheck`.
