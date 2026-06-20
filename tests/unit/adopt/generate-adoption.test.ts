@@ -48,6 +48,24 @@ describe("generateAdoptionFiles", () => {
     expect(adr!.content).not.toContain("Accepted");
   });
 
+  it("references the configured adrDir in the report, not a hardcoded path", () => {
+    const files = generateAdoptionFiles({
+      adrDir: "docs/decisions",
+      signals: {
+        languages: ["TypeScript"],
+        packageManager: "pnpm",
+        frameworks: ["Next.js"],
+        hasTests: true,
+        hasReadme: true,
+        hasDocs: false,
+      },
+    });
+
+    const report = files.find((file) => file.path === ADOPTION_REPORT_PATH);
+    expect(report!.content).toContain("docs/decisions/proposed/ADR-PROPOSED-adopt-nextjs.md");
+    expect(report!.content).not.toContain("docs/adrs/proposed");
+  });
+
   it("produces only the report when no frameworks are detected", () => {
     const files = generateAdoptionFiles({
       adrDir: "docs/adrs",

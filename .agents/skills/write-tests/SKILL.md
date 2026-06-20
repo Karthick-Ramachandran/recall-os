@@ -1,6 +1,6 @@
 ---
 name: write-tests
-description: Write meaningful tests from acceptance criteria, risk, security invariants, module boundaries, and regression history. Use when adding or updating tests, writing a test plan, or covering a new feature or bug fix.
+description: "Write meaningful tests from acceptance criteria, risk, security invariants, module boundaries, and regression history. Use when adding or updating tests, writing a test plan, or covering a new feature or bug fix."
 ---
 
 # Skill: Write Tests
@@ -45,7 +45,7 @@ Create professional tests that prove important behavior, not random happy paths.
 Stop and request human decision if:
 
 - Requirements are not testable.
-- The requested test would require runtime network, telemetry, cloud, MCP, or AI API behavior in MVP.
+- The requested test would require runtime network, telemetry, cloud, MCP, or AI API behavior without review.
 - Security-sensitive behavior lacks a documented expected result.
 - The test approach conflicts with engineering standards.
 

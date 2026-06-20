@@ -1,6 +1,6 @@
 ---
 name: implement-task
-description: Implement one scoped engineering task while preserving requirements, architecture boundaries, security posture, tests, docs, and completion evidence. Use when implementing a single task from an approved plan.
+description: "Implement one scoped engineering task while preserving requirements, architecture boundaries, security posture, tests, docs, and completion evidence. Use when implementing a single task from an approved plan."
 ---
 
 # Skill: Implement Task
@@ -46,7 +46,7 @@ Stop and request human decision if:
 
 - The task conflicts with source-of-truth docs.
 - The task conflicts with engineering standards.
-- The task requires adding runtime network, telemetry, cloud, MCP, AI API, or generated production app behavior in MVP.
+- The task requires adding runtime network, telemetry, cloud, MCP, AI API, or generated production app behavior without review.
 - A dependency is needed without ADR consideration.
 - Tests cannot be designed from the available requirements.
 

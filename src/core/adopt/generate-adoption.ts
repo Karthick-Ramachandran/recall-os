@@ -12,7 +12,7 @@ export function generateAdoptionFiles(options: GenerateAdoptionOptions): WriteFi
   const files: WriteFileInput[] = [
     {
       path: ADOPTION_REPORT_PATH,
-      content: renderReport(options.signals),
+      content: renderReport(options.adrDir, options.signals),
     },
   ];
 
@@ -26,7 +26,7 @@ export function generateAdoptionFiles(options: GenerateAdoptionOptions): WriteFi
   return files;
 }
 
-function renderReport(signals: RepoSignals): string {
+function renderReport(adrDir: string, signals: RepoSignals): string {
   return `# Adoption Report
 
 ## Status
@@ -45,12 +45,12 @@ is accepted repository memory until you accept it.
 
 ## Proposed Decisions
 
-${renderProposedDecisions(signals)}
+${renderProposedDecisions(adrDir, signals)}
 
 ## Review Checklist
 
 - [ ] Confirm the detected languages and package manager.
-- [ ] Accept or reject each proposed framework ADR under \`docs/adrs/proposed/\`.
+- [ ] Accept or reject each proposed framework ADR under \`${adrDir}/proposed/\`.
 - [ ] Run \`recall init\` to establish neutral repository memory if it does not exist yet.
 - [ ] Record any decision you accept with \`recall adr create\` or by accepting the proposed ADR.
 
@@ -61,7 +61,7 @@ files. No repository code was executed and no decision was accepted automaticall
 `;
 }
 
-function renderProposedDecisions(signals: RepoSignals): string {
+function renderProposedDecisions(adrDir: string, signals: RepoSignals): string {
   if (signals.frameworks.length === 0) {
     return "- No framework decisions were inferred. Add decisions with `recall adr create` as needed.";
   }
@@ -70,7 +70,7 @@ function renderProposedDecisions(signals: RepoSignals): string {
     .map(
       (framework) =>
         `- Proposed: record **${framework}** as an architecture decision (see ` +
-        `\`docs/adrs/proposed/ADR-PROPOSED-adopt-${frameworkSlug(framework)}.md\`). Requires review.`,
+        `\`${adrDir}/proposed/ADR-PROPOSED-adopt-${frameworkSlug(framework)}.md\`). Requires review.`,
     )
     .join("\n");
 }

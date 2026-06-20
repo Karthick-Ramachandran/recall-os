@@ -85,7 +85,7 @@ export async function inspectRepo(rootDir: string): Promise<RepoSignals> {
     packageManager = "npm";
   }
 
-  const scripts = isRecord(pkg?.scripts) ? pkg!.scripts : {};
+  const scripts = pkg !== null && isRecord(pkg.scripts) ? pkg.scripts : {};
   const hasTests =
     "test" in scripts ||
     has("test") ||

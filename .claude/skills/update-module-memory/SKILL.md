@@ -1,6 +1,6 @@
 ---
 name: update-module-memory
-description: Update module memory docs after module behavior, ownership, boundaries, tests, risks, or decisions change. Use when a module's behavior, ownership, boundaries, tests, risks, or decisions change.
+description: "Update module memory docs after module behavior, ownership, boundaries, tests, risks, or decisions change. Use when a module's behavior, ownership, boundaries, tests, risks, or decisions change."
 ---
 
 # Skill: Update Module Memory

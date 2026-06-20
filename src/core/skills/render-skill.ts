@@ -10,7 +10,9 @@ export function renderSkill(skill: SkillDefinition): string {
   const lines: string[] = [
     "---",
     `name: ${skill.name}`,
-    `description: ${skill.description}`,
+    // JSON-stringify yields a valid double-quoted YAML scalar, so descriptions with any punctuation
+    // stay valid Agent Skills frontmatter.
+    `description: ${JSON.stringify(skill.description)}`,
     "---",
     "",
     `# Skill: ${skill.title}`,

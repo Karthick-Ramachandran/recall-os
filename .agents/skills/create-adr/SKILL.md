@@ -1,6 +1,6 @@
 ---
 name: create-adr
-description: Create an Architecture Decision Record for a meaningful architecture, dependency, security, file-write, MCP, or workflow decision. Use when recording such a decision so future agents do not contradict it.
+description: "Create an Architecture Decision Record for a meaningful architecture, dependency, security, file-write, MCP, or workflow decision. Use when recording such a decision so future agents do not contradict it."
 ---
 
 # Skill: Create ADR

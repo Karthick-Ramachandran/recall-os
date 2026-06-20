@@ -1,6 +1,6 @@
 ---
 name: security-review
-description: Review a change for file write safety, path traversal, symlink risk, overwrite behavior, dependencies, secrets, telemetry, network, MCP, and supply chain risk. Use when reviewing a change for security before it is accepted.
+description: "Review a change for file write safety, path traversal, symlink risk, overwrite behavior, dependencies, secrets, telemetry, network, MCP, and supply chain risk. Use when reviewing a change for security before it is accepted."
 ---
 
 # Skill: Security Review

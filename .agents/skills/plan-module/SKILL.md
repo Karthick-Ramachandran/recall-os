@@ -1,6 +1,6 @@
 ---
 name: plan-module
-description: Plan a module as a mini product by creating feature delivery docs, module memory, acceptance criteria, architecture impact, test plan, and ordered tasks before implementation. Use when asked to build, create, redesign, or materially change a module.
+description: "Plan a module as a mini product by creating feature delivery docs, module memory, acceptance criteria, architecture impact, test plan, and ordered tasks before implementation. Use when asked to build, create, redesign, or materially change a module."
 ---
 
 # Skill: Plan Module

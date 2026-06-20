@@ -1,6 +1,6 @@
 ---
 name: architecture-drift-review
-description: Review a change for undocumented architecture, dependency, module, security, testing, or documentation drift. Use when checking whether a change diverges from accepted repository memory.
+description: "Review a change for undocumented architecture, dependency, module, security, testing, or documentation drift. Use when checking whether a change diverges from accepted repository memory."
 ---
 
 # Skill: Architecture Drift Review

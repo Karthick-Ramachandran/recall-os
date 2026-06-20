@@ -20,11 +20,13 @@ export type AdoptResult = {
   writeResult: WriteResult;
 };
 
+export type AdoptErrorCode = "WRITE_PLAN_ERROR";
+
 export class AdoptError extends Error {
-  readonly code: "WRITE_PLAN_ERROR";
+  readonly code: AdoptErrorCode;
   readonly details: string[];
 
-  constructor(code: "WRITE_PLAN_ERROR", message: string, details: string[] = []) {
+  constructor(code: AdoptErrorCode, message: string, details: string[] = []) {
     super(message);
     this.name = "AdoptError";
     this.code = code;

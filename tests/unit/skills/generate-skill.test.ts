@@ -20,7 +20,7 @@ describe("generateSkillFiles", () => {
     expect(fromCatalog).toBe(true);
     const content = files[0].content;
     expect(content.startsWith("---\nname: write-tests\n")).toBe(true);
-    expect(content).toContain("description: Write meaningful tests");
+    expect(content).toContain('description: "Write meaningful tests');
     expect(content).toContain("Use when");
     expect(content).toContain("## Stop Conditions");
     expect(content).not.toContain("```"); // no scripts / fenced code in generated skills

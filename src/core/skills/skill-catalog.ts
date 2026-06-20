@@ -107,7 +107,7 @@ export const SKILL_CATALOG: SkillDefinition[] = [
       "Requirements are missing or contradictory.",
       "Architecture impact cannot be determined.",
       "The plan conflicts with engineering standards.",
-      "A task requires changing MVP non-goals.",
+      "A task requires changing accepted non-goals.",
       "A module request tries to start implementation before PRD, acceptance, architecture impact, test plan, and tasks exist.",
     ],
     qualityBar: [
@@ -249,7 +249,7 @@ export const SKILL_CATALOG: SkillDefinition[] = [
     stopConditions: [
       "The task conflicts with source-of-truth docs.",
       "The task conflicts with engineering standards.",
-      "The task requires adding runtime network, telemetry, cloud, MCP, AI API, or generated production app behavior in MVP.",
+      "The task requires adding runtime network, telemetry, cloud, MCP, AI API, or generated production app behavior without review.",
       "A dependency is needed without ADR consideration.",
       "Tests cannot be designed from the available requirements.",
     ],
@@ -297,7 +297,7 @@ export const SKILL_CATALOG: SkillDefinition[] = [
     ],
     stopConditions: [
       "Requirements are not testable.",
-      "The requested test would require runtime network, telemetry, cloud, MCP, or AI API behavior in MVP.",
+      "The requested test would require runtime network, telemetry, cloud, MCP, or AI API behavior without review.",
       "Security-sensitive behavior lacks a documented expected result.",
       "The test approach conflicts with engineering standards.",
     ],

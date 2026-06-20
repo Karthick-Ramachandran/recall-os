@@ -1,6 +1,6 @@
 ---
 name: plan-feature
-description: Plan a feature from approved requirements by producing implementation tasks, architecture impact, test plan, review expectations, and completion evidence. Use when turning an approved PRD into a plan, tasks, and a test plan.
+description: "Plan a feature from approved requirements by producing implementation tasks, architecture impact, test plan, review expectations, and completion evidence. Use when turning an approved PRD into a plan, tasks, and a test plan."
 ---
 
 # Skill: Plan Feature
@@ -50,7 +50,7 @@ Stop and request human decision if:
 - Requirements are missing or contradictory.
 - Architecture impact cannot be determined.
 - The plan conflicts with engineering standards.
-- A task requires changing MVP non-goals.
+- A task requires changing accepted non-goals.
 - A module request tries to start implementation before PRD, acceptance, architecture impact, test plan, and tasks exist.
 
 ## Quality Bar

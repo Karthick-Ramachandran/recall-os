@@ -39,7 +39,7 @@ function skeletonSkill(name: string): SkillDefinition {
     process: ["Describe the steps, one job, routing to source-of-truth docs."],
     stopConditions: [
       "A request conflicts with accepted repository memory or engineering standards.",
-      "The work would add network, telemetry, MCP runtime, AI API, or other MVP non-goals.",
+      "The work would add network, telemetry, MCP runtime, AI API, or other accepted non-goals.",
     ],
     qualityBar: ["State how to tell the skill did its job well."],
   };
