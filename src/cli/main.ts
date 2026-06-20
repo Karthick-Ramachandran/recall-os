@@ -1,5 +1,6 @@
 import { Command, CommanderError } from "commander";
 
+import { acceptAdr, AdrAcceptError, formatAdrAcceptResult } from "../commands/adr/accept.js";
 import { createAdr, AdrCreateError, formatAdrCreateResult } from "../commands/adr/create.js";
 import {
   createFeature,
@@ -125,6 +126,23 @@ export function createCliProgram(
       stdout.write(formatAdrCreateResult(result));
     });
 
+  adrCommand
+    .command("accept")
+    .description("Promote a proposed ADR to accepted repository memory.")
+    .argument("<name>", "Proposed ADR name or slug, e.g. mcp-figma.")
+    .option("--dry-run", "Show planned writes without writing files.")
+    .option("--force", "Overwrite existing files explicitly.")
+    .action(async (name: string, options: { dryRun?: boolean; force?: boolean }) => {
+      const result = await acceptAdr({
+        rootDir: cwd,
+        name,
+        dryRun: options.dryRun,
+        force: options.force,
+      });
+
+      stdout.write(formatAdrAcceptResult(result));
+    });
+
   const moduleCommand = program.command("module").description("Manage Recall OS module memory.");
 
   moduleCommand
@@ -248,6 +266,14 @@ export async function main(
     }
 
     if (error instanceof AdrCreateError) {
+      stderr.write(`${error.message}\n`);
+      for (const detail of error.details) {
+        stderr.write(`- ${detail}\n`);
+      }
+      return 1;
+    }
+
+    if (error instanceof AdrAcceptError) {
       stderr.write(`${error.message}\n`);
       for (const detail of error.details) {
         stderr.write(`- ${detail}\n`);

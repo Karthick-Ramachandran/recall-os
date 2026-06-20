@@ -97,6 +97,17 @@ Options:
 - `--dry-run`: show planned writes without writing files.
 - `--force`: overwrite existing files explicitly.
 
+### `recall adr accept <name>`
+
+Promote a proposed ADR to accepted repository memory. A proposal under
+`docs/adrs/proposed/ADR-PROPOSED-<slug>.md` becomes a numbered, accepted `ADR-####-<slug>.md` and
+the proposal is removed; an existing numbered Proposed ADR is accepted in place.
+
+Options:
+
+- `--dry-run`: show planned writes without writing files.
+- `--force`: overwrite existing files explicitly.
+
 ### `recall module create <name>`
 
 Create module memory docs under the configured modules directory.

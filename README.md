@@ -93,6 +93,7 @@ git config core.hooksPath .recall/hooks
 | `recall preset list`           | List built-in presets.                                      |
 | `recall feature create <name>` | Scaffold feature memory (PRD, acceptance, tests, review).   |
 | `recall adr create <title>`    | Create a proposed architecture decision record.             |
+| `recall adr accept <name>`     | Promote a proposed ADR to accepted source-of-truth.         |
 | `recall module create <name>`  | Scaffold module memory (ownership, boundaries, tests).      |
 | `recall skill create <name>`   | Generate a portable AI agent skill (Claude + Agent Skills). |
 | `recall mcp add <server>`      | Generate offline, proposed memory for an MCP server.        |
