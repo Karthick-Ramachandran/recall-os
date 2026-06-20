@@ -4,6 +4,18 @@
   "description": "Architecture-neutral repository memory for AI-assisted software teams.",
   "type": "module",
   "license": "MIT",
+  "keywords": [
+    "repository-memory",
+    "engineering-memory",
+    "adr",
+    "architecture-decision-records",
+    "ai-agents",
+    "agent-skills",
+    "governance",
+    "drift-detection",
+    "cli",
+    "local-first"
+  ],
   "bin": {
     "recall": "./dist/cli.js"
   },
@@ -23,7 +35,8 @@
     "pack:check": "node scripts/check-package.mjs",
     "test": "vitest",
     "test:run": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm build && pnpm pack:check"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
