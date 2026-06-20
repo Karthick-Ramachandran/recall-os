@@ -67,7 +67,9 @@ async function checkReferences(
     const content = await readFile(path.join(rootDir, file), "utf8");
     const referenced = new Set<string>();
 
-    for (const match of content.matchAll(adrReferencePattern)) {
+    // Ignore ADR identifiers inside fenced code blocks and inline code so illustrative
+    // examples are not treated as real references.
+    for (const match of stripCode(content).matchAll(adrReferencePattern)) {
       referenced.add(match[0].toUpperCase());
     }
 
@@ -96,6 +98,13 @@ async function checkReferences(
   }
 
   return findings;
+}
+
+function stripCode(content: string): string {
+  return content
+    .replace(/```[\s\S]*?```/gu, " ")
+    .replace(/~~~[\s\S]*?~~~/gu, " ")
+    .replace(/`[^`]*`/gu, " ");
 }
 
 async function readMarkdownFiles(rootDir: string, relativeDir: string): Promise<string[]> {

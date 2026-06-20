@@ -89,6 +89,19 @@ describe("doctor drift checks", () => {
     expect(dangling).toHaveLength(1);
   });
 
+  it("ignores ADR identifiers inside fenced code blocks and inline code", async () => {
+    const rootDir = await createRoot("drift-code-block");
+    await writeFeatureDoc(
+      rootDir,
+      "ACCEPTANCE.md",
+      "Example only: `ADR-0007`.\n\n```\nreferences ADR-0008 here\n```\n",
+    );
+
+    const findings = await checkDrift({ rootDir, config: createDefaultConfig() });
+
+    expect(findings).toEqual([]);
+  });
+
   it("produces no findings when memory references no ADRs", async () => {
     const rootDir = await createRoot("drift-no-references");
     await writeFeatureDoc(rootDir, "PRD.md", "No decision references here.");
