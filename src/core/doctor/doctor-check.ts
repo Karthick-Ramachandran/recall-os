@@ -1,4 +1,5 @@
 import { checkConfig } from "./checks/config-check.js";
+import { checkDrift } from "./checks/drift-check.js";
 import { checkMemoryIntegrity } from "./checks/memory-integrity-check.js";
 import { checkRequiredFiles } from "./checks/required-files-check.js";
 import { checkStandards } from "./checks/standards-check.js";
@@ -51,6 +52,7 @@ export async function runDoctor(rootDir: string): Promise<DoctorReport> {
   if (configResult.config !== undefined) {
     findings.push(...(await checkMemoryIntegrity(context)));
     findings.push(...(await checkStandards(context)));
+    findings.push(...(await checkDrift(context)));
   }
 
   return createDoctorReport(findings);

@@ -212,6 +212,71 @@ Pending review.
     expect(result.stdout).toContain("Result: FAILED");
   });
 
+  it("returns two when memory references a missing ADR", async () => {
+    const rootDir = await createRoot("doctor-drift-missing-adr");
+    await runInitCommand(rootDir);
+    await runCommand(rootDir, ["feature", "create", "auth-provider"]);
+    await writeFile(
+      path.join(rootDir, "docs/40-features/F-001-auth-provider/PLAN.md"),
+      "# Plan\n\nImplements ADR-0042 for auth.\n",
+      "utf8",
+    );
+
+    const result = await runCommand(rootDir, ["doctor"]);
+
+    expect(result.exitCode).toBe(2);
+    expect(result.stdout).toContain("references ADR-0042 but no matching ADR exists");
+    expect(result.stdout).toContain("Result: FAILED");
+  });
+
+  it("returns one when memory references a not-yet-accepted ADR", async () => {
+    const rootDir = await createRoot("doctor-drift-proposed-adr");
+    await runInitCommand(rootDir);
+    await mkdir(path.join(rootDir, "docs/adrs"), { recursive: true });
+    await writeFile(
+      path.join(rootDir, "docs/adrs/ADR-0001-example.md"),
+      `# ADR-0001: Example
+
+## Status
+
+Proposed
+
+## Context
+
+Example context.
+
+## Decision
+
+Example decision.
+
+## Alternatives Considered
+
+Example alternative.
+
+## Consequences
+
+Example consequence text.
+
+## Related Documents
+
+- None.
+`,
+      "utf8",
+    );
+    await runCommand(rootDir, ["feature", "create", "auth-provider"]);
+    await writeFile(
+      path.join(rootDir, "docs/40-features/F-001-auth-provider/PLAN.md"),
+      "# Plan\n\nFollows ADR-0001.\n",
+      "utf8",
+    );
+
+    const result = await runCommand(rootDir, ["doctor"]);
+
+    expect(result.exitCode).toBe(1);
+    expect(result.stdout).toContain("references ADR-0001 which is not accepted");
+    expect(result.stdout).toContain("Result: WARNINGS");
+  });
+
   it("generates command reference memory during init", async () => {
     const rootDir = await createRoot("doctor-command-reference");
     await runInitCommand(rootDir);

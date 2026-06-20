@@ -283,8 +283,11 @@ Options:
 
 ### \`recall doctor\`
 
-Check whether repository memory is structurally healthy enough for AI-assisted work and whether
-basic engineering evidence is present.
+Check whether repository memory is structurally healthy enough for AI-assisted work, whether basic
+engineering evidence is present, and whether memory references decisions that exist and are accepted.
+
+Doctor also runs deterministic drift checks: feature or module memory that references a missing ADR
+is an error, and memory that references a not-yet-accepted ADR is a warning.
 
 Exit codes:
 

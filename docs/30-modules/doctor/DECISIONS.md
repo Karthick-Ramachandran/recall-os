@@ -36,3 +36,15 @@ Completed features require review, test evidence, and result evidence. ADRs requ
 substance. Security-sensitive feature planning requires security impact notes.
 
 These checks are read-only and deterministic. Semantic drift detection remains future work.
+
+## P13: Deterministic Drift Checks
+
+Doctor now performs the first deterministic drift checks against accepted repository memory.
+
+Feature and module memory that references an `ADR-####` identifier with no matching ADR file is an
+error. Memory that references an existing ADR whose status is not accepted is a warning. References
+to existing accepted ADRs produce no finding.
+
+These checks remain read-only, local, and deterministic. They reuse the existing `DoctorFinding`
+model and exit-code mapping. Semantic contradiction detection, module-ownership comparison, and
+code-to-doc drift remain future work.

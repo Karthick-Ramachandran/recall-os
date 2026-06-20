@@ -76,15 +76,15 @@ recall doctor
 
 ## Commands
 
-| Command                        | Purpose                                              |
-| ------------------------------ | ---------------------------------------------------- |
-| `recall init`                  | Create neutral repository memory.                    |
-| `recall init --preset <id>`    | Add optional preset guidance and proposed decisions. |
-| `recall preset list`           | List built-in presets.                               |
-| `recall feature create <name>` | Create feature memory docs.                          |
-| `recall adr create <title>`    | Create a proposed ADR.                               |
-| `recall module create <name>`  | Create module memory docs.                           |
-| `recall doctor`                | Validate repository memory health and evidence.      |
+| Command                        | Purpose                                                 |
+| ------------------------------ | ------------------------------------------------------- |
+| `recall init`                  | Create neutral repository memory.                       |
+| `recall init --preset <id>`    | Add optional preset guidance and proposed decisions.    |
+| `recall preset list`           | List built-in presets.                                  |
+| `recall feature create <name>` | Create feature memory docs.                             |
+| `recall adr create <title>`    | Create a proposed ADR.                                  |
+| `recall module create <name>`  | Create module memory docs.                              |
+| `recall doctor`                | Validate repository memory health, evidence, and drift. |
 
 ## Presets
 
@@ -126,7 +126,8 @@ Recall OS grows in layers:
 1. Create repository memory.
 2. Validate memory with Doctor.
 3. Make Doctor part of the AI completion gate.
-4. Detect drift from accepted repository memory.
+4. Detect drift from accepted repository memory (first deterministic checks shipped: ADR reference
+   integrity).
 5. Distribute context across AI tools.
 6. Make engineering standards increasingly checkable.
 7. Adopt memory from legacy repositories without silently accepting inferred decisions.

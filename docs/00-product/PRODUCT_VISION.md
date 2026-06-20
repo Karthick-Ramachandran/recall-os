@@ -58,8 +58,8 @@ recall doctor
 ```
 
 Doctor checks required docs, config validity, feature structure, ADR structure, module structure,
-completion evidence, ADR consequence evidence, security-impact evidence, and repository health. This
-is where the product becomes more than a generator.
+completion evidence, ADR consequence evidence, security-impact evidence, ADR reference integrity,
+and repository health. This is where the product becomes more than a generator.
 
 ### Level 3: AI Completion Gate
 
@@ -81,7 +81,11 @@ If checks fail, the agent should fix the issues or explain why they remain.
 
 Recall OS should detect mismatch with accepted repository memory.
 
-Examples:
+The first deterministic drift checks are implemented. Doctor reports when feature or module memory
+references an ADR that does not exist, and warns when memory references an ADR that is not yet
+accepted.
+
+Future drift detection examples:
 
 - Accepted ADR says PostgreSQL, but new docs mention MongoDB.
 - Module ownership no longer matches implementation notes.

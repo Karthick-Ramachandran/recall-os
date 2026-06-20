@@ -23,9 +23,9 @@
 
 ## Future Tests
 
-- Accepted ADR drift detection.
 - Module ownership drift detection.
 - Dependency drift detection.
+- Semantic contradiction detection.
 
 ## P10 Results
 
@@ -40,3 +40,12 @@
 - Accepted ADR with placeholder consequences exits with standards errors.
 - Security-sensitive feature planning without security impact notes exits with warnings or errors
   based on completion status.
+
+## P13 Tests
+
+- Feature memory referencing a missing ADR exits with a drift error.
+- Module memory referencing a missing ADR exits with a drift error.
+- Memory referencing a not-yet-accepted ADR exits with a drift warning.
+- Memory referencing an existing accepted ADR produces no drift finding.
+- A repeated reference within one document is reported once.
+- Covered by `tests/unit/doctor/drift-check.test.ts` and `tests/integration/doctor-command.test.ts`.

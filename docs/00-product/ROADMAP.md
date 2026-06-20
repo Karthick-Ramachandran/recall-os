@@ -13,6 +13,7 @@ Completed capabilities:
 - Module memory creation.
 - Structural Doctor checks.
 - Doctor standards checks for completion, review, ADR consequence, and security-impact evidence.
+- Doctor drift checks for ADR reference integrity in feature and module memory.
 - AI command memory.
 - Packaged `recall` CLI build.
 - README, examples, CI, release-candidate workflow, and package validation.
@@ -26,33 +27,32 @@ The current release foundation proves:
 - Recall OS can run as a packaged CLI.
 - Recall OS can dogfood its own feature, module, review, and completion workflow.
 
-## Next Product Priority: Drift Detection
-
-The next major product leap is drift detection.
+## Next Product Priority: Deepen Drift Detection
 
 Doctor now answers:
 
 ```txt
 Is the memory structure present?
 Is the required engineering evidence present when memory claims completion or acceptance?
+Does memory reference decisions that do not exist or are not yet accepted?
 ```
 
-Drift detection should begin answering:
+The first deterministic drift checks are implemented (P13): feature and module memory that
+references a missing ADR is an error, and memory that references a not-yet-accepted ADR is a
+warning.
 
-```txt
-Does new or changed memory conflict with accepted repository memory?
-```
+Drift detection should continue to deepen, staying deterministic and local:
 
-Initial drift detection should stay deterministic and local.
-
-Recommended first checks:
-
-- ADR status and required sections.
-- Proposed versus accepted decision references.
-- Feature docs referencing missing ADRs.
-- Module docs referencing missing decisions.
+- Module docs disagreeing with feature planning docs.
+- Accepted ADRs contradicted by proposed decisions or feature notes.
 - Security-sensitive feature changes missing security review notes.
-- Completion reports missing test evidence.
+
+Done in earlier milestones:
+
+- ADR required sections and consequence substance (P9, P12).
+- Proposed versus accepted decision references (P13).
+- Feature and module docs referencing missing ADRs (P13).
+- Completion reports missing test evidence (P12).
 
 ## Future Product Sequence
 
@@ -77,11 +77,18 @@ Examples:
 
 Add first deterministic drift checks against accepted repository memory.
 
-Examples:
+Status: implemented (ADR reference integrity).
 
-- Docs mention an architecture decision that has no ADR.
-- Accepted ADR is contradicted by a proposed decision or feature note.
+Implemented checks:
+
+- Feature or module memory referencing a missing ADR is an error.
+- Feature or module memory referencing a not-yet-accepted ADR is a warning.
+
+Still future work:
+
+- Accepted ADR contradicted by a proposed decision or feature note.
 - Module ownership docs disagree with feature planning docs.
+- Code-to-doc and dependency drift.
 
 ### P14: Legacy Adoption Planning
 

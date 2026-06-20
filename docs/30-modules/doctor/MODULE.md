@@ -15,6 +15,7 @@ It validates whether repository memory is structurally healthy enough for AI-ass
 - Config, required-doc, feature-doc, module-doc, and ADR-section health checks.
 - Standards checks for completion evidence, review evidence, ADR consequences, and security impact
   notes.
+- Deterministic drift checks for ADR reference integrity in feature and module memory.
 - Recall command memory health checks.
 
 ## Does Not Own
@@ -53,6 +54,12 @@ P12 implements deterministic standards checks for repository memory evidence:
 - ADRs require consequence substance;
 - security-sensitive feature planning requires security-impact notes.
 
-Semantic drift detection remains future work.
+P13 adds the first deterministic drift checks:
+
+- feature or module memory referencing a missing ADR is an error;
+- feature or module memory referencing a not-yet-accepted ADR is a warning.
+
+Semantic drift detection (natural-language contradiction, module-ownership comparison, code-to-doc
+drift) remains future work.
 
 P10 updates Doctor checks for `.recall/config.json` and `docs/ai/RECALL_COMMANDS.md`.

@@ -15,3 +15,4 @@
 - Done: Validate Doctor through built binary integration tests.
 - Done: Add deterministic standards checks for completion, ADR consequence, and security-impact
   evidence.
+- Done: Add deterministic drift checks for ADR reference integrity in feature and module memory.
