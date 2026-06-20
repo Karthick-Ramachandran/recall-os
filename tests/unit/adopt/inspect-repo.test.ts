@@ -55,6 +55,40 @@ describe("inspectRepo", () => {
     expect(signals.frameworks).toContain("FastAPI");
   });
 
+  it("treats a Go repo as Go modules despite a tooling package.json, and finds *_test.go", async () => {
+    const rootDir = await createRoot("inspect-go");
+    await write(rootDir, "go.mod", "module example.com/api\n\ngo 1.22\n");
+    await write(rootDir, "go.sum", "github.com/gin-gonic/gin v1.9.1 h1:abc\n");
+    // A lone tooling package.json must not mislabel a Go repo as npm.
+    await write(rootDir, "package.json", JSON.stringify({ devDependencies: { prettier: "3" } }));
+    await write(rootDir, "package-lock.json", "{}");
+    await write(rootDir, "internal/handler/user_test.go", "package handler\n");
+
+    const signals = await inspectRepo(rootDir);
+
+    expect(signals.languages).toContain("Go");
+    expect(signals.frameworks).toContain("Gin");
+    expect(signals.packageManager).toBe("Go modules");
+    expect(signals.packageManagerSource).toBe("go.mod");
+    expect(signals.hasTests).toBe(true);
+    expect(signals.testsEvidence).toContain("user_test.go");
+  });
+
+  it("detects PHP and Laravel from composer.json", async () => {
+    const rootDir = await createRoot("inspect-laravel");
+    await write(
+      rootDir,
+      "composer.json",
+      JSON.stringify({ require: { "laravel/framework": "^12.0" } }),
+    );
+
+    const signals = await inspectRepo(rootDir);
+
+    expect(signals.languages).toContain("PHP");
+    expect(signals.frameworks).toContain("Laravel");
+    expect(signals.packageManager).toBe("Composer");
+  });
+
   it("returns empty signals for an empty repository", async () => {
     const rootDir = await createRoot("inspect-empty");
 

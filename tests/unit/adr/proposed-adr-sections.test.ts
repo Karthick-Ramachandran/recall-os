@@ -52,9 +52,11 @@ describe("generated proposed ADRs contain every required section", () => {
       adrDir: "docs/adrs",
       signals: {
         languages: ["Go"],
-        packageManager: null,
+        packageManager: "Go modules",
+        packageManagerSource: "go.mod",
         frameworks: ["Gin"],
         hasTests: true,
+        testsEvidence: "`internal/foo_test.go`",
         hasReadme: true,
         hasDocs: false,
       },

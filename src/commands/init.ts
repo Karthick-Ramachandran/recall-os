@@ -9,6 +9,7 @@ import {
   type WriteFileInput,
 } from "../core/filesystem/write-plan.js";
 import { executeWritePlan, type WriteResult } from "../core/filesystem/write-file-safe.js";
+import { inspectRepo, summarizeSignals, type RepoSignals } from "../core/adopt/inspect-repo.js";
 import { generateInitFiles } from "../core/generator/generate-init.js";
 import { detectPreCommitGates } from "../core/hooks/detect-gates.js";
 import {
@@ -39,6 +40,7 @@ export type InitResult = {
   dryRun: boolean;
   plan: WritePlan;
   writeResult: WriteResult;
+  detected: RepoSignals;
 };
 
 export type InitErrorCode = "UNKNOWN_PRESET" | "WRITE_PLAN_ERROR" | "EXISTING_INSTALLATION";
@@ -73,6 +75,9 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
   }
 
   const preset = resolvePreset(options.preset);
+  // Read-only inspection of the existing repository so init can surface the detected stack (proposed,
+  // never accepted) — run before writes so it reflects the user's repo, not our generated scaffold.
+  const detected = await inspectRepo(options.rootDir);
   const preCommitGates = await detectPreCommitGates(options.rootDir);
   const config = createDefaultConfig({ preset: preset?.id ?? null, preCommitGates });
   const files = createInitWriteFiles(options.rootDir, config, preset);
@@ -99,6 +104,7 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
     dryRun: options.dryRun ?? false,
     plan,
     writeResult,
+    detected,
   };
 }
 
@@ -118,6 +124,8 @@ export function formatInitResult(result: InitResult): string {
     dryRun: result.dryRun,
     writeResult: result.writeResult,
   });
+
+  appendDetectedStack(lines, result.detected);
 
   const hookWritten =
     result.writeResult.created.includes(PRE_COMMIT_HOOK_PATH) ||
@@ -146,6 +154,30 @@ export function formatInitResult(result: InitResult): string {
   }
 
   return `${lines.join("\n")}\n`;
+}
+
+function appendDetectedStack(lines: string[], detected: RepoSignals): void {
+  const hasSignal =
+    detected.languages.length > 0 ||
+    detected.frameworks.length > 0 ||
+    detected.packageManager !== null ||
+    detected.testsEvidence !== null;
+
+  if (!hasSignal) {
+    return;
+  }
+
+  // Stack-relevant lines only; README/docs presence is noise right after init writes docs/.
+  const stack = summarizeSignals(detected).filter(
+    (line) => !line.startsWith("- README") && !line.startsWith("- Docs"),
+  );
+
+  lines.push("");
+  lines.push("Detected in this repository (proposed — review, nothing was accepted):");
+  lines.push(...stack);
+  lines.push(
+    "If any signal is wrong, correct the source file noted. Run `recall adopt` to record this as proposed memory.",
+  );
 }
 
 function resolvePreset(presetId: string | undefined): Preset | null {

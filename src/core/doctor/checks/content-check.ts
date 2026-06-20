@@ -4,6 +4,10 @@ import path from "node:path";
 import type { DoctorCheckContext, DoctorFinding } from "../doctor-check.js";
 
 const featureFolderPattern = /^F-\d{3,}-[a-z0-9]+(?:-[a-z0-9]+)*$/u;
+const acceptedAdrPattern = /^ADR-\d{4,}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$/u;
+
+const SECURITY_MODEL_PATH = "docs/20-security/SECURITY_MODEL.md";
+const THREAT_MODEL_PATH = "docs/20-security/THREAT_MODEL.md";
 
 /**
  * Content-completeness check.
@@ -53,6 +57,20 @@ export async function checkContent(context: DoctorCheckContext): Promise<DoctorF
   const moduleEntries = await readDirIfExists(context.rootDir, context.config.modulesDir);
   const moduleFolders = moduleEntries.filter((entry) => entry.isDirectory());
 
+  const adrEntries = await readDirIfExists(context.rootDir, context.config.adrDir);
+  const acceptedAdrs = adrEntries.filter(
+    (entry) => entry.isFile() && acceptedAdrPattern.test(entry.name),
+  );
+
+  // Force the foundational security docs to be filled, but only once the repository has real work.
+  // A bare `recall init` stays green; a project with a feature, module, or accepted decision must
+  // not leave its threat model and security model as untouched stubs.
+  const hasWork = featureFolders.length > 0 || moduleFolders.length > 0 || acceptedAdrs.length > 0;
+
+  if (hasWork) {
+    findings.push(...(await checkSecurityDoc(context.rootDir)));
+  }
+
   for (const folder of moduleFolders) {
     const modulePath = path.posix.join(context.config.modulesDir, folder.name, "MODULE.md");
     const moduleDoc = await readFileIfExists(context.rootDir, modulePath);
@@ -78,6 +96,33 @@ export async function checkContent(context: DoctorCheckContext): Promise<DoctorF
         path: modulePath,
       });
     }
+  }
+
+  return findings;
+}
+
+async function checkSecurityDoc(rootDir: string): Promise<DoctorFinding[]> {
+  const findings: DoctorFinding[] = [];
+
+  const security = await readFileIfExists(rootDir, SECURITY_MODEL_PATH);
+  if (security !== undefined && sectionIsUnfilled(security, "Authentication And Authorization")) {
+    findings.push({
+      severity: "warning",
+      check: "content-security",
+      message:
+        "Security model authentication and authorization section is still an unfilled template.",
+      path: SECURITY_MODEL_PATH,
+    });
+  }
+
+  const threat = await readFileIfExists(rootDir, THREAT_MODEL_PATH);
+  if (threat !== undefined && sectionIsUnfilled(threat, "Assets")) {
+    findings.push({
+      severity: "warning",
+      check: "content-threat-model",
+      message: "Threat model assets section is still an unfilled template.",
+      path: THREAT_MODEL_PATH,
+    });
   }
 
   return findings;
@@ -112,7 +157,9 @@ function isUnfilled(value: string): boolean {
 
   return (
     normalized.includes("describe why this feature exists") ||
-    normalized.includes("describe what this module owns")
+    normalized.includes("describe what this module owns") ||
+    normalized.includes("describe how this repository authenticates") ||
+    normalized.includes("describe what this repository must protect")
   );
 }
 

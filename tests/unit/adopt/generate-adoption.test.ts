@@ -12,8 +12,10 @@ describe("generateAdoptionFiles", () => {
       signals: {
         languages: ["TypeScript"],
         packageManager: "pnpm",
+        packageManagerSource: "pnpm-lock.yaml",
         frameworks: ["Next.js"],
         hasTests: true,
+        testsEvidence: "`tests/` directory",
         hasReadme: true,
         hasDocs: false,
       },
@@ -25,6 +27,9 @@ describe("generateAdoptionFiles", () => {
     expect(report!.content).toContain("Languages: TypeScript");
     expect(report!.content).toContain("Next.js");
     expect(report!.content).not.toContain("## Status\n\nAccepted");
+    // Provenance is shown so a reviewer can correct a wrong signal.
+    expect(report!.content).toContain("Package manager: pnpm (from `pnpm-lock.yaml`)");
+    expect(report!.content).toContain("Tests: detected via `tests/` directory");
   });
 
   it("emits a proposed ADR per framework, never accepted", () => {
@@ -33,8 +38,10 @@ describe("generateAdoptionFiles", () => {
       signals: {
         languages: ["Python"],
         packageManager: null,
+        packageManagerSource: null,
         frameworks: ["FastAPI"],
         hasTests: false,
+        testsEvidence: null,
         hasReadme: false,
         hasDocs: false,
       },
@@ -54,8 +61,10 @@ describe("generateAdoptionFiles", () => {
       signals: {
         languages: ["TypeScript"],
         packageManager: "pnpm",
+        packageManagerSource: "pnpm-lock.yaml",
         frameworks: ["Next.js"],
         hasTests: true,
+        testsEvidence: "`tests/` directory",
         hasReadme: true,
         hasDocs: false,
       },
@@ -72,8 +81,10 @@ describe("generateAdoptionFiles", () => {
       signals: {
         languages: [],
         packageManager: null,
+        packageManagerSource: null,
         frameworks: [],
         hasTests: false,
+        testsEvidence: null,
         hasReadme: false,
         hasDocs: false,
       },

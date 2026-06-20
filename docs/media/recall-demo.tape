@@ -63,8 +63,8 @@ Sleep 400ms
 Enter
 Sleep 2600ms
 
-# --- 4. Validate memory health deterministically ---
-Type "# 4. The deterministic gate: is the memory present, consistent, and evidenced?"
+# --- 4. The deterministic gate — honest, not a rubber stamp ---
+Type "# 4. The gate is deterministic and honest — it flags the threat model you still owe:"
 Sleep 700ms
 Enter
 Sleep 400ms

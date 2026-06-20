@@ -1,5 +1,5 @@
 import type { WriteFileInput } from "../filesystem/write-plan.js";
-import type { RepoSignals } from "./inspect-repo.js";
+import { summarizeSignals, type RepoSignals } from "./inspect-repo.js";
 
 export const ADOPTION_REPORT_PATH = "docs/adopt/ADOPTION_REPORT.md";
 
@@ -36,12 +36,10 @@ is accepted repository memory until you accept it.
 
 ## Detected Signals
 
-- Languages: ${formatList(signals.languages)}
-- Package manager: ${signals.packageManager ?? "none detected"}
-- Frameworks: ${formatList(signals.frameworks)}
-- Tests present: ${formatBool(signals.hasTests)}
-- README present: ${formatBool(signals.hasReadme)}
-- Docs folder present: ${formatBool(signals.hasDocs)}
+Each signal notes the file it was inferred from. If one is wrong, correct the source or edit this
+report — nothing here is accepted.
+
+${summarizeSignals(signals).join("\n")}
 
 ## Proposed Decisions
 
@@ -49,7 +47,8 @@ ${renderProposedDecisions(adrDir, signals)}
 
 ## Review Checklist
 
-- [ ] Confirm the detected languages and package manager.
+- [ ] Confirm the detected languages and package manager (and the source each was read from).
+- [ ] Confirm where tests were detected, or point Recall at the right location if it is wrong.
 - [ ] Accept or reject each proposed framework ADR under \`${adrDir}/proposed/\`.
 - [ ] Run \`recall init\` to establish neutral repository memory if it does not exist yet.
 - [ ] Record any decision you accept with \`recall adr create\` or by accepting the proposed ADR.
@@ -114,12 +113,4 @@ function frameworkSlug(framework: string): string {
     .replace(/\./gu, "")
     .replace(/[^a-z0-9]+/gu, "-")
     .replace(/^-+|-+$/gu, "");
-}
-
-function formatList(values: string[]): string {
-  return values.length > 0 ? values.join(", ") : "none detected";
-}
-
-function formatBool(value: boolean): string {
-  return value ? "yes" : "no";
 }

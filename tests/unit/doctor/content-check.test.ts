@@ -40,6 +40,81 @@ describe("doctor content checks", () => {
     );
   }
 
+  async function writeSecurityDocs(rootDir: string, auth: string, assets: string): Promise<void> {
+    const dir = path.join(rootDir, "docs/20-security");
+    await mkdir(dir, { recursive: true });
+    await writeFile(
+      path.join(dir, "SECURITY_MODEL.md"),
+      `# Security Model\n\n## Authentication And Authorization\n\n${auth}\n`,
+      "utf8",
+    );
+    await writeFile(
+      path.join(dir, "THREAT_MODEL.md"),
+      `# Threat Model\n\n## Assets\n\n${assets}\n`,
+      "utf8",
+    );
+  }
+
+  async function writeAcceptedAdr(rootDir: string): Promise<void> {
+    const dir = path.join(rootDir, "docs/adrs");
+    await mkdir(dir, { recursive: true });
+    await writeFile(
+      path.join(dir, "ADR-0001-example.md"),
+      "# ADR-0001\n\n## Status\n\nAccepted\n",
+      "utf8",
+    );
+  }
+
+  const UNFILLED_AUTH =
+    "Describe how this repository authenticates users or clients and how it authorizes actions.";
+  const UNFILLED_ASSETS =
+    "Describe what this repository must protect: user data, credentials, money, availability, or reputation.";
+
+  it("does not flag unfilled security docs on a bare scaffold (no work yet)", async () => {
+    const rootDir = await createRoot("content-security-bare");
+    await writeSecurityDocs(rootDir, UNFILLED_AUTH, UNFILLED_ASSETS);
+
+    const findings = await checkContent({ rootDir, config: createDefaultConfig() });
+
+    expect(findings).toEqual([]);
+  });
+
+  it("forces unfilled security docs once the repository has work", async () => {
+    const rootDir = await createRoot("content-security-work");
+    await writeSecurityDocs(rootDir, UNFILLED_AUTH, UNFILLED_ASSETS);
+    await writeAcceptedAdr(rootDir);
+
+    const findings = await checkContent({ rootDir, config: createDefaultConfig() });
+
+    expect(findings).toContainEqual(
+      expect.objectContaining({
+        severity: "warning",
+        check: "content-security",
+      }),
+    );
+    expect(findings).toContainEqual(
+      expect.objectContaining({
+        severity: "warning",
+        check: "content-threat-model",
+        message: "Threat model assets section is still an unfilled template.",
+      }),
+    );
+  });
+
+  it("does not flag filled security docs even when work exists", async () => {
+    const rootDir = await createRoot("content-security-filled");
+    await writeSecurityDocs(
+      rootDir,
+      "Users authenticate with Sanctum cookies; controllers authorize via Policies.",
+      "User PII, payment tokens, and admin session integrity.",
+    );
+    await writeAcceptedAdr(rootDir);
+
+    const findings = await checkContent({ rootDir, config: createDefaultConfig() });
+
+    expect(findings).toEqual([]);
+  });
+
   it("warns when module memory is still the unfilled template", async () => {
     const rootDir = await createRoot("content-module-unfilled");
     await writeModule(rootDir, "Describe what this module owns and why it exists.", "- TBD");

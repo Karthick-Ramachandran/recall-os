@@ -116,14 +116,14 @@ git config core.hooksPath .recall/hooks
 `recall doctor` is the part that makes Recall OS more than a template. Every check is deterministic,
 local, and read-only.
 
-| Category            | Detects                                                                    | Severity     |
-| ------------------- | -------------------------------------------------------------------------- | ------------ |
-| Structure           | Missing config, required docs, or feature / module / ADR sections          | error        |
-| Completion evidence | A feature marked complete with review pending or no test / result evidence | error        |
-| ADR quality         | An accepted ADR with no meaningful consequences                            | error / warn |
-| Security            | A security-sensitive feature with no documented security impact            | error / warn |
-| Drift               | Memory that references a missing, or not-yet-accepted, ADR                 | error / warn |
-| Content             | A feature PRD still left as an unfilled template                           | warning      |
+| Category            | Detects                                                                                 | Severity     |
+| ------------------- | --------------------------------------------------------------------------------------- | ------------ |
+| Structure           | Missing config, required docs, or feature / module / ADR sections                       | error        |
+| Completion evidence | A feature marked complete with review pending or no test / result evidence              | error        |
+| ADR quality         | An accepted ADR with no meaningful consequences                                         | error / warn |
+| Security            | A security-sensitive feature with no documented security impact                         | error / warn |
+| Drift               | Memory that references a missing, or not-yet-accepted, ADR                              | error / warn |
+| Content             | A feature PRD, module, or (once work exists) the threat / security model left as a stub | warning      |
 
 ```txt
 Exit codes:  0 = healthy   1 = warnings only   2 = errors
