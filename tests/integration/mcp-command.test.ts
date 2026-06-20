@@ -41,6 +41,22 @@ describe("mcp command", () => {
     expect(adr).toContain("## Status\n\nProposed");
   });
 
+  it("installs the capture skill so agents record context into the memory", async () => {
+    const rootDir = await createRoot("mcp-capture-skill");
+
+    const result = await runCommand(rootDir, ["mcp", "add", "figma"]);
+
+    expect(result.exitCode).toBe(0);
+    expect(result.stdout).toContain("Capture skill installed");
+
+    const skill = await readFile(
+      path.join(rootDir, ".claude/skills/capture-mcp-context/SKILL.md"),
+      "utf8",
+    );
+    expect(skill).toContain("name: capture-mcp-context");
+    expect(skill).toContain("Captured Context");
+  });
+
   it("writes nothing on dry run", async () => {
     const rootDir = await createRoot("mcp-dry-run");
 

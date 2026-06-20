@@ -287,7 +287,8 @@ List the built-in catalog skills.
 
 Generate offline, proposed memory for an MCP server (for example \`figma\`) as \`docs/ai/mcp/<server>.md\`
 plus a proposed adoption ADR. Recall OS never connects to the MCP server or makes network calls; the
-agent records durable MCP-derived context into the generated memory for human review.
+agent records durable MCP-derived context into the generated memory for human review. It also
+installs a \`capture-mcp-context\` agent skill that prompts the agent to record that context.
 
 Options:
 

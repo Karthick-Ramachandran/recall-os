@@ -92,6 +92,7 @@ MVP skills:
 - `architecture-drift-review`
 - `update-module-memory`
 - `completion-report`
+- `capture-mcp-context`
 
 Each skill must be focused on one job and include:
 

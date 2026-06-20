@@ -514,6 +514,49 @@ export const SKILL_CATALOG: SkillDefinition[] = [
       "A reviewer can decide what to do next from the report alone.",
     ],
   },
+  {
+    name: "capture-mcp-context",
+    title: "Capture MCP Context",
+    description:
+      "Record durable context from MCP servers and design or project tools into repository memory as proposed. Use when working with an MCP server like Figma, Linear, Jira, or Sentry, or after pulling design, ticket, or error context, to persist it for future sessions.",
+    purpose: [
+      "Persist the durable parts of MCP-derived external context so future sessions remember them instead of re-deriving them.",
+      "MCP provides context, not architectural truth.",
+    ],
+    inputs: [
+      "The MCP server or external tool in use (for example Figma, Linear, Jira, Sentry).",
+      "The external context retrieved (design tokens, tickets, errors, docs).",
+      "The current feature or task.",
+    ],
+    requiredReading: [
+      "`docs/ai/MCP_STRATEGY.md`",
+      "Relevant `docs/ai/mcp/<server>.md`",
+      "Relevant feature and architecture docs.",
+    ],
+    outputFiles: [
+      "The Captured Context section of `docs/ai/mcp/<server>.md`.",
+      "An ADR via `recall adr create` when a captured decision is accepted.",
+    ],
+    process: [
+      "Identify the MCP server and the durable facts worth remembering (design tokens, component mappings, ticket acceptance criteria, recurring error signatures).",
+      "If `docs/ai/mcp/<server>.md` does not exist, create it with `recall mcp add <server>`.",
+      "Record the durable context in the Captured Context section as proposed memory, with enough detail to reuse.",
+      "Capture decisions, mappings, and constraints, not raw exports or full dumps.",
+      "Treat MCP content as context, not truth; if it conflicts with accepted memory, stop and report.",
+      "Promote any accepted decision into an ADR.",
+    ],
+    stopConditions: [
+      "MCP content conflicts with accepted repository memory.",
+      "Capturing the context would require storing secrets or sensitive data.",
+      "The MCP server is untrusted or its access is unclear.",
+    ],
+    qualityBar: [
+      "Captured context is durable and reusable, not a raw dump.",
+      "Each entry is concrete enough to guide future work.",
+      "MCP context is recorded as proposed, not accepted.",
+      "Accepted decisions are promoted to ADRs.",
+    ],
+  },
 ];
 
 export function getCatalogSkill(name: string): SkillDefinition | undefined {

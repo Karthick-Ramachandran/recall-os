@@ -10,8 +10,9 @@
 - Done: Add MCP memory and proposed-ADR generation.
 - Done: Add the `recall mcp add` command.
 - Done: Add unit and integration tests.
+- Done: Install the `capture-mcp-context` skill from `mcp add` and add Jira (F-025).
 
 ## Future
 
-- Add a `capture-mcp-context` agent skill that routes agents to record context into MCP memory.
+- Add a Doctor check that adopted MCP memory carries captured context.
 - Add more known servers.

@@ -27,6 +27,15 @@ const KNOWN_SERVERS: Record<string, KnownServer> = {
       "Acceptance criteria in issues.",
     ],
   },
+  jira: {
+    title: "Jira",
+    purpose: "Tickets, sprints, and acceptance criteria for knocking out tasks.",
+    dataAccessed: [
+      "Issues and tickets.",
+      "Sprint and board status.",
+      "Acceptance criteria in issues.",
+    ],
+  },
   github: {
     title: "GitHub",
     purpose: "Pull requests, issues, and review comments.",

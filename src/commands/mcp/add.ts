@@ -2,6 +2,7 @@ import { createDefaultConfig } from "../../core/config/default-config.js";
 import { ConfigValidationError } from "../../core/config/config-schema.js";
 import { loadConfig, ConfigLoadError } from "../../core/config/load-config.js";
 import { generateMcpFiles, mcpDocPath } from "../../core/mcp/generate-mcp.js";
+import { generateSkillFiles } from "../../core/skills/generate-skill.js";
 import { createWritePlan, type WritePlan } from "../../core/filesystem/write-plan.js";
 import { executeWritePlan, type WriteResult } from "../../core/filesystem/write-file-safe.js";
 import { SlugifyError, slugify } from "../../core/naming/slugify.js";
@@ -39,7 +40,12 @@ export class McpAddError extends Error {
 export async function mcpAdd(options: McpAddOptions): Promise<McpAddResult> {
   const server = createServerSlug(options.server);
   const config = await loadConfigOrDefault(options.rootDir);
-  const files = generateMcpFiles({ adrDir: config.adrDir, server });
+  // The memory doc and adoption ADR, plus the capture skill that tells agents to record durable
+  // MCP-derived context into that doc. The skill is shared across servers and skipped if it exists.
+  const files = [
+    ...generateMcpFiles({ adrDir: config.adrDir, server }),
+    ...generateSkillFiles("capture-mcp-context").files,
+  ];
   const plan = createWritePlan({
     rootDir: options.rootDir,
     files,
@@ -71,6 +77,7 @@ export function formatMcpAddResult(result: McpAddResult): string {
   const lines = [
     result.dryRun ? "Recall OS mcp add dry run complete." : "Recall OS mcp add complete.",
     `MCP memory: ${result.docPath} (proposed — review before adopting)`,
+    "Capture skill installed so agents record durable MCP context into this memory.",
   ];
 
   appendWriteSummary(lines, {

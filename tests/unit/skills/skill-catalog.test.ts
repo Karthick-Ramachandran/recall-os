@@ -18,6 +18,7 @@ describe("skill catalog", () => {
       "architecture-drift-review",
       "update-module-memory",
       "completion-report",
+      "capture-mcp-context",
     ]);
   });
 
