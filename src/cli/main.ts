@@ -1,22 +1,19 @@
 import { Command, CommanderError } from "commander";
 
-import {
-  createAdr,
-  AdrCreateError,
-  formatAdrCreateResult
-} from "../commands/adr/create.js";
+import { createAdr, AdrCreateError, formatAdrCreateResult } from "../commands/adr/create.js";
 import {
   createFeature,
   FeatureCreateError,
-  formatFeatureCreateResult
+  formatFeatureCreateResult,
 } from "../commands/feature/create.js";
 import { doctorProject, formatDoctorResult } from "../commands/doctor.js";
 import { formatInitResult, initProject, InitError } from "../commands/init.js";
 import {
   createModule,
   formatModuleCreateResult,
-  ModuleCreateError
+  ModuleCreateError,
 } from "../commands/module/create.js";
+import { formatPresetListResult, listPresetEntries } from "../commands/preset/list.js";
 
 export type CliWritable = {
   write(message: string): void;
@@ -30,7 +27,7 @@ export type CliIo = {
 
 export function createCliProgram(
   io: CliIo = {},
-  state: { exitCode: number } = { exitCode: 0 }
+  state: { exitCode: number } = { exitCode: 0 },
 ): Command {
   const stdout = io.stdout ?? process.stdout;
   const stderr = io.stderr ?? process.stderr;
@@ -38,17 +35,17 @@ export function createCliProgram(
   const program = new Command();
 
   program
-    .name("specforge")
+    .name("recall")
     .description("Initialize and maintain repository memory for AI-assisted software work.")
     .exitOverride()
     .configureOutput({
       writeOut: (message) => stdout.write(message),
-      writeErr: (message) => stderr.write(message)
+      writeErr: (message) => stderr.write(message),
     });
 
   program
     .command("init")
-    .description("Initialize SpecForge repository memory.")
+    .description("Initialize Recall OS repository memory.")
     .option("--preset <id>", "Apply optional preset guidance and proposed decisions.")
     .option("--dry-run", "Show planned writes without writing files.")
     .option("--force", "Overwrite existing files explicitly.")
@@ -57,15 +54,13 @@ export function createCliProgram(
         rootDir: cwd,
         preset: options.preset,
         dryRun: options.dryRun,
-        force: options.force
+        force: options.force,
       });
 
       stdout.write(formatInitResult(result));
     });
 
-  const featureCommand = program
-    .command("feature")
-    .description("Manage SpecForge feature memory.");
+  const featureCommand = program.command("feature").description("Manage Recall OS feature memory.");
 
   featureCommand
     .command("create")
@@ -78,15 +73,13 @@ export function createCliProgram(
         rootDir: cwd,
         name,
         dryRun: options.dryRun,
-        force: options.force
+        force: options.force,
       });
 
       stdout.write(formatFeatureCreateResult(result));
     });
 
-  const adrCommand = program
-    .command("adr")
-    .description("Manage SpecForge ADR memory.");
+  const adrCommand = program.command("adr").description("Manage Recall OS ADR memory.");
 
   adrCommand
     .command("create")
@@ -99,15 +92,13 @@ export function createCliProgram(
         rootDir: cwd,
         title,
         dryRun: options.dryRun,
-        force: options.force
+        force: options.force,
       });
 
       stdout.write(formatAdrCreateResult(result));
     });
 
-  const moduleCommand = program
-    .command("module")
-    .description("Manage SpecForge module memory.");
+  const moduleCommand = program.command("module").description("Manage Recall OS module memory.");
 
   moduleCommand
     .command("create")
@@ -120,7 +111,7 @@ export function createCliProgram(
         rootDir: cwd,
         name,
         dryRun: options.dryRun,
-        force: options.force
+        force: options.force,
       });
 
       stdout.write(formatModuleCreateResult(result));
@@ -128,7 +119,7 @@ export function createCliProgram(
 
   program
     .command("doctor")
-    .description("Check whether SpecForge repository memory is healthy.")
+    .description("Check whether Recall OS repository memory is healthy.")
     .action(async () => {
       const result = await doctorProject({ rootDir: cwd });
 
@@ -136,10 +127,22 @@ export function createCliProgram(
       state.exitCode = result.exitCode;
     });
 
+  const presetCommand = program.command("preset").description("Inspect Recall OS presets.");
+
+  presetCommand
+    .command("list")
+    .description("List built-in presets.")
+    .action(() => {
+      stdout.write(formatPresetListResult(listPresetEntries()));
+    });
+
   return program;
 }
 
-export async function main(argv: string[] = process.argv.slice(2), io: CliIo = {}): Promise<number> {
+export async function main(
+  argv: string[] = process.argv.slice(2),
+  io: CliIo = {},
+): Promise<number> {
   const stderr = io.stderr ?? process.stderr;
   const state = { exitCode: 0 };
   const program = createCliProgram(io, state);

@@ -1,6 +1,10 @@
 import { createDefaultConfig } from "../core/config/default-config.js";
 import { CONFIG_PATH } from "../core/config/load-config.js";
-import { createWritePlan, type WritePlan, type WriteFileInput } from "../core/filesystem/write-plan.js";
+import {
+  createWritePlan,
+  type WritePlan,
+  type WriteFileInput,
+} from "../core/filesystem/write-plan.js";
 import { executeWritePlan, type WriteResult } from "../core/filesystem/write-file-safe.js";
 import { generateInitFiles } from "../core/generator/generate-init.js";
 import { getPreset } from "../core/presets/preset-registry.js";
@@ -42,16 +46,16 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
   const plan = createWritePlan({
     rootDir: options.rootDir,
     files,
-    force: options.force
+    force: options.force,
   });
 
   if (plan.hasErrors) {
     throw new InitError(
       "WRITE_PLAN_ERROR",
-      "SpecForge init write plan contains errors.",
+      "Recall OS init write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
-        .map((entry) => `${entry.path}: ${entry.reason}`)
+        .map((entry) => `${entry.path}: ${entry.reason}`),
     );
   }
 
@@ -61,19 +65,19 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
     preset: preset?.id ?? null,
     dryRun: options.dryRun ?? false,
     plan,
-    writeResult
+    writeResult,
   };
 }
 
 export function formatInitResult(result: InitResult): string {
   const lines = [
-    result.dryRun ? "SpecForge init dry run complete." : "SpecForge init complete.",
-    `Preset: ${result.preset ?? "none"}`
+    result.dryRun ? "Recall OS init dry run complete." : "Recall OS init complete.",
+    `Preset: ${result.preset ?? "none"}`,
   ];
 
   appendWriteSummary(lines, {
     dryRun: result.dryRun,
-    writeResult: result.writeResult
+    writeResult: result.writeResult,
   });
 
   return `${lines.join("\n")}\n`;
@@ -96,13 +100,13 @@ function resolvePreset(presetId: string | undefined): Preset | null {
 function createInitWriteFiles(
   rootDir: string,
   config: ReturnType<typeof createDefaultConfig>,
-  preset: Preset | null
+  preset: Preset | null,
 ): WriteFileInput[] {
   return [
     {
       path: CONFIG_PATH,
-      content: `${JSON.stringify(config, null, 2)}\n`
+      content: `${JSON.stringify(config, null, 2)}\n`,
     },
-    ...generateInitFiles({ rootDir, preset })
+    ...generateInitFiles({ rootDir, preset }),
   ];
 }

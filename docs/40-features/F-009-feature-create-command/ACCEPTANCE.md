@@ -3,7 +3,7 @@
 ## Command Behavior
 
 - `feature create <name>` creates a feature folder under configured `featuresDir`.
-- Command requires `.specforge/config.json`.
+- Command requires `.recall/config.json`.
 - Command fails clearly when config is missing.
 - Feature names are slugified.
 - Unsafe feature names are rejected.

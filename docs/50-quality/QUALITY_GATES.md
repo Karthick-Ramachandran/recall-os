@@ -4,7 +4,7 @@
 
 This document defines release readiness as evidence, not confidence.
 
-SpecForge should be judged by whether it helps humans and AI agents build safer software with clearer requirements, better tests, stronger review, and less architecture drift.
+Recall OS should be judged by whether it helps humans and AI agents build safer software with clearer requirements, better tests, stronger review, and less architecture drift.
 
 ## Gate 1: Product Usefulness
 
@@ -13,7 +13,7 @@ Release evidence must show:
 - Generated docs are short enough to use and specific enough to guide implementation.
 - Root agent files route to source-of-truth docs.
 - Feature, ADR, module, test, review, and completion workflows are connected.
-- Dogfooding improved SpecForge itself.
+- Dogfooding improved Recall OS itself.
 
 ## Gate 2: Security Posture
 

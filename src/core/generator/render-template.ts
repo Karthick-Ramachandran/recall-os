@@ -2,7 +2,7 @@ import {
   createTemplateContext,
   TemplateRenderError,
   type TemplateContext,
-  type TemplateValue
+  type TemplateValue,
 } from "./template-context.js";
 
 const TEMPLATE_KEY_PATTERN = /^[A-Za-z][A-Za-z0-9_]*$/u;
@@ -13,7 +13,7 @@ const LOGIC_MARKERS = ["{{#", "{{/", "{{^", "{{>"];
 function validatePlaceholderKey(key: string): void {
   if (!TEMPLATE_KEY_PATTERN.test(key)) {
     throw new TemplateRenderError(
-      `Invalid placeholder "${key}". Placeholders must match [A-Za-z][A-Za-z0-9_]*.`
+      `Invalid placeholder "${key}". Placeholders must match [A-Za-z][A-Za-z0-9_]*.`,
     );
   }
 
@@ -30,7 +30,7 @@ function rejectUnsupportedSyntax(template: string): void {
   for (const marker of EXECUTION_MARKERS) {
     if (template.includes(marker)) {
       throw new TemplateRenderError(
-        `Unsupported template syntax "${marker}". Template execution is not supported.`
+        `Unsupported template syntax "${marker}". Template execution is not supported.`,
       );
     }
   }
@@ -38,7 +38,7 @@ function rejectUnsupportedSyntax(template: string): void {
   for (const marker of LOGIC_MARKERS) {
     if (template.includes(marker)) {
       throw new TemplateRenderError(
-        `Unsupported template syntax "${marker}". Template logic is not supported.`
+        `Unsupported template syntax "${marker}". Template logic is not supported.`,
       );
     }
   }

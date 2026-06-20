@@ -9,7 +9,7 @@ description: Review a change for undocumented architecture, dependency, module, 
 
 Find changes that diverge from accepted repository memory.
 
-Drift is not difference from a SpecForge recommendation. SpecForge is architecture-neutral.
+Drift is not difference from a Recall OS recommendation. Recall OS is architecture-neutral.
 
 ## Inputs
 
@@ -75,7 +75,7 @@ Stop and request human decision if:
 ## Quality Bar
 
 - Findings distinguish drift from documented evolution.
-- Findings compare against accepted repository memory, not SpecForge preferences.
+- Findings compare against accepted repository memory, not Recall OS preferences.
 - Findings include engineering standards violations.
 - Each blocker names the missing source-of-truth update.
 - Review output is concrete enough to act on.

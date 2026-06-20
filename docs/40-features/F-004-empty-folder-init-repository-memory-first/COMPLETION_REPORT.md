@@ -38,8 +38,8 @@ Complete.
 
 ## Docs Updated
 
-- `specforge init` is documented as valid in empty folders.
-- SpecForge is documented as repository memory first, not application generation.
+- `recall init` is documented as valid in empty folders.
+- Recall OS is documented as repository memory first, not application generation.
 - Greenfield, existing repository, and legacy adoption workflows are documented.
 - Presets and detected technologies remain guidance or proposed decisions unless accepted by humans.
 

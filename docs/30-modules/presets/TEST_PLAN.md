@@ -17,3 +17,8 @@
 - Preset destinations must pass safe relative path normalization.
 - Preset decisions must remain proposed.
 - Presets must not write files directly.
+
+## P10 Results
+
+- `tests/integration/preset-list-command.test.ts` verifies deterministic read-only preset listing.
+- Built-in preset validation tests continue to pass.

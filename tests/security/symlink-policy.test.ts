@@ -11,8 +11,8 @@ let rootDir: string;
 let outsideDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "specforge-symlink-security-root-"));
-  outsideDir = await mkdtemp(path.join(os.tmpdir(), "specforge-symlink-security-outside-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-symlink-security-root-"));
+  outsideDir = await mkdtemp(path.join(os.tmpdir(), "recall-symlink-security-outside-"));
 });
 
 afterEach(async () => {
@@ -29,13 +29,11 @@ describe("symlink policy security", () => {
     const plan = createWritePlan({
       rootDir,
       policy: "overwrite",
-      files: [{ path: "docs/A.md", content: "new" }]
+      files: [{ path: "docs/A.md", content: "new" }],
     });
 
     await expect(executeWritePlan(plan)).rejects.toThrow(WriteSafetyError);
-    await expect(readFile(path.join(outsideDir, "target.md"), "utf8")).resolves.toBe(
-      "outside"
-    );
+    await expect(readFile(path.join(outsideDir, "target.md"), "utf8")).resolves.toBe("outside");
   });
 
   it("refuses to write through existing parent symlinks", async () => {
@@ -43,7 +41,7 @@ describe("symlink policy security", () => {
 
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "docs/A.md", content: "new" }]
+      files: [{ path: "docs/A.md", content: "new" }],
     });
 
     await expect(executeWritePlan(plan)).rejects.toThrow(WriteSafetyError);

@@ -5,7 +5,7 @@ import type {
   WritePlan,
   WritePlanCreateEntry,
   WritePlanEntry,
-  WritePlanOverwriteEntry
+  WritePlanOverwriteEntry,
 } from "./write-plan.js";
 
 export type WriteResult = {
@@ -28,7 +28,7 @@ export type ExecuteWritePlanOptions = {
 
 export async function executeWritePlan(
   plan: WritePlan,
-  options: ExecuteWritePlanOptions = {}
+  options: ExecuteWritePlanOptions = {},
 ): Promise<WriteResult> {
   if (plan.hasErrors) {
     throw new WriteSafetyError("Refusing to execute a write plan with errors.");
@@ -38,7 +38,7 @@ export async function executeWritePlan(
     created: [],
     overwritten: [],
     skipped: [],
-    dryRun: options.dryRun ?? false
+    dryRun: options.dryRun ?? false,
   };
 
   for (const entry of plan.entries) {
@@ -73,13 +73,13 @@ export async function executeWritePlan(
 }
 
 export async function writeFileSafe(
-  entry: WritePlanCreateEntry | WritePlanOverwriteEntry
+  entry: WritePlanCreateEntry | WritePlanOverwriteEntry,
 ): Promise<void> {
   await assertNoSymlinkInExistingPath(entry.absolutePath);
   await mkdir(path.dirname(entry.absolutePath), { recursive: true });
   await writeFile(entry.absolutePath, entry.content, {
     encoding: "utf8",
-    flag: entry.action === "create" ? "wx" : "w"
+    flag: entry.action === "create" ? "wx" : "w",
   });
 }
 
@@ -89,7 +89,10 @@ async function assertNoSymlinkInExistingPath(absolutePath: string): Promise<void
   const startIndex = segments[0] === "" ? 1 : 1;
 
   for (let index = startIndex; index < segments.length; index += 1) {
-    current = current === path.sep ? path.join(current, segments[index] ?? "") : path.join(current, segments[index] ?? "");
+    current =
+      current === path.sep
+        ? path.join(current, segments[index] ?? "")
+        : path.join(current, segments[index] ?? "");
 
     try {
       const stats = await lstat(current);
@@ -112,7 +115,7 @@ async function assertNoSymlinkInExistingPath(absolutePath: string): Promise<void
 }
 
 export function assertExecutableEntry(
-  entry: WritePlanEntry
+  entry: WritePlanEntry,
 ): asserts entry is WritePlanCreateEntry | WritePlanOverwriteEntry {
   if (entry.action !== "create" && entry.action !== "overwrite") {
     throw new WriteSafetyError(`Entry action "${entry.action}" is not executable.`);

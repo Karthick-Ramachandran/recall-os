@@ -2,7 +2,7 @@
 
 ## MVP Privacy Promise
 
-SpecForge MVP does not collect, transmit, or store user analytics.
+Recall OS MVP does not collect, transmit, or store user analytics.
 
 It must not:
 
@@ -16,7 +16,7 @@ It must not:
 
 ## Local Files
 
-SpecForge writes generated docs and config into the current repository only.
+Recall OS writes generated docs and config into the current repository only.
 
 Future implementation must clearly report every created, skipped, or conflicted file.
 

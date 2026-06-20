@@ -22,7 +22,7 @@
 - Module folder missing required docs exits `2`.
 - ADR missing required sections exits `2`.
 - Doctor output includes info counts.
-- Init generates `docs/ai/SPECFORGE_COMMANDS.md`.
+- Init generates `docs/ai/RECALL_COMMANDS.md`.
 
 ## Regression Tests
 

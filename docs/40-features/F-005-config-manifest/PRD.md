@@ -14,15 +14,15 @@ Without a config manifest, commands will duplicate defaults and drift from each 
 
 ## Decision
 
-SpecForge will use:
+Recall OS will use:
 
 ```txt
-.specforge/config.json
+.recall/config.json
 ```
 
 P2 implements schema validation, defaults, loading, and safe writing.
 
-P2 also dogfoods the manifest with SpecForge's own root config.
+P2 also dogfoods the manifest with Recall OS's own root config.
 
 ## In Scope
 
@@ -30,7 +30,7 @@ P2 also dogfoods the manifest with SpecForge's own root config.
 - Default neutral config.
 - Config load helper.
 - Config write helper using the existing safe write pipeline.
-- Root `.specforge/config.json`.
+- Root `.recall/config.json`.
 - Config module memory and feature docs.
 
 ## Non-Goals

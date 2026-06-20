@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Product memory records what SpecForge is, who it serves, what problem it solves, and how product decisions evolve.
+Product memory records what Recall OS is, who it serves, what problem it solves, and how product decisions evolve.
 
 ## Owns
 
@@ -20,6 +20,6 @@ Product memory records what SpecForge is, who it serves, what problem it solves,
 
 ## Current Decision
 
-SpecForge is an architecture-neutral AI engineering memory platform.
+Recall OS is an architecture-neutral AI engineering memory platform.
 
 It does not make architecture decisions for users.

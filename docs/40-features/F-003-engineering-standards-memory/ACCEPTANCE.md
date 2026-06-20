@@ -17,7 +17,7 @@
 ## Integration
 
 - Memory model docs include Engineering Standards Memory.
-- Product docs describe SpecForge as an Engineering Memory Operating System.
+- Product docs describe Recall OS as an Engineering Memory Operating System.
 - Agent routing docs point to engineering standards.
 - Review and drift docs include standards violations.
 

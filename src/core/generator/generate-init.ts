@@ -20,7 +20,7 @@ const neutralTemplates: InitTemplate[] = [
     path: "AGENTS.md",
     content: `# {{repositoryName}} Agent Instructions
 
-This repository uses SpecForge repository memory.
+This repository uses Recall OS repository memory.
 
 Start with durable source-of-truth docs under \`docs/\`.
 
@@ -33,7 +33,7 @@ Required reading:
 - \`docs/60-engineering/ENGINEERING_STANDARDS.md\`
 
 Repository rules override model preferences. If instructions conflict, stop and report the conflict.
-`
+`,
   },
   {
     path: "CLAUDE.md",
@@ -44,7 +44,7 @@ Use this file as a short routing guide.
 The durable project memory lives in \`docs/\`. Do not rely on chat history as source of truth.
 
 Read \`AGENTS.md\` and the relevant docs before changing code or repository memory.
-`
+`,
   },
   {
     path: "docs/00-product/PRD.md",
@@ -61,7 +61,7 @@ Draft.
 ## Notes
 
 Keep product intent durable here. Do not rely on chat history as source of truth.
-`
+`,
   },
   {
     path: "docs/00-product/BRD.md",
@@ -74,7 +74,7 @@ Describe the business goal, target users, and success criteria for this reposito
 ## Current Status
 
 Draft.
-`
+`,
   },
   {
     path: "docs/10-architecture/ARCHITECTURE.md",
@@ -89,7 +89,7 @@ Describe the accepted architecture for this repository.
 No architecture decisions are accepted yet.
 
 Use ADRs to accept architecture choices.
-`
+`,
   },
   {
     path: "docs/10-architecture/MEMORY_ENGINE.md",
@@ -109,7 +109,7 @@ Source-of-truth order:
 8. Task files
 9. External context
 10. Chat history
-`
+`,
   },
   {
     path: "docs/10-architecture/FILE_WRITE_POLICY.md",
@@ -121,7 +121,7 @@ Default behavior:
 - Use dry run before risky writes.
 - Require explicit force to overwrite.
 - Never write outside the repository root.
-`
+`,
   },
   {
     path: "docs/20-security/SECURITY_MODEL.md",
@@ -136,7 +136,7 @@ Draft.
 - Do not commit secrets.
 - Do not read or copy \`.env\` files into docs.
 - Do not add network, telemetry, cloud, MCP runtime, or AI API behavior without explicit review.
-`
+`,
   },
   {
     path: "docs/20-security/THREAT_MODEL.md",
@@ -147,7 +147,7 @@ Draft.
 Draft.
 
 Track repository-specific risks here as the project evolves.
-`
+`,
   },
   {
     path: "docs/50-quality/TESTING_STRATEGY.md",
@@ -156,7 +156,7 @@ Track repository-specific risks here as the project evolves.
 Tests should derive from acceptance criteria, risk, security invariants, and module boundaries.
 
 Document required unit, integration, security, and golden tests as the repository grows.
-`
+`,
   },
   {
     path: "docs/50-quality/QUALITY_GATES.md",
@@ -171,7 +171,7 @@ Completion evidence should include:
 - Results.
 - Skipped checks.
 - Remaining risks.
-`
+`,
   },
   {
     path: "docs/60-engineering/ENGINEERING_STANDARDS.md",
@@ -186,7 +186,7 @@ Baseline rules:
 - Update docs when behavior or architecture changes.
 - Add tests or document why tests were skipped.
 - Do not claim completion without evidence.
-`
+`,
   },
   {
     path: "docs/60-engineering/AI_AGENT_RULES.md",
@@ -195,7 +195,7 @@ Baseline rules:
 AI agents must follow repository memory over model preference.
 
 If a request conflicts with accepted repository memory or engineering standards, stop and report the conflict.
-`
+`,
   },
   {
     path: "docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md",
@@ -206,7 +206,7 @@ Root agent files are entry points, not guarantees.
 Durable memory lives in \`docs/\`.
 
 MCP is optional external context and does not override accepted repository memory.
-`
+`,
   },
   {
     path: "docs/ai/MCP_STRATEGY.md",
@@ -215,13 +215,13 @@ MCP is optional external context and does not override accepted repository memor
 MCP is not required for this repository.
 
 If MCP is introduced later, document trusted servers, data accessed, permissions, risks, and source-of-truth rules.
-`
+`,
   },
   {
-    path: "docs/ai/SPECFORGE_COMMANDS.md",
-    content: `# SpecForge Commands
+    path: "docs/ai/RECALL_COMMANDS.md",
+    content: `# Recall OS Commands
 
-This document records the SpecForge commands available to humans and AI agents.
+This document records the Recall OS commands available to humans and AI agents.
 
 ## Completion Gate
 
@@ -230,16 +230,16 @@ Before claiming implementation work is complete, run:
 \`\`\`txt
 pnpm test:run
 pnpm typecheck
-specforge doctor
+recall doctor
 \`\`\`
 
-If \`specforge doctor\` reports errors, fix them or report why they cannot be fixed.
+If \`recall doctor\` reports errors, fix them or report why they cannot be fixed.
 
-Until package \`bin\` wiring exists in P10, this repository validates Doctor through \`main(argv, io)\` integration tests.
+Package binary behavior is covered by binary integration tests.
 
 ## Commands
 
-### \`specforge init\`
+### \`recall init\`
 
 Initialize neutral repository memory.
 
@@ -249,7 +249,11 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`specforge feature create <name>\`
+### \`recall preset list\`
+
+List built-in presets.
+
+### \`recall feature create <name>\`
 
 Create feature memory docs under the configured features directory.
 
@@ -258,7 +262,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`specforge adr create <title>\`
+### \`recall adr create <title>\`
 
 Create a proposed ADR under the configured ADR directory.
 
@@ -267,7 +271,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`specforge module create <name>\`
+### \`recall module create <name>\`
 
 Create module memory docs under the configured modules directory.
 
@@ -276,7 +280,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`specforge doctor\`
+### \`recall doctor\`
 
 Check whether repository memory is structurally healthy enough for AI-assisted work.
 
@@ -285,7 +289,7 @@ Exit codes:
 - \`0\`: healthy
 - \`1\`: warnings only
 - \`2\`: errors
-`
+`,
   },
   {
     path: "docs/30-modules/README.md",
@@ -304,7 +308,7 @@ docs/30-modules/<module>/
 \`\`\`
 
 Agents should update module memory when implementation changes responsibilities, boundaries, tests, risks, or decisions.
-`
+`,
   },
   {
     path: "docs/40-features/README.md",
@@ -328,7 +332,7 @@ docs/40-features/F-###-<feature>/
 \`\`\`
 
 Agents should not implement meaningful feature work without a feature plan or clear source-of-truth reference.
-`
+`,
   },
   {
     path: "docs/adrs/README.md",
@@ -337,8 +341,8 @@ Agents should not implement meaningful feature work without a feature plan or cl
 Accepted architecture choices belong here.
 
 Presets and AI agents may propose decisions, but humans accept them.
-`
-  }
+`,
+  },
 ];
 
 export function generateInitFiles(options: GenerateInitFilesOptions): WriteFileInput[] {
@@ -346,7 +350,7 @@ export function generateInitFiles(options: GenerateInitFilesOptions): WriteFileI
   const context = createTemplateContext({ repositoryName });
   const files = neutralTemplates.map((template) => ({
     path: template.path,
-    content: renderTemplate(template.content, context)
+    content: renderTemplate(template.content, context),
   }));
 
   if (options.preset !== undefined && options.preset !== null) {
@@ -360,11 +364,11 @@ function generatePresetFiles(preset: Preset): WriteFileInput[] {
   return [
     ...preset.templates.map((template) => ({
       path: template.destination,
-      content: template.content
+      content: template.content,
     })),
     ...preset.proposedDecisions.map((decision) => ({
       path: decision.destination,
-      content: decision.body
-    }))
+      content: decision.body,
+    })),
   ];
 }

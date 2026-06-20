@@ -9,14 +9,14 @@ import {
   formatFeatureNumber,
   getFeatureFolderForSlug,
   getNextFeatureNumber,
-  parseFeatureNumber
+  parseFeatureNumber,
 } from "../../../src/core/naming/feature-number.js";
 
 describe("feature number", () => {
   const roots: string[] = [];
 
   async function createRoot(): Promise<string> {
-    const rootDir = path.join(tmpdir(), `specforge-feature-number-${randomUUID()}`);
+    const rootDir = path.join(tmpdir(), `recall-feature-number-${randomUUID()}`);
     roots.push(rootDir);
     await mkdir(rootDir, { recursive: true });
     return rootDir;
@@ -24,7 +24,7 @@ describe("feature number", () => {
 
   afterEach(async () => {
     await Promise.all(
-      roots.splice(0).map((rootDir) => rm(rootDir, { recursive: true, force: true }))
+      roots.splice(0).map((rootDir) => rm(rootDir, { recursive: true, force: true })),
     );
   });
 
@@ -34,7 +34,7 @@ describe("feature number", () => {
 
     expect(featureNumber).toEqual({
       number: 1,
-      id: "F-001"
+      id: "F-001",
     });
   });
 
@@ -47,7 +47,7 @@ describe("feature number", () => {
 
     expect(await getNextFeatureNumber(featuresDir)).toEqual({
       number: 8,
-      id: "F-008"
+      id: "F-008",
     });
   });
 
@@ -62,7 +62,7 @@ describe("feature number", () => {
 
     expect(await getNextFeatureNumber(featuresDir)).toEqual({
       number: 2,
-      id: "F-002"
+      id: "F-002",
     });
   });
 
@@ -76,7 +76,7 @@ describe("feature number", () => {
       number: 1,
       id: "F-001",
       slug: "auth-provider",
-      folderName: "F-001-auth-provider"
+      folderName: "F-001-auth-provider",
     });
   });
 
@@ -90,7 +90,7 @@ describe("feature number", () => {
       number: 8,
       id: "F-008",
       slug: "checkout",
-      folderName: "F-008-checkout"
+      folderName: "F-008-checkout",
     });
   });
 

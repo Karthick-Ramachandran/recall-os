@@ -23,7 +23,7 @@ Every meaningful implementation should move through:
 
 Treat a module as a mini product inside the repository.
 
-For a request like `Build the preset module for SpecForge`, do not start with code.
+For a request like `Build the preset module for Recall OS`, do not start with code.
 
 First create or update:
 

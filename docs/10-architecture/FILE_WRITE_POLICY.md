@@ -2,7 +2,7 @@
 
 ## Default Policy
 
-SpecForge must skip existing files by default.
+Recall OS must skip existing files by default.
 
 The default write policy is:
 
@@ -22,7 +22,7 @@ MVP must support:
 
 ## Safety Rules
 
-SpecForge must:
+Recall OS must:
 
 - Never delete user files during init.
 - Never overwrite without `--force`.

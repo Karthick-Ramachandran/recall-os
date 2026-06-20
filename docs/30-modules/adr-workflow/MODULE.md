@@ -23,7 +23,7 @@ ADR workflow owns the repository-memory process for drafting and accepting archi
 
 ## Public Interface Direction
 
-`specforge adr create <title>` creates proposed ADR memory before a decision is accepted.
+`recall adr create <title>` creates proposed ADR memory before a decision is accepted.
 
 ## Current Decision
 

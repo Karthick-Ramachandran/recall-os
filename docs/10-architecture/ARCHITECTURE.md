@@ -1,18 +1,18 @@
-# SpecForge Architecture
+# Recall OS Architecture
 
 ## Purpose
 
-SpecForge is a local-first CLI that initializes and maintains AI-ready engineering memory inside a repository.
+Recall OS is a local-first CLI that initializes and maintains AI-ready engineering memory inside a repository.
 
 It generates durable documents, templates, and agent guidance. It does not generate production application code and does not run AI agents in the MVP.
 
-SpecForge Core is architecture-neutral. It records, distributes, validates, and protects architecture decisions; it does not decide which architecture, stack, vendor, or infrastructure a repository should use.
+Recall OS Core is architecture-neutral. It records, distributes, validates, and protects architecture decisions; it does not decide which architecture, stack, vendor, or infrastructure a repository should use.
 
-SpecForge initializes repository memory. It does not require application code to exist first.
+Recall OS initializes repository memory. It does not require application code to exist first.
 
 ## Architectural Style
 
-SpecForge should be a deterministic TypeScript CLI with a small core and declarative generation model.
+Recall OS should be a deterministic TypeScript CLI with a small core and declarative generation model.
 
 Core responsibilities:
 
@@ -23,7 +23,7 @@ Core responsibilities:
 - Report clear CLI results.
 - Run repository health checks.
 
-`specforge init` should work in empty folders, existing repositories, and non-Git directories. Git is recommended for normal development but is not required for repository memory initialization.
+`recall init` should work in empty folders, existing repositories, and non-Git directories. Git is recommended for normal development but is not required for repository memory initialization.
 
 The command layer should orchestrate behavior. Core modules should contain the business rules and be testable without invoking the CLI process.
 

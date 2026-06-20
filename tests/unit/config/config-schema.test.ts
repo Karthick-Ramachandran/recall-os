@@ -19,15 +19,12 @@ describe("config schema", () => {
       featuresDir: "docs/40-features",
       modulesDir: "docs/30-modules",
       adrDir: "docs/adrs",
-      writePolicy: "skip-existing"
+      writePolicy: "skip-existing",
     });
   });
 
   it("validates the dogfooded root config", () => {
-    const rawConfig = readFileSync(
-      path.join(process.cwd(), ".specforge", "config.json"),
-      "utf8"
-    );
+    const rawConfig = readFileSync(path.join(process.cwd(), ".recall", "config.json"), "utf8");
 
     expect(parseConfig(JSON.parse(rawConfig))).toEqual(createDefaultConfig());
   });
@@ -36,43 +33,37 @@ describe("config schema", () => {
     const baseConfig = createDefaultConfig();
 
     expect(() => parseConfig({ ...baseConfig, memoryProfile: "full" })).toThrow(
-      ConfigValidationError
+      ConfigValidationError,
     );
-    expect(() => parseConfig({ ...baseConfig, mode: "full" })).toThrow(
-      ConfigValidationError
-    );
+    expect(() => parseConfig({ ...baseConfig, mode: "full" })).toThrow(ConfigValidationError);
     expect(() => parseConfig({ ...baseConfig, aiTools: ["claude", "unknown"] })).toThrow(
-      ConfigValidationError
+      ConfigValidationError,
     );
     expect(() => parseConfig({ ...baseConfig, writePolicy: "backup-and-write" })).toThrow(
-      ConfigValidationError
+      ConfigValidationError,
     );
   });
 
   it("rejects invalid preset values", () => {
     const baseConfig = createDefaultConfig();
 
-    expect(() => parseConfig({ ...baseConfig, preset: 42 })).toThrow(
-      ConfigValidationError
-    );
-    expect(() => parseConfig({ ...baseConfig, preset: "Next JS" })).toThrow(
-      ConfigValidationError
-    );
+    expect(() => parseConfig({ ...baseConfig, preset: 42 })).toThrow(ConfigValidationError);
+    expect(() => parseConfig({ ...baseConfig, preset: "Next JS" })).toThrow(ConfigValidationError);
     expect(() => parseConfig({ ...baseConfig, preset: "../../evil" })).toThrow(
-      ConfigValidationError
+      ConfigValidationError,
     );
   });
 
   it("requires memoryProfile and mode to match in P2", () => {
     expect(() =>
-      parseConfig({ ...createDefaultConfig(), memoryProfile: "lite", mode: "standard" })
+      parseConfig({ ...createDefaultConfig(), memoryProfile: "lite", mode: "standard" }),
     ).toThrow(ConfigValidationError);
   });
 
   it("rejects duplicate AI tools", () => {
-    expect(() =>
-      parseConfig({ ...createDefaultConfig(), aiTools: ["claude", "claude"] })
-    ).toThrow(ConfigValidationError);
+    expect(() => parseConfig({ ...createDefaultConfig(), aiTools: ["claude", "claude"] })).toThrow(
+      ConfigValidationError,
+    );
   });
 
   it("rejects unsafe paths", () => {
@@ -82,40 +73,37 @@ describe("config schema", () => {
       "C:/tmp/docs",
       "docs\\features",
       "docs//features",
-      "docs/\u0000features"
+      "docs/\u0000features",
     ];
 
     for (const unsafePath of unsafePaths) {
-      expect(() =>
-        parseConfig({ ...createDefaultConfig(), featuresDir: unsafePath })
-      ).toThrow(ConfigValidationError);
+      expect(() => parseConfig({ ...createDefaultConfig(), featuresDir: unsafePath })).toThrow(
+        ConfigValidationError,
+      );
     }
   });
 
   it("normalizes safe relative paths", () => {
-    expect(parseConfig({ ...createDefaultConfig(), featuresDir: "docs/./40-features" }))
-      .toMatchObject({
-        featuresDir: "docs/40-features"
-      });
+    expect(
+      parseConfig({ ...createDefaultConfig(), featuresDir: "docs/./40-features" }),
+    ).toMatchObject({
+      featuresDir: "docs/40-features",
+    });
   });
 
   it("rejects unknown keys including decision indexes and organization standards", () => {
     const baseConfig = createDefaultConfig();
 
-    expect(() => parseConfig({ ...baseConfig, secret: "abc" })).toThrow(
-      ConfigValidationError
-    );
-    expect(() => parseConfig({ ...baseConfig, decisions: {} })).toThrow(
-      ConfigValidationError
-    );
+    expect(() => parseConfig({ ...baseConfig, secret: "abc" })).toThrow(ConfigValidationError);
+    expect(() => parseConfig({ ...baseConfig, decisions: {} })).toThrow(ConfigValidationError);
     expect(() => parseConfig({ ...baseConfig, acceptedDecisions: [] })).toThrow(
-      ConfigValidationError
+      ConfigValidationError,
     );
     expect(() => parseConfig({ ...baseConfig, proposedDecisions: [] })).toThrow(
-      ConfigValidationError
+      ConfigValidationError,
     );
     expect(() => parseConfig({ ...baseConfig, organizationStandards: [] })).toThrow(
-      ConfigValidationError
+      ConfigValidationError,
     );
   });
 });

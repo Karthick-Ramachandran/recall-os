@@ -12,6 +12,7 @@ The CLI module owns command parser wiring, user-facing output, and process-level
 - Calm user-facing output.
 - Exit-code style command results.
 - Shared write-summary formatting.
+- Packaged `recall` binary dispatch.
 
 ## Does Not Own
 
@@ -24,7 +25,7 @@ The CLI module owns command parser wiring, user-facing output, and process-level
 - ADR numbering or generation rules.
 - Module generation rules.
 - Doctor health check rules.
-- Package `bin` or release wiring in P5.
+- Package contents or release workflow ownership.
 - Network, telemetry, MCP runtime, AI API, or cloud behavior.
 
 ## Public Interfaces
@@ -37,10 +38,16 @@ The CLI module owns command parser wiring, user-facing output, and process-level
 
 P5 adds parser wiring without package `bin` or build/release setup.
 
-P6 routes `feature create <name>` to command orchestration while keeping business rules in core modules.
+P6 routes `feature create <name>` to command orchestration while keeping business rules in core
+modules.
 
-P7 routes `adr create <title>` to command orchestration while keeping business rules in core modules.
+P7 routes `adr create <title>` to command orchestration while keeping business rules in core
+modules.
 
-P8 routes `module create <name>` to command orchestration while keeping business rules in core modules.
+P8 routes `module create <name>` to command orchestration while keeping business rules in core
+modules.
 
 P9 routes `doctor` to Doctor orchestration while keeping repository memory checks in `core/doctor`.
+
+P10 exposes the same command surface through the packaged `recall` binary and adds read-only
+`preset list` command dispatch.

@@ -11,7 +11,7 @@
 
 ## Config Checks
 
-- Missing `.specforge/config.json` is an error.
+- Missing `.recall/config.json` is an error.
 - Invalid JSON config is an error.
 - Schema-invalid config is an error.
 - Configured `docsDir`, `featuresDir`, `modulesDir`, and `adrDir` must exist.
@@ -22,7 +22,7 @@ Required files include:
 
 - `AGENTS.md`
 - `CLAUDE.md`
-- `docs/ai/SPECFORGE_COMMANDS.md`
+- `docs/ai/RECALL_COMMANDS.md`
 
 Required docs include product, architecture, security, quality, engineering, AI/MCP, and ADR index docs.
 
@@ -35,7 +35,7 @@ Required docs include product, architecture, security, quality, engineering, AI/
 
 ## Init Command Memory
 
-- `init` generates `docs/ai/SPECFORGE_COMMANDS.md`.
+- `init` generates `docs/ai/RECALL_COMMANDS.md`.
 - Command reference lists `init`, `feature create`, `adr create`, `module create`, and `doctor`.
 - Command reference documents the AI completion gate.
 

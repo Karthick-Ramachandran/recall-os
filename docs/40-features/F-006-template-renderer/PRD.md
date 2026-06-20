@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Add the core template renderer that future SpecForge generators will use to produce deterministic repository memory documents.
+Add the core template renderer that future Recall OS generators will use to produce deterministic repository memory documents.
 
 P3 deliberately implements placeholder-only rendering. It does not add Eta or any template engine that can execute logic.
 
 ## Problem
 
-SpecForge will eventually generate PRDs, ADRs, module memory, agent instructions, and review docs. Those generated artifacts need a small rendering primitive before higher-level generators can exist.
+Recall OS will eventually generate PRDs, ADRs, module memory, agent instructions, and review docs. Those generated artifacts need a small rendering primitive before higher-level generators can exist.
 
 If rendering supports code execution, template logic, includes, or remote templates too early, the MVP trust boundary expands before the product has command-level safeguards and review workflows.
 
@@ -29,7 +29,7 @@ Context keys and placeholder keys must be simple safe identifiers. Values are st
 
 Root agent files such as `AGENTS.md` and `CLAUDE.md` are entry points, not guarantees.
 
-SpecForge must assume agents may forget context, continue after compaction, or fail to re-read root instructions. Durable repository memory belongs in `docs/`, where humans, agents, review workflows, and future `doctor` checks can re-read and validate it.
+Recall OS must assume agents may forget context, continue after compaction, or fail to re-read root instructions. Durable repository memory belongs in `docs/`, where humans, agents, review workflows, and future `doctor` checks can re-read and validate it.
 
 Models are temporary. Repositories are permanent.
 

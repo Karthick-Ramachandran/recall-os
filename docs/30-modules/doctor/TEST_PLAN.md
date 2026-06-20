@@ -27,3 +27,8 @@
 - Module ownership drift detection.
 - Dependency drift detection.
 - Stale completion evidence detection.
+
+## P10 Results
+
+- Doctor tests passed after the `.recall/config.json` and `RECALL_COMMANDS.md` rename.
+- Binary integration tests verify built `recall doctor` succeeds after `recall init`.

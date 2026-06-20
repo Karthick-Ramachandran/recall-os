@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-SpecForge needs template rendering before it can generate feature docs, ADRs, module memory, root agent files, and init output.
+Recall OS needs template rendering before it can generate feature docs, ADRs, module memory, root agent files, and init output.
 
 Earlier planning named Eta as the template engine. That adds more capability than P3 needs and introduces a larger trust boundary around template logic and execution semantics.
 
@@ -14,7 +14,7 @@ P3 needs deterministic document rendering, not a general-purpose template langua
 
 ## Decision
 
-SpecForge will implement an internal placeholder-only renderer for P3.
+Recall OS will implement an internal placeholder-only renderer for P3.
 
 Supported placeholders are simple safe identifiers:
 

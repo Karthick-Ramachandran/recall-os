@@ -19,7 +19,7 @@ export async function getNextAdrNumber(adrDirAbsolutePath: string): Promise<AdrN
 
 export async function getAdrFileForSlug(
   adrDirAbsolutePath: string,
-  slug: string
+  slug: string,
 ): Promise<AdrFile> {
   const existingFiles = await readExistingAdrFiles(adrDirAbsolutePath);
   const existingFile = existingFiles
@@ -35,19 +35,18 @@ export async function getAdrFileForSlug(
   return {
     ...nextAdrNumber,
     slug,
-    fileName: `${nextAdrNumber.id}-${slug}.md`
+    fileName: `${nextAdrNumber.id}-${slug}.md`,
   };
 }
 
 function getNextAdrNumberFromFiles(existingFiles: AdrFile[]): AdrNumber {
   const existingNumbers = existingFiles.map((file) => file.number);
-  const highestNumber =
-    existingNumbers.length === 0 ? 0 : Math.max(...existingNumbers);
+  const highestNumber = existingNumbers.length === 0 ? 0 : Math.max(...existingNumbers);
   const nextNumber = highestNumber + 1;
 
   return {
     number: nextNumber,
-    id: formatAdrNumber(nextNumber)
+    id: formatAdrNumber(nextNumber),
   };
 }
 
@@ -104,6 +103,6 @@ function parseAdrFile(fileName: string): AdrFile | null {
     number,
     id,
     slug,
-    fileName
+    fileName,
   };
 }

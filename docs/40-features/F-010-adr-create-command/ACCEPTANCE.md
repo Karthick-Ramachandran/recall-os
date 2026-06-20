@@ -3,7 +3,7 @@
 ## Command Behavior
 
 - `adr create <title>` creates an ADR file under configured `adrDir`.
-- Command requires `.specforge/config.json`.
+- Command requires `.recall/config.json`.
 - Command fails clearly when config is missing.
 - ADR titles are slugified.
 - Unsafe ADR titles are rejected.

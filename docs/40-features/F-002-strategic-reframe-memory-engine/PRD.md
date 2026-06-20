@@ -2,11 +2,11 @@
 
 ## Summary
 
-SpecForge should be positioned as an architecture-neutral AI engineering memory platform.
+Recall OS should be positioned as an architecture-neutral AI engineering memory platform.
 
 It should not be understood as an architecture starter kit that tells users which infrastructure, cloud, database, auth provider, or architecture style to use.
 
-SpecForge records, distributes, validates, and protects the architecture decisions a user, repository, organization, or explicitly selected preset provides.
+Recall OS records, distributes, validates, and protects the architecture decisions a user, repository, organization, or explicitly selected preset provides.
 
 ## Users
 
@@ -17,12 +17,12 @@ SpecForge records, distributes, validates, and protects the architecture decisio
 
 ## Goals
 
-- Make `specforge init` neutral by default.
+- Make `recall init` neutral by default.
 - Keep `preset` as the CLI term.
 - Define presets architecturally as opinion packs.
 - Distinguish Memory Engine, Repository Decisions, Opinion Packs, and Organization Memory.
 - Redefine drift as mismatch with accepted repository memory.
-- Remove language implying SpecForge Core makes architecture choices.
+- Remove language implying Recall OS Core makes architecture choices.
 
 ## Non-Goals
 
@@ -35,7 +35,7 @@ SpecForge records, distributes, validates, and protects the architecture decisio
 
 ## Strategic Principle
 
-SpecForge is intentionally architecture-neutral.
+Recall OS is intentionally architecture-neutral.
 
 Its role is not to determine what architecture a team should adopt.
 

@@ -1,10 +1,10 @@
-# BRD: SpecForge
+# BRD: Recall OS
 
 ## 1. Business Requirements Document
 
 ## 1.1 Product Name
 
-Working name: **SpecForge**
+Working name: **Recall OS**
 
 Alternative names under consideration:
 
@@ -20,51 +20,51 @@ The final name should be short, memorable, OSS-friendly, easy to search, and not
 
 ## 1.2 Executive Summary
 
-SpecForge is an open-source CLI that creates and maintains an AI-ready engineering memory layer inside software repositories.
+Recall OS is an open-source CLI that creates and maintains an AI-ready engineering memory layer inside software repositories.
 
 It helps developers, founders, and AI-assisted builders create better software by giving AI coding agents durable project context, architectural boundaries, test expectations, security expectations, review workflows, and documentation discipline.
 
-SpecForge is an Engineering Memory Operating System.
+Recall OS is an Engineering Memory Operating System.
 
 It preserves product intent, architecture decisions, module ownership, testing requirements, security assumptions, engineering standards, and operational discipline, and makes them durable, reviewable, and AI-readable.
 
-SpecForge is intentionally architecture-neutral. Its role is not to determine what architecture a team should adopt. Its role is to ensure that architecture decisions, regardless of their content, become durable, reviewable, AI-readable repository memory.
+Recall OS is intentionally architecture-neutral. Its role is not to determine what architecture a team should adopt. Its role is to ensure that architecture decisions, regardless of their content, become durable, reviewable, AI-readable repository memory.
 
-SpecForge is not a boilerplate generator. It is not an AI coding agent. It is not a SaaS product.
+Recall OS is not a boilerplate generator. It is not an AI coding agent. It is not a SaaS product.
 
 It is a local-first repository operating system for AI-assisted software delivery.
 
 Git initializes source control.
 
-SpecForge initializes repository memory.
+Recall OS initializes repository memory.
 
-Code may come before or after SpecForge.
+Code may come before or after Recall OS.
 
 The central belief:
 
 > AI can produce code quickly, but without durable engineering memory, architecture decisions, module boundaries, testing discipline, and review gates, AI-assisted projects drift into messy, fragile software.
 
-SpecForge exists to prevent that.
+Recall OS exists to prevent that.
 
 ---
 
 ## 1.3 Vision
 
-SpecForge should become the default open-source foundation layer for AI-assisted software development.
+Recall OS should become the default open-source foundation layer for AI-assisted software development.
 
 The long-term vision is that a developer can run:
 
 ```bash
-npx specforge init
+npx recall init
 ```
 
 and the repository becomes ready for serious AI-assisted development.
 
 It should create the structure that helps Claude Code, Codex, Cursor, GitHub Copilot, and future AI coding agents work inside a repo safely.
 
-The default `specforge init` experience should be neutral: memory engine first, no technology opinions, no architecture opinions.
+The default `recall init` experience should be neutral: memory engine first, no technology opinions, no architecture opinions.
 
-`specforge init` should work in an empty folder. It should not require an existing application, framework, or Git repository, though Git is recommended for normal development.
+`recall init` should work in an empty folder. It should not require an existing application, framework, or Git repository, though Git is recommended for normal development.
 
 The desired category:
 
@@ -84,7 +84,7 @@ Not:
 
 The public reputation goal is for developers to remember:
 
-> “Use SpecForge first before letting AI build your repo.”
+> “Use Recall OS first before letting AI build your repo.”
 
 ---
 
@@ -111,7 +111,7 @@ This causes fast technical debt.
 
 AI increases code volume faster than it increases architectural judgment.
 
-SpecForge solves this by creating a structured, version-controlled engineering memory system.
+Recall OS solves this by creating a structured, version-controlled engineering memory system.
 
 ---
 
@@ -228,7 +228,7 @@ Needs:
 
 ## 1.7 Core Value Proposition
 
-SpecForge gives AI agents durable rails.
+Recall OS gives AI agents durable rails.
 
 It creates a version-controlled repository memory system with five layers:
 
@@ -253,9 +253,9 @@ The main promise:
 
 > Stop relying on perfect prompts. Give the repo durable memory.
 
-SpecForge does not make architecture decisions.
+Recall OS does not make architecture decisions.
 
-SpecForge records, distributes, validates, and protects architecture decisions.
+Recall OS records, distributes, validates, and protects architecture decisions.
 
 Those decisions can come from repository owners, accepted ADRs, organization standards, or optional presets.
 
@@ -263,29 +263,29 @@ Those decisions can come from repository owners, accepted ADRs, organization sta
 
 ## 1.8 Strategic Differentiation
 
-SpecForge is different from adjacent tools.
+Recall OS is different from adjacent tools.
 
 ### Not a boilerplate generator
 
 Boilerplate generators create source code structure.
 
-SpecForge creates engineering memory and AI workflow structure.
+Recall OS creates engineering memory and AI workflow structure.
 
 ### Not a repo summarizer
 
 Repo summarizers compress existing context.
 
-SpecForge creates and maintains the source-of-truth context.
+Recall OS creates and maintains the source-of-truth context.
 
 ### Not a task manager
 
 Task tools create task lists.
 
-SpecForge links tasks back to PRDs, ADRs, module docs, test plans, and change requests.
+Recall OS links tasks back to PRDs, ADRs, module docs, test plans, and change requests.
 
 ### Not an AI coding agent
 
-SpecForge does not write production app code.
+Recall OS does not write production app code.
 
 It prepares the repository so AI coding agents can work better.
 
@@ -293,7 +293,7 @@ It prepares the repository so AI coding agents can work better.
 
 Prompt packs are temporary.
 
-SpecForge writes durable, version-controlled artifacts.
+Recall OS writes durable, version-controlled artifacts.
 
 ---
 
@@ -312,10 +312,10 @@ Since the primary motive is public profile, not direct revenue, success should b
 
 ### Community Goals
 
-* Developers use SpecForge in real projects.
+* Developers use Recall OS in real projects.
 * Contributors add high-quality presets.
-* Other AI tooling projects integrate with SpecForge concepts.
-* Builders discuss “repo memory” and “architecture drift” using SpecForge language.
+* Other AI tooling projects integrate with Recall OS concepts.
+* Builders discuss “repo memory” and “architecture drift” using Recall OS language.
 * Smart non-coders become better AI builders by using generated workflows.
 
 ---
@@ -324,9 +324,9 @@ Since the primary motive is public profile, not direct revenue, success should b
 
 ### MVP Success Metrics
 
-* A developer can run `specforge init` in under two minutes.
-* Default `specforge init` creates neutral memory with no architecture or technology choices.
-* Empty-folder `specforge init` is a first-class workflow.
+* A developer can run `recall init` in under two minutes.
+* Default `recall init` creates neutral memory with no architecture or technology choices.
+* Empty-folder `recall init` is a first-class workflow.
 * Existing files are never overwritten by default.
 * Generated docs are useful without long explanation.
 * Optional presets exist as opinion packs, not architecture mandates.
@@ -347,8 +347,8 @@ Since the primary motive is public profile, not direct revenue, success should b
 ### Long-Term Ecosystem Metrics
 
 * Community presets exist.
-* Other AI tools integrate with SpecForge output.
-* SpecForge becomes a recommended first step for AI-assisted repos.
+* Other AI tools integrate with Recall OS output.
+* Recall OS becomes a recommended first step for AI-assisted repos.
 * “Architecture drift review” becomes part of AI coding workflows.
 
 ---
@@ -357,7 +357,7 @@ Since the primary motive is public profile, not direct revenue, success should b
 
 ### MVP Scope
 
-SpecForge v0.1 should include:
+Recall OS v0.1 should include:
 
 * Local-first CLI
 * Deterministic template generation
@@ -387,7 +387,7 @@ SpecForge v0.1 should include:
 
 ### Explicit Non-Goals
 
-SpecForge v0.1 will not:
+Recall OS v0.1 will not:
 
 * Generate production app code
 * Call AI APIs
@@ -467,7 +467,7 @@ Mitigation:
 
 ## 1.13 Governance Requirements
 
-SpecForge should include:
+Recall OS should include:
 
 ```txt
 GOVERNANCE.md
@@ -517,7 +517,7 @@ Reason:
 
 ## 1.15 Trust and Privacy Requirements
 
-SpecForge must be local-first.
+Recall OS must be local-first.
 
 Security promises:
 
@@ -539,11 +539,11 @@ This should be clearly stated in README.
 
 One-liner:
 
-> SpecForge creates AI-ready engineering memory for your repository.
+> Recall OS creates AI-ready engineering memory for your repository.
 
 Short pitch:
 
-> AI coding agents move fast. SpecForge gives them specs, ADRs, module memory, security expectations, test strategy, review gates, and architecture drift checks so they can build without wrecking your codebase.
+> AI coding agents move fast. Recall OS gives them specs, ADRs, module memory, security expectations, test strategy, review gates, and architecture drift checks so they can build without wrecking your codebase.
 
 Category:
 
@@ -588,13 +588,13 @@ Focus less on “CLI that creates files.”
 
 Focus more on:
 
-> AI can write code. SpecForge helps it build software.
+> AI can write code. Recall OS helps it build software.
 
 ---
 
 ## 1.18 Final BRD Recommendation
 
-Build SpecForge as an OSS foundation layer for AI-assisted software delivery.
+Build Recall OS as an OSS foundation layer for AI-assisted software delivery.
 
 The project should be useful to:
 

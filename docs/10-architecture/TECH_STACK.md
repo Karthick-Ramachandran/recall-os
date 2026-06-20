@@ -17,7 +17,7 @@
 
 ## Rationale
 
-This stack supports `npx specforge init`, strong typing, deterministic builds, fast tests, and a familiar OSS contributor experience.
+This stack supports `npx recall init`, strong typing, deterministic builds, fast tests, and a familiar OSS contributor experience.
 
 ## Constraints
 

@@ -68,7 +68,7 @@ export function createWritePlan(options: CreateWritePlanOptions): WritePlan {
         entries.push({
           action: "error",
           path: file.path,
-          reason: `Duplicate output path "${safePath.path}" also used by "${existingPath}".`
+          reason: `Duplicate output path "${safePath.path}" also used by "${existingPath}".`,
         });
         continue;
       }
@@ -81,14 +81,14 @@ export function createWritePlan(options: CreateWritePlanOptions): WritePlan {
             action: "overwrite",
             path: safePath.path,
             absolutePath: safePath.absolutePath,
-            content: file.content
+            content: file.content,
           });
         } else {
           entries.push({
             action: "skip",
             path: safePath.path,
             absolutePath: safePath.absolutePath,
-            reason: "File already exists."
+            reason: "File already exists.",
           });
         }
         continue;
@@ -98,19 +98,19 @@ export function createWritePlan(options: CreateWritePlanOptions): WritePlan {
         action: "create",
         path: safePath.path,
         absolutePath: safePath.absolutePath,
-        content: file.content
+        content: file.content,
       });
     } catch (error) {
       entries.push({
         action: "error",
         path: file.path,
-        reason: error instanceof Error ? error.message : "Invalid output path."
+        reason: error instanceof Error ? error.message : "Invalid output path.",
       });
     }
   }
 
   return {
     entries,
-    hasErrors: entries.some((entry) => entry.action === "error")
+    hasErrors: entries.some((entry) => entry.action === "error"),
   };
 }

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-SpecForge should help repositories work better with AI coding tools by generating durable instructions, reusable workflows, and integration guidance.
+Recall OS should help repositories work better with AI coding tools by generating durable instructions, reusable workflows, and integration guidance.
 
 This includes:
 
@@ -12,9 +12,9 @@ This includes:
 - MCP integration guidance.
 - Tool-specific rules for Claude Code, Codex-compatible tools, Cursor, and future agents.
 
-SpecForge does not run agents itself in the MVP.
+Recall OS does not run agents itself in the MVP.
 
-SpecForge prepares the repository so agents can work safely.
+Recall OS prepares the repository so agents can work safely.
 
 ## AI Agent Instruction Files
 
@@ -42,7 +42,7 @@ Root instruction files should stay short. They should point agents to durable so
 
 ## Agent Roles
 
-SpecForge-generated repositories should define common AI agent roles:
+Recall OS-generated repositories should define common AI agent roles:
 
 - Product Agent
 - Architecture Agent
@@ -78,7 +78,7 @@ AI can draft and execute parts of this workflow. Humans own final decisions.
 
 Skills are reusable AI workflows.
 
-SpecForge should generate Claude-style skill files where supported and portable Agent Skills-compatible workflow instructions for other tools.
+Recall OS should generate Claude-style skill files where supported and portable Agent Skills-compatible workflow instructions for other tools.
 
 MVP skills:
 
@@ -131,18 +131,18 @@ A module request should create feature-level delivery docs under `docs/40-featur
 
 ## Skill Targets
 
-SpecForge should generate:
+Recall OS should generate:
 
 - `.claude/skills/<skill>/SKILL.md` for Claude Code.
-- `.agents/skills/<skill>/SKILL.md` as SpecForge's portable/generic skill target for Codex-compatible or Agent Skills-compatible tools.
+- `.agents/skills/<skill>/SKILL.md` as Recall OS's portable/generic skill target for Codex-compatible or Agent Skills-compatible tools.
 
-Do not claim `.agents/skills` is required by every tool. Treat it as the portable target SpecForge emits.
+Do not claim `.agents/skills` is required by every tool. Treat it as the portable target Recall OS emits.
 
 ## MCP Strategy
 
 MCP stands for Model Context Protocol.
 
-SpecForge should not require MCP in MVP.
+Recall OS should not require MCP in MVP.
 
 MCP may provide external context from tools like:
 
@@ -171,7 +171,7 @@ If MCP data conflicts with repo docs, the agent must stop and report the conflic
 
 ## MVP Requirement
 
-For MVP, SpecForge should:
+For MVP, Recall OS should:
 
 - Generate `CLAUDE.md`.
 - Generate `AGENTS.md`.

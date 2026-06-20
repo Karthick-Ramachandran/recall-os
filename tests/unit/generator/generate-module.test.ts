@@ -7,21 +7,21 @@ describe("generateModuleFiles", () => {
   it("generates all required module docs with deterministic paths", () => {
     const files = generateModuleFiles({
       modulesDir: "docs/30-modules",
-      moduleName: "Billing"
+      moduleName: "Billing",
     });
 
     expect(files.map((file) => file.path)).toEqual([
       "docs/30-modules/billing/MODULE.md",
       "docs/30-modules/billing/TASKS.md",
       "docs/30-modules/billing/TEST_PLAN.md",
-      "docs/30-modules/billing/DECISIONS.md"
+      "docs/30-modules/billing/DECISIONS.md",
     ]);
   });
 
   it("creates concise starter module memory content", () => {
     const files = generateModuleFiles({
       modulesDir: "docs/30-modules",
-      moduleName: "payment-gateway"
+      moduleName: "payment-gateway",
     });
     const moduleDoc = files.find((file) => file.path.endsWith("/MODULE.md"));
     const decisions = files.find((file) => file.path.endsWith("/DECISIONS.md"));
@@ -37,8 +37,8 @@ describe("generateModuleFiles", () => {
     expect(() =>
       generateModuleFiles({
         modulesDir: "docs/30-modules",
-        moduleName: "../../evil"
-      })
+        moduleName: "../../evil",
+      }),
     ).toThrow(SlugifyError);
   });
 });

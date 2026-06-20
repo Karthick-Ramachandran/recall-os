@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-012-doctor-command/`
+- `docs/40-features/F-013-recall-os-package-release/`
 
 ## Tasks
 
@@ -11,3 +11,5 @@
 - Done: Implement Doctor command.
 - Done: Add Doctor tests.
 - Done: Complete verification.
+- Done: Rename Doctor config and command-memory checks.
+- Done: Validate Doctor through built binary integration tests.

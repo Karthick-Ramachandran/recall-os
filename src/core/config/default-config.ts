@@ -1,4 +1,4 @@
-import { parseConfig, type SpecForgeConfig } from "./config-schema.js";
+import { parseConfig, type RecallConfig } from "./config-schema.js";
 
 const DEFAULT_CONFIG = {
   version: "0.1.0",
@@ -11,15 +11,13 @@ const DEFAULT_CONFIG = {
   featuresDir: "docs/40-features",
   modulesDir: "docs/30-modules",
   adrDir: "docs/adrs",
-  writePolicy: "skip-existing"
-} satisfies SpecForgeConfig;
+  writePolicy: "skip-existing",
+} satisfies RecallConfig;
 
-export function createDefaultConfig(
-  overrides: Partial<SpecForgeConfig> = {}
-): SpecForgeConfig {
+export function createDefaultConfig(overrides: Partial<RecallConfig> = {}): RecallConfig {
   return parseConfig({
     ...DEFAULT_CONFIG,
     aiTools: [...DEFAULT_CONFIG.aiTools],
-    ...overrides
+    ...overrides,
   });
 }

@@ -12,7 +12,7 @@ Repository decisions capture accepted architecture, product, security, dependenc
 
 ## Does Not Own
 
-- SpecForge Core opinions.
+- Recall OS Core opinions.
 - Organization-wide standards unless adopted into the repository.
 - Preset suggestions before acceptance.
 

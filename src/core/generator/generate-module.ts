@@ -39,7 +39,7 @@ Describe what this module owns and why it exists.
 ## Boundaries
 
 Describe important dependencies, callers, and constraints.
-`
+`,
   },
   {
     fileName: "TASKS.md",
@@ -54,7 +54,7 @@ Describe important dependencies, callers, and constraints.
 - Todo: Define module responsibilities.
 - Todo: Define tests.
 - Todo: Update decisions as behavior changes.
-`
+`,
   },
   {
     fileName: "TEST_PLAN.md",
@@ -71,7 +71,7 @@ Describe important dependencies, callers, and constraints.
 ## Security Tests
 
 - TBD
-`
+`,
   },
   {
     fileName: "DECISIONS.md",
@@ -82,8 +82,8 @@ Record durable module decisions here.
 ## Current Decisions
 
 - TBD
-`
-  }
+`,
+  },
 ];
 
 export function generateModuleFiles(options: GenerateModuleFilesOptions): WriteFileInput[] {
@@ -92,12 +92,12 @@ export function generateModuleFiles(options: GenerateModuleFilesOptions): WriteF
   const title = titleizeModuleName(options.moduleName);
   const context = createTemplateContext({
     slug,
-    title
+    title,
   });
 
   return moduleTemplates.map((template) => ({
     path: path.posix.join(moduleDir, template.fileName),
-    content: renderTemplate(template.content, context)
+    content: renderTemplate(template.content, context),
   }));
 }
 

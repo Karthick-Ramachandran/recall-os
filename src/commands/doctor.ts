@@ -1,8 +1,5 @@
 import { runDoctor, type DoctorReport } from "../core/doctor/doctor-check.js";
-import {
-  formatDoctorReport,
-  getDoctorExitCode
-} from "../core/doctor/doctor-report.js";
+import { formatDoctorReport, getDoctorExitCode } from "../core/doctor/doctor-report.js";
 
 export type DoctorOptions = {
   rootDir: string;
@@ -18,11 +15,10 @@ export async function doctorProject(options: DoctorOptions): Promise<DoctorResul
 
   return {
     report,
-    exitCode: getDoctorExitCode(report)
+    exitCode: getDoctorExitCode(report),
   };
 }
 
 export function formatDoctorResult(result: DoctorResult): string {
   return formatDoctorReport(result.report);
 }
-

@@ -20,3 +20,8 @@
 - Config must not store secrets.
 - Config must not allow arbitrary secret-like keys through strict schema.
 - Config write paths must not bypass `core/filesystem`.
+
+## P10 Results
+
+- Config unit tests passed after the `.recall/config.json` rename.
+- Init, Doctor, feature, ADR, module, and golden tests passed with the renamed config path.

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Repository init defines what `specforge init` means.
+Repository init defines what `recall init` means.
 
 It initializes repository memory, not application code.
 
@@ -27,11 +27,12 @@ It initializes repository memory, not application code.
 CLI behavior:
 
 ```bash
-specforge init
-specforge init --preset <name>
+recall init
+recall init --preset <name>
 ```
 
-`specforge init` should be valid in an empty folder and should not require existing app code or a framework.
+`recall init` should be valid in an empty folder and should not require existing app code or a
+framework.
 
 ## Current Decision
 
@@ -39,6 +40,7 @@ P5 implements repository memory init.
 
 Git initializes source control.
 
-SpecForge initializes repository memory.
+Recall OS initializes repository memory.
 
-P9 adds local command-reference memory so humans and AI agents can discover available SpecForge workflows after init.
+P9 adds local command-reference memory so humans and AI agents can discover available Recall OS
+workflows after init.

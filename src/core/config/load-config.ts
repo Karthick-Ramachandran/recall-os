@@ -1,8 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { resolveSafePath } from "../filesystem/safe-path.js";
-import { parseConfig, type SpecForgeConfig } from "./config-schema.js";
+import { parseConfig, type RecallConfig } from "./config-schema.js";
 
-export const CONFIG_PATH = ".specforge/config.json";
+export const CONFIG_PATH = ".recall/config.json";
 
 export class ConfigLoadError extends Error {
   constructor(message: string) {
@@ -11,7 +11,7 @@ export class ConfigLoadError extends Error {
   }
 }
 
-export async function loadConfig(rootDir: string): Promise<SpecForgeConfig> {
+export async function loadConfig(rootDir: string): Promise<RecallConfig> {
   const configPath = resolveSafePath(rootDir, CONFIG_PATH);
 
   let rawConfig: string;
@@ -20,7 +20,7 @@ export async function loadConfig(rootDir: string): Promise<SpecForgeConfig> {
   } catch (error) {
     const nodeError = error as NodeJS.ErrnoException;
     if (nodeError.code === "ENOENT") {
-      throw new ConfigLoadError(`SpecForge config not found at ${CONFIG_PATH}.`);
+      throw new ConfigLoadError(`Recall OS config not found at ${CONFIG_PATH}.`);
     }
     throw error;
   }
@@ -29,7 +29,7 @@ export async function loadConfig(rootDir: string): Promise<SpecForgeConfig> {
   try {
     parsedJson = JSON.parse(rawConfig);
   } catch {
-    throw new ConfigLoadError(`SpecForge config at ${CONFIG_PATH} is not valid JSON.`);
+    throw new ConfigLoadError(`Recall OS config at ${CONFIG_PATH} is not valid JSON.`);
   }
 
   return parseConfig(parsedJson);

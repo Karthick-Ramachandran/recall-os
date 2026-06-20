@@ -22,7 +22,7 @@ Review areas:
 
 ## Manual Review Evidence
 
-- Root `.specforge/config.json` validates through the config schema test.
+- Root `.recall/config.json` validates through the config schema test.
 - Root config contains no decisions, organization standards, secrets, or secret-like custom fields.
 - `pnpm test:run` passed.
 - `pnpm typecheck` passed.

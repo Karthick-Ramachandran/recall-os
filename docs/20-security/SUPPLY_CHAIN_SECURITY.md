@@ -2,7 +2,7 @@
 
 ## Package Boundary
 
-SpecForge will be distributed through npm. The package must be small, inspectable, and deterministic.
+Recall OS will be distributed through npm. The package must be small, inspectable, and deterministic.
 
 ## MVP Controls
 

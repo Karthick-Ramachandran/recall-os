@@ -11,7 +11,7 @@
 ## Safe Paths
 
 - Relative forward-slash paths are accepted.
-- Dot-directories like `.specforge/config.json` are accepted.
+- Dot-directories like `.recall/config.json` are accepted.
 - Absolute paths are rejected.
 - Backslashes are rejected.
 - `..` segments are rejected.

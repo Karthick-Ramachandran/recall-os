@@ -23,7 +23,7 @@ Feature workflow owns the repository-memory process for planning and completing 
 
 ## Public Interface Direction
 
-`specforge feature create <name>` creates feature memory before implementation work begins.
+`recall feature create <name>` creates feature memory before implementation work begins.
 
 ## Current Decision
 

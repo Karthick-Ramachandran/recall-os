@@ -14,7 +14,7 @@ Review areas:
 ## Findings
 
 - No architecture drift found. Architecture remains higher than engineering standards in the source-of-truth order.
-- No product drift found. Product docs now position SpecForge as an Engineering Memory Operating System while preserving architecture-neutral positioning.
+- No product drift found. Product docs now position Recall OS as an Engineering Memory Operating System while preserving architecture-neutral positioning.
 - No engineering standards drift found. Root agent files, review docs, and relevant skills route agents to `docs/60-engineering/`.
 - No runtime drift found. P1.6 changed docs and skill templates only.
 

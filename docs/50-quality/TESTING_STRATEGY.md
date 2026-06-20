@@ -2,7 +2,7 @@
 
 ## Purpose
 
-SpecForge tests should prove behavior that matters: safe writes, deterministic generation, useful docs, and predictable CLI output.
+Recall OS tests should prove behavior that matters: safe writes, deterministic generation, useful docs, and predictable CLI output.
 
 ## Test Levels
 

@@ -21,7 +21,7 @@ Repository memory is the durable source of truth that lets humans and AI agents 
 
 ## Current Decision
 
-SpecForge is a repository memory layer.
+Recall OS is a repository memory layer.
 
 It can be initialized before app code exists.
 

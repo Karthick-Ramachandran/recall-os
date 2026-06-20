@@ -2,15 +2,15 @@
 
 ## Purpose
 
-SpecForge Core is an architecture-neutral memory engine.
+Recall OS Core is an architecture-neutral memory engine.
 
 It does not decide which architecture, framework, cloud provider, database, queue, auth provider, observability stack, or deployment model a project should use.
 
-SpecForge records, distributes, validates, and protects architecture decisions once humans, repository owners, organizations, or explicitly selected presets define them.
+Recall OS records, distributes, validates, and protects architecture decisions once humans, repository owners, organizations, or explicitly selected presets define them.
 
 ## Strategic Position
 
-SpecForge is intentionally architecture-neutral.
+Recall OS is intentionally architecture-neutral.
 
 Its role is not to determine what architecture a team should adopt.
 
@@ -18,7 +18,7 @@ Its role is to ensure that architecture decisions, regardless of their content, 
 
 ## What Core Knows
 
-SpecForge Core knows how to create and maintain:
+Recall OS Core knows how to create and maintain:
 
 - ADRs.
 - PRDs.
@@ -36,7 +36,7 @@ SpecForge Core knows how to create and maintain:
 
 ## What Core Does Not Know
 
-SpecForge Core must not encode product infrastructure choices such as:
+Recall OS Core must not encode product infrastructure choices such as:
 
 - Redis.
 - Kafka.
@@ -55,7 +55,7 @@ SpecForge Core must not encode product infrastructure choices such as:
 - Clean Architecture.
 - Feature-first architecture.
 
-Those may be valid choices, but they are not SpecForge Core decisions.
+Those may be valid choices, but they are not Recall OS Core decisions.
 
 ## Memory Pillars
 
@@ -97,7 +97,7 @@ The memory engine remains stable across all users. Solo founders, startups, OSS 
 The primary path is:
 
 ```bash
-specforge init
+recall init
 ```
 
 This should generate a neutral engineering memory structure with no technology opinions and no architecture opinions.
@@ -106,17 +106,17 @@ It must work in an empty folder.
 
 Git initializes source control.
 
-SpecForge initializes repository memory.
+Recall OS initializes repository memory.
 
-Code may come before or after SpecForge.
+Code may come before or after Recall OS.
 
 Optional presets may add stack-aware guidance, but they must not silently create accepted architecture decisions.
 
 ## Init Workflows
 
-1. Greenfield: empty folder -> `specforge init` -> app/framework later.
-2. Existing repository: app exists -> neutral `specforge init` -> optional detected guidance later.
-3. Legacy adoption: mature repo -> future `specforge adopt`.
+1. Greenfield: empty folder -> `recall init` -> app/framework later.
+2. Existing repository: app exists -> neutral `recall init` -> optional detected guidance later.
+3. Legacy adoption: mature repo -> future `recall adopt`.
 
 Technology detection may provide guidance, suggest opinion packs, or draft proposed decisions.
 
@@ -126,7 +126,7 @@ Technology detection must not become accepted repository memory by itself.
 
 Root agent instruction files are entry points, not guarantees.
 
-SpecForge must assume AI agents may forget context, continue after compaction, skip re-reading root instructions, or behave differently across vendors.
+Recall OS must assume AI agents may forget context, continue after compaction, skip re-reading root instructions, or behave differently across vendors.
 
 Durable repository memory belongs in `docs/`.
 
@@ -134,7 +134,7 @@ Future review and `doctor` workflows should validate repository memory after age
 
 ## Drift Definition
 
-Architecture drift is not difference from a SpecForge recommendation.
+Architecture drift is not difference from a Recall OS recommendation.
 
 Architecture drift is difference from accepted repository memory.
 

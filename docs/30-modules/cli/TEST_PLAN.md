@@ -13,12 +13,6 @@
 - Covered by `tests/integration/init-command.test.ts`.
 - Covered by golden tests under `tests/golden/`.
 
-## Future Tests
-
-- Package binary execution after build and release wiring exists.
-- Output formatting across more commands.
-- Exit code mapping for all command families.
-
 ## P6 Tests
 
 - `main(["feature", "create", "<name>"])` requires initialized config.
@@ -47,7 +41,8 @@
 
 ## P8 Tests
 
-- Existing init, feature, and ADR command tests preserve output behavior after write-summary helper extraction.
+- Existing init, feature, and ADR command tests preserve output behavior after write-summary helper
+  extraction.
 - `main(["module", "create", "<name>"])` requires initialized config.
 - `module create` creates module docs.
 - `module create --dry-run` writes nothing and reports planned files.
@@ -72,3 +67,17 @@
 - Covered by `tests/integration/doctor-command.test.ts`.
 - Focused P9 verification passed.
 - Full verification passed with `pnpm test:run`, `pnpm typecheck`, and `git diff --check`.
+
+## P10 Tests
+
+- Built CLI entrypoint runs `--help`.
+- Built CLI entrypoint runs `init`.
+- Built CLI entrypoint runs `doctor` after init.
+- `preset list` lists built-in presets deterministically.
+
+## P10 Results
+
+- Covered by `tests/integration/binary-command.test.ts`.
+- Covered by `tests/integration/preset-list-command.test.ts`.
+- Full verification passed with lint, format check, tests, typecheck, build, package check, and
+  `git diff --check`.

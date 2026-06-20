@@ -6,9 +6,9 @@ import {
   readGeneratedFile,
   readGeneratedJson,
   removeTempRoot,
-  runInitCommand
+  runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { SpecForgeConfig } from "../../src/core/config/config-schema.js";
+import type { RecallConfig } from "../../src/core/config/config-schema.js";
 
 describe("generic init golden output", () => {
   let rootDir: string | undefined;
@@ -26,7 +26,7 @@ describe("generic init golden output", () => {
 
     expect(result.exitCode).toBe(0);
     expect(await listRelativeFiles(rootDir)).toEqual([
-      ".specforge/config.json",
+      ".recall/config.json",
       "AGENTS.md",
       "CLAUDE.md",
       "docs/00-product/BRD.md",
@@ -46,15 +46,13 @@ describe("generic init golden output", () => {
       "docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md",
       "docs/ai/MCP_STRATEGY.md",
       "docs/ai/presets/generic-guidance.md",
-      "docs/ai/SPECFORGE_COMMANDS.md"
+      "docs/ai/RECALL_COMMANDS.md",
     ]);
 
-    const config = await readGeneratedJson<SpecForgeConfig>(
-      rootDir,
-      ".specforge/config.json"
-    );
+    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
     expect(config.preset).toBe("generic");
-    expect(await readGeneratedFile(rootDir, "docs/ai/presets/generic-guidance.md"))
-      .toContain("neutral repository memory");
+    expect(await readGeneratedFile(rootDir, "docs/ai/presets/generic-guidance.md")).toContain(
+      "neutral repository memory",
+    );
   });
 });

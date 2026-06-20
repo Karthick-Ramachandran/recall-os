@@ -2,10 +2,10 @@
 
 ## Target Structure
 
-SpecForge should dogfood the structure it generates.
+Recall OS should dogfood the structure it generates.
 
 ```txt
-specforge/
+recall/
   CLAUDE.md
   AGENTS.md
   docs/

@@ -2,9 +2,9 @@
 
 ## P1.7: Repository Memory First
 
-SpecForge is not a repo bootstrap tool or application generator.
+Recall OS is not a repo bootstrap tool or application generator.
 
-SpecForge initializes and protects repository memory.
+Recall OS initializes and protects repository memory.
 
 ## P1.7: Detection Is Not Acceptance
 
@@ -14,6 +14,6 @@ Technology detection must not become accepted repository memory by itself.
 
 ## P5: Minimal Runtime Memory
 
-`specforge init` now creates minimal durable repository memory.
+`recall init` now creates minimal durable repository memory.
 
 Generated docs are concise placeholders meant to route humans and agents to source-of-truth files.

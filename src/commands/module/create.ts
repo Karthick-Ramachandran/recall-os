@@ -21,10 +21,7 @@ export type ModuleCreateResult = {
   writeResult: WriteResult;
 };
 
-export type ModuleCreateErrorCode =
-  | "CONFIG_REQUIRED"
-  | "INVALID_MODULE_NAME"
-  | "WRITE_PLAN_ERROR";
+export type ModuleCreateErrorCode = "CONFIG_REQUIRED" | "INVALID_MODULE_NAME" | "WRITE_PLAN_ERROR";
 
 export class ModuleCreateError extends Error {
   readonly code: ModuleCreateErrorCode;
@@ -38,19 +35,17 @@ export class ModuleCreateError extends Error {
   }
 }
 
-export async function createModule(
-  options: ModuleCreateOptions
-): Promise<ModuleCreateResult> {
+export async function createModule(options: ModuleCreateOptions): Promise<ModuleCreateResult> {
   const slug = createModuleSlug(options.name);
   const config = await loadRequiredConfig(options.rootDir);
   const files = generateModuleFiles({
     modulesDir: config.modulesDir,
-    moduleName: options.name
+    moduleName: options.name,
   });
   const plan = createWritePlan({
     rootDir: options.rootDir,
     files,
-    force: options.force
+    force: options.force,
   });
 
   if (plan.hasErrors) {
@@ -59,7 +54,7 @@ export async function createModule(
       "Module create write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
-        .map((entry) => `${entry.path}: ${entry.reason}`)
+        .map((entry) => `${entry.path}: ${entry.reason}`),
     );
   }
 
@@ -70,21 +65,21 @@ export async function createModule(
     modulePath: `${config.modulesDir}/${slug}`,
     dryRun: options.dryRun ?? false,
     plan,
-    writeResult
+    writeResult,
   };
 }
 
 export function formatModuleCreateResult(result: ModuleCreateResult): string {
   const lines = [
     result.dryRun
-      ? "SpecForge module create dry run complete."
-      : "SpecForge module create complete.",
-    `Module: ${result.modulePath}`
+      ? "Recall OS module create dry run complete."
+      : "Recall OS module create complete.",
+    `Module: ${result.modulePath}`,
   ];
 
   appendWriteSummary(lines, {
     dryRun: result.dryRun,
-    writeResult: result.writeResult
+    writeResult: result.writeResult,
   });
 
   return `${lines.join("\n")}\n`;
@@ -109,8 +104,8 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new ModuleCreateError(
         "CONFIG_REQUIRED",
-        "SpecForge config not found or invalid. Run `specforge init` first.",
-        [error.message]
+        "Recall OS config not found or invalid. Run `recall init` first.",
+        [error.message],
       );
     }
 

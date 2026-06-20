@@ -7,13 +7,13 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { createWritePlan } from "../../../src/core/filesystem/write-plan.js";
 import {
   executeWritePlan,
-  WriteSafetyError
+  WriteSafetyError,
 } from "../../../src/core/filesystem/write-file-safe.js";
 
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "specforge-write-file-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-write-file-"));
 });
 
 afterEach(async () => {
@@ -24,7 +24,7 @@ describe("executeWritePlan", () => {
   it("writes create entries and makes parent directories", async () => {
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "docs/A.md", content: "hello" }]
+      files: [{ path: "docs/A.md", content: "hello" }],
     });
 
     const result = await executeWritePlan(plan);
@@ -39,15 +39,13 @@ describe("executeWritePlan", () => {
 
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "docs/A.md", content: "new" }]
+      files: [{ path: "docs/A.md", content: "new" }],
     });
 
     const result = await executeWritePlan(plan);
 
     expect(result.skipped).toEqual(["docs/A.md"]);
-    await expect(readFile(path.join(rootDir, "docs", "A.md"), "utf8")).resolves.toBe(
-      "existing"
-    );
+    await expect(readFile(path.join(rootDir, "docs", "A.md"), "utf8")).resolves.toBe("existing");
   });
 
   it("overwrites only when the plan explicitly marks overwrite", async () => {
@@ -57,7 +55,7 @@ describe("executeWritePlan", () => {
     const plan = createWritePlan({
       rootDir,
       policy: "overwrite",
-      files: [{ path: "docs/A.md", content: "new" }]
+      files: [{ path: "docs/A.md", content: "new" }],
     });
 
     const result = await executeWritePlan(plan);
@@ -69,7 +67,7 @@ describe("executeWritePlan", () => {
   it("dry run performs zero writes", async () => {
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "docs/A.md", content: "hello" }]
+      files: [{ path: "docs/A.md", content: "hello" }],
     });
 
     const result = await executeWritePlan(plan, { dryRun: true });
@@ -84,8 +82,8 @@ describe("executeWritePlan", () => {
       rootDir,
       files: [
         { path: "docs/A.md", content: "safe" },
-        { path: "../evil.md", content: "evil" }
-      ]
+        { path: "../evil.md", content: "evil" },
+      ],
     });
 
     await expect(executeWritePlan(plan)).rejects.toThrow(WriteSafetyError);
@@ -95,7 +93,7 @@ describe("executeWritePlan", () => {
   it("does not overwrite files that appear after planning create entries", async () => {
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "docs/A.md", content: "planned" }]
+      files: [{ path: "docs/A.md", content: "planned" }],
     });
 
     await mkdir(path.join(rootDir, "docs"), { recursive: true });
@@ -103,7 +101,7 @@ describe("executeWritePlan", () => {
 
     await expect(executeWritePlan(plan)).rejects.toThrow();
     await expect(readFile(path.join(rootDir, "docs", "A.md"), "utf8")).resolves.toBe(
-      "late existing"
+      "late existing",
     );
   });
 });

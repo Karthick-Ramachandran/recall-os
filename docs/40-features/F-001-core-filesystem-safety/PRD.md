@@ -2,7 +2,7 @@
 
 ## Summary
 
-SpecForge needs safe filesystem primitives before any CLI command can generate files.
+Recall OS needs safe filesystem primitives before any CLI command can generate files.
 
 P1 builds the foundation for non-destructive, local-first writes:
 
@@ -16,7 +16,7 @@ No CLI commands are implemented in P1.
 
 ## Users
 
-- Developers running future SpecForge commands.
+- Developers running future Recall OS commands.
 - AI agents implementing future generation workflows.
 - Reviewers validating that generated output cannot damage user repositories.
 

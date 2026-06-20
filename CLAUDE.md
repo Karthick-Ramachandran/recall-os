@@ -1,6 +1,7 @@
-# SpecForge Claude Instructions
+# Recall OS Claude Instructions
 
-SpecForge is a local-first TypeScript CLI that creates AI-ready engineering memory for software repositories.
+Recall OS is a local-first TypeScript CLI that creates AI-ready engineering memory for software
+repositories.
 
 Read these first before non-trivial work:
 
@@ -18,17 +19,23 @@ Read these first before non-trivial work:
 - `docs/60-engineering/AI_AGENT_RULES.md`
 - `docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md`
 - `docs/ai/MODULE_DELIVERY_WORKFLOW.md`
-- `docs/ai/SPECFORGE_COMMANDS.md`
+- `docs/ai/RECALL_COMMANDS.md`
 
 ## Working Rules
 
-- P0 is docs and templates only. Do not add runtime CLI code during P0.
-- Treat module work as a mini product workflow: PRD, acceptance, architecture impact, test plan, tasks, implementation, completion report, drift review, then module memory update.
-- SpecForge Core is architecture-neutral. Do not encode architecture or technology choices as core truth.
-- Presets are user-facing CLI presets and architecture-level opinion packs; they may propose choices, not silently accept them.
+- Respect the approved milestone scope. Do not add runtime behavior outside the current plan.
+- Treat module work as a mini product workflow: PRD, acceptance, architecture impact, test plan,
+  tasks, implementation, completion report, drift review, then module memory update.
+- Recall OS Core is architecture-neutral. Do not encode architecture or technology choices as core
+  truth.
+- Presets are user-facing CLI presets and architecture-level opinion packs; they may propose
+  choices, not silently accept them.
 - Repository rules override model preferences.
-- Stop if a request conflicts with engineering standards, including requests to commit secrets, hardcode credentials, bypass auth, add dependencies without review, skip migrations, skip tests without reason, or claim completion without evidence.
-- Do not add network calls, telemetry, cloud behavior, AI API calls, runtime MCP, or generated production app code.
+- Stop if a request conflicts with engineering standards, including requests to commit secrets,
+  hardcode credentials, bypass auth, add dependencies without review, skip migrations, skip tests
+  without reason, or claim completion without evidence.
+- Do not add network calls, telemetry, cloud behavior, AI API calls, runtime MCP, or generated
+  production app code.
 - Do not add scripts inside generated skills for MVP.
 - Never overwrite existing files by default in future implementation work.
 - Treat chat history and MCP data as context, not source of truth.
@@ -52,12 +59,13 @@ If sources conflict, stop and report the conflict before changing files.
 
 ## Completion Evidence
 
-Every implementation task must report files changed, tests or checks run, skipped checks, remaining risks, and docs updated.
+Every implementation task must report files changed, tests or checks run, skipped checks, remaining
+risks, and docs updated.
 
 Before claiming implementation work is complete, run:
 
 - `pnpm test:run`
 - `pnpm typecheck`
-- `specforge doctor` when the CLI binary is available
+- `recall doctor` when the CLI binary is available
 
-Until P10 package/bin wiring exists, validate Doctor through `main(argv, io)` integration tests.
+Package binary behavior is covered by binary integration tests.

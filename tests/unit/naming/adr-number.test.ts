@@ -9,14 +9,14 @@ import {
   formatAdrNumber,
   getAdrFileForSlug,
   getNextAdrNumber,
-  parseAdrNumber
+  parseAdrNumber,
 } from "../../../src/core/naming/adr-number.js";
 
 describe("ADR number", () => {
   const roots: string[] = [];
 
   async function createRoot(): Promise<string> {
-    const rootDir = path.join(tmpdir(), `specforge-adr-number-${randomUUID()}`);
+    const rootDir = path.join(tmpdir(), `recall-adr-number-${randomUUID()}`);
     roots.push(rootDir);
     await mkdir(rootDir, { recursive: true });
     return rootDir;
@@ -29,7 +29,7 @@ describe("ADR number", () => {
 
   afterEach(async () => {
     await Promise.all(
-      roots.splice(0).map((rootDir) => rm(rootDir, { recursive: true, force: true }))
+      roots.splice(0).map((rootDir) => rm(rootDir, { recursive: true, force: true })),
     );
   });
 
@@ -39,7 +39,7 @@ describe("ADR number", () => {
 
     expect(adrNumber).toEqual({
       number: 1,
-      id: "ADR-0001"
+      id: "ADR-0001",
     });
   });
 
@@ -52,7 +52,7 @@ describe("ADR number", () => {
 
     expect(await getNextAdrNumber(adrDir)).toEqual({
       number: 8,
-      id: "ADR-0008"
+      id: "ADR-0008",
     });
   });
 
@@ -67,7 +67,7 @@ describe("ADR number", () => {
 
     expect(await getNextAdrNumber(adrDir)).toEqual({
       number: 2,
-      id: "ADR-0002"
+      id: "ADR-0002",
     });
   });
 
@@ -81,7 +81,7 @@ describe("ADR number", () => {
       number: 1,
       id: "ADR-0001",
       slug: "renderer",
-      fileName: "ADR-0001-renderer.md"
+      fileName: "ADR-0001-renderer.md",
     });
   });
 
@@ -95,7 +95,7 @@ describe("ADR number", () => {
       number: 8,
       id: "ADR-0008",
       slug: "file-write-policy",
-      fileName: "ADR-0008-file-write-policy.md"
+      fileName: "ADR-0008-file-write-policy.md",
     });
   });
 

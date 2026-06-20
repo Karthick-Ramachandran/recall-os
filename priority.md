@@ -1,15 +1,15 @@
-# SpecForge Project Structure and Build Priority
+# Recall OS Project Structure and Build Priority
 
 ## 1. Project Structure
 
-SpecForge should dogfood the memory structure it generates.
+Recall OS should dogfood the memory structure it generates.
 
-SpecForge Core is architecture-neutral. It records, distributes, validates, and protects decisions; it does not make architecture choices for users.
+Recall OS Core is architecture-neutral. It records, distributes, validates, and protects decisions; it does not make architecture choices for users.
 
 Recommended repository structure:
 
 ```txt
-specforge/
+recall/
   README.md
   LICENSE
   package.json
@@ -23,7 +23,7 @@ specforge/
   CLAUDE.md
   AGENTS.md
 
-  .specforge/
+  .recall/
     config.json
 
   .cursor/
@@ -357,7 +357,7 @@ AGENTS.md
 
 Why first:
 
-SpecForge must prove its own idea by using the same system to build itself.
+Recall OS must prove its own idea by using the same system to build itself.
 
 No implementation before repo constitution.
 
@@ -424,7 +424,7 @@ tests/unit/config/load-config.test.ts
 
 Acceptance criteria:
 
-* Creates `.specforge/config.json`.
+* Creates `.recall/config.json`.
 * Validates config.
 * Rejects invalid config.
 * Does not store secrets.
@@ -530,10 +530,10 @@ tests/golden/generated-flutter.test.ts
 
 Acceptance criteria:
 
-* `specforge init` creates config and docs.
-* Neutral `specforge init` creates memory docs without architecture or technology choices.
-* `specforge init` works in an empty folder.
-* `specforge init` does not require existing app code, framework files, or Git.
+* `recall init` creates config and docs.
+* Neutral `recall init` creates memory docs without architecture or technology choices.
+* `recall init` works in an empty folder.
+* `recall init` does not require existing app code, framework files, or Git.
 * `--preset nextjs` uses the Next.js preset as optional opinion-pack guidance.
 * Preset guidance and detected technologies do not become accepted repository memory by themselves.
 * Existing files are skipped.
@@ -670,7 +670,7 @@ Acceptance criteria:
 
 Reason:
 
-Doctor turns SpecForge from generator into maintainable system.
+Doctor turns Recall OS from generator into maintainable system.
 
 ---
 
@@ -705,15 +705,15 @@ For OSS reputation, README and examples are part of the product.
 
 # 3. Dogfooding Evaluation Plan
 
-SpecForge should evaluate itself by using its own workflow.
+Recall OS should evaluate itself by using its own workflow.
 
 ## 3.1 Evaluation Question
 
-Can SpecForge help build SpecForge better?
+Can Recall OS help build Recall OS better?
 
 ## 3.2 Evaluation Method
 
-For every feature built in SpecForge:
+For every feature built in Recall OS:
 
 1. Create feature folder.
 2. Write PRD.
@@ -726,7 +726,7 @@ For every feature built in SpecForge:
 9. Run tests.
 10. Write completion report.
 11. Run drift review.
-12. Review whether SpecForge’s generated structure helped.
+12. Review whether Recall OS’s generated structure helped.
 
 ## 3.3 Evaluation Template
 
@@ -735,7 +735,7 @@ Add this to each feature review:
 ```md
 # Dogfooding Review
 
-## Did SpecForge-generated docs help implementation?
+## Did Recall OS-generated docs help implementation?
 
 ## Which docs were useful?
 
@@ -749,12 +749,12 @@ Add this to each feature review:
 
 ## Did the workflow slow us down unnecessarily?
 
-## What should SpecForge improve before public release?
+## What should Recall OS improve before public release?
 ```
 
 ## 3.4 Success Signal
 
-SpecForge is useful if its own generated system catches:
+Recall OS is useful if its own generated system catches:
 
 * Missing tests
 * Unsafe file writes
@@ -773,9 +773,9 @@ If it cannot help build itself, it is not ready to help other projects.
 Use this as the first implementation prompt:
 
 ```md
-You are building SpecForge, an open-source TypeScript CLI.
+You are building Recall OS, an open-source TypeScript CLI.
 
-SpecForge creates and maintains an AI-ready engineering memory layer inside software repositories.
+Recall OS creates and maintains an AI-ready engineering memory layer inside software repositories.
 
 Read these documents first:
 
@@ -857,4 +857,4 @@ Do not start with AI generation.
 
 Start with safe, deterministic, boring engineering.
 
-That is what will make SpecForge respected.
+That is what will make Recall OS respected.

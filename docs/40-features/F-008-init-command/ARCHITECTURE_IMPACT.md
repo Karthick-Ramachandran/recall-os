@@ -45,4 +45,4 @@ Controls:
 
 No new ADR is required.
 
-The existing architecture already defines SpecForge as a local-first CLI and identifies Commander as the CLI framework.
+The existing architecture already defines Recall OS as a local-first CLI and identifies Commander as the CLI framework.

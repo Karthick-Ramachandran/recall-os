@@ -11,6 +11,7 @@ It validates preset definitions and exposes built-in preset registry access for 
 - Preset schema.
 - Preset validation.
 - Built-in preset registry.
+- Read-only preset listing.
 - Safe destination validation for preset outputs.
 - Proposed decision status enforcement.
 
@@ -20,6 +21,7 @@ It validates preset definitions and exposes built-in preset registry access for 
 - Organization memory.
 - CLI command parsing.
 - Init command orchestration.
+- CLI output formatting.
 - Template file loading.
 - File write execution.
 - Rich framework knowledge bases in P4.
@@ -42,4 +44,8 @@ It validates preset definitions and exposes built-in preset registry access for 
 
 Presets may suggest. Presets must not silently decide.
 
-Any decision-like content in a preset must remain proposed until a human accepts it in repository memory.
+Any decision-like content in a preset must remain proposed until a human accepts it in repository
+memory.
+
+P10 exposes built-in presets through `recall preset list` without changing preset validation or
+write behavior.

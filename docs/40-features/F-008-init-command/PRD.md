@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Implement `specforge init` as the first real product workflow.
+Implement `recall init` as the first real product workflow.
 
 The command initializes repository memory. It does not generate application code.
 
 ## Problem
 
-SpecForge has safe writes, config, rendering, and presets, but users cannot yet initialize a repository memory structure through a command.
+Recall OS has safe writes, config, rendering, and presets, but users cannot yet initialize a repository memory structure through a command.
 
 P5 connects those foundations into a minimal, useful init flow.
 

@@ -10,7 +10,7 @@ const safeDestinationSchema = z.string().transform((value, context) => {
   } catch (error) {
     context.addIssue({
       code: "custom",
-      message: error instanceof Error ? error.message : "Destination is invalid."
+      message: error instanceof Error ? error.message : "Destination is invalid.",
     });
     return z.NEVER;
   }
@@ -20,7 +20,7 @@ export class PresetValidationError extends Error {
   readonly issues: string[];
 
   constructor(issues: string[]) {
-    super(`Invalid SpecForge preset: ${issues.join("; ")}`);
+    super(`Invalid Recall OS preset: ${issues.join("; ")}`);
     this.name = "PresetValidationError";
     this.issues = issues;
   }
@@ -30,14 +30,14 @@ export const presetTemplateSchema = z
   .object({
     destination: safeDestinationSchema,
     content: z.string().min(1, "Template content cannot be empty."),
-    description: z.string().min(1).optional()
+    description: z.string().min(1).optional(),
   })
   .strict();
 
 export const presetGuidanceSchema = z
   .object({
     title: z.string().min(1, "Guidance title cannot be empty."),
-    body: z.string().min(1, "Guidance body cannot be empty.")
+    body: z.string().min(1, "Guidance body cannot be empty."),
   })
   .strict();
 
@@ -49,12 +49,12 @@ export const presetProposedDecisionSchema = z
       .max(80, "Decision id cannot exceed 80 characters.")
       .regex(
         PRESET_ID_PATTERN,
-        "Decision id must use lowercase letters, numbers, and single hyphens."
+        "Decision id must use lowercase letters, numbers, and single hyphens.",
       ),
     title: z.string().min(1, "Decision title cannot be empty."),
     status: z.literal("proposed"),
     destination: safeDestinationSchema,
-    body: z.string().min(1, "Decision body cannot be empty.")
+    body: z.string().min(1, "Decision body cannot be empty."),
   })
   .strict();
 
@@ -66,13 +66,13 @@ export const presetSchema = z
       .max(80, "Preset id cannot exceed 80 characters.")
       .regex(
         PRESET_ID_PATTERN,
-        "Preset id must use lowercase letters, numbers, and single hyphens."
+        "Preset id must use lowercase letters, numbers, and single hyphens.",
       ),
     name: z.string().min(1, "Preset name cannot be empty."),
     description: z.string().min(1, "Preset description cannot be empty."),
     templates: z.array(presetTemplateSchema).min(1, "Preset must include a template."),
     guidance: z.array(presetGuidanceSchema).default([]),
-    proposedDecisions: z.array(presetProposedDecisionSchema).default([])
+    proposedDecisions: z.array(presetProposedDecisionSchema).default([]),
   })
   .strict()
   .superRefine((preset, context) => {
@@ -83,7 +83,7 @@ export const presetSchema = z
         context.addIssue({
           code: "custom",
           path: ["templates", index, "destination"],
-          message: `Duplicate destination "${template.destination}".`
+          message: `Duplicate destination "${template.destination}".`,
         });
       }
 
@@ -95,7 +95,7 @@ export const presetSchema = z
         context.addIssue({
           code: "custom",
           path: ["proposedDecisions", index, "destination"],
-          message: `Duplicate destination "${decision.destination}".`
+          message: `Duplicate destination "${decision.destination}".`,
         });
       }
 
@@ -116,7 +116,7 @@ export function parsePreset(value: unknown): Preset {
       result.error.issues.map((issue) => {
         const path = issue.path.length > 0 ? `${issue.path.join(".")}: ` : "";
         return `${path}${issue.message}`;
-      })
+      }),
     );
   }
 

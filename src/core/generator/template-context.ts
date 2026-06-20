@@ -12,17 +12,13 @@ export class TemplateRenderError extends Error {
 }
 
 function isTemplateValue(value: unknown): value is TemplateValue {
-  return (
-    typeof value === "string" ||
-    typeof value === "number" ||
-    typeof value === "boolean"
-  );
+  return typeof value === "string" || typeof value === "number" || typeof value === "boolean";
 }
 
 function validateTemplateKey(key: string): void {
   if (!TEMPLATE_KEY_PATTERN.test(key)) {
     throw new TemplateRenderError(
-      `Invalid template key "${key}". Keys must match [A-Za-z][A-Za-z0-9_]*.`
+      `Invalid template key "${key}". Keys must match [A-Za-z][A-Za-z0-9_]*.`,
     );
   }
 
@@ -31,9 +27,7 @@ function validateTemplateKey(key: string): void {
   }
 }
 
-export function createTemplateContext(
-  values: Readonly<Record<string, unknown>>
-): TemplateContext {
+export function createTemplateContext(values: Readonly<Record<string, unknown>>): TemplateContext {
   if (values === null || typeof values !== "object" || Array.isArray(values)) {
     throw new TemplateRenderError("Template context must be an object.");
   }
@@ -45,7 +39,7 @@ export function createTemplateContext(
 
     if (!isTemplateValue(value)) {
       throw new TemplateRenderError(
-        `Invalid value for template key "${key}". Values must be strings, numbers, or booleans.`
+        `Invalid value for template key "${key}". Values must be strings, numbers, or booleans.`,
       );
     }
 

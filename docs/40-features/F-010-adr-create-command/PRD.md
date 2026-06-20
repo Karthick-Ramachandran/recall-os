@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Implement `specforge adr create <title>` so repositories can create architecture decision drafts before decisions become accepted repository memory.
+Implement `recall adr create <title>` so repositories can create architecture decision drafts before decisions become accepted repository memory.
 
 P7 turns ADR drafting into a repeatable local command.
 
 ## Problem
 
-SpecForge records architecture decisions, but it cannot yet create ADR files through the CLI.
+Recall OS records architecture decisions, but it cannot yet create ADR files through the CLI.
 
 Without ADR create support, users and agents can skip the structure needed to capture context, decision, alternatives, consequences, and related docs.
 
@@ -44,7 +44,7 @@ Generated ADRs are drafts. Humans own final acceptance.
 
 ## Success Criteria
 
-- Command requires initialized SpecForge config.
+- Command requires initialized Recall OS config.
 - Command creates `ADR-####-<slug>.md` files.
 - Numbering starts at `ADR-0001`.
 - Numbering increments from valid existing ADR files.

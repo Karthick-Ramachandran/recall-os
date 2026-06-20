@@ -57,16 +57,12 @@ export function resolveSafePath(rootDir: string, relativePath: string): SafePath
   const absolutePath = path.resolve(absoluteRoot, normalizedPath);
   const relativeToRoot = path.relative(absoluteRoot, absolutePath);
 
-  if (
-    relativeToRoot === "" ||
-    relativeToRoot.startsWith("..") ||
-    path.isAbsolute(relativeToRoot)
-  ) {
+  if (relativeToRoot === "" || relativeToRoot.startsWith("..") || path.isAbsolute(relativeToRoot)) {
     throw new SafePathError("Resolved path must stay inside the project root.");
   }
 
   return {
     path: normalizedPath,
-    absolutePath
+    absolutePath,
   };
 }

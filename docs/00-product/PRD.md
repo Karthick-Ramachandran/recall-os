@@ -1,12 +1,12 @@
-# PRD: SpecForge
+# PRD: Recall OS
 
 ## 1. Product Requirements Document
 
 ## 1.1 Product Summary
 
-SpecForge is a local-first open-source CLI that initializes and maintains AI-ready engineering memory inside software repositories.
+Recall OS is a local-first open-source CLI that initializes and maintains AI-ready engineering memory inside software repositories.
 
-SpecForge is an Engineering Memory Operating System.
+Recall OS is an Engineering Memory Operating System.
 
 It preserves product intent, architecture decisions, module ownership, testing requirements, security assumptions, engineering standards, and operational discipline, and makes them durable, reviewable, and AI-readable.
 
@@ -28,9 +28,9 @@ It generates and manages:
 * Completion report templates
 * Optional preset guidance
 
-SpecForge should help humans and AI agents work from the same durable source of truth.
+Recall OS should help humans and AI agents work from the same durable source of truth.
 
-SpecForge is intentionally architecture-neutral.
+Recall OS is intentionally architecture-neutral.
 
 Its role is not to determine what architecture a team should adopt.
 
@@ -45,14 +45,14 @@ Its role is to ensure that architecture decisions, regardless of their content, 
 A user should be able to run:
 
 ```bash
-npx specforge init
+npx recall init
 ```
 
 and receive a professional engineering memory structure.
 
 ### Goal 2: Support AI-agent workflows
 
-SpecForge should generate files usable by:
+Recall OS should generate files usable by:
 
 * Claude Code
 * Codex
@@ -62,7 +62,7 @@ SpecForge should generate files usable by:
 
 ### Goal 3: Prevent architecture drift
 
-SpecForge should make undocumented architecture change visible.
+Recall OS should make undocumented architecture change visible.
 
 It should not prevent change.
 
@@ -91,7 +91,7 @@ Not random happy-path examples.
 
 ### Goal 5: Dogfood itself
 
-SpecForge’s own repository should use the same structure it generates.
+Recall OS’s own repository should use the same structure it generates.
 
 The project should prove its own usefulness by using:
 
@@ -144,13 +144,13 @@ Humans own final product intent, architecture decisions, risk acceptance, and me
 
 ## 1.3.5 Architecture neutral core
 
-SpecForge Core does not choose architecture.
+Recall OS Core does not choose architecture.
 
 It does not decide whether a repository should use Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, Auth0, Okta, Postgres, MongoDB, CQRS, event sourcing, Clean Architecture, or feature-first architecture.
 
 Those choices may enter the repository through accepted repository decisions, organization memory, or optional presets.
 
-SpecForge records, distributes, validates, and protects those decisions.
+Recall OS records, distributes, validates, and protects those decisions.
 
 ## 1.3.6 Change is allowed
 
@@ -158,7 +158,7 @@ Architecture drift is not “change.”
 
 Architecture drift is undocumented change or mismatch with accepted repository memory.
 
-Drift is not difference from a SpecForge recommendation.
+Drift is not difference from a Recall OS recommendation.
 
 If a decision changes and the docs are updated, that is evolution.
 
@@ -166,15 +166,15 @@ If code changes and docs remain stale, that is drift.
 
 ## 1.3.7 Repository memory first
 
-SpecForge initializes repository memory, not application code.
+Recall OS initializes repository memory, not application code.
 
 Git initializes source control.
 
-SpecForge initializes repository memory.
+Recall OS initializes repository memory.
 
-Code may come before or after SpecForge.
+Code may come before or after Recall OS.
 
-`specforge init` must work in an empty folder and must not require a Flutter app, Next.js app, Swift package, Android project, backend service, or any other existing framework.
+`recall init` must work in an empty folder and must not require a Flutter app, Next.js app, Swift package, Android project, backend service, or any other existing framework.
 
 ---
 
@@ -196,7 +196,7 @@ Engineering memory is the durable knowledge that lets a team or AI agent underst
 
 ## 1.4.2 Memory Engine
 
-The Memory Engine is SpecForge Core.
+The Memory Engine is Recall OS Core.
 
 It creates neutral structures for decisions, docs, review, testing, security, and drift detection.
 
@@ -245,7 +245,7 @@ Storage = S3
 Observability = OpenTelemetry
 ```
 
-SpecForge records organization memory so AI follows the team's decisions, not SpecForge's preferences.
+Recall OS records organization memory so AI follows the team's decisions, not Recall OS's preferences.
 
 ## 1.4.6 Engineering Standards Memory
 
@@ -266,9 +266,9 @@ It is valid before app code exists.
 Primary workflows:
 
 ```txt
-Greenfield: empty folder -> specforge init -> app/framework later
-Existing repo: app exists -> specforge init -> optional detected guidance later
-Legacy adoption: mature repo -> future specforge adopt
+Greenfield: empty folder -> recall init -> app/framework later
+Existing repo: app exists -> recall init -> optional detected guidance later
+Legacy adoption: mature repo -> future recall adopt
 ```
 
 Git is recommended for normal development, but a Git repository must not be required for init.
@@ -392,17 +392,17 @@ If documents conflict, the agent must stop and report the conflict.
 ## 1.6.1 init
 
 ```bash
-specforge init
-specforge init --preset nextjs
-specforge init --preset ios-swift --ai claude,codex
-specforge init --mode standard
-specforge init --dry-run
-specforge init --force
+recall init
+recall init --preset nextjs
+recall init --preset ios-swift --ai claude,codex
+recall init --mode standard
+recall init --dry-run
+recall init --force
 ```
 
 Responsibilities:
 
-* Create `.specforge/config.json`
+* Create `.recall/config.json`
 * Generate AI instruction files
 * Generate neutral docs structure by default
 * Generate selected preset guidance, when explicitly requested
@@ -412,19 +412,19 @@ Responsibilities:
 
 Semantics:
 
-* `specforge init` initializes repository memory.
-* `specforge init` must work in an empty folder.
+* `recall init` initializes repository memory.
+* `recall init` must work in an empty folder.
 * Existing app code is not required.
 * Existing framework files are not required.
 * A Git repository is optional, though recommended for normal development.
-* `specforge init` must not generate production application code.
+* `recall init` must not generate production application code.
 
 ---
 
 ## 1.6.2 feature create
 
 ```bash
-specforge feature create auth-provider
+recall feature create auth-provider
 ```
 
 Creates:
@@ -455,7 +455,7 @@ Rules:
 ## 1.6.3 adr create
 
 ```bash
-specforge adr create auth-provider
+recall adr create auth-provider
 ```
 
 Creates:
@@ -477,7 +477,7 @@ Rules:
 ## 1.6.4 module create
 
 ```bash
-specforge module create auth
+recall module create auth
 ```
 
 Creates:
@@ -501,7 +501,7 @@ Rules:
 ## 1.6.5 preset list
 
 ```bash
-specforge preset list
+recall preset list
 ```
 
 Shows available presets:
@@ -518,7 +518,7 @@ flutter
 ## 1.6.6 doctor
 
 ```bash
-specforge doctor
+recall doctor
 ```
 
 Checks repository health:
@@ -580,11 +580,11 @@ In architecture docs, presets are opinion packs.
 
 Presets may provide starter guidance and proposed ADRs, but they must not silently create accepted architecture decisions.
 
-`specforge init --preset flutter` means neutral repository memory plus Flutter-aware guidance and proposed decisions.
+`recall init --preset flutter` means neutral repository memory plus Flutter-aware guidance and proposed decisions.
 
 Presets must not silently accept architecture, state management, backend, folder structure, vendor, or infrastructure choices.
 
-The default `specforge init` path remains neutral and architecture-opinion-free.
+The default `recall init` path remains neutral and architecture-opinion-free.
 
 ---
 
@@ -622,7 +622,7 @@ gemini-cli
 
 ## 1.9 Modes
 
-SpecForge should support generation modes.
+Recall OS should support generation modes.
 
 ## 1.9.1 Lite Mode
 
@@ -676,10 +676,10 @@ MVP may implement Standard first, but the config schema should support all three
 
 ## 1.10 Configuration Manifest
 
-SpecForge should create:
+Recall OS should create:
 
 ```txt
-.specforge/config.json
+.recall/config.json
 ```
 
 Example:
@@ -708,7 +708,7 @@ Requirements:
 * Must track template version.
 * Must support future upgrades.
 * Must be read by every command.
-* Must not require architecture IDs that imply SpecForge owns the user's architecture.
+* Must not require architecture IDs that imply Recall OS owns the user's architecture.
 * P2 must not include decision indexes or organization standards.
 
 ---
@@ -750,7 +750,7 @@ Rules:
 
 ## 1.12 Security Requirements
 
-SpecForge is a local-first CLI.
+Recall OS is a local-first CLI.
 
 Security promises:
 
@@ -872,7 +872,7 @@ Definition of done for tests:
 
 ## 1.14 Generated Documents
 
-SpecForge should generate these docs.
+Recall OS should generate these docs.
 
 ```txt
 docs/
@@ -925,7 +925,7 @@ docs/
 
 ## 1.15 AI Skills
 
-SpecForge should generate Claude-style skill files and equivalent guidance for other AI tools.
+Recall OS should generate Claude-style skill files and equivalent guidance for other AI tools.
 
 Suggested skills:
 
@@ -974,7 +974,7 @@ Do not create giant knowledge dumps.
 
 ## 1.16 Plugin and Extension Model
 
-SpecForge should be designed so others can extend it.
+Recall OS should be designed so others can extend it.
 
 Future extensions may contribute:
 
@@ -993,9 +993,9 @@ Future directory model:
 
 ```txt
 plugins/
-  specforge-plugin-android/
-  specforge-plugin-security/
-  specforge-plugin-enterprise/
+  recall-plugin-android/
+  recall-plugin-security/
+  recall-plugin-enterprise/
 ```
 
 Plugin safety rules:
@@ -1040,16 +1040,16 @@ Preset-generated architecture choices must be optional guidance or proposed ADRs
 
 ## 1.18 Context Pack / Token Reduction Support
 
-SpecForge should eventually support:
+Recall OS should eventually support:
 
 ```bash
-specforge context build
+recall context build
 ```
 
 Output:
 
 ```txt
-.specforge/context/
+.recall/context/
   repo-summary.md
   architecture-summary.md
   module-map.md
@@ -1063,7 +1063,7 @@ Purpose:
 * Complement RTK-style token reduction tools.
 * Provide concise context packs derived from source-of-truth docs.
 
-SpecForge owns the durable memory.
+Recall OS owns the durable memory.
 
 Token tools can compress that memory.
 
@@ -1071,7 +1071,7 @@ Token tools can compress that memory.
 
 ## 1.19 Existing Repo Adoption
 
-SpecForge must support existing repositories.
+Recall OS must support existing repositories.
 
 Default behavior:
 
@@ -1084,10 +1084,10 @@ Default behavior:
 Future command:
 
 ```bash
-specforge adopt
+recall adopt
 ```
 
-Adoption mode may suggest mapping existing docs, code structure, and technology signals into SpecForge memory.
+Adoption mode may suggest mapping existing docs, code structure, and technology signals into Recall OS memory.
 
 Adoption must produce reviewable memory, proposed decisions, or guidance. It must not silently accept inferred architecture decisions.
 
@@ -1126,8 +1126,8 @@ Future config:
 Future commands:
 
 ```bash
-specforge init --scope apps/web
-specforge feature create billing --scope apps/web
+recall init --scope apps/web
+recall feature create billing --scope apps/web
 ```
 
 ---
@@ -1137,7 +1137,7 @@ specforge feature create billing --scope apps/web
 Future command:
 
 ```bash
-specforge upgrade
+recall upgrade
 ```
 
 Purpose:
@@ -1152,7 +1152,7 @@ Purpose:
 Generated files may include lightweight metadata:
 
 ```md
-<!-- specforge:template=feature-prd version=0.1.0 mode=standard -->
+<!-- recall:template=feature-prd version=0.1.0 mode=standard -->
 ```
 
 Metadata should be minimal and not ugly.
@@ -1180,7 +1180,7 @@ Helpful output:
 
 ```txt
 Created:
-  .specforge/config.json
+  .recall/config.json
   CLAUDE.md
   docs/10-architecture/ARCHITECTURE.md
 
@@ -1188,7 +1188,7 @@ Skipped:
   README.md already exists
 
 Next:
-  Run specforge doctor
+  Run recall doctor
 ```
 
 Errors should be clear.
@@ -1204,7 +1204,7 @@ Good:
 ```txt
 Invalid feature name "../../evil".
 Feature names cannot contain path traversal.
-Try: specforge feature create auth-provider
+Try: recall feature create auth-provider
 ```
 
 ---
@@ -1244,21 +1244,21 @@ Advanced template engines such as Eta are deferred until a future ADR shows they
 
 ## 1.24 MVP Acceptance Criteria
 
-SpecForge v0.1 is acceptable when:
+Recall OS v0.1 is acceptable when:
 
-* `specforge init` creates expected docs.
-* `specforge init` works in an empty folder.
+* `recall init` creates expected docs.
+* `recall init` works in an empty folder.
 * Existing files are skipped by default.
 * `--dry-run` writes nothing and shows intended changes.
 * `--force` overwrites only when explicit.
-* `.specforge/config.json` is created and validated.
+* `.recall/config.json` is created and validated.
 * `feature create` creates feature docs.
 * `adr create` creates correctly numbered ADRs.
 * `module create` creates module memory docs.
 * `preset list` shows presets.
 * `doctor` reports repo health.
 * Built-in presets validate.
-* Default `specforge init` generates neutral memory with no technology or architecture choices.
+* Default `recall init` generates neutral memory with no technology or architecture choices.
 * Preset-generated choices are proposed, not silently accepted.
 * Technology detection does not become accepted repository memory by itself.
 * Golden tests exist for generated outputs.
@@ -1302,6 +1302,6 @@ complex monorepo support
 
 The strongest first version is professional, local-first, safe, deterministic, and useful.
 
-SpecForge should prove one idea extremely well:
+Recall OS should prove one idea extremely well:
 
 > AI-built software needs durable engineering memory.

@@ -9,9 +9,9 @@ import {
   readGeneratedFile,
   readGeneratedJson,
   removeTempRoot,
-  runInitCommand
+  runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { SpecForgeConfig } from "../../src/core/config/config-schema.js";
+import type { RecallConfig } from "../../src/core/config/config-schema.js";
 
 describe("init command", () => {
   const roots: string[] = [];
@@ -32,19 +32,15 @@ describe("init command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("SpecForge init complete.");
+    expect(result.stdout).toContain("Recall OS init complete.");
     expect(result.stdout).toContain("Created:");
 
-    const config = await readGeneratedJson<SpecForgeConfig>(
-      rootDir,
-      ".specforge/config.json"
-    );
+    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
     expect(config.preset).toBeNull();
-    expect(await readGeneratedFile(rootDir, "AGENTS.md")).toContain(
-      "repository memory"
+    expect(await readGeneratedFile(rootDir, "AGENTS.md")).toContain("repository memory");
+    expect(await readGeneratedFile(rootDir, "docs/10-architecture/ARCHITECTURE.md")).toContain(
+      "No architecture decisions are accepted yet.",
     );
-    expect(await readGeneratedFile(rootDir, "docs/10-architecture/ARCHITECTURE.md"))
-      .toContain("No architecture decisions are accepted yet.");
   });
 
   it("works in a non-Git directory", async () => {
@@ -53,7 +49,7 @@ describe("init command", () => {
     const files = await listRelativeFiles(rootDir);
 
     expect(result.exitCode).toBe(0);
-    expect(files).toContain(".specforge/config.json");
+    expect(files).toContain(".recall/config.json");
     expect(files).not.toContain(".git/config");
   });
 
@@ -64,9 +60,7 @@ describe("init command", () => {
     const result = await runInitCommand(rootDir);
 
     expect(result.exitCode).toBe(0);
-    expect(await readFile(path.join(rootDir, "AGENTS.md"), "utf8")).toBe(
-      "custom agents\n"
-    );
+    expect(await readFile(path.join(rootDir, "AGENTS.md"), "utf8")).toBe("custom agents\n");
     expect(result.stdout).toContain("Skipped:");
     expect(result.stdout).toContain("- AGENTS.md");
   });
@@ -76,7 +70,7 @@ describe("init command", () => {
     const result = await runInitCommand(rootDir, ["--dry-run"]);
 
     expect(result.exitCode).toBe(0);
-    expect(result.stdout).toContain("SpecForge init dry run complete.");
+    expect(result.stdout).toContain("Recall OS init dry run complete.");
     expect(result.stdout).toContain("Planned creates:");
     expect(await listRelativeFiles(rootDir)).toEqual([]);
   });
@@ -90,9 +84,7 @@ describe("init command", () => {
     expect(result.exitCode).toBe(0);
     expect(result.stdout).toContain("Overwritten:");
     expect(result.stdout).toContain("- AGENTS.md");
-    expect(await readFile(path.join(rootDir, "AGENTS.md"), "utf8")).toContain(
-      "Agent Instructions"
-    );
+    expect(await readFile(path.join(rootDir, "AGENTS.md"), "utf8")).toContain("Agent Instructions");
   });
 
   it("fails clearly for unknown presets and writes nothing", async () => {
@@ -111,17 +103,15 @@ describe("init command", () => {
 
     expect(result.exitCode).toBe(0);
 
-    const config = await readGeneratedJson<SpecForgeConfig>(
-      rootDir,
-      ".specforge/config.json"
-    );
+    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
     expect(config.preset).toBe("nextjs");
-    expect(await readGeneratedFile(rootDir, "docs/ai/presets/nextjs-guidance.md"))
-      .toContain("non-authoritative");
+    expect(await readGeneratedFile(rootDir, "docs/ai/presets/nextjs-guidance.md")).toContain(
+      "non-authoritative",
+    );
 
     const proposedDecision = await readGeneratedFile(
       rootDir,
-      "docs/adrs/proposed/ADR-PROPOSED-nextjs-framework.md"
+      "docs/adrs/proposed/ADR-PROPOSED-nextjs-framework.md",
     );
     expect(proposedDecision).toContain("## Status\n\nProposed");
     expect(proposedDecision).not.toContain("## Status\n\nAccepted");
@@ -135,11 +125,7 @@ describe("init command", () => {
     const result = await runInitCommand(rootDir);
 
     expect(result.exitCode).toBe(0);
-    expect(await readFile(path.join(rootDir, "src", "index.ts"), "utf8")).toBe(
-      "export {};\n"
-    );
-    expect(await readGeneratedFile(rootDir, ".specforge/config.json")).toContain(
-      '"preset": null'
-    );
+    expect(await readFile(path.join(rootDir, "src", "index.ts"), "utf8")).toBe("export {};\n");
+    expect(await readGeneratedFile(rootDir, ".recall/config.json")).toContain('"preset": null');
   });
 });

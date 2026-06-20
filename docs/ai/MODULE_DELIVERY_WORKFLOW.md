@@ -7,7 +7,7 @@ Module work should be handled like a mini product inside the repository, not as 
 When a user says:
 
 ```txt
-Build the preset module for SpecForge.
+Build the preset module for Recall OS.
 ```
 
 The agent must first create or update the feature delivery docs and module memory.

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The config module owns `.specforge/config.json` schema, defaults, loading, and safe writing.
+The config module owns `.recall/config.json` schema, defaults, loading, and safe writing.
 
 ## Owns
 
@@ -25,7 +25,7 @@ The config module owns `.specforge/config.json` schema, defaults, loading, and s
 
 ## Public Interfaces
 
-- `SpecForgeConfig`
+- `RecallConfig`
 - `MemoryProfile`
 - `AiToolTarget`
 - `ConfigWritePolicy`
@@ -38,4 +38,7 @@ The config module owns `.specforge/config.json` schema, defaults, loading, and s
 
 P2 keeps config boring and useful.
 
-The config manifest records repository memory settings and paths, but not decisions or organization standards yet.
+The config manifest records repository memory settings and paths, but not decisions or organization
+standards yet.
+
+P10 renames the config path to `.recall/config.json` and public config type to `RecallConfig`.

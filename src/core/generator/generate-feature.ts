@@ -32,7 +32,7 @@ Describe why this feature exists and what user or business problem it solves.
 ## Non-Goals
 
 - TBD
-`
+`,
   },
   {
     fileName: "ACCEPTANCE.md",
@@ -45,7 +45,7 @@ Describe why this feature exists and what user or business problem it solves.
 ## Out Of Scope
 
 - TBD
-`
+`,
   },
   {
     fileName: "ARCHITECTURE_IMPACT.md",
@@ -62,14 +62,14 @@ State whether this feature needs a new or updated ADR.
 ## Security Impact
 
 State whether auth, secrets, storage, networking, telemetry, file writes, or dependencies change.
-`
+`,
   },
   {
     fileName: "CHANGE_REQUESTS.md",
     content: `# Change Requests: {{title}}
 
 Record accepted changes to the feature requirements here.
-`
+`,
   },
   {
     fileName: "PLAN.md",
@@ -82,7 +82,7 @@ TBD
 ## Boundaries
 
 TBD
-`
+`,
   },
   {
     fileName: "TASKS.md",
@@ -107,7 +107,7 @@ Tests:
 Do Not:
 
 - Start implementation before PRD, acceptance, architecture impact, and test plan are clear.
-`
+`,
   },
   {
     fileName: "TEST_PLAN.md",
@@ -124,7 +124,7 @@ Do Not:
 ## Security Tests
 
 - TBD
-`
+`,
   },
   {
     fileName: "REVIEW.md",
@@ -137,7 +137,7 @@ Pending review.
 ## Findings
 
 - TBD
-`
+`,
   },
   {
     fileName: "COMPLETION_REPORT.md",
@@ -162,8 +162,8 @@ Pending.
 ## Remaining Risks
 
 - TBD
-`
-  }
+`,
+  },
 ];
 
 export function generateFeatureFiles(options: GenerateFeatureFilesOptions): WriteFileInput[] {
@@ -173,12 +173,12 @@ export function generateFeatureFiles(options: GenerateFeatureFilesOptions): Writ
   const context = createTemplateContext({
     featureId: options.featureId,
     slug,
-    title
+    title,
   });
 
   return featureTemplates.map((template) => ({
     path: path.posix.join(featureDir, template.fileName),
-    content: renderTemplate(template.content, context)
+    content: renderTemplate(template.content, context),
   }));
 }
 

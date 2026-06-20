@@ -18,7 +18,7 @@ Command code should orchestrate. Core modules should own decisions and be testab
 
 `core/config`
 
-- Owns `.specforge/config.json` schema, defaults, load, and write.
+- Owns `.recall/config.json` schema, defaults, load, and write.
 - Must not store secrets.
 
 `core/filesystem`

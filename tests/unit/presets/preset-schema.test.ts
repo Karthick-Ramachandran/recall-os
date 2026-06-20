@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   parsePreset,
   PresetValidationError,
-  type Preset
+  type Preset,
 } from "../../../src/core/presets/preset-schema.js";
 
 function createValidPreset(overrides: Partial<Preset> = {}): Preset {
@@ -14,14 +14,14 @@ function createValidPreset(overrides: Partial<Preset> = {}): Preset {
     templates: [
       {
         destination: "docs/ai/presets/valid.md",
-        content: "# Valid\n"
-      }
+        content: "# Valid\n",
+      },
     ],
     guidance: [
       {
         title: "Use repository memory",
-        body: "Keep guidance optional until accepted."
-      }
+        body: "Keep guidance optional until accepted.",
+      },
     ],
     proposedDecisions: [
       {
@@ -29,10 +29,10 @@ function createValidPreset(overrides: Partial<Preset> = {}): Preset {
         title: "Valid Decision",
         status: "proposed",
         destination: "docs/adrs/proposed/ADR-PROPOSED-valid-decision.md",
-        body: "# Proposed ADR\n"
-      }
+        body: "# Proposed ADR\n",
+      },
     ],
-    ...overrides
+    ...overrides,
   };
 }
 
@@ -43,10 +43,10 @@ describe("preset schema", () => {
         templates: [
           {
             destination: "docs/./ai/presets/valid.md",
-            content: "# Valid\n"
-          }
-        ]
-      })
+            content: "# Valid\n",
+          },
+        ],
+      }),
     );
 
     expect(preset.templates[0]?.destination).toBe("docs/ai/presets/valid.md");
@@ -54,9 +54,7 @@ describe("preset schema", () => {
 
   it("rejects invalid preset ids", () => {
     for (const id of ["Next JS", "next_js", "nextjs-", "-nextjs", "../../evil"]) {
-      expect(() => parsePreset(createValidPreset({ id }))).toThrow(
-        PresetValidationError
-      );
+      expect(() => parsePreset(createValidPreset({ id }))).toThrow(PresetValidationError);
     }
   });
 
@@ -67,16 +65,16 @@ describe("preset schema", () => {
       "C:/tmp/outside.md",
       "docs\\outside.md",
       "docs//outside.md",
-      "docs/\u0000outside.md"
+      "docs/\u0000outside.md",
     ];
 
     for (const destination of unsafeDestinations) {
       expect(() =>
         parsePreset(
           createValidPreset({
-            templates: [{ destination, content: "# Unsafe\n" }]
-          })
-        )
+            templates: [{ destination, content: "# Unsafe\n" }],
+          }),
+        ),
       ).toThrow(PresetValidationError);
     }
   });
@@ -91,11 +89,11 @@ describe("preset schema", () => {
               title: "Unsafe Decision",
               status: "proposed",
               destination: "../ADR-PROPOSED-unsafe.md",
-              body: "# Unsafe\n"
-            }
-          ]
-        })
-      )
+              body: "# Unsafe\n",
+            },
+          ],
+        }),
+      ),
     ).toThrow(PresetValidationError);
   });
 
@@ -106,16 +104,16 @@ describe("preset schema", () => {
           templates: [
             {
               destination: "docs/ai/presets/valid.md",
-              content: "# One\n"
+              content: "# One\n",
             },
             {
               destination: "docs/ai/./presets/valid.md",
-              content: "# Two\n"
-            }
+              content: "# Two\n",
+            },
           ],
-          proposedDecisions: []
-        })
-      )
+          proposedDecisions: [],
+        }),
+      ),
     ).toThrow(PresetValidationError);
 
     expect(() =>
@@ -124,11 +122,11 @@ describe("preset schema", () => {
           templates: [
             {
               destination: "docs/adrs/proposed/ADR-PROPOSED-valid-decision.md",
-              content: "# One\n"
-            }
-          ]
-        })
-      )
+              content: "# One\n",
+            },
+          ],
+        }),
+      ),
     ).toThrow(PresetValidationError);
   });
 
@@ -142,10 +140,10 @@ describe("preset schema", () => {
             title: "Accepted Decision",
             status: "accepted",
             destination: "docs/adrs/ADR-0002-accepted-decision.md",
-            body: "# Accepted\n"
-          }
-        ]
-      })
+            body: "# Accepted\n",
+          },
+        ],
+      }),
     ).toThrow(PresetValidationError);
   });
 
@@ -153,8 +151,8 @@ describe("preset schema", () => {
     expect(() =>
       parsePreset({
         ...createValidPreset(),
-        secret: "nope"
-      })
+        secret: "nope",
+      }),
     ).toThrow(PresetValidationError);
 
     expect(() =>
@@ -164,10 +162,10 @@ describe("preset schema", () => {
           {
             destination: "docs/ai/presets/valid.md",
             content: "# Valid\n",
-            secret: "nope"
-          }
-        ]
-      })
+            secret: "nope",
+          },
+        ],
+      }),
     ).toThrow(PresetValidationError);
 
     expect(() =>
@@ -180,10 +178,10 @@ describe("preset schema", () => {
             status: "proposed",
             destination: "docs/adrs/proposed/ADR-PROPOSED-valid-decision.md",
             body: "# Proposed ADR\n",
-            acceptedBy: "nobody"
-          }
-        ]
-      })
+            acceptedBy: "nobody",
+          },
+        ],
+      }),
     ).toThrow(PresetValidationError);
   });
 });

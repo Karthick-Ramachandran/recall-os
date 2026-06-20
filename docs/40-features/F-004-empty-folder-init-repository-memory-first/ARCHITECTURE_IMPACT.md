@@ -21,13 +21,13 @@ No ADR is required for P1.7 because no runtime architecture, dependency policy, 
 The documented decision is:
 
 ```txt
-SpecForge initializes repository memory.
+Recall OS initializes repository memory.
 Application code may come before or after.
 ```
 
 ## Future Runtime Direction
 
-Future `specforge init` should:
+Future `recall init` should:
 
 - Work in empty directories.
 - Not require a Git repository.

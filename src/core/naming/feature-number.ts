@@ -12,14 +12,16 @@ export type FeatureFolder = FeatureNumber & {
   folderName: string;
 };
 
-export async function getNextFeatureNumber(featuresDirAbsolutePath: string): Promise<FeatureNumber> {
+export async function getNextFeatureNumber(
+  featuresDirAbsolutePath: string,
+): Promise<FeatureNumber> {
   const existingFolders = await readExistingFeatureFolders(featuresDirAbsolutePath);
   return getNextFeatureNumberFromFolders(existingFolders);
 }
 
 export async function getFeatureFolderForSlug(
   featuresDirAbsolutePath: string,
-  slug: string
+  slug: string,
 ): Promise<FeatureFolder> {
   const existingFolders = await readExistingFeatureFolders(featuresDirAbsolutePath);
   const existingFolder = existingFolders
@@ -35,19 +37,18 @@ export async function getFeatureFolderForSlug(
   return {
     ...nextFeatureNumber,
     slug,
-    folderName: `${nextFeatureNumber.id}-${slug}`
+    folderName: `${nextFeatureNumber.id}-${slug}`,
   };
 }
 
 function getNextFeatureNumberFromFolders(existingFolders: FeatureFolder[]): FeatureNumber {
   const existingNumbers = existingFolders.map((folder) => folder.number);
-  const highestNumber =
-    existingNumbers.length === 0 ? 0 : Math.max(...existingNumbers);
+  const highestNumber = existingNumbers.length === 0 ? 0 : Math.max(...existingNumbers);
   const nextNumber = highestNumber + 1;
 
   return {
     number: nextNumber,
-    id: formatFeatureNumber(nextNumber)
+    id: formatFeatureNumber(nextNumber),
   };
 }
 
@@ -70,7 +71,7 @@ export function parseFeatureNumber(folderName: string): number | null {
 }
 
 async function readExistingFeatureFolders(
-  featuresDirAbsolutePath: string
+  featuresDirAbsolutePath: string,
 ): Promise<FeatureFolder[]> {
   let entries;
 
@@ -106,6 +107,6 @@ function parseFeatureFolder(folderName: string): FeatureFolder | null {
     number,
     id,
     slug,
-    folderName
+    folderName,
   };
 }

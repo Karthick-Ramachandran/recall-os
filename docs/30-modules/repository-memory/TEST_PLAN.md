@@ -2,8 +2,8 @@
 
 ## P1.7 Docs Verification
 
-- Confirm SpecForge is described as a repository memory layer.
-- Confirm code may come before or after SpecForge.
+- Confirm Recall OS is described as a repository memory layer.
+- Confirm code may come before or after Recall OS.
 - Confirm technology detection may suggest guidance only.
 - Confirm accepted repository memory still requires human acceptance.
 

@@ -4,7 +4,7 @@
 
 Implement P1.5 as docs-only.
 
-Add architecture docs for the four-layer model, update product positioning, and review existing docs for language that makes SpecForge sound like an architecture decision maker.
+Add architecture docs for the four-layer model, update product positioning, and review existing docs for language that makes Recall OS sound like an architecture decision maker.
 
 ## Tasks
 

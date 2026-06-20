@@ -4,11 +4,11 @@ import { getPreset, listPresets } from "../../../src/core/presets/preset-registr
 import {
   parsePreset,
   PresetValidationError,
-  type Preset
+  type Preset,
 } from "../../../src/core/presets/preset-schema.js";
 import {
   validatePreset,
-  validatePresetRegistry
+  validatePresetRegistry,
 } from "../../../src/core/presets/validate-preset.js";
 
 describe("preset validation and registry", () => {
@@ -19,7 +19,7 @@ describe("preset validation and registry", () => {
       "flutter",
       "generic",
       "ios-swift",
-      "nextjs"
+      "nextjs",
     ]);
 
     for (const preset of presets) {
@@ -52,14 +52,12 @@ describe("preset validation and registry", () => {
       templates: [
         {
           destination: "docs/ai/presets/duplicate.md",
-          content: "# Duplicate\n"
-        }
-      ]
+          content: "# Duplicate\n",
+        },
+      ],
     });
 
-    expect(() => validatePresetRegistry([preset, preset])).toThrow(
-      PresetValidationError
-    );
+    expect(() => validatePresetRegistry([preset, preset])).toThrow(PresetValidationError);
   });
 
   it("sorts registry presets deterministically", () => {
@@ -67,18 +65,18 @@ describe("preset validation and registry", () => {
       id: "beta",
       name: "Beta",
       description: "Beta preset.",
-      templates: [{ destination: "docs/ai/presets/beta.md", content: "# Beta\n" }]
+      templates: [{ destination: "docs/ai/presets/beta.md", content: "# Beta\n" }],
     });
     const alpha = parsePreset({
       id: "alpha",
       name: "Alpha",
       description: "Alpha preset.",
-      templates: [{ destination: "docs/ai/presets/alpha.md", content: "# Alpha\n" }]
+      templates: [{ destination: "docs/ai/presets/alpha.md", content: "# Alpha\n" }],
     });
 
     expect(validatePresetRegistry([beta, alpha]).map((preset) => preset.id)).toEqual([
       "alpha",
-      "beta"
+      "beta",
     ]);
   });
 
@@ -87,7 +85,7 @@ describe("preset validation and registry", () => {
       id: "invalid preset",
       name: "Invalid",
       description: "Invalid preset.",
-      templates: [{ destination: "docs/ai/presets/invalid.md", content: "# Invalid\n" }]
+      templates: [{ destination: "docs/ai/presets/invalid.md", content: "# Invalid\n" }],
     } as Preset;
 
     expect(() => validatePreset(invalidPreset)).toThrow(PresetValidationError);

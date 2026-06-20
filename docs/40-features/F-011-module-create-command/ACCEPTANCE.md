@@ -3,7 +3,7 @@
 ## Command Behavior
 
 - `module create <name>` creates module memory under configured `modulesDir`.
-- Command requires `.specforge/config.json`.
+- Command requires `.recall/config.json`.
 - Command fails clearly when config is missing.
 - Module names are slugified.
 - Unsafe module names are rejected.

@@ -2,7 +2,7 @@
 
 ## Command Behavior
 
-- `init` creates `.specforge/config.json`, `AGENTS.md`, `CLAUDE.md`, and neutral repository memory docs.
+- `init` creates `.recall/config.json`, `AGENTS.md`, `CLAUDE.md`, and neutral repository memory docs.
 - `init` works in an empty folder.
 - `init` works outside Git repositories.
 - `init --preset <id>` uses the built-in preset registry.

@@ -2,7 +2,8 @@
 
 ## Purpose
 
-The generator module owns deterministic rendering and future document generation plans for SpecForge repository memory.
+The generator module owns deterministic rendering and future document generation plans for Recall OS
+repository memory.
 
 ## Owns
 

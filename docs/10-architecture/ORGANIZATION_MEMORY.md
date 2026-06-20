@@ -4,7 +4,7 @@
 
 Organization memory captures standards that come from a company, team, platform group, or enterprise environment.
 
-This is where SpecForge can support serious teams without encoding SpecForge's own architecture opinions.
+This is where Recall OS can support serious teams without encoding Recall OS's own architecture opinions.
 
 ## Examples
 
@@ -18,15 +18,15 @@ An organization may define:
 - CI = internal build platform.
 - Secrets = internal vault.
 
-SpecForge records those decisions so AI agents follow the organization's architecture, not SpecForge's preferences.
+Recall OS records those decisions so AI agents follow the organization's architecture, not Recall OS's preferences.
 
 ## Future Commands
 
 Future commands may include:
 
 ```bash
-specforge adopt
-specforge import standards
+recall adopt
+recall import standards
 ```
 
 These are not MVP runtime requirements.
@@ -61,4 +61,4 @@ Adopting organization memory may require:
 
 If organization memory is accepted into a repository, drift means mismatch with that accepted memory.
 
-SpecForge does not decide whether Kafka, Okta, Datadog, or internal systems are good choices. It helps the repository remain consistent with the accepted organization standards.
+Recall OS does not decide whether Kafka, Okta, Datadog, or internal systems are good choices. It helps the repository remain consistent with the accepted organization standards.

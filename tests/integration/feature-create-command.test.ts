@@ -9,7 +9,7 @@ import {
   readGeneratedFile,
   removeTempRoot,
   runCommand,
-  runInitCommand
+  runInitCommand,
 } from "../helpers/init-test-helpers.js";
 
 describe("feature create command", () => {
@@ -30,7 +30,7 @@ describe("feature create command", () => {
     const result = await runCommand(rootDir, ["feature", "create", "auth-provider"]);
 
     expect(result.exitCode).toBe(1);
-    expect(result.stderr).toContain("Run `specforge init` first.");
+    expect(result.stderr).toContain("Run `recall init` first.");
     expect(await listRelativeFiles(rootDir)).toEqual([]);
   });
 
@@ -42,9 +42,11 @@ describe("feature create command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("SpecForge feature create complete.");
+    expect(result.stdout).toContain("Recall OS feature create complete.");
     expect(result.stdout).toContain("Feature: docs/40-features/F-001-auth-provider");
-    expect(await listRelativeFiles(path.join(rootDir, "docs/40-features/F-001-auth-provider"))).toEqual([
+    expect(
+      await listRelativeFiles(path.join(rootDir, "docs/40-features/F-001-auth-provider")),
+    ).toEqual([
       "ACCEPTANCE.md",
       "ARCHITECTURE_IMPACT.md",
       "CHANGE_REQUESTS.md",
@@ -53,10 +55,10 @@ describe("feature create command", () => {
       "PRD.md",
       "REVIEW.md",
       "TASKS.md",
-      "TEST_PLAN.md"
+      "TEST_PLAN.md",
     ]);
     expect(
-      await readGeneratedFile(rootDir, "docs/40-features/F-001-auth-provider/PRD.md")
+      await readGeneratedFile(rootDir, "docs/40-features/F-001-auth-provider/PRD.md"),
     ).toContain("# PRD: Auth Provider");
   });
 
@@ -64,7 +66,7 @@ describe("feature create command", () => {
     const rootDir = await createRoot("feature-increment");
     await runInitCommand(rootDir);
     await mkdir(path.join(rootDir, "docs/40-features/F-002-existing"), {
-      recursive: true
+      recursive: true,
     });
     await mkdir(path.join(rootDir, "docs/40-features/F-999"), { recursive: true });
 
@@ -82,9 +84,7 @@ describe("feature create command", () => {
 
     expect(result.exitCode).toBe(1);
     expect(result.stderr).toContain("Name cannot contain path separators.");
-    expect(await listRelativeFiles(rootDir)).not.toContain(
-      "docs/40-features/F-001-evil/PRD.md"
-    );
+    expect(await listRelativeFiles(rootDir)).not.toContain("docs/40-features/F-001-evil/PRD.md");
   });
 
   it("skips existing files by default", async () => {
@@ -92,10 +92,7 @@ describe("feature create command", () => {
     await runInitCommand(rootDir);
     await runCommand(rootDir, ["feature", "create", "auth-provider"]);
 
-    const prdPath = path.join(
-      rootDir,
-      "docs/40-features/F-001-auth-provider/PRD.md"
-    );
+    const prdPath = path.join(rootDir, "docs/40-features/F-001-auth-provider/PRD.md");
     await writeFile(prdPath, "custom prd\n", "utf8");
 
     const result = await runCommand(rootDir, ["feature", "create", "auth-provider"]);
@@ -109,18 +106,13 @@ describe("feature create command", () => {
     const rootDir = await createRoot("feature-dry-run");
     await runInitCommand(rootDir);
 
-    const result = await runCommand(rootDir, [
-      "feature",
-      "create",
-      "auth-provider",
-      "--dry-run"
-    ]);
+    const result = await runCommand(rootDir, ["feature", "create", "auth-provider", "--dry-run"]);
 
     expect(result.exitCode).toBe(0);
-    expect(result.stdout).toContain("SpecForge feature create dry run complete.");
+    expect(result.stdout).toContain("Recall OS feature create dry run complete.");
     expect(result.stdout).toContain("Planned creates:");
     expect(await listRelativeFiles(rootDir)).not.toContain(
-      "docs/40-features/F-001-auth-provider/PRD.md"
+      "docs/40-features/F-001-auth-provider/PRD.md",
     );
   });
 
@@ -129,18 +121,10 @@ describe("feature create command", () => {
     await runInitCommand(rootDir);
     await runCommand(rootDir, ["feature", "create", "auth-provider"]);
 
-    const prdPath = path.join(
-      rootDir,
-      "docs/40-features/F-001-auth-provider/PRD.md"
-    );
+    const prdPath = path.join(rootDir, "docs/40-features/F-001-auth-provider/PRD.md");
     await writeFile(prdPath, "custom prd\n", "utf8");
 
-    const result = await runCommand(rootDir, [
-      "feature",
-      "create",
-      "auth-provider",
-      "--force"
-    ]);
+    const result = await runCommand(rootDir, ["feature", "create", "auth-provider", "--force"]);
 
     expect(result.exitCode).toBe(0);
     expect(result.stdout).toContain("Overwritten:");
@@ -150,11 +134,8 @@ describe("feature create command", () => {
   it("uses configured featuresDir", async () => {
     const rootDir = await createRoot("feature-configured-dir");
     await runInitCommand(rootDir);
-    const configPath = path.join(rootDir, ".specforge/config.json");
-    const config = JSON.parse(await readFile(configPath, "utf8")) as Record<
-      string,
-      unknown
-    >;
+    const configPath = path.join(rootDir, ".recall/config.json");
+    const config = JSON.parse(await readFile(configPath, "utf8")) as Record<string, unknown>;
     config.featuresDir = "memory/features";
     await writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");
 
@@ -162,7 +143,8 @@ describe("feature create command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(result.stdout).toContain("Feature: memory/features/F-001-checkout");
-    expect(await readGeneratedFile(rootDir, "memory/features/F-001-checkout/PRD.md"))
-      .toContain("# PRD: Checkout");
+    expect(await readGeneratedFile(rootDir, "memory/features/F-001-checkout/PRD.md")).toContain(
+      "# PRD: Checkout",
+    );
   });
 });

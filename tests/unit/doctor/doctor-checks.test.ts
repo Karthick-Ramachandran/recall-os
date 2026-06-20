@@ -1,4 +1,4 @@
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import { afterEach, describe, expect, it } from "vitest";
@@ -17,11 +17,11 @@ describe("doctor checks", () => {
   }
 
   async function writeConfig(rootDir: string): Promise<void> {
-    await mkdir(path.join(rootDir, ".specforge"), { recursive: true });
+    await mkdir(path.join(rootDir, ".recall"), { recursive: true });
     await writeFile(
-      path.join(rootDir, ".specforge/config.json"),
+      path.join(rootDir, ".recall/config.json"),
       `${JSON.stringify(createDefaultConfig(), null, 2)}\n`,
-      "utf8"
+      "utf8",
     );
   }
 
@@ -38,23 +38,23 @@ describe("doctor checks", () => {
       expect.objectContaining({
         severity: "error",
         check: "config",
-        path: ".specforge/config.json"
-      })
+        path: ".recall/config.json",
+      }),
     );
   });
 
   it("reports invalid JSON config as an error", async () => {
     const rootDir = await createRoot("doctor-invalid-json-unit");
-    await mkdir(path.join(rootDir, ".specforge"), { recursive: true });
-    await writeFile(path.join(rootDir, ".specforge/config.json"), "{", "utf8");
+    await mkdir(path.join(rootDir, ".recall"), { recursive: true });
+    await writeFile(path.join(rootDir, ".recall/config.json"), "{", "utf8");
 
     const report = await runDoctor(rootDir);
 
     expect(report.findings).toContainEqual(
       expect.objectContaining({
         severity: "error",
-        message: "Config file is not valid JSON."
-      })
+        message: "Config file is not valid JSON.",
+      }),
     );
   });
 
@@ -68,8 +68,8 @@ describe("doctor checks", () => {
       expect.objectContaining({
         severity: "error",
         check: "configured-directories",
-        path: "docs"
-      })
+        path: "docs",
+      }),
     );
   });
 
@@ -80,7 +80,7 @@ describe("doctor checks", () => {
     await writeFile(
       path.join(rootDir, "docs/adrs/ADR-0001-bad.md"),
       "# ADR-0001: Bad\n\n## Status\n\nProposed\n",
-      "utf8"
+      "utf8",
     );
 
     const report = await runDoctor(rootDir);
@@ -89,9 +89,8 @@ describe("doctor checks", () => {
       expect.objectContaining({
         severity: "error",
         check: "adr-memory",
-        path: "docs/adrs/ADR-0001-bad.md"
-      })
+        path: "docs/adrs/ADR-0001-bad.md",
+      }),
     );
   });
 });
-

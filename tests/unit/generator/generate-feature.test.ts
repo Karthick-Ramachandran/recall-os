@@ -8,7 +8,7 @@ describe("generateFeatureFiles", () => {
     const files = generateFeatureFiles({
       featuresDir: "docs/40-features",
       featureId: "F-001",
-      featureName: "Auth Provider"
+      featureName: "Auth Provider",
     });
 
     expect(files.map((file) => file.path)).toEqual([
@@ -20,7 +20,7 @@ describe("generateFeatureFiles", () => {
       "docs/40-features/F-001-auth-provider/TASKS.md",
       "docs/40-features/F-001-auth-provider/TEST_PLAN.md",
       "docs/40-features/F-001-auth-provider/REVIEW.md",
-      "docs/40-features/F-001-auth-provider/COMPLETION_REPORT.md"
+      "docs/40-features/F-001-auth-provider/COMPLETION_REPORT.md",
     ]);
   });
 
@@ -28,7 +28,7 @@ describe("generateFeatureFiles", () => {
     const files = generateFeatureFiles({
       featuresDir: "docs/40-features",
       featureId: "F-002",
-      featureName: "auth-provider"
+      featureName: "auth-provider",
     });
     const prd = files.find((file) => file.path.endsWith("/PRD.md"));
     const tasks = files.find((file) => file.path.endsWith("/TASKS.md"));
@@ -36,7 +36,7 @@ describe("generateFeatureFiles", () => {
     expect(prd?.content).toContain("# PRD: Auth Provider");
     expect(tasks?.content).toContain("Do Not:");
     expect(tasks?.content).toContain(
-      "Start implementation before PRD, acceptance, architecture impact, and test plan are clear."
+      "Start implementation before PRD, acceptance, architecture impact, and test plan are clear.",
     );
   });
 
@@ -45,8 +45,8 @@ describe("generateFeatureFiles", () => {
       generateFeatureFiles({
         featuresDir: "docs/40-features",
         featureId: "F-001",
-        featureName: "../../evil"
-      })
+        featureName: "../../evil",
+      }),
     ).toThrow(SlugifyError);
   });
 });

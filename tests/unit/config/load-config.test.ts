@@ -10,7 +10,7 @@ import { ConfigLoadError, loadConfig } from "../../../src/core/config/load-confi
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "specforge-config-load-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-config-load-"));
 });
 
 afterEach(async () => {
@@ -18,8 +18,8 @@ afterEach(async () => {
 });
 
 async function writeRawConfig(content: string): Promise<void> {
-  await mkdir(path.join(rootDir, ".specforge"), { recursive: true });
-  await writeFile(path.join(rootDir, ".specforge", "config.json"), content, "utf8");
+  await mkdir(path.join(rootDir, ".recall"), { recursive: true });
+  await writeFile(path.join(rootDir, ".recall", "config.json"), content, "utf8");
 }
 
 describe("loadConfig", () => {
@@ -44,8 +44,8 @@ describe("loadConfig", () => {
     await writeRawConfig(
       JSON.stringify({
         ...createDefaultConfig(),
-        docsDir: "../outside"
-      })
+        docsDir: "../outside",
+      }),
     );
 
     await expect(loadConfig(rootDir)).rejects.toThrow();

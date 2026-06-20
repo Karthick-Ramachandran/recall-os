@@ -6,9 +6,9 @@ import {
   readGeneratedFile,
   readGeneratedJson,
   removeTempRoot,
-  runInitCommand
+  runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { SpecForgeConfig } from "../../src/core/config/config-schema.js";
+import type { RecallConfig } from "../../src/core/config/config-schema.js";
 
 describe("nextjs init golden output", () => {
   let rootDir: string | undefined;
@@ -26,21 +26,16 @@ describe("nextjs init golden output", () => {
 
     expect(result.exitCode).toBe(0);
     expect(await listRelativeFiles(rootDir)).toContain(
-      "docs/adrs/proposed/ADR-PROPOSED-nextjs-framework.md"
+      "docs/adrs/proposed/ADR-PROPOSED-nextjs-framework.md",
     );
 
-    const config = await readGeneratedJson<SpecForgeConfig>(
-      rootDir,
-      ".specforge/config.json"
-    );
+    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
     expect(config.preset).toBe("nextjs");
-    expect(await readGeneratedFile(rootDir, "docs/ai/presets/nextjs-guidance.md"))
-      .toContain("guidance");
+    expect(await readGeneratedFile(rootDir, "docs/ai/presets/nextjs-guidance.md")).toContain(
+      "guidance",
+    );
     expect(
-      await readGeneratedFile(
-        rootDir,
-        "docs/adrs/proposed/ADR-PROPOSED-nextjs-framework.md"
-      )
+      await readGeneratedFile(rootDir, "docs/adrs/proposed/ADR-PROPOSED-nextjs-framework.md"),
     ).toContain("## Status\n\nProposed");
   });
 });

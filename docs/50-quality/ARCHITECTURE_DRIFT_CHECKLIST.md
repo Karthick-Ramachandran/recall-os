@@ -6,9 +6,9 @@ Architecture drift is undocumented change, mismatch with accepted repository mem
 
 Change is acceptable when the docs are updated. Drift happens when code, dependencies, security posture, module boundaries, or generated behavior change without source-of-truth updates.
 
-Drift is not difference from a SpecForge recommendation.
+Drift is not difference from a Recall OS recommendation.
 
-SpecForge is architecture-neutral. Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, and internal systems are all valid when accepted by repository or organization memory.
+Recall OS is architecture-neutral. Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, and internal systems are all valid when accepted by repository or organization memory.
 
 ## Review Areas
 

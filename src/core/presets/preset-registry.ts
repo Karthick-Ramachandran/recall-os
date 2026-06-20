@@ -9,7 +9,7 @@ const builtInPresets = validatePresetRegistry([
   flutterPreset,
   genericPreset,
   iosSwiftPreset,
-  nextjsPreset
+  nextjsPreset,
 ]);
 
 export function listPresets(): Preset[] {

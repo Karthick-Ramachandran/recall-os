@@ -2,13 +2,13 @@
 
 ## Purpose
 
-MCP can provide useful external context for AI-assisted development, but it is not required for SpecForge MVP.
+MCP can provide useful external context for AI-assisted development, but it is not required for Recall OS MVP.
 
-SpecForge should document how teams can use MCP safely without making external systems the architectural source of truth.
+Recall OS should document how teams can use MCP safely without making external systems the architectural source of truth.
 
 ## MVP Position
 
-SpecForge MVP:
+Recall OS MVP:
 
 - Does not require MCP.
 - Does not connect to MCP servers.

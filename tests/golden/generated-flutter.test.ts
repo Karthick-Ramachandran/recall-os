@@ -6,9 +6,9 @@ import {
   readGeneratedFile,
   readGeneratedJson,
   removeTempRoot,
-  runInitCommand
+  runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { SpecForgeConfig } from "../../src/core/config/config-schema.js";
+import type { RecallConfig } from "../../src/core/config/config-schema.js";
 
 describe("Flutter init golden output", () => {
   let rootDir: string | undefined;
@@ -26,21 +26,16 @@ describe("Flutter init golden output", () => {
 
     expect(result.exitCode).toBe(0);
     expect(await listRelativeFiles(rootDir)).toContain(
-      "docs/adrs/proposed/ADR-PROPOSED-flutter-platform.md"
+      "docs/adrs/proposed/ADR-PROPOSED-flutter-platform.md",
     );
 
-    const config = await readGeneratedJson<SpecForgeConfig>(
-      rootDir,
-      ".specforge/config.json"
-    );
+    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
     expect(config.preset).toBe("flutter");
-    expect(await readGeneratedFile(rootDir, "docs/ai/presets/flutter-guidance.md"))
-      .toContain("proposed guidance");
+    expect(await readGeneratedFile(rootDir, "docs/ai/presets/flutter-guidance.md")).toContain(
+      "proposed guidance",
+    );
     expect(
-      await readGeneratedFile(
-        rootDir,
-        "docs/adrs/proposed/ADR-PROPOSED-flutter-platform.md"
-      )
+      await readGeneratedFile(rootDir, "docs/adrs/proposed/ADR-PROPOSED-flutter-platform.md"),
     ).toContain("## Status\n\nProposed");
   });
 });

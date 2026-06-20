@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-007-preset-system/`
+- `docs/40-features/F-013-recall-os-package-release/`
 
 ## Tasks
 
@@ -13,3 +13,4 @@
 - Done: Add minimal built-in presets.
 - Done: Add unit tests.
 - Done: Complete verification.
+- Done: Expose built-in presets through read-only `preset list`.

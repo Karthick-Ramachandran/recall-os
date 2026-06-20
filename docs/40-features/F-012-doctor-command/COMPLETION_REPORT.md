@@ -30,7 +30,7 @@ Complete.
 - `docs/40-features/F-009-feature-create-command/CHANGE_REQUESTS.md`
 - `docs/40-features/F-010-adr-create-command/CHANGE_REQUESTS.md`
 - `docs/40-features/F-011-module-create-command/CHANGE_REQUESTS.md`
-- `docs/ai/SPECFORGE_COMMANDS.md`
+- `docs/ai/RECALL_COMMANDS.md`
 - `docs/30-modules/doctor/`
 - `docs/30-modules/agent-rules/`
 - `docs/30-modules/cli/`
@@ -65,7 +65,7 @@ Complete.
 
 - P9 feature docs and Doctor module memory are complete.
 - CLI, generator, repository-init, and agent-rules module memory were updated.
-- Root agent docs now route to `docs/ai/SPECFORGE_COMMANDS.md` and document Doctor as a completion gate.
+- Root agent docs now route to `docs/ai/RECALL_COMMANDS.md` and document Doctor as a completion gate.
 
 ## Engineering Standards
 

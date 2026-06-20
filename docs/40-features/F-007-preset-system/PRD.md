@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Add the core preset system that models optional opinion packs without turning SpecForge Core into an architecture generator.
+Add the core preset system that models optional opinion packs without turning Recall OS Core into an architecture generator.
 
 P4 proves the preset contract with minimal built-in content.
 
@@ -44,7 +44,7 @@ Presets may suggest. Presets must not silently decide.
 ## Non-Goals
 
 - CLI commands.
-- `specforge init`.
+- `recall init`.
 - Template file loading.
 - File writes.
 - Runtime preset execution.

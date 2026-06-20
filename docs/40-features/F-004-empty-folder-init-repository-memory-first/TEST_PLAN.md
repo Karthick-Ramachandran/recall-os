@@ -19,7 +19,7 @@ Expected:
 Confirm:
 
 - Empty-folder init is explicitly first-class.
-- `specforge init` remains architecture-neutral.
+- `recall init` remains architecture-neutral.
 - Existing app code and framework files are not required.
 - Git repository presence is optional for init.
 - Presets are optional opinion packs and produce guidance or proposed ADRs only.

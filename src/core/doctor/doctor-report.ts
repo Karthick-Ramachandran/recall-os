@@ -61,4 +61,3 @@ function formatResult(report: DoctorReport): string {
 
   return "PASSED";
 }
-

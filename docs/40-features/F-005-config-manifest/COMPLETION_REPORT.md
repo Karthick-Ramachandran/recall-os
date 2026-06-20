@@ -9,14 +9,14 @@ Complete.
 - T0: Added P2 docs and module memory.
 - T1: Added Zod dependency.
 - T2: Implemented config schema, defaults, load, and write helpers.
-- T3: Added config tests and root `.specforge/config.json`.
+- T3: Added config tests and root `.recall/config.json`.
 - T4: Ran verification and completed review evidence.
 
 ## Files Changed
 
 - Added `src/core/config/` schema, defaults, load, and write helpers.
 - Added `tests/unit/config/` coverage.
-- Added root `.specforge/config.json`.
+- Added root `.recall/config.json`.
 - Added P2 feature docs under `docs/40-features/F-005-config-manifest/`.
 - Added config module memory under `docs/30-modules/config/`.
 - Updated canonical and root product/build-priority docs for the simplified P2 config shape.

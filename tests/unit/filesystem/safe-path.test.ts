@@ -7,13 +7,13 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import {
   normalizeOutputPath,
   resolveSafePath,
-  SafePathError
+  SafePathError,
 } from "../../../src/core/filesystem/safe-path.js";
 
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "specforge-safe-path-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-safe-path-"));
 });
 
 afterEach(async () => {
@@ -23,7 +23,7 @@ afterEach(async () => {
 describe("normalizeOutputPath", () => {
   it("normalizes dot segments and preserves safe dot-directories", () => {
     expect(normalizeOutputPath("docs/./A.md")).toBe("docs/A.md");
-    expect(normalizeOutputPath(".specforge/config.json")).toBe(".specforge/config.json");
+    expect(normalizeOutputPath(".recall/config.json")).toBe(".recall/config.json");
   });
 
   it("rejects unsafe path syntax", () => {

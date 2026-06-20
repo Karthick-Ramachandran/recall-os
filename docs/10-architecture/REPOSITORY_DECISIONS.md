@@ -26,7 +26,7 @@ An OSS maintainer may accept:
 - Use Vitest.
 - Use local-first docs only.
 
-SpecForge does not judge these choices. It records them and helps agents follow them.
+Recall OS does not judge these choices. It records them and helps agents follow them.
 
 ## Relationship To ADRs
 
@@ -58,4 +58,4 @@ If implementation uses Redis but accepted repository memory says Supabase queues
 
 If implementation uses Redis and the repository has accepted Redis, that is not drift.
 
-SpecForge validates consistency with the repository's chosen memory, not with SpecForge's preferences.
+Recall OS validates consistency with the repository's chosen memory, not with Recall OS's preferences.

@@ -2,7 +2,8 @@
 
 ## P3: Placeholder Renderer First
 
-P3 uses an internal deterministic placeholder renderer instead of Eta or another advanced template engine.
+P3 uses an internal deterministic placeholder renderer instead of Eta or another advanced template
+engine.
 
 See:
 
@@ -18,7 +19,8 @@ Rendered content must be handed to filesystem planning and safe-write modules in
 
 Root agent files are routing entry points, not reliable memory guarantees.
 
-Generator outputs should preserve important project memory in durable docs so humans, agents, and future doctor checks can re-read and validate it.
+Generator outputs should preserve important project memory in durable docs so humans, agents, and
+future doctor checks can re-read and validate it.
 
 ## P5: In-Code Init Templates
 
@@ -46,6 +48,13 @@ Humans or agents fill in module substance after the module memory folder exists.
 
 ## P9: Command Reference Is Local Memory
 
-P9 adds `docs/ai/SPECFORGE_COMMANDS.md` to init output.
+P9 adds `docs/ai/RECALL_COMMANDS.md` to init output.
 
-This document is generated locally from in-code starter content. It must not be downloaded from the network in MVP.
+This document is generated locally from in-code starter content. It must not be downloaded from the
+network in MVP.
+
+## P10: Recall Command Memory
+
+P10 renames generated command memory to `docs/ai/RECALL_COMMANDS.md`.
+
+The command reference includes `recall preset list` and remains local generated memory.

@@ -18,7 +18,7 @@ export class ConfigValidationError extends Error {
   readonly issues: string[];
 
   constructor(issues: string[]) {
-    super(`Invalid SpecForge config: ${issues.join("; ")}`);
+    super(`Invalid Recall OS config: ${issues.join("; ")}`);
     this.name = "ConfigValidationError";
     this.issues = issues;
   }
@@ -34,10 +34,7 @@ const presetSchema = z.union([
     .string()
     .min(1, "Preset cannot be empty.")
     .max(80, "Preset cannot exceed 80 characters.")
-    .regex(
-      PRESET_ID_PATTERN,
-      "Preset must use lowercase letters, numbers, and single hyphens."
-    )
+    .regex(PRESET_ID_PATTERN, "Preset must use lowercase letters, numbers, and single hyphens."),
 ]);
 
 const safeRelativePathSchema = z.string().transform((value, context) => {
@@ -46,13 +43,13 @@ const safeRelativePathSchema = z.string().transform((value, context) => {
   } catch (error) {
     context.addIssue({
       code: "custom",
-      message: error instanceof Error ? error.message : "Path is invalid."
+      message: error instanceof Error ? error.message : "Path is invalid.",
     });
     return z.NEVER;
   }
 });
 
-export const specForgeConfigSchema = z
+export const recallConfigSchema = z
   .object({
     version: versionSchema,
     templateVersion: versionSchema,
@@ -64,7 +61,7 @@ export const specForgeConfigSchema = z
     featuresDir: safeRelativePathSchema,
     modulesDir: safeRelativePathSchema,
     adrDir: safeRelativePathSchema,
-    writePolicy: configWritePolicySchema
+    writePolicy: configWritePolicySchema,
   })
   .strict()
   .superRefine((config, context) => {
@@ -72,7 +69,7 @@ export const specForgeConfigSchema = z
       context.addIssue({
         code: "custom",
         path: ["mode"],
-        message: "Mode must match memoryProfile in P2."
+        message: "Mode must match memoryProfile in P2.",
       });
     }
 
@@ -82,24 +79,24 @@ export const specForgeConfigSchema = z
         context.addIssue({
           code: "custom",
           path: ["aiTools"],
-          message: `Duplicate AI tool "${aiTool}".`
+          message: `Duplicate AI tool "${aiTool}".`,
         });
       }
       seenAiTools.add(aiTool);
     }
   });
 
-export type SpecForgeConfig = z.infer<typeof specForgeConfigSchema>;
+export type RecallConfig = z.infer<typeof recallConfigSchema>;
 
-export function parseConfig(value: unknown): SpecForgeConfig {
-  const result = specForgeConfigSchema.safeParse(value);
+export function parseConfig(value: unknown): RecallConfig {
+  const result = recallConfigSchema.safeParse(value);
 
   if (!result.success) {
     throw new ConfigValidationError(
       result.error.issues.map((issue) => {
         const path = issue.path.length > 0 ? `${issue.path.join(".")}: ` : "";
         return `${path}${issue.message}`;
-      })
+      }),
     );
   }
 

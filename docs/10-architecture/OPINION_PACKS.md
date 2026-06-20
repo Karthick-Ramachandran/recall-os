@@ -25,12 +25,12 @@ They can generate stack-aware memory docs, workflow guidance, templates, and pro
 Examples:
 
 ```bash
-specforge init --preset nextjs
-specforge init --preset flutter
-specforge init --preset startup
+recall init --preset nextjs
+recall init --preset flutter
+recall init --preset startup
 ```
 
-`specforge init --preset flutter` means neutral repository memory plus Flutter-aware guidance and proposed decisions.
+`recall init --preset flutter` means neutral repository memory plus Flutter-aware guidance and proposed decisions.
 
 ## Implementation Direction
 

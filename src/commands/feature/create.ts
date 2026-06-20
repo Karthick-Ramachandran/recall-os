@@ -41,9 +41,7 @@ export class FeatureCreateError extends Error {
   }
 }
 
-export async function createFeature(
-  options: FeatureCreateOptions
-): Promise<FeatureCreateResult> {
+export async function createFeature(options: FeatureCreateOptions): Promise<FeatureCreateResult> {
   const slug = createFeatureSlug(options.name);
   const config = await loadRequiredConfig(options.rootDir);
   const featuresDirPath = resolveSafePath(options.rootDir, config.featuresDir);
@@ -51,12 +49,12 @@ export async function createFeature(
   const files = generateFeatureFiles({
     featuresDir: config.featuresDir,
     featureId: featureFolder.id,
-    featureName: options.name
+    featureName: options.name,
   });
   const plan = createWritePlan({
     rootDir: options.rootDir,
     files,
-    force: options.force
+    force: options.force,
   });
 
   if (plan.hasErrors) {
@@ -65,7 +63,7 @@ export async function createFeature(
       "Feature create write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
-        .map((entry) => `${entry.path}: ${entry.reason}`)
+        .map((entry) => `${entry.path}: ${entry.reason}`),
     );
   }
 
@@ -77,21 +75,21 @@ export async function createFeature(
     featurePath: `${config.featuresDir}/${featureFolder.folderName}`,
     dryRun: options.dryRun ?? false,
     plan,
-    writeResult
+    writeResult,
   };
 }
 
 export function formatFeatureCreateResult(result: FeatureCreateResult): string {
   const lines = [
     result.dryRun
-      ? "SpecForge feature create dry run complete."
-      : "SpecForge feature create complete.",
-    `Feature: ${result.featurePath}`
+      ? "Recall OS feature create dry run complete."
+      : "Recall OS feature create complete.",
+    `Feature: ${result.featurePath}`,
   ];
 
   appendWriteSummary(lines, {
     dryRun: result.dryRun,
-    writeResult: result.writeResult
+    writeResult: result.writeResult,
   });
 
   return `${lines.join("\n")}\n`;
@@ -116,8 +114,8 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new FeatureCreateError(
         "CONFIG_REQUIRED",
-        "SpecForge config not found or invalid. Run `specforge init` first.",
-        [error.message]
+        "Recall OS config not found or invalid. Run `recall init` first.",
+        [error.message],
       );
     }
 

@@ -23,3 +23,7 @@ This makes Doctor useful as an AI completion gate.
 P9 validates deterministic memory structure and required sections.
 
 Semantic drift detection remains future work.
+
+## P10: Recall Paths
+
+Doctor treats `.recall/config.json` and `docs/ai/RECALL_COMMANDS.md` as required repository memory.

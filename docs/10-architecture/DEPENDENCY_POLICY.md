@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Dependencies should make SpecForge safer, simpler, or more maintainable. They should not expand the MVP trust boundary without review.
+Dependencies should make Recall OS safer, simpler, or more maintainable. They should not expand the MVP trust boundary without review.
 
 ## MVP Allowed Categories
 
@@ -32,8 +32,8 @@ A dependency should have:
 - Active maintenance.
 - Minimal transitive risk.
 - Deterministic behavior.
-- No hidden network calls in SpecForge runtime.
+- No hidden network calls in Recall OS runtime.
 
 ## Generated Output
 
-SpecForge must not install dependencies into target projects during MVP. It may generate documentation describing recommended stack dependencies, but it must not run install commands.
+Recall OS must not install dependencies into target projects during MVP. It may generate documentation describing recommended stack dependencies, but it must not run install commands.

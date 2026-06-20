@@ -2,7 +2,7 @@
 
 ## Purpose
 
-SpecForge skills are focused reusable workflows for AI coding agents.
+Recall OS skills are focused reusable workflows for AI coding agents.
 
 They should help agents perform specific engineering jobs without loading the entire project handbook into context.
 

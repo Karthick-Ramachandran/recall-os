@@ -11,7 +11,7 @@ import { slugify } from "../../src/core/naming/slugify.js";
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "specforge-path-security-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-path-security-"));
 });
 
 afterEach(async () => {
@@ -32,7 +32,7 @@ describe("path traversal security", () => {
   it("surfaces unsafe paths as write plan errors", () => {
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "../../evil", content: "evil" }]
+      files: [{ path: "../../evil", content: "evil" }],
     });
 
     expect(plan.hasErrors).toBe(true);

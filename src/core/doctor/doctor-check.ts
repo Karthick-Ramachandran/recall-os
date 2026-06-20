@@ -31,7 +31,7 @@ export type DoctorCheckContext = {
 };
 
 export type DoctorCheck = (
-  context: DoctorCheckContext
+  context: DoctorCheckContext,
 ) => Promise<DoctorFinding[]> | DoctorFinding[];
 
 export async function runDoctor(rootDir: string): Promise<DoctorReport> {
@@ -42,7 +42,7 @@ export async function runDoctor(rootDir: string): Promise<DoctorReport> {
 
   const context: DoctorCheckContext = {
     rootDir,
-    config: configResult.config
+    config: configResult.config,
   };
 
   findings.push(...(await checkRequiredFiles(context)));
@@ -60,8 +60,7 @@ export function createDoctorReport(findings: DoctorFinding[]): DoctorReport {
     summary: {
       errors: findings.filter((finding) => finding.severity === "error").length,
       warnings: findings.filter((finding) => finding.severity === "warning").length,
-      info: findings.filter((finding) => finding.severity === "info").length
-    }
+      info: findings.filter((finding) => finding.severity === "info").length,
+    },
   };
 }
-

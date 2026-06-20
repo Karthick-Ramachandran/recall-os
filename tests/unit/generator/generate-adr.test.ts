@@ -8,11 +8,11 @@ describe("generateAdrFile", () => {
     const files = generateAdrFile({
       adrDir: "docs/adrs",
       adrId: "ADR-0002",
-      title: "Deterministic Cache Policy"
+      title: "Deterministic Cache Policy",
     });
 
     expect(files.map((file) => file.path)).toEqual([
-      "docs/adrs/ADR-0002-deterministic-cache-policy.md"
+      "docs/adrs/ADR-0002-deterministic-cache-policy.md",
     ]);
   });
 
@@ -20,7 +20,7 @@ describe("generateAdrFile", () => {
     const files = generateAdrFile({
       adrDir: "docs/adrs",
       adrId: "ADR-0003",
-      title: "file-write-policy"
+      title: "file-write-policy",
     });
     const content = files[0]?.content ?? "";
 
@@ -38,8 +38,8 @@ describe("generateAdrFile", () => {
       generateAdrFile({
         adrDir: "docs/adrs",
         adrId: "ADR-0001",
-        title: "../../evil"
-      })
+        title: "../../evil",
+      }),
     ).toThrow(SlugifyError);
   });
 });

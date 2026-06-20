@@ -47,14 +47,14 @@ export function generateAdrFile(options: GenerateAdrFileOptions): WriteFileInput
   const context = createTemplateContext({
     adrId: options.adrId,
     slug,
-    title
+    title,
   });
 
   return [
     {
       path: path.posix.join(options.adrDir, `${options.adrId}-${slug}.md`),
-      content: renderTemplate(adrTemplate, context)
-    }
+      content: renderTemplate(adrTemplate, context),
+    },
   ];
 }
 

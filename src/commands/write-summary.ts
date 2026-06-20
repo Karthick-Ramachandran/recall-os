@@ -5,19 +5,16 @@ export type WriteSummaryOptions = {
   writeResult: WriteResult;
 };
 
-export function appendWriteSummary(
-  lines: string[],
-  options: WriteSummaryOptions
-): void {
+export function appendWriteSummary(lines: string[], options: WriteSummaryOptions): void {
   appendFileList(
     lines,
     options.dryRun ? "Planned creates" : "Created",
-    options.writeResult.created
+    options.writeResult.created,
   );
   appendFileList(
     lines,
     options.dryRun ? "Planned overwrites" : "Overwritten",
-    options.writeResult.overwritten
+    options.writeResult.overwritten,
   );
   appendFileList(lines, "Skipped", options.writeResult.skipped);
 }

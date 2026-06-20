@@ -23,12 +23,12 @@
 
 - `createDefaultConfig(overrides?)` returns a validated config.
 - `parseConfig(value)` validates unknown config input.
-- `loadConfig(rootDir)` loads `.specforge/config.json`.
-- `writeConfig(rootDir, config, options?)` writes `.specforge/config.json` through safe write planning and execution.
+- `loadConfig(rootDir)` loads `.recall/config.json`.
+- `writeConfig(rootDir, config, options?)` writes `.recall/config.json` through safe write planning and execution.
 
 ## Dogfooding
 
-- Root `.specforge/config.json` exists.
+- Root `.recall/config.json` exists.
 - Root config validates.
 - Root config has no secrets and no secret-like custom fields.
 

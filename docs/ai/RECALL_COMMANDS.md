@@ -1,0 +1,70 @@
+# Recall OS Commands
+
+This document records the Recall OS commands available to humans and AI agents.
+
+## Completion Gate
+
+Before claiming implementation work is complete, run:
+
+```txt
+pnpm test:run
+pnpm typecheck
+recall doctor
+```
+
+If `recall doctor` reports errors, fix them or report why they cannot be fixed.
+
+Package binary behavior is covered by binary integration tests.
+
+## Commands
+
+### `recall init`
+
+Initialize neutral repository memory.
+
+Options:
+
+- `--preset <id>`: apply optional preset guidance and proposed decisions.
+- `--dry-run`: show planned writes without writing files.
+- `--force`: overwrite existing files explicitly.
+
+### `recall preset list`
+
+List built-in presets.
+
+### `recall feature create <name>`
+
+Create feature memory docs under the configured features directory.
+
+Options:
+
+- `--dry-run`: show planned writes without writing files.
+- `--force`: overwrite existing files explicitly.
+
+### `recall adr create <title>`
+
+Create a proposed ADR under the configured ADR directory.
+
+Options:
+
+- `--dry-run`: show planned writes without writing files.
+- `--force`: overwrite existing files explicitly.
+
+### `recall module create <name>`
+
+Create module memory docs under the configured modules directory.
+
+Options:
+
+- `--dry-run`: show planned writes without writing files.
+- `--force`: overwrite existing files explicitly.
+
+### `recall doctor`
+
+Check whether repository memory is structurally healthy enough for AI-assisted work.
+
+Exit codes:
+
+- `0`: healthy
+- `1`: warnings only
+- `2`: errors

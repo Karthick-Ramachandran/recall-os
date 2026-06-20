@@ -24,10 +24,7 @@ export type AdrCreateResult = {
   writeResult: WriteResult;
 };
 
-export type AdrCreateErrorCode =
-  | "CONFIG_REQUIRED"
-  | "INVALID_ADR_TITLE"
-  | "WRITE_PLAN_ERROR";
+export type AdrCreateErrorCode = "CONFIG_REQUIRED" | "INVALID_ADR_TITLE" | "WRITE_PLAN_ERROR";
 
 export class AdrCreateError extends Error {
   readonly code: AdrCreateErrorCode;
@@ -49,12 +46,12 @@ export async function createAdr(options: AdrCreateOptions): Promise<AdrCreateRes
   const files = generateAdrFile({
     adrDir: config.adrDir,
     adrId: adrFile.id,
-    title: options.title
+    title: options.title,
   });
   const plan = createWritePlan({
     rootDir: options.rootDir,
     files,
-    force: options.force
+    force: options.force,
   });
 
   if (plan.hasErrors) {
@@ -63,7 +60,7 @@ export async function createAdr(options: AdrCreateOptions): Promise<AdrCreateRes
       "ADR create write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
-        .map((entry) => `${entry.path}: ${entry.reason}`)
+        .map((entry) => `${entry.path}: ${entry.reason}`),
     );
   }
 
@@ -75,21 +72,19 @@ export async function createAdr(options: AdrCreateOptions): Promise<AdrCreateRes
     adrPath: `${config.adrDir}/${adrFile.fileName}`,
     dryRun: options.dryRun ?? false,
     plan,
-    writeResult
+    writeResult,
   };
 }
 
 export function formatAdrCreateResult(result: AdrCreateResult): string {
   const lines = [
-    result.dryRun
-      ? "SpecForge ADR create dry run complete."
-      : "SpecForge ADR create complete.",
-    `ADR: ${result.adrPath}`
+    result.dryRun ? "Recall OS ADR create dry run complete." : "Recall OS ADR create complete.",
+    `ADR: ${result.adrPath}`,
   ];
 
   appendWriteSummary(lines, {
     dryRun: result.dryRun,
-    writeResult: result.writeResult
+    writeResult: result.writeResult,
   });
 
   return `${lines.join("\n")}\n`;
@@ -114,8 +109,8 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new AdrCreateError(
         "CONFIG_REQUIRED",
-        "SpecForge config not found or invalid. Run `specforge init` first.",
-        [error.message]
+        "Recall OS config not found or invalid. Run `recall init` first.",
+        [error.message],
       );
     }
 

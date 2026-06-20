@@ -9,7 +9,7 @@ import { createWritePlan } from "../../../src/core/filesystem/write-plan.js";
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "specforge-write-plan-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-write-plan-"));
 });
 
 afterEach(async () => {
@@ -22,8 +22,8 @@ describe("createWritePlan", () => {
       rootDir,
       files: [
         { path: "docs/B.md", content: "B" },
-        { path: "docs/A.md", content: "A" }
-      ]
+        { path: "docs/A.md", content: "A" },
+      ],
     });
 
     expect(plan.hasErrors).toBe(false);
@@ -38,7 +38,7 @@ describe("createWritePlan", () => {
 
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "docs/A.md", content: "new" }]
+      files: [{ path: "docs/A.md", content: "new" }],
     });
 
     expect(plan.hasErrors).toBe(false);
@@ -47,8 +47,8 @@ describe("createWritePlan", () => {
         action: "skip",
         path: "docs/A.md",
         absolutePath: path.join(realRoot, "docs", "A.md"),
-        reason: "File already exists."
-      }
+        reason: "File already exists.",
+      },
     ]);
   });
 
@@ -59,7 +59,7 @@ describe("createWritePlan", () => {
     const plan = createWritePlan({
       rootDir,
       policy: "overwrite",
-      files: [{ path: "docs/A.md", content: "new" }]
+      files: [{ path: "docs/A.md", content: "new" }],
     });
 
     expect(plan.hasErrors).toBe(false);
@@ -69,7 +69,7 @@ describe("createWritePlan", () => {
   it("reports errors for unsafe paths", () => {
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "../evil.md", content: "evil" }]
+      files: [{ path: "../evil.md", content: "evil" }],
     });
 
     expect(plan.hasErrors).toBe(true);
@@ -81,8 +81,8 @@ describe("createWritePlan", () => {
       rootDir,
       files: [
         { path: "docs/A.md", content: "A" },
-        { path: "docs/./A.md", content: "duplicate" }
-      ]
+        { path: "docs/./A.md", content: "duplicate" },
+      ],
     });
 
     expect(plan.hasErrors).toBe(true);

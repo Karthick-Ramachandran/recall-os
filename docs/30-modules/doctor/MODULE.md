@@ -13,6 +13,7 @@ It validates whether repository memory is structurally healthy enough for AI-ass
 - Doctor report formatting.
 - Doctor exit-code mapping.
 - Config, required-doc, feature-doc, module-doc, and ADR-section health checks.
+- Recall command memory health checks.
 
 ## Does Not Own
 
@@ -46,3 +47,5 @@ Doctor must not mutate files.
 P9 implements structural memory health checks only.
 
 Semantic drift detection remains future work.
+
+P10 updates Doctor checks for `.recall/config.json` and `docs/ai/RECALL_COMMANDS.md`.

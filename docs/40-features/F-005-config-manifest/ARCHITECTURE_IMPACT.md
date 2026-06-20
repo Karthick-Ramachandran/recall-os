@@ -4,7 +4,7 @@
 
 P2 adds `core/config` as a new core module.
 
-The module owns `.specforge/config.json` schema, defaults, loading, and writing.
+The module owns `.recall/config.json` schema, defaults, loading, and writing.
 
 ## Dependency Impact
 

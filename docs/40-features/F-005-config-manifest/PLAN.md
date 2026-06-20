@@ -12,7 +12,7 @@ Keep P2 intentionally boring: schema, defaults, load, write, tests, docs.
 2. Add Zod dependency.
 3. Implement config schema and default config.
 4. Implement load and write helpers.
-5. Add root `.specforge/config.json`.
+5. Add root `.recall/config.json`.
 6. Add unit tests for schema, load, and write behavior.
 7. Run verification and complete review evidence.
 

@@ -2,7 +2,7 @@
 
 ## Security Promise
 
-SpecForge MVP is local-first and deterministic.
+Recall OS MVP is local-first and deterministic.
 
 It must not:
 

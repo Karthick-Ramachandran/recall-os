@@ -19,3 +19,9 @@ Presets must not create accepted architecture decisions.
 ## P4: No Runtime Execution
 
 P4 does not load template files, render preset outputs, write files, or execute preset behavior.
+
+## P10: Preset List Reads Registry Only
+
+`recall preset list` reads the existing built-in registry and formats output.
+
+It does not apply presets or write files.

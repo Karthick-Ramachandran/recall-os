@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Implement `specforge feature create <name>` so users can create feature memory before implementation work starts.
+Implement `recall feature create <name>` so users can create feature memory before implementation work starts.
 
 P6 turns the feature delivery workflow into a command.
 
 ## Problem
 
-SpecForge can initialize repository memory, but it cannot yet create repeatable feature folders.
+Recall OS can initialize repository memory, but it cannot yet create repeatable feature folders.
 
 Without feature-create support, users and agents can skip PRD, acceptance, architecture impact, test plan, tasks, review, and completion evidence.
 
@@ -43,7 +43,7 @@ Feature docs are starter memory. Humans and agents fill in the substance after c
 
 ## Success Criteria
 
-- Command requires initialized SpecForge config.
+- Command requires initialized Recall OS config.
 - Command creates `F-###-<slug>` feature folders.
 - Numbering starts at `F-001`.
 - Numbering increments from valid existing feature folders.

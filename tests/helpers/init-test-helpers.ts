@@ -12,7 +12,7 @@ export type InitCommandRun = {
 };
 
 export async function createTempRoot(prefix: string): Promise<string> {
-  return mkdtemp(path.join(os.tmpdir(), `specforge-${prefix}-`));
+  return mkdtemp(path.join(os.tmpdir(), `recall-${prefix}-`));
 }
 
 export async function removeTempRoot(rootDir: string): Promise<void> {
@@ -21,15 +21,12 @@ export async function removeTempRoot(rootDir: string): Promise<void> {
 
 export async function runInitCommand(
   rootDir: string,
-  args: string[] = []
+  args: string[] = [],
 ): Promise<InitCommandRun> {
   return runCommand(rootDir, ["init", ...args]);
 }
 
-export async function runCommand(
-  rootDir: string,
-  args: string[]
-): Promise<InitCommandRun> {
+export async function runCommand(rootDir: string, args: string[]): Promise<InitCommandRun> {
   let stdout = "";
   let stderr = "";
   const exitCode = await main(args, {
@@ -37,20 +34,20 @@ export async function runCommand(
     stdout: {
       write(message) {
         stdout += message;
-      }
+      },
     },
     stderr: {
       write(message) {
         stderr += message;
-      }
-    }
+      },
+    },
   });
 
   return {
     rootDir,
     exitCode,
     stdout,
-    stderr
+    stderr,
   };
 }
 
@@ -81,9 +78,6 @@ export async function readGeneratedFile(rootDir: string, relativePath: string): 
   return readFile(path.join(rootDir, relativePath), "utf8");
 }
 
-export async function readGeneratedJson<T>(
-  rootDir: string,
-  relativePath: string
-): Promise<T> {
+export async function readGeneratedJson<T>(rootDir: string, relativePath: string): Promise<T> {
   return JSON.parse(await readGeneratedFile(rootDir, relativePath)) as T;
 }

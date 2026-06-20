@@ -1,6 +1,6 @@
-# SpecForge Agent Instructions
+# Recall OS Agent Instructions
 
-SpecForge creates durable engineering memory for AI-assisted software development.
+Recall OS creates durable engineering memory for AI-assisted software development.
 
 This file is intentionally short. Use it as routing guidance, not as the full project handbook.
 
@@ -28,7 +28,7 @@ For implementation constraints, read:
 - `docs/60-engineering/AI_AGENT_RULES.md`
 - `docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md`
 - `docs/ai/MODULE_DELIVERY_WORKFLOW.md`
-- `docs/ai/SPECFORGE_COMMANDS.md`
+- `docs/ai/RECALL_COMMANDS.md`
 
 ## Module Work Rule
 
@@ -43,17 +43,21 @@ Tasks come after PRD, acceptance criteria, architecture impact, and test plan.
 
 ## Architecture Neutrality
 
-SpecForge Core records, distributes, validates, and protects decisions. It does not make architecture or technology choices for users.
+Recall OS Core records, distributes, validates, and protects decisions. It does not make
+architecture or technology choices for users.
 
-Presets are CLI-level presets and architecture-level opinion packs. Preset suggestions must be proposed or optional until accepted by a human.
+Presets are CLI-level presets and architecture-level opinion packs. Preset suggestions must be
+proposed or optional until accepted by a human.
 
 ## Engineering Standards
 
 Repository rules override model preferences.
 
-If a model, tool, or user request conflicts with accepted repository memory or engineering standards, stop and report the conflict.
+If a model, tool, or user request conflicts with accepted repository memory or engineering
+standards, stop and report the conflict.
 
-Never commit secrets, hardcode credentials, bypass auth, add dependencies without review, skip required migrations, skip tests without reason, or claim completion without evidence.
+Never commit secrets, hardcode credentials, bypass auth, add dependencies without review, skip
+required migrations, skip tests without reason, or claim completion without evidence.
 
 ## Non-Negotiable MVP Constraints
 
@@ -84,12 +88,13 @@ If instructions conflict, stop and report the conflict.
 
 ## Delivery Standard
 
-Do not claim completion without evidence: files changed, commands run, results, skipped checks, remaining risks, and documentation updates.
+Do not claim completion without evidence: files changed, commands run, results, skipped checks,
+remaining risks, and documentation updates.
 
 Before claiming implementation work is complete, run:
 
 - `pnpm test:run`
 - `pnpm typecheck`
-- `specforge doctor` when the CLI binary is available
+- `recall doctor` when the CLI binary is available
 
-Until P10 package/bin wiring exists, validate Doctor through `main(argv, io)` integration tests.
+Package binary behavior is covered by binary integration tests.

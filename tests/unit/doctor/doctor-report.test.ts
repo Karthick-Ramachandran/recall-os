@@ -1,13 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  createDoctorReport,
-  type DoctorFinding
-} from "../../../src/core/doctor/doctor-check.js";
-import {
-  formatDoctorReport,
-  getDoctorExitCode
-} from "../../../src/core/doctor/doctor-report.js";
+import { createDoctorReport, type DoctorFinding } from "../../../src/core/doctor/doctor-check.js";
+import { formatDoctorReport, getDoctorExitCode } from "../../../src/core/doctor/doctor-report.js";
 
 describe("doctor report", () => {
   it("returns zero for healthy reports", () => {
@@ -22,8 +16,8 @@ describe("doctor report", () => {
       {
         severity: "warning",
         check: "example",
-        message: "Non-blocking issue."
-      }
+        message: "Non-blocking issue.",
+      },
     ]);
 
     expect(getDoctorExitCode(report)).toBe(1);
@@ -36,8 +30,8 @@ describe("doctor report", () => {
       {
         severity: "error",
         check: "example",
-        message: "Blocking issue."
-      }
+        message: "Blocking issue.",
+      },
     ]);
 
     expect(getDoctorExitCode(report)).toBe(2);
@@ -49,7 +43,7 @@ describe("doctor report", () => {
     const findings: DoctorFinding[] = [
       { severity: "info", check: "info", message: "Info." },
       { severity: "error", check: "error", message: "Error.", path: "A.md" },
-      { severity: "warning", check: "warning", message: "Warning." }
+      { severity: "warning", check: "warning", message: "Warning." },
     ];
     const output = formatDoctorReport(createDoctorReport(findings));
 
@@ -58,4 +52,3 @@ describe("doctor report", () => {
     expect(output).toContain("- Error. (A.md)");
   });
 });
-

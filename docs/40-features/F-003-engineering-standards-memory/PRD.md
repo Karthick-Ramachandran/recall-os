@@ -2,7 +2,7 @@
 
 ## Summary
 
-SpecForge should treat engineering standards as first-class repository memory.
+Recall OS should treat engineering standards as first-class repository memory.
 
 Engineering Standards Memory captures how work must be done in a repository, including secrets handling, dependency review, documentation discipline, git hygiene, release evidence, migrations, operations, and AI agent behavior.
 

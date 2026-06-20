@@ -15,7 +15,7 @@ const requiredFeatureDocs = [
   "TASKS.md",
   "TEST_PLAN.md",
   "REVIEW.md",
-  "COMPLETION_REPORT.md"
+  "COMPLETION_REPORT.md",
 ];
 
 const requiredModuleDocs = ["MODULE.md", "TASKS.md", "TEST_PLAN.md", "DECISIONS.md"];
@@ -26,12 +26,10 @@ const requiredAdrSections = [
   "## Decision",
   "## Alternatives Considered",
   "## Consequences",
-  "## Related Documents"
+  "## Related Documents",
 ];
 
-export async function checkMemoryIntegrity(
-  context: DoctorCheckContext
-): Promise<DoctorFinding[]> {
+export async function checkMemoryIntegrity(context: DoctorCheckContext): Promise<DoctorFinding[]> {
   if (context.config === undefined) {
     return [];
   }
@@ -45,14 +43,11 @@ export async function checkMemoryIntegrity(
   return findings;
 }
 
-async function checkFeatureFolders(
-  rootDir: string,
-  featuresDir: string
-): Promise<DoctorFinding[]> {
+async function checkFeatureFolders(rootDir: string, featuresDir: string): Promise<DoctorFinding[]> {
   const findings: DoctorFinding[] = [];
   const entries = await readDirIfExists(rootDir, featuresDir);
   const featureFolders = entries.filter(
-    (entry) => entry.isDirectory() && featureFolderPattern.test(entry.name)
+    (entry) => entry.isDirectory() && featureFolderPattern.test(entry.name),
   );
 
   for (const featureFolder of featureFolders) {
@@ -63,7 +58,7 @@ async function checkFeatureFolders(
           severity: "error",
           check: "feature-memory",
           message: "Feature folder is missing a required doc.",
-          path: filePath
+          path: filePath,
         });
       }
     }
@@ -72,16 +67,13 @@ async function checkFeatureFolders(
   findings.push({
     severity: "info",
     check: "feature-memory",
-    message: `${featureFolders.length} feature folders detected.`
+    message: `${featureFolders.length} feature folders detected.`,
   });
 
   return findings;
 }
 
-async function checkModuleFolders(
-  rootDir: string,
-  modulesDir: string
-): Promise<DoctorFinding[]> {
+async function checkModuleFolders(rootDir: string, modulesDir: string): Promise<DoctorFinding[]> {
   const findings: DoctorFinding[] = [];
   const entries = await readDirIfExists(rootDir, modulesDir);
   const moduleFolders = entries.filter((entry) => entry.isDirectory());
@@ -94,7 +86,7 @@ async function checkModuleFolders(
           severity: "error",
           check: "module-memory",
           message: "Module folder is missing a required doc.",
-          path: filePath
+          path: filePath,
         });
       }
     }
@@ -103,7 +95,7 @@ async function checkModuleFolders(
   findings.push({
     severity: "info",
     check: "module-memory",
-    message: `${moduleFolders.length} module folders detected.`
+    message: `${moduleFolders.length} module folders detected.`,
   });
 
   return findings;
@@ -124,7 +116,7 @@ async function checkAdrFiles(rootDir: string, adrDir: string): Promise<DoctorFin
           severity: "error",
           check: "adr-memory",
           message: `ADR file is missing required section ${requiredSection}.`,
-          path: filePath
+          path: filePath,
         });
       }
     }
@@ -133,7 +125,7 @@ async function checkAdrFiles(rootDir: string, adrDir: string): Promise<DoctorFin
   findings.push({
     severity: "info",
     check: "adr-memory",
-    message: `${adrFiles.length} ADRs detected.`
+    message: `${adrFiles.length} ADRs detected.`,
   });
 
   return findings;
@@ -162,4 +154,3 @@ async function isFile(rootDir: string, relativePath: string): Promise<boolean> {
     throw error;
   }
 }
-

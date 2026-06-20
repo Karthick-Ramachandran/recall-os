@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-012-doctor-command/`
+- `docs/40-features/F-013-recall-os-package-release/`
 
 ## Tasks
 
@@ -18,3 +18,5 @@
 - Done: Add ADR file planning.
 - Done: Add module memory file planning.
 - Done: Add init-generated command reference memory.
+- Done: Rename generated command memory to `docs/ai/RECALL_COMMANDS.md`.
+- Done: Add `preset list` to generated command memory.

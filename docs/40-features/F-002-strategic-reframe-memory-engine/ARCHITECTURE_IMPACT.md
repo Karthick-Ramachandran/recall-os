@@ -24,7 +24,7 @@ Future implementation should prefer:
 - `proposedDecisions`
 - `organizationStandards`
 
-Future implementation should avoid required architecture IDs that imply SpecForge owns the user's architecture.
+Future implementation should avoid required architecture IDs that imply Recall OS owns the user's architecture.
 
 ## ADR Impact
 

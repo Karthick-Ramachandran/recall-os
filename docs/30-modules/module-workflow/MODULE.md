@@ -22,7 +22,7 @@ Module workflow owns the repository-memory process for creating and maintaining 
 
 ## Public Interface Direction
 
-`specforge module create <name>` creates module memory only.
+`recall module create <name>` creates module memory only.
 
 Feature delivery docs should be created separately with `feature create` when feature work is being planned.
 

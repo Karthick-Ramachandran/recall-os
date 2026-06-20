@@ -22,7 +22,7 @@ const WINDOWS_RESERVED_NAMES = new Set([
   "lpt6",
   "lpt7",
   "lpt8",
-  "lpt9"
+  "lpt9",
 ]);
 
 export class SlugifyError extends Error {

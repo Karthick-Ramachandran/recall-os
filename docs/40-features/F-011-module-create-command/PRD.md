@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Implement `specforge module create <name>` so repositories can create module memory before or during implementation work.
+Implement `recall module create <name>` so repositories can create module memory before or during implementation work.
 
 P8 makes module ownership, boundaries, tests, and decisions repeatable through the CLI.
 
 ## Problem
 
-SpecForge can create repository memory, feature memory, and ADR drafts, but it cannot yet create module memory through the CLI.
+Recall OS can create repository memory, feature memory, and ADR drafts, but it cannot yet create module memory through the CLI.
 
 Without module-create support, users and agents may skip the durable ownership and boundary docs that help future work avoid drift.
 
@@ -43,7 +43,7 @@ Teams should use `feature create` separately when planning feature work.
 
 ## Success Criteria
 
-- Command requires initialized SpecForge config.
+- Command requires initialized Recall OS config.
 - Command creates `<modulesDir>/<slug>/` module memory.
 - Generated module memory includes `MODULE.md`, `TASKS.md`, `TEST_PLAN.md`, and `DECISIONS.md`.
 - Unsafe names are rejected.

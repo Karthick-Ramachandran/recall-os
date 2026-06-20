@@ -11,14 +11,14 @@
 - Unknown top-level keys are rejected.
 - Decision index keys are rejected.
 - Organization standards key is rejected.
-- `writeConfig` creates `.specforge/config.json`.
+- `writeConfig` creates `.recall/config.json`.
 - Existing config is skipped by default.
 - Dry run writes nothing.
 - Force overwrite works through the safe write policy.
 
 ## Manual Review
 
-- Root `.specforge/config.json` validates.
+- Root `.recall/config.json` validates.
 - Root config contains no secrets and no decision indexes.
 - No CLI command is added.
 - No template renderer is added.

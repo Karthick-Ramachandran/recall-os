@@ -2,7 +2,7 @@
 
 ## Goal
 
-SpecForge must make file writes predictable, reviewable, and non-destructive.
+Recall OS must make file writes predictable, reviewable, and non-destructive.
 
 ## Rules
 

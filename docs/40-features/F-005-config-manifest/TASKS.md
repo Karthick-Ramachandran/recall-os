@@ -48,7 +48,7 @@ Status: Done
 Scope:
 
 - `tests/unit/config/`
-- `.specforge/config.json`
+- `.recall/config.json`
 
 Acceptance:
 

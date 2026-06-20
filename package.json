@@ -1,16 +1,38 @@
 {
-  "name": "specforge",
+  "name": "recall-os",
   "version": "0.1.0",
-  "private": true,
+  "description": "Architecture-neutral repository memory for AI-assisted software teams.",
   "type": "module",
+  "license": "MIT",
+  "bin": {
+    "recall": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "examples"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "format:check": "prettier --check \"*.json\" \"*.js\" \"*.ts\" \".github/**/*.yml\" \"src/**/*.ts\" \"tests/**/*.ts\" \"scripts/**/*.mjs\" \"README.md\" \"examples/**/*.md\" \"docs/40-features/F-013-recall-os-package-release/**/*.md\" \"docs/30-modules/package-release/**/*.md\"",
+    "pack:check": "node scripts/check-package.mjs",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^24.0.0",
+    "eslint": "^10.5.0",
+    "prettier": "^3.8.4",
+    "tsup": "^8.5.1",
     "typescript": "^5.8.0",
+    "typescript-eslint": "^8.61.1",
     "vitest": "^3.2.0"
   },
   "dependencies": {

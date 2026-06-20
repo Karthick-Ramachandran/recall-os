@@ -10,7 +10,7 @@ import { executeWritePlan } from "../../src/core/filesystem/write-file-safe.js";
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "specforge-overwrite-security-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-overwrite-security-"));
 });
 
 afterEach(async () => {
@@ -24,21 +24,19 @@ describe("overwrite policy security", () => {
 
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: "docs/A.md", content: "new" }]
+      files: [{ path: "docs/A.md", content: "new" }],
     });
     const result = await executeWritePlan(plan);
 
     expect(result.skipped).toEqual(["docs/A.md"]);
-    await expect(readFile(path.join(rootDir, "docs", "A.md"), "utf8")).resolves.toBe(
-      "existing"
-    );
+    await expect(readFile(path.join(rootDir, "docs", "A.md"), "utf8")).resolves.toBe("existing");
   });
 
   it("force overwrite does not bypass path safety", () => {
     const plan = createWritePlan({
       rootDir,
       force: true,
-      files: [{ path: "../evil.md", content: "evil" }]
+      files: [{ path: "../evil.md", content: "evil" }],
     });
 
     expect(plan.hasErrors).toBe(true);
@@ -50,8 +48,8 @@ describe("overwrite policy security", () => {
       rootDir,
       files: [
         { path: "docs/A.md", content: "A" },
-        { path: "docs/./A.md", content: "duplicate" }
-      ]
+        { path: "docs/./A.md", content: "duplicate" },
+      ],
     });
 
     expect(plan.hasErrors).toBe(true);

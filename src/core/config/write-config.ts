@@ -1,7 +1,7 @@
 import type { WriteResult } from "../filesystem/write-file-safe.js";
 import { executeWritePlan } from "../filesystem/write-file-safe.js";
 import { createWritePlan } from "../filesystem/write-plan.js";
-import { parseConfig, type ConfigWritePolicy, type SpecForgeConfig } from "./config-schema.js";
+import { parseConfig, type ConfigWritePolicy, type RecallConfig } from "./config-schema.js";
 import { CONFIG_PATH } from "./load-config.js";
 
 export type WriteConfigOptions = {
@@ -12,8 +12,8 @@ export type WriteConfigOptions = {
 
 export async function writeConfig(
   rootDir: string,
-  config: SpecForgeConfig,
-  options: WriteConfigOptions = {}
+  config: RecallConfig,
+  options: WriteConfigOptions = {},
 ): Promise<WriteResult> {
   const validatedConfig = parseConfig(config);
   const plan = createWritePlan({
@@ -21,11 +21,11 @@ export async function writeConfig(
     files: [
       {
         path: CONFIG_PATH,
-        content: `${JSON.stringify(validatedConfig, null, 2)}\n`
-      }
+        content: `${JSON.stringify(validatedConfig, null, 2)}\n`,
+      },
     ],
     policy: options.policy,
-    force: options.force
+    force: options.force,
   });
 
   return executeWritePlan(plan, { dryRun: options.dryRun });

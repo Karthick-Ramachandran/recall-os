@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   resolveConflictPolicy,
-  shouldOverwriteExisting
+  shouldOverwriteExisting,
 } from "../../../src/core/filesystem/conflict-policy.js";
 
 describe("conflict policy", () => {

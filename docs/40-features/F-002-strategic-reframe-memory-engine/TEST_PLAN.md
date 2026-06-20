@@ -18,8 +18,8 @@ Expected:
 
 Review for:
 
-- Core docs do not imply SpecForge chooses architecture.
-- `specforge init` is neutral by default.
+- Core docs do not imply Recall OS chooses architecture.
+- `recall init` is neutral by default.
 - Presets are optional opinion packs.
 - Preset suggestions are proposed, not accepted.
 - Drift is mismatch with accepted repository memory.

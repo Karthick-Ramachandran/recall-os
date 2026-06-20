@@ -2,25 +2,25 @@
 
 ## Purpose
 
-Lock the product decision that SpecForge initializes repository memory, not application code.
+Lock the product decision that Recall OS initializes repository memory, not application code.
 
-SpecForge must work before the first line of app code exists.
+Recall OS must work before the first line of app code exists.
 
 ## Problem
 
-If `specforge init` requires an existing Flutter, Next.js, Swift, Android, or other app, SpecForge becomes tied to implementation frameworks.
+If `recall init` requires an existing Flutter, Next.js, Swift, Android, or other app, Recall OS becomes tied to implementation frameworks.
 
 That weakens the architecture-neutral memory engine position.
 
 ## Decision
 
-`specforge init` must work in an empty folder as a first-class workflow.
+`recall init` must work in an empty folder as a first-class workflow.
 
 Git initializes source control.
 
-SpecForge initializes repository memory.
+Recall OS initializes repository memory.
 
-Code may come before or after SpecForge.
+Code may come before or after Recall OS.
 
 ## Users
 
@@ -35,19 +35,19 @@ Code may come before or after SpecForge.
 ```bash
 mkdir expense-tracker
 cd expense-tracker
-specforge init
+recall init
 ```
 
-SpecForge creates neutral repository memory. The app framework may be created later.
+Recall OS creates neutral repository memory. The app framework may be created later.
 
 ### Existing Repository
 
 ```bash
 cd existing-app
-specforge init
+recall init
 ```
 
-SpecForge initializes neutral memory and may later offer detected guidance.
+Recall OS initializes neutral memory and may later offer detected guidance.
 
 Technology detection may suggest guidance, but detection must not become accepted repository memory by itself.
 
@@ -55,7 +55,7 @@ Technology detection may suggest guidance, but detection must not become accepte
 
 ```bash
 cd mature-repo
-specforge adopt
+recall adopt
 ```
 
 `adopt` is future scope. It may create repository memory from existing systems after review.
@@ -63,7 +63,7 @@ specforge adopt
 ## In Scope
 
 - Document empty-folder init as first-class.
-- Document `specforge init` as neutral repository memory.
+- Document `recall init` as neutral repository memory.
 - Document preset behavior as guidance and proposed decisions.
 - Document technology detection as guidance only.
 - Add module memory for repository init and repository memory semantics.
@@ -81,7 +81,7 @@ specforge adopt
 ## Success Criteria
 
 - Product docs say empty-folder init is supported.
-- Architecture docs say SpecForge initializes memory independent of app code.
+- Architecture docs say Recall OS initializes memory independent of app code.
 - Preset docs say `--preset` produces guidance or proposed ADRs, not accepted decisions.
 - Existing-repo detection is guidance only.
 - P1.7 changes no runtime behavior.

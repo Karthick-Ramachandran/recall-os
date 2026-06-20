@@ -19,12 +19,10 @@ const requiredDocs = [
   "60-engineering/AI_AGENT_RULES.md",
   "ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md",
   "ai/MCP_STRATEGY.md",
-  "ai/SPECFORGE_COMMANDS.md"
+  "ai/RECALL_COMMANDS.md",
 ];
 
-export async function checkRequiredFiles(
-  context: DoctorCheckContext
-): Promise<DoctorFinding[]> {
+export async function checkRequiredFiles(context: DoctorCheckContext): Promise<DoctorFinding[]> {
   const findings: DoctorFinding[] = [];
   const docsDir = context.config?.docsDir ?? "docs";
 
@@ -51,7 +49,7 @@ export async function checkRequiredFiles(
       context.config.docsDir,
       context.config.featuresDir,
       context.config.modulesDir,
-      context.config.adrDir
+      context.config.adrDir,
     ];
 
     for (const directoryPath of requiredDirectories) {
@@ -60,7 +58,7 @@ export async function checkRequiredFiles(
           severity: "error",
           check: "configured-directories",
           message: "Configured directory is missing.",
-          path: directoryPath
+          path: directoryPath,
         });
       }
     }
@@ -98,7 +96,6 @@ function missingFile(pathValue: string, check: string): DoctorFinding {
     severity: "error",
     check,
     message: "Required file is missing.",
-    path: pathValue
+    path: pathValue,
   };
 }
-
