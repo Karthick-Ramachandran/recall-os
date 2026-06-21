@@ -304,17 +304,21 @@
           <table>
             <thead><tr><th>Command</th><th>What it does</th></tr></thead>
             <tbody>
-              <tr><td class="cmd"><span class="mono">recall init</span></td><td class="muted-td">Create neutral repository memory, plus agent skills, a pre-commit hook, a CI workflow, a Claude SessionStart hook, and a Cursor rule. Surfaces the detected stack (proposed).</td></tr>
+              <tr><td class="cmd"><span class="mono">recall init</span></td><td class="muted-td">Create neutral repository memory, plus agent skills, pre-commit and pre-push hooks, a CI workflow, a Claude SessionStart hook, and a Cursor rule. Surfaces the detected stack (proposed).</td></tr>
               <tr><td class="cmd"><span class="mono">recall init --preset &lt;id&gt;</span></td><td class="muted-td">Add an opinion pack: rich guidance and proposed ADRs for a real stack.</td></tr>
+              <tr><td class="cmd"><span class="mono">recall init --ai-tools &lt;list&gt;</span></td><td class="muted-td">Generate files only for the AI tools you use: claude, codex, cursor, generic.</td></tr>
               <tr><td class="cmd"><span class="mono">recall adopt</span></td><td class="muted-td">Inspect an existing repo (read-only) and propose reviewable memory, with the source each signal was inferred from.</td></tr>
               <tr><td class="cmd"><span class="mono">recall preset list</span></td><td class="muted-td">List the built-in opinion packs.</td></tr>
               <tr><td class="cmd"><span class="mono">recall feature create &lt;name&gt;</span></td><td class="muted-td">Scaffold feature memory: PRD, acceptance, tests, review, completion report.</td></tr>
               <tr><td class="cmd"><span class="mono">recall adr create &lt;title&gt;</span></td><td class="muted-td">Create a proposed architecture decision record.</td></tr>
               <tr><td class="cmd"><span class="mono">recall adr accept &lt;name&gt;</span></td><td class="muted-td">Promote a proposed ADR to accepted source-of-truth.</td></tr>
+              <tr><td class="cmd"><span class="mono">recall adr supersede &lt;old&gt; &lt;new&gt;</span></td><td class="muted-td">Record a changed decision: mark the old ADR superseded by a new accepted ADR.</td></tr>
               <tr><td class="cmd"><span class="mono">recall module create &lt;name&gt;</span></td><td class="muted-td">Scaffold module memory: ownership, boundaries, tests, decisions.</td></tr>
               <tr><td class="cmd"><span class="mono">recall skill create &lt;name&gt;</span></td><td class="muted-td">Generate a portable AI agent skill for Claude Code and the Agent Skills format.</td></tr>
+              <tr><td class="cmd"><span class="mono">recall skill list</span></td><td class="muted-td">List the built-in agent skill catalog.</td></tr>
               <tr><td class="cmd"><span class="mono">recall mcp add &lt;server&gt;</span></td><td class="muted-td">Generate offline, proposed memory for an MCP server (e.g. Figma) and a capture skill.</td></tr>
               <tr><td class="cmd"><span class="mono">recall doctor</span></td><td class="muted-td">Validate memory health, completion evidence, drift, and unfilled security docs. Exit codes 0 / 1 / 2.</td></tr>
+              <tr><td class="cmd"><span class="mono">recall guard --source &lt;dirs&gt;</span></td><td class="muted-td">Fail when staged source changed without tests — add it to your gates to enforce it.</td></tr>
             </tbody>
           </table>
         </div>
