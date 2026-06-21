@@ -6,3 +6,6 @@ coverage/
 .env.*
 !.env.example
 *.log
+
+# Local planning (not committed)
+/PIPELINE.md
