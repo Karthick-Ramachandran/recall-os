@@ -1,9 +1,11 @@
 import { checkCodeReferences } from "./checks/code-reference-check.js";
 import { checkConfig } from "./checks/config-check.js";
 import { checkContent } from "./checks/content-check.js";
+import { checkContextBudget } from "./checks/context-budget-check.js";
 import { checkDrift } from "./checks/drift-check.js";
 import { checkMemoryIntegrity } from "./checks/memory-integrity-check.js";
 import { checkRequiredFiles } from "./checks/required-files-check.js";
+import { checkStaleness } from "./checks/staleness-check.js";
 import { checkStandards } from "./checks/standards-check.js";
 import { checkSuperseded } from "./checks/superseded-check.js";
 
@@ -59,6 +61,8 @@ export async function runDoctor(rootDir: string): Promise<DoctorReport> {
     findings.push(...(await checkContent(context)));
     findings.push(...(await checkCodeReferences(context)));
     findings.push(...(await checkSuperseded(context)));
+    findings.push(...(await checkContextBudget(context)));
+    findings.push(...(await checkStaleness(context)));
   }
 
   return createDoctorReport(findings);

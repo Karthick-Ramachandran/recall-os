@@ -1,0 +1,168 @@
+import { execFile } from "node:child_process";
+import { existsSync } from "node:fs";
+import { readFile, readdir } from "node:fs/promises";
+import path from "node:path";
+import { promisify } from "node:util";
+
+import type { DoctorCheckContext, DoctorFinding } from "../doctor-check.js";
+
+const execFileAsync = promisify(execFile);
+
+const featureFolderPattern = /^F-\d{3,}-[a-z0-9]+(?:-[a-z0-9]+)*$/u;
+const FEATURE_DOCS = ["PRD.md", "ARCHITECTURE_IMPACT.md"];
+const MODULE_DOCS = ["MODULE.md", "DECISIONS.md"];
+
+const codePathPattern = /`((?:src|tests)\/[A-Za-z0-9._/-]+\.[A-Za-z0-9]+)`/gu;
+const placeholderMarkers = /[<>*]|\.\.\./u;
+
+// Conservative gap: only flag when the referenced code's last commit is this much newer than the
+// memory's last commit. A fresh repo commits docs and code together (no gap), so this stays quiet;
+// it fires when memory is genuinely old and the code it cites moved on long after.
+const STALE_AFTER_SECONDS = 90 * 24 * 60 * 60;
+
+/**
+ * Deterministic, read-only staleness heuristic. For current-state memory that cites an existing
+ * `src/`/`tests/` file, it compares the memory's last git commit to the file's last commit; if the
+ * code changed far more recently, the memory may have drifted. It only runs inside a git repository
+ * and skips gracefully otherwise. It is a heuristic nudge (warning) — confirming a real contradiction
+ * is the agent's job, not the gate's.
+ */
+export async function checkStaleness(context: DoctorCheckContext): Promise<DoctorFinding[]> {
+  if (context.config === undefined) {
+    return [];
+  }
+  if (!(await isGitRepository(context.rootDir))) {
+    return [];
+  }
+
+  const docPaths = await collectDocPaths(context.rootDir, context.config);
+  const commitTimes = new Map<string, number | null>();
+
+  const lastCommit = async (relativePath: string): Promise<number | null> => {
+    const cached = commitTimes.get(relativePath);
+    if (cached !== undefined) {
+      return cached;
+    }
+    const value = await lastCommitTime(context.rootDir, relativePath);
+    commitTimes.set(relativePath, value);
+    return value;
+  };
+
+  const findings: DoctorFinding[] = [];
+
+  for (const docPath of docPaths) {
+    const content = await readFileIfExists(context.rootDir, docPath);
+    if (content === undefined) {
+      continue;
+    }
+
+    const docTime = await lastCommit(docPath);
+    if (docTime === null) {
+      continue; // uncommitted memory has no history to compare against
+    }
+
+    const seen = new Set<string>();
+    for (const match of content.matchAll(codePathPattern)) {
+      const reference = match[1];
+      if (placeholderMarkers.test(reference) || seen.has(reference)) {
+        continue;
+      }
+      seen.add(reference);
+
+      if (!existsSync(path.join(context.rootDir, reference))) {
+        continue; // a missing reference is the code-reference check's job, not staleness
+      }
+
+      const fileTime = await lastCommit(reference);
+      if (fileTime !== null && fileTime - docTime > STALE_AFTER_SECONDS) {
+        findings.push({
+          severity: "warning",
+          check: "staleness",
+          message: `Repository memory references ${reference}, which changed long after this memory was last updated — review it for staleness.`,
+          path: docPath,
+        });
+      }
+    }
+  }
+
+  return findings;
+}
+
+async function collectDocPaths(
+  rootDir: string,
+  config: NonNullable<DoctorCheckContext["config"]>,
+): Promise<string[]> {
+  const paths: string[] = [];
+
+  for (const folder of await readDirIfExists(rootDir, config.featuresDir)) {
+    if (folder.isDirectory() && featureFolderPattern.test(folder.name)) {
+      for (const doc of FEATURE_DOCS) {
+        paths.push(path.posix.join(config.featuresDir, folder.name, doc));
+      }
+    }
+  }
+
+  for (const folder of await readDirIfExists(rootDir, config.modulesDir)) {
+    if (folder.isDirectory()) {
+      for (const doc of MODULE_DOCS) {
+        paths.push(path.posix.join(config.modulesDir, folder.name, doc));
+      }
+    }
+  }
+
+  return paths;
+}
+
+async function isGitRepository(rootDir: string): Promise<boolean> {
+  try {
+    await execFileAsync("git", ["rev-parse", "--is-inside-work-tree"], { cwd: rootDir });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function lastCommitTime(rootDir: string, relativePath: string): Promise<number | null> {
+  try {
+    const { stdout } = await execFileAsync(
+      "git",
+      ["log", "-1", "--format=%ct", "--", relativePath],
+      { cwd: rootDir },
+    );
+    const trimmed = stdout.trim();
+    if (trimmed.length === 0) {
+      return null;
+    }
+    const seconds = Number.parseInt(trimmed, 10);
+    return Number.isFinite(seconds) ? seconds : null;
+  } catch {
+    return null;
+  }
+}
+
+async function readDirIfExists(rootDir: string, relativePath: string) {
+  try {
+    return await readdir(path.join(rootDir, relativePath), { withFileTypes: true });
+  } catch (error) {
+    const nodeError = error as NodeJS.ErrnoException;
+    if (nodeError.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
+}
+
+async function readFileIfExists(
+  rootDir: string,
+  relativePath: string,
+): Promise<string | undefined> {
+  try {
+    return await readFile(path.join(rootDir, relativePath), "utf8");
+  } catch (error) {
+    const nodeError = error as NodeJS.ErrnoException;
+    if (nodeError.code === "ENOENT") {
+      return undefined;
+    }
+    throw error;
+  }
+}

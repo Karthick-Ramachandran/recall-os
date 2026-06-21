@@ -1,0 +1,85 @@
+import { execFileSync } from "node:child_process";
+import { mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+import { afterEach, describe, expect, it } from "vitest";
+
+import { createDefaultConfig } from "../../../src/core/config/default-config.js";
+import { checkStaleness } from "../../../src/core/doctor/checks/staleness-check.js";
+import { createTempRoot, removeTempRoot } from "../../helpers/init-test-helpers.js";
+
+function gitAt(rootDir: string, date: string, ...args: string[]): void {
+  execFileSync("git", args, {
+    cwd: rootDir,
+    stdio: "ignore",
+    env: { ...process.env, GIT_AUTHOR_DATE: date, GIT_COMMITTER_DATE: date },
+  });
+}
+
+async function write(rootDir: string, relativePath: string, content: string): Promise<void> {
+  const full = path.join(rootDir, relativePath);
+  await mkdir(path.dirname(full), { recursive: true });
+  await writeFile(full, content, "utf8");
+}
+
+describe("doctor staleness check", () => {
+  const roots: string[] = [];
+
+  async function createRoot(prefix: string): Promise<string> {
+    const rootDir = await createTempRoot(prefix);
+    roots.push(rootDir);
+    return rootDir;
+  }
+
+  async function initRepo(rootDir: string): Promise<void> {
+    execFileSync("git", ["init"], { cwd: rootDir, stdio: "ignore" });
+    execFileSync("git", ["config", "user.email", "t@t"], { cwd: rootDir, stdio: "ignore" });
+    execFileSync("git", ["config", "user.name", "t"], { cwd: rootDir, stdio: "ignore" });
+  }
+
+  afterEach(async () => {
+    await Promise.all(roots.splice(0).map((rootDir) => removeTempRoot(rootDir)));
+  });
+
+  it("warns when referenced code changed long after the memory", async () => {
+    const rootDir = await createRoot("stale-old");
+    await initRepo(rootDir);
+    await write(rootDir, "docs/40-features/F-001-x/PRD.md", "# PRD\n\nUses `src/foo.ts`.\n");
+    await write(rootDir, "src/foo.ts", "export const a = 1;\n");
+    gitAt(rootDir, "2024-01-01T00:00:00", "add", "-A");
+    gitAt(rootDir, "2024-01-01T00:00:00", "commit", "-m", "init");
+
+    await write(rootDir, "src/foo.ts", "export const a = 2;\n");
+    gitAt(rootDir, "2024-12-01T00:00:00", "add", "src/foo.ts");
+    gitAt(rootDir, "2024-12-01T00:00:00", "commit", "-m", "change code months later");
+
+    const findings = await checkStaleness({ rootDir, config: createDefaultConfig() });
+
+    expect(findings).toContainEqual(
+      expect.objectContaining({ severity: "warning", check: "staleness" }),
+    );
+  });
+
+  it("is quiet when memory and code were committed together", async () => {
+    const rootDir = await createRoot("stale-fresh");
+    await initRepo(rootDir);
+    await write(rootDir, "docs/40-features/F-001-x/PRD.md", "# PRD\n\nUses `src/foo.ts`.\n");
+    await write(rootDir, "src/foo.ts", "export const a = 1;\n");
+    gitAt(rootDir, "2024-01-01T00:00:00", "add", "-A");
+    gitAt(rootDir, "2024-01-01T00:00:00", "commit", "-m", "init together");
+
+    const findings = await checkStaleness({ rootDir, config: createDefaultConfig() });
+
+    expect(findings).toEqual([]);
+  });
+
+  it("skips gracefully outside a git repository", async () => {
+    const rootDir = await createRoot("stale-nogit");
+    await write(rootDir, "docs/40-features/F-001-x/PRD.md", "# PRD\n\nUses `src/foo.ts`.\n");
+    await write(rootDir, "src/foo.ts", "x\n");
+
+    const findings = await checkStaleness({ rootDir, config: createDefaultConfig() });
+
+    expect(findings).toEqual([]);
+  });
+});
