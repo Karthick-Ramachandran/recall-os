@@ -53,6 +53,63 @@ Presets, `recall adopt`, and MCP capture all produce **proposed** memory that a 
 `recall adr accept`. Nothing becomes "truth" silently — a proposal you can review beats a guess the
 tool slipped in.
 
+## Retrieval finds information; Recall protects decisions
+
+People lump "memory," "AI," "context," and "retrieval" into one bucket. They aren't the same thing.
+
+A vector memory engine — supermemory, mem0, a RAG store — does something genuinely useful: it
+remembers information, retrieves the relevant pieces, and injects them into a prompt. But its source
+of truth is embeddings, vectors, retrieval scores, and graph relationships. Tell it "all auth goes
+through Auth0" and it can surface that sentence beautifully.
+
+Recall's source of truth is different: files, ADRs, standards, reviews, accepted decisions. It asks
+a different question about that same statement — _where_ was it accepted, _which_ ADR owns it, is it
+still valid, does anything contradict it, was it reviewed? That is governance, not retrieval.
+
+So I don't think Recall competes with vector databases. The two are complementary: Recall produces
+the durable, reviewed truth, and a retrieval engine can index that truth for fast lookup. What
+Recall actually competes with is **tribal knowledge, forgotten decisions, stale documentation, and
+chat-history-only development** — a very different category.
+
+That is the bet underneath the "plain files" choice: retrieval is useful, but authority has to stay
+human-readable. If an embedding store disappears, the memory disappears. If a vector ranking
+changes, the "truth" can shift. If an ADR lives in git, the decision still exists ten years later.
+
+## What it catches today, and what's next
+
+Memory decays in two ways, and they are not equally hard.
+
+**Structural decay** is objective, and Recall already catches it: a missing ADR or module, a broken
+`src/` reference, memory that points at a decision that was never accepted, an empty template, a
+"done" claim with no review or evidence. Doctor can say _this is broken_ with high confidence,
+because none of it requires understanding the code — only checking it.
+
+**Semantic decay** is harder. An ADR says PostgreSQL; the team migrated to MySQL; the ADR still
+exists, its references still resolve, every file is still there. Structurally everything passes.
+Semantically, the memory is now lying. Recall does **not** fully catch that yet — and I'd rather say
+so than pretend otherwise. A lot of "AI memory" tools imply they maintain semantic truth
+automatically. They don't, because semantic truth is expensive.
+
+Here is the part I care about: semantic judgment must **not** move into the deterministic gate. The
+moment `recall doctor` needs a model to decide "do these two docs agree," it stops being trustworthy
+and free. So that work lives with the agent instead — the generated `architecture-drift-review`
+skill walks the memory graph (ADRs, modules, features, architecture) and asks whether they still
+agree. The gate stays dumb and reliable; the model does the reading.
+
+So the honest maturity, in order:
+
+```txt
+Create memory      → strong
+Protect memory     → strong
+Enforce evidence   → good
+Understand memory  → early (agent-assisted, not automatic)
+```
+
+That order is deliberate. The first thing teams lose is the decision that never got written down —
+not the subtle contradiction between two that did. You cannot detect a contradiction in memory that
+does not exist. Get _create, protect, enforce_ right first; semantic drift detection is the next
+frontier, and it belongs to the agent, not the gate.
+
 ## What it's honestly not
 
 - Not an AI agent or an app generator. It writes memory, not your product code — and that's the
