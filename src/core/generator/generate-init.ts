@@ -484,7 +484,9 @@ engineering evidence is present, and whether memory references decisions that ex
 
 Doctor also runs deterministic drift checks: feature or module memory that references a missing ADR
 is an error, memory that references a not-yet-accepted ADR is a warning, and memory that still
-references a superseded decision is a warning.
+references a superseded decision is a warning. Inside a git repository it also flags memory whose
+referenced \`src/\` code changed long after the memory did (staleness), and it warns when the
+always-loaded agent files grow past a context budget.
 
 Exit codes:
 
