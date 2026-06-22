@@ -3,7 +3,7 @@
 ## Command Behavior
 
 - `adr create <title>` creates an ADR file under configured `adrDir`.
-- Command requires `.recall/config.json`.
+- Command requires `.persist/config.json`.
 - Command fails clearly when config is missing.
 - ADR titles are slugified.
 - Unsafe ADR titles are rejected.
@@ -39,4 +39,5 @@ Created ADR files include:
 ## Runtime Boundary
 
 - No app code is generated.
-- No package `bin`, build, release, module create, doctor, technology detection, network, telemetry, MCP runtime, AI API, or cloud behavior is added.
+- No package `bin`, build, release, module create, doctor, technology detection, network, telemetry,
+  MCP runtime, AI API, or cloud behavior is added.

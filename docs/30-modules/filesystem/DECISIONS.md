@@ -4,9 +4,11 @@
 
 P1 uses simple `fs.writeFile` behavior.
 
-Atomic temp-file rename writes are deferred until a future requirement justifies the added complexity.
+Atomic temp-file rename writes are deferred until a future requirement justifies the added
+complexity.
 
-Create entries use Node's exclusive `wx` flag so files that appear after planning are not overwritten accidentally.
+Create entries use Node's exclusive `wx` flag so files that appear after planning are not
+overwritten accidentally.
 
 ## P1: Symlink Protection
 

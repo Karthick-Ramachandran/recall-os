@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Repository decisions are architecture, product, security, testing, dependency, platform, and workflow decisions accepted by the repository owner or team.
+Repository decisions are architecture, product, security, testing, dependency, platform, and
+workflow decisions accepted by the repository owner or team.
 
 They are the source of truth for a specific repository.
 
@@ -26,7 +27,7 @@ An OSS maintainer may accept:
 - Use Vitest.
 - Use local-first docs only.
 
-Recall OS does not judge these choices. It records them and helps agents follow them.
+Persist OS does not judge these choices. It records them and helps agents follow them.
 
 ## Relationship To ADRs
 
@@ -54,8 +55,10 @@ Preset guidance must not be treated as accepted repository truth by default.
 
 Drift is mismatch with accepted repository decisions.
 
-If implementation uses Redis but accepted repository memory says Supabase queues are the queueing strategy, that is drift.
+If implementation uses Redis but accepted repository memory says Supabase queues are the queueing
+strategy, that is drift.
 
 If implementation uses Redis and the repository has accepted Redis, that is not drift.
 
-Recall OS validates consistency with the repository's chosen memory, not with Recall OS's preferences.
+Persist OS validates consistency with the repository's chosen memory, not with Persist OS's
+preferences.

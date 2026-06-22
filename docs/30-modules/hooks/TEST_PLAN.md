@@ -6,12 +6,12 @@
 - Detection maps pnpm, yarn, and npm lockfiles to the right package manager.
 - Detection proposes gates only for known scripts.
 - Detection returns empty on invalid `package.json`.
-- Rendering produces a shebang, runs `recall doctor`, and appends gates in order.
+- Rendering produces a shebang, runs `persist doctor`, and appends gates in order.
 - Rendering documents the activation command.
 
 ## Integration Tests
 
-- `recall init` writes an executable `.recall/hooks/pre-commit` and proposes activation.
+- `persist init` writes an executable `.persist/hooks/pre-commit` and proposes activation.
 - An existing hook is skipped unless `--force`.
 
 ## Safety

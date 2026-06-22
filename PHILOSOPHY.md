@@ -1,4 +1,4 @@
-# Why I built Recall OS
+# Why I built Persist OS
 
 This is the honest version of _why_ this tool exists. The README tells you what it does. This tells
 you the problem I kept hitting and the small, workable thing I built to deal with it.
@@ -24,21 +24,21 @@ context, summarizing, or re-explaining at all.
 
 > Git tracks what changed. I wanted something that tracks why it changed.
 
-That's all Recall OS really is: a quick, workable way to keep durable engineering memory next to
+That's all Persist OS really is: a quick, workable way to keep durable engineering memory next to
 your code, and a discipline system that nudges the work to actually get written down.
 
 ## The bet: discipline, not magic
 
-Recall OS doesn't call an AI model, hit the network, or send telemetry. Not because that's purer —
+Persist OS doesn't call an AI model, hit the network, or send telemetry. Not because that's purer —
 because I wanted the part that _checks_ my work to be trustworthy and free.
 
-`recall doctor` is deliberately simple and deterministic. It doesn't judge whether your architecture
-is good — it can't, and I don't want it pretending it can. It checks the boring, reliable things:
-are the docs that should exist there, is a "done" claim backed by test evidence, does the memory
-point at an ADR or a source file that doesn't exist anymore. Same input, same answer, every time.
-I'd rather have a dumb check I can trust than a clever one I can't.
+`persist doctor` is deliberately simple and deterministic. It doesn't judge whether your
+architecture is good — it can't, and I don't want it pretending it can. It checks the boring,
+reliable things: are the docs that should exist there, is a "done" claim backed by test evidence,
+does the memory point at an ADR or a source file that doesn't exist anymore. Same input, same
+answer, every time. I'd rather have a dumb check I can trust than a clever one I can't.
 
-The actual thinking still comes from the agent (Claude, Codex, Cursor). Recall OS's job isn't to be
+The actual thinking still comes from the agent (Claude, Codex, Cursor). Persist OS's job isn't to be
 smart — it's to put the right memory in front of the agent and make the agent's work persist. So it
 wires each tool with its own native mechanism: a SessionStart hook that injects a live memory map in
 Claude Code, an always-apply rule for Cursor, and `AGENTS.md` (which both Codex and Cursor
@@ -52,8 +52,8 @@ single time.
 ## It proposes, you decide
 
 It's architecture-neutral on purpose. It records _your_ decisions; it never makes them for you.
-Presets, `recall adopt`, and MCP capture all produce **proposed** memory that a human accepts with
-`recall adr accept`. Nothing becomes "truth" silently — a proposal you can review beats a guess the
+Presets, `persist adopt`, and MCP capture all produce **proposed** memory that a human accepts with
+`persist adr accept`. Nothing becomes "truth" silently — a proposal you can review beats a guess the
 tool slipped in.
 
 ## "Isn't this just a memory tool?"
@@ -69,7 +69,7 @@ me that turned out to be a files-and-review problem, not a search problem — so
 files I can read and a human can approve, not embeddings I have to trust.
 
 So I don't really think of those tools as competitors; if anything they'd sit happily on top of this
-and index the files Recall writes. The thing this actually replaces, for me, is the decision that
+and index the files Persist writes. The thing this actually replaces, for me, is the decision that
 only ever lived in a chat — or in someone's head.
 
 ## What it catches — and what it doesn't
@@ -91,7 +91,7 @@ What it doesn't catch is the subtler kind. An ADR says PostgreSQL after the team
 MySQL: the file's still there, the references still resolve, everything passes — and the memory is
 quietly wrong. I haven't solved that, and I'm not going to pretend a deterministic check can.
 
-The tradeoff I chose is to keep that judgment out of the gate. The moment `recall doctor` needs a
+The tradeoff I chose is to keep that judgment out of the gate. The moment `persist doctor` needs a
 model to decide whether two docs agree, it stops being something I can trust blindly — so I leave
 the reading to the agent. The generated `architecture-drift-review` skill walks the docs and asks
 whether they still line up. The gate stays dumb and reliable; the model does the reading.
@@ -105,7 +105,7 @@ contradiction between two decisions. It was the decision I never wrote down at a
 
 - Not an AI agent or an app generator. It writes memory, not your product code — and that's the
   point: it's the durable layer the agent has been missing.
-- Not magic recall. It's something better for a codebase: external memory you can read, review, and
+- Not magic memory. It's something better for a codebase: external memory you can read, review, and
   trust, because it lives in the repo instead of a model's context.
 - It won't _rubber-stamp_ your architecture as good — that judgment stays with you and the agent,
   which is exactly where it belongs. But it does help you get there: presets propose vetted,

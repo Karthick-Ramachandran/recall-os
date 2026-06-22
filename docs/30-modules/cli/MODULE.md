@@ -12,7 +12,7 @@ The CLI module owns command parser wiring, user-facing output, and process-level
 - Calm user-facing output.
 - Exit-code style command results.
 - Shared write-summary formatting.
-- Packaged `recall` binary dispatch.
+- Packaged `persist` binary dispatch.
 
 ## Does Not Own
 
@@ -49,5 +49,5 @@ modules.
 
 P9 routes `doctor` to Doctor orchestration while keeping repository memory checks in `core/doctor`.
 
-P10 exposes the same command surface through the packaged `recall` binary and adds read-only
+P10 exposes the same command surface through the packaged `persist` binary and adds read-only
 `preset list` command dispatch.

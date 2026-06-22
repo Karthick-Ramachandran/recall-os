@@ -1,4 +1,4 @@
-<!-- Recall OS pull request template -->
+<!-- Persist OS pull request template -->
 
 ## Summary
 

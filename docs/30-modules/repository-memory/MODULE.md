@@ -23,7 +23,7 @@ before, during, and after implementation work.
 
 ## Current Decision
 
-Recall OS is a repository memory layer.
+Persist OS is a repository memory layer.
 
 It can be initialized before app code exists.
 

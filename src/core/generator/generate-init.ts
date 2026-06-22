@@ -21,7 +21,7 @@ const neutralTemplates: InitTemplate[] = [
     path: "AGENTS.md",
     content: `# {{repositoryName}} Agent Instructions
 
-This repository uses Recall OS repository memory.
+This repository uses Persist OS repository memory.
 
 Start with durable source-of-truth docs under \`docs/\`.
 
@@ -35,19 +35,19 @@ Required reading:
 
 Repository rules override model preferences. If instructions conflict, stop and report the conflict.
 
-## Recall OS commands
+## Persist OS commands
 
-This repository is maintained with the Recall OS CLI. Use these commands yourself as you work — do not
+This repository is maintained with the Persist OS CLI. Use these commands yourself as you work — do not
 ask the human to run them, and do not search the web for them (this is a project-local tool):
 
-- \`recall doctor\` — validate repository memory; run it before claiming any work is complete.
-- \`recall feature create <name>\` — scaffold feature memory before non-trivial feature work.
-- \`recall adr create <title>\` — propose a decision; \`recall adr accept <name>\` accepts it.
-- \`recall adr supersede <old> <new-title>\` — record a changed decision (never overwrite an accepted ADR).
-- \`recall module create <name>\` — scaffold module memory for a new responsibility boundary.
-- \`recall mcp add <server>\` — capture an MCP tool's context into memory, offline.
+- \`persist doctor\` — validate repository memory; run it before claiming any work is complete.
+- \`persist feature create <name>\` — scaffold feature memory before non-trivial feature work.
+- \`persist adr create <title>\` — propose a decision; \`persist adr accept <name>\` accepts it.
+- \`persist adr supersede <old> <new-title>\` — record a changed decision (never overwrite an accepted ADR).
+- \`persist module create <name>\` — scaffold module memory for a new responsibility boundary.
+- \`persist mcp add <server>\` — capture an MCP tool's context into memory, offline.
 
-Full command reference: \`docs/ai/RECALL_COMMANDS.md\`.
+Full command reference: \`docs/ai/PERSIST_COMMANDS.md\`.
 
 ## Changing an accepted decision
 
@@ -56,7 +56,7 @@ Before changing anything an accepted ADR governs (framework, database, auth, API
 1. Check \`docs/adrs/\` for an accepted ADR that covers it.
 2. If your change contradicts one, stop and confirm with a human first — do not silently change the
    code and leave the ADR saying the opposite.
-3. Record the change as a new decision with \`recall adr supersede <old> <new-title>\`. That supersedes
+3. Record the change as a new decision with \`persist adr supersede <old> <new-title>\`. That supersedes
    the old ADR instead of overwriting history, so the reasoning stays auditable.
 
 Repository memory is only trustworthy if decisions change through this trail, not silently.
@@ -79,16 +79,16 @@ hook (\`.claude/hooks/session-start.sh\`) also injects a memory map at the start
     // Cursor auto-applies rules under .cursor/rules. alwaysApply makes this the portable equivalent
     // of the Claude Code SessionStart hook: Cursor injects it into every request so the agent loads
     // repository memory even though it cannot run the Claude-specific hook.
-    path: ".cursor/rules/recall-memory.mdc",
+    path: ".cursor/rules/persist-memory.mdc",
     content: `---
-description: {{repositoryName}} repository memory and rules (Recall OS). Read before non-trivial work.
+description: {{repositoryName}} repository memory and rules (Persist OS). Read before non-trivial work.
 globs:
 alwaysApply: true
 ---
 
 # {{repositoryName}} repository memory
 
-This repository uses Recall OS. Durable memory lives in \`docs/\` and is the source of truth over chat
+This repository uses Persist OS. Durable memory lives in \`docs/\` and is the source of truth over chat
 history. Do not treat chat history as truth, and repository rules override model preference.
 
 Before non-trivial work:
@@ -97,17 +97,17 @@ Before non-trivial work:
 - Accepted decisions live in \`docs/adrs/\`; module memory lives in \`docs/30-modules/\`.
 - If an instruction conflicts with accepted repository memory, stop and report the conflict.
 - Before changing what an accepted ADR governs, confirm with a human and record it with
-  \`recall adr supersede <old> <new-title>\` — never silently contradict an accepted decision.
+  \`persist adr supersede <old> <new-title>\` — never silently contradict an accepted decision.
 
 Source-of-truth order: accepted ADRs and repository decisions, then architecture docs, engineering
 standards, the current PRD, security and testing docs, module docs, feature plans, then chat history.
 
-Recall OS commands — use these yourself (do not web-search this project-local CLI): \`recall doctor\`,
-\`recall feature create <name>\`, \`recall adr create <title>\` then \`recall adr accept <name>\`,
-\`recall adr supersede <old> <new-title>\`, \`recall module create <name>\`, \`recall mcp add <server>\`.
-Full reference: \`docs/ai/RECALL_COMMANDS.md\`.
+Persist OS commands — use these yourself (do not web-search this project-local CLI): \`persist doctor\`,
+\`persist feature create <name>\`, \`persist adr create <title>\` then \`persist adr accept <name>\`,
+\`persist adr supersede <old> <new-title>\`, \`persist module create <name>\`, \`persist mcp add <server>\`.
+Full reference: \`docs/ai/PERSIST_COMMANDS.md\`.
 
-Before claiming work is complete, run \`recall doctor\` and fix reported errors.
+Before claiming work is complete, run \`persist doctor\` and fix reported errors.
 `,
   },
   {
@@ -193,7 +193,7 @@ Default behavior:
 
 ## Status
 
-Draft — fill the prompted sections below with this repository's real model as it grows. \`recall doctor\`
+Draft — fill the prompted sections below with this repository's real model as it grows. \`persist doctor\`
 flags these as warnings once the repository has real work (a feature, module, or accepted decision).
 
 ## Baseline Rules
@@ -228,7 +228,7 @@ Describe how third-party dependencies are vetted, pinned, and updated.
 
 ## Status
 
-Draft — replace the prompts below with this repository's real analysis as it grows. \`recall doctor\`
+Draft — replace the prompts below with this repository's real analysis as it grows. \`persist doctor\`
 flags these as warnings once the repository has real work (a feature, module, or accepted decision).
 
 ## Assets
@@ -318,7 +318,7 @@ When work would change something an accepted ADR governs:
 
 1. Find the accepted ADR in \`docs/adrs/\` that covers it.
 2. If the change contradicts it, stop and confirm with a human before changing the code.
-3. Record the new decision with \`recall adr supersede <old> <new-title>\` so the old ADR is marked
+3. Record the new decision with \`persist adr supersede <old> <new-title>\` so the old ADR is marked
    superseded and the reasoning is preserved, instead of silently editing or contradicting it.
 `,
   },
@@ -343,10 +343,10 @@ If MCP is introduced later, document trusted servers, data accessed, permissions
 `,
   },
   {
-    path: "docs/ai/RECALL_COMMANDS.md",
-    content: `# Recall OS Commands
+    path: "docs/ai/PERSIST_COMMANDS.md",
+    content: `# Persist OS Commands
 
-This document records the Recall OS commands available to humans and AI agents.
+This document records the Persist OS commands available to humans and AI agents.
 
 ## Completion Gate
 
@@ -355,17 +355,17 @@ Before claiming implementation work is complete, run:
 \`\`\`txt
 pnpm test:run
 pnpm typecheck
-recall doctor
+persist doctor
 \`\`\`
 
-If \`recall doctor\` reports errors, fix them or report why they cannot be fixed. If it reports
+If \`persist doctor\` reports errors, fix them or report why they cannot be fixed. If it reports
 warnings, address them or record why they are acceptable.
 
 Package binary behavior is covered by binary integration tests.
 
 ## Commands
 
-### \`recall init\`
+### \`persist init\`
 
 Initialize neutral repository memory.
 
@@ -374,19 +374,19 @@ Options:
 - \`--preset <id>\`: apply optional preset guidance and proposed decisions.
 - \`--ai-tools <list>\`: comma-separated AI tools to generate files for (\`claude\`, \`codex\`, \`cursor\`,
   \`generic\`). Default: \`claude,codex,cursor\` (all). \`AGENTS.md\` is always generated. Stored in
-  \`.recall/config.json\` as \`aiTools\`.
+  \`.persist/config.json\` as \`aiTools\`.
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
-- \`--reinit\`: required with \`--force\` to overwrite an existing Recall OS installation
-  (a directory that already has \`.recall/config.json\`). Without it, \`--force\` refuses, protecting
+- \`--reinit\`: required with \`--force\` to overwrite an existing Persist OS installation
+  (a directory that already has \`.persist/config.json\`). Without it, \`--force\` refuses, protecting
   existing repository memory.
 
-Init also generates tracked pre-commit and pre-push hooks at \`.recall/hooks/\` that run \`recall doctor\`
-plus any \`preCommitGates\` in \`.recall/config.json\`. The pre-push hook is the final regression gate
+Init also generates tracked pre-commit and pre-push hooks at \`.persist/hooks/\` that run \`persist doctor\`
+plus any \`preCommitGates\` in \`.persist/config.json\`. The pre-push hook is the final regression gate
 before code leaves the machine (it catches commits made with \`--no-verify\` or before the hook was
-active). Init proposes, but does not run, the activation command \`git config core.hooksPath .recall/hooks\`.
+active). Init proposes, but does not run, the activation command \`git config core.hooksPath .persist/hooks\`.
 
-### \`recall adopt\`
+### \`persist adopt\`
 
 Inspect an existing repository through read-only manifest and marker files, then write a proposed
 adoption report and proposed framework ADRs for human review. Adopt never executes repository code
@@ -397,7 +397,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall skill create <name>\`
+### \`persist skill create <name>\`
 
 Generate a portable AI agent skill as \`SKILL.md\` for both Claude Code (\`.claude/skills/\`) and the
 portable Agent Skills target (\`.agents/skills/\`). Known names use the built-in catalog; unknown names
@@ -408,14 +408,14 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall skill list\`
+### \`persist skill list\`
 
 List the built-in catalog skills.
 
-### \`recall mcp add <server>\`
+### \`persist mcp add <server>\`
 
 Generate offline, proposed memory for an MCP server (for example \`figma\`) as \`docs/ai/mcp/<server>.md\`
-plus a proposed adoption ADR. Recall OS never connects to the MCP server or makes network calls; the
+plus a proposed adoption ADR. Persist OS never connects to the MCP server or makes network calls; the
 agent records durable MCP-derived context into the generated memory for human review. It also
 installs a \`capture-mcp-context\` agent skill that prompts the agent to record that context.
 
@@ -424,11 +424,11 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall preset list\`
+### \`persist preset list\`
 
 List built-in presets.
 
-### \`recall feature create <name>\`
+### \`persist feature create <name>\`
 
 Create feature memory docs under the configured features directory.
 
@@ -437,7 +437,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall adr create <title>\`
+### \`persist adr create <title>\`
 
 Create a proposed ADR under the configured ADR directory.
 
@@ -446,7 +446,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall adr accept <name>\`
+### \`persist adr accept <name>\`
 
 Promote a proposed ADR to accepted repository memory. A proposal under
 \`docs/adrs/proposed/ADR-PROPOSED-<slug>.md\` becomes a numbered, accepted \`ADR-####-<slug>.md\` and the
@@ -457,7 +457,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall adr supersede <old> <new-title>\`
+### \`persist adr supersede <old> <new-title>\`
 
 Record a changed decision. Marks an accepted ADR as \`Accepted — superseded by ADR-####\` and creates a
 new accepted ADR that declares what it supersedes, so the reasoning trail stays auditable instead of
@@ -468,7 +468,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall module create <name>\`
+### \`persist module create <name>\`
 
 Create module memory docs under the configured modules directory.
 
@@ -477,7 +477,7 @@ Options:
 - \`--dry-run\`: show planned writes without writing files.
 - \`--force\`: overwrite existing files explicitly.
 
-### \`recall doctor\`
+### \`persist doctor\`
 
 Check whether repository memory is structurally healthy enough for AI-assisted work, whether basic
 engineering evidence is present, and whether memory references decisions that exist and are accepted.
@@ -494,7 +494,7 @@ Exit codes:
 - \`1\`: warnings only
 - \`2\`: errors
 
-### \`recall guard\`
+### \`persist guard\`
 
 Fail when staged source changes have no accompanying test changes, so "tests are mandatory for every
 change" is enforced rather than hoped for. Deterministic and read-only (a \`git diff\`); it only acts
@@ -506,7 +506,7 @@ Options:
 - \`--base <ref>\`: compare against a git ref instead of the staged index.
 
 Add it to your gates to enforce it in the generated hooks, for example set \`preCommitGates\` in
-\`.recall/config.json\` to include \`recall guard --source src\`. Exit code \`1\` blocks the commit/push
+\`.persist/config.json\` to include \`persist guard --source src\`. Exit code \`1\` blocks the commit/push
 when source changed without tests; \`0\` otherwise.
 `,
   },
@@ -562,13 +562,13 @@ Proposed ADRs live under \`docs/adrs/proposed/\`.
 
 There is no \`accepted/\` subdirectory: accepted ADRs sit at the top level of \`docs/adrs/\`.
 
-Presets and AI agents may propose decisions; humans accept them with \`recall adr accept <name>\`,
+Presets and AI agents may propose decisions; humans accept them with \`persist adr accept <name>\`,
 which promotes a proposal into an accepted ADR here.
 `,
   },
   {
-    path: ".github/workflows/recall.yml",
-    content: `name: Recall OS
+    path: ".github/workflows/persist.yml",
+    content: `name: Persist OS
 
 on:
   push:
@@ -583,7 +583,7 @@ jobs:
         with:
           node-version: 20
       - name: Validate repository memory
-        run: npx --yes recall-os@latest doctor
+        run: npx --yes persist-os@latest doctor
 `,
   },
 ];

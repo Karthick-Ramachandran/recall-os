@@ -6,7 +6,8 @@ Implement module creation as a narrow command workflow.
 
 Keep business logic in core modules and command code focused on orchestration.
 
-Extract only shared write-summary formatting to avoid repeating the same output helper across every command.
+Extract only shared write-summary formatting to avoid repeating the same output helper across every
+command.
 
 ## Tasks
 

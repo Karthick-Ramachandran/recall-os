@@ -2,8 +2,8 @@
 
 ## Purpose
 
-`recall init --force` overwrites existing files. When run in a directory that already contains a
-Recall OS installation, it silently overwrites curated repository memory. This actually happened
+`persist init --force` overwrites existing files. When run in a directory that already contains a
+Persist OS installation, it silently overwrites curated repository memory. This actually happened
 during development: an accidental `init --force` in the repository root overwrote `CLAUDE.md`,
 `AGENTS.md`, and several docs (recovered from git).
 
@@ -11,12 +11,12 @@ This feature makes that destructive case require explicit intent.
 
 ## Problem
 
-- `init --force` does not distinguish a fresh directory from an existing Recall OS installation.
+- `init --force` does not distinguish a fresh directory from an existing Persist OS installation.
 - Overwriting an existing installation destroys repository memory, the product's core asset.
 
 ## In Scope
 
-- Refuse `init --force` when an existing `.recall/config.json` is present.
+- Refuse `init --force` when an existing `.persist/config.json` is present.
 - Add a `--reinit` flag that, together with `--force`, allows overwriting an existing installation.
 - Document the flag in the command reference and contribution guide.
 
@@ -24,7 +24,7 @@ This feature makes that destructive case require explicit intent.
 
 - No change to `init` without `--force` (it already skips existing files safely).
 - No interactive prompts; the CLI stays non-interactive.
-- No detection of non-Recall files; `init` still works in existing app folders.
+- No detection of non-Persist files; `init` still works in existing app folders.
 
 ## Users
 
@@ -33,7 +33,7 @@ This feature makes that destructive case require explicit intent.
 
 ## Success Criteria
 
-- `init --force` in a directory with `.recall/config.json` refuses and writes nothing.
+- `init --force` in a directory with `.persist/config.json` refuses and writes nothing.
 - The refusal message names `--reinit` as the way to proceed.
 - `init --force --reinit` overwrites an existing installation.
-- `init --force` in a directory without `.recall/config.json` still overwrites as before.
+- `init --force` in a directory without `.persist/config.json` still overwrites as before.

@@ -7,8 +7,10 @@ architecture decision, it is making `aiTools` honest.
 
 ## Touched
 
-- `src/core/config/default-config.ts` — default `aiTools` includes `cursor` so default output is unchanged.
-- `src/commands/init.ts` — `--ai-tools` option threading + a path-prefix filter on the generated files.
+- `src/core/config/default-config.ts` — default `aiTools` includes `cursor` so default output is
+  unchanged.
+- `src/commands/init.ts` — `--ai-tools` option threading + a path-prefix filter on the generated
+  files.
 - `src/cli/main.ts` — the `--ai-tools` flag.
 
 ## Invariants preserved

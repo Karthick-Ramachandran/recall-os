@@ -16,9 +16,9 @@ references, and accidental file mutation.
 ## Integration Tests (`tests/integration/doctor-command.test.ts`)
 
 - Healthy initialized repo: drift checks add no findings; Doctor still passes.
-- Feature memory referencing a missing ADR: `recall doctor` exits `2` and prints the dangling
+- Feature memory referencing a missing ADR: `persist doctor` exits `2` and prints the dangling
   reference message.
-- Feature memory referencing a proposed ADR: `recall doctor` exits `1` and prints the proposed
+- Feature memory referencing a proposed ADR: `persist doctor` exits `1` and prints the proposed
   reference warning.
 
 ## Safety

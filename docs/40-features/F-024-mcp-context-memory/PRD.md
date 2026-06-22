@@ -7,7 +7,7 @@ disappears when the conversation ends. This feature lets a repository capture du
 context into committed, reviewable memory, so future work — for example building UI from a Figma
 design system — stays consistent and the agent does not re-derive the same context every session.
 
-Recall OS does not connect to MCP servers. It generates the memory; the agent captures into it.
+Persist OS does not connect to MCP servers. It generates the memory; the agent captures into it.
 
 ## Problem
 
@@ -18,8 +18,9 @@ Recall OS does not connect to MCP servers. It generates the memory; the agent ca
 
 ## In Scope
 
-- Add a `recall mcp add <server>` command that generates per-server MCP memory.
-- Generate `docs/ai/mcp/<server>.md` from the documentation template plus a Captured Context section.
+- Add a `persist mcp add <server>` command that generates per-server MCP memory.
+- Generate `docs/ai/mcp/<server>.md` from the documentation template plus a Captured Context
+  section.
 - Generate a proposed ADR for adopting the server.
 - Pre-fill purpose and data hints for well-known servers (Figma, Linear, GitHub, Sentry, Notion).
 - Keep writes non-destructive and offline.
@@ -37,7 +38,7 @@ Recall OS does not connect to MCP servers. It generates the memory; the agent ca
 
 ## Success Criteria
 
-- `recall mcp add figma` writes `docs/ai/mcp/figma.md` with a purpose, source-of-truth rule, and a
+- `persist mcp add figma` writes `docs/ai/mcp/figma.md` with a purpose, source-of-truth rule, and a
   Captured Context section, plus a proposed ADR.
 - Well-known servers get pre-filled purpose and data hints; unknown servers get a usable template.
 - The generated ADR is `Proposed`.

@@ -63,7 +63,7 @@ context. If MCP data conflicts with repository memory, stop and report the confl
 ## Captured Context
 
 Record durable context learned from this MCP server here, as proposed memory for human review.
-Promote any decision you accept into an ADR with \`recall adr create\`.
+Promote any decision you accept into an ADR with \`persist adr create\`.
 
 - (none captured yet)
 

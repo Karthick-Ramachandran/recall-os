@@ -4,7 +4,7 @@
 
 P2 adds `core/config` as a new core module.
 
-The module owns `.recall/config.json` schema, defaults, loading, and writing.
+The module owns `.persist/config.json` schema, defaults, loading, and writing.
 
 ## Dependency Impact
 
@@ -44,4 +44,5 @@ P2 must:
 
 No ADR is required for P2.
 
-Zod is already listed in the accepted MVP tech stack. P2 does not add network behavior, telemetry, MCP runtime, template execution, or a new preset/plugin execution model.
+Zod is already listed in the accepted MVP tech stack. P2 does not add network behavior, telemetry,
+MCP runtime, template execution, or a new preset/plugin execution model.

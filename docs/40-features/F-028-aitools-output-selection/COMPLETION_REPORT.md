@@ -7,17 +7,19 @@ Complete.
 ## Files Changed
 
 - `src/core/config/default-config.ts` — default `aiTools` is `["claude","codex","cursor"]`.
-- `src/commands/init.ts` — `aiTools` option, `validateAiTools` assertion fn, path-prefix file filter.
+- `src/commands/init.ts` — `aiTools` option, `validateAiTools` assertion fn, path-prefix file
+  filter.
 - `src/cli/main.ts` — `--ai-tools <list>` flag (parsed, trimmed, de-duplicated).
-- `src/core/generator/generate-init.ts` — `--ai-tools` documented in the generated RECALL_COMMANDS.
+- `src/core/generator/generate-init.ts` — `--ai-tools` documented in the generated PERSIST_COMMANDS.
 - `README.md` — `--ai-tools` usage note.
-- `.recall/config.json` — repo's own `aiTools` aligned to the new default.
-- `tests/integration/init-aitools.test.ts` (new, 5 tests); `tests/unit/config/config-schema.test.ts`.
+- `.persist/config.json` — repo's own `aiTools` aligned to the new default.
+- `tests/integration/init-aitools.test.ts` (new, 5 tests);
+  `tests/unit/config/config-schema.test.ts`.
 
 ## Tests Run
 
 - `pnpm test:run`, `pnpm typecheck`, `pnpm lint`, `pnpm format:check`, `pnpm pack:check`.
-- `recall doctor` on this repository.
+- `persist doctor` on this repository.
 
 ## Results
 
@@ -28,7 +30,7 @@ Complete.
 
 ## Skipped
 
-- Committed `examples/*/.recall/config.json` not refreshed (cosmetic; no test depends on it).
+- Committed `examples/*/.persist/config.json` not refreshed (cosmetic; no test depends on it).
 
 ## Remaining Risks
 

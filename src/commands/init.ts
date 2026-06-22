@@ -73,9 +73,9 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
   ) {
     throw new InitError(
       "EXISTING_INSTALLATION",
-      "Refusing to re-initialize an existing Recall OS installation.",
+      "Refusing to re-initialize an existing Persist OS installation.",
       [
-        "An existing .recall/config.json was found in this directory.",
+        "An existing .persist/config.json was found in this directory.",
         "Running init --force here would overwrite existing repository memory.",
         "Pass --reinit together with --force to overwrite an existing installation.",
       ],
@@ -104,7 +104,7 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
   if (plan.hasErrors) {
     throw new InitError(
       "WRITE_PLAN_ERROR",
-      "Recall OS init write plan contains errors.",
+      "Persist OS init write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
         .map((entry) => `${entry.path}: ${entry.reason}`),
@@ -124,7 +124,7 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
 
 export function formatInitResult(result: InitResult): string {
   const lines = [
-    result.dryRun ? "Recall OS init dry run complete." : "Recall OS init complete.",
+    result.dryRun ? "Persist OS init dry run complete." : "Persist OS init complete.",
     `Preset: ${result.preset ?? "none"}`,
   ];
 
@@ -149,8 +149,8 @@ export function formatInitResult(result: InitResult): string {
     lines.push("");
     lines.push(
       result.dryRun
-        ? "Pre-commit and pre-push hooks will be written to .recall/hooks/."
-        : "Pre-commit and pre-push hooks written to .recall/hooks/ (pre-push is the final regression gate before you push).",
+        ? "Pre-commit and pre-push hooks will be written to .persist/hooks/."
+        : "Pre-commit and pre-push hooks written to .persist/hooks/ (pre-push is the final regression gate before you push).",
     );
     lines.push(`Enable them once per clone: ${HOOKS_PATH_ACTIVATION_COMMAND}`);
   }
@@ -159,11 +159,11 @@ export function formatInitResult(result: InitResult): string {
     appendNextSteps(lines, [
       "Read CLAUDE.md and AGENTS.md, then the docs/ memory they point to.",
       "AI agent skills are in .claude/skills/ and .agents/skills/ — restart your AI tool to load them.",
-      "Memory loads automatically per tool: a Claude SessionStart hook (.claude/hooks/session-start.sh), a Cursor rule (.cursor/rules/recall-memory.mdc), and AGENTS.md for Codex.",
-      "CI is wired in .github/workflows/recall.yml; the pre-commit hook is in .recall/hooks/.",
-      "Plan your first feature: `recall feature create <name>`.",
-      "Record a decision: `recall adr create <title>`, then accept it with `recall adr accept`.",
-      "Check repository memory health anytime: `recall doctor`.",
+      "Memory loads automatically per tool: a Claude SessionStart hook (.claude/hooks/session-start.sh), a Cursor rule (.cursor/rules/persist-memory.mdc), and AGENTS.md for Codex.",
+      "CI is wired in .github/workflows/persist.yml; the pre-commit hook is in .persist/hooks/.",
+      "Plan your first feature: `persist feature create <name>`.",
+      "Record a decision: `persist adr create <title>`, then accept it with `persist adr accept`.",
+      "Check repository memory health anytime: `persist doctor`.",
     ]);
   }
 
@@ -190,7 +190,7 @@ function appendDetectedStack(lines: string[], detected: RepoSignals): void {
   lines.push("Detected in this repository (proposed — review, nothing was accepted):");
   lines.push(...stack);
   lines.push(
-    "If any signal is wrong, correct the source file noted. Run `recall adopt` to record this as proposed memory.",
+    "If any signal is wrong, correct the source file noted. Run `persist adopt` to record this as proposed memory.",
   );
 }
 
@@ -275,7 +275,7 @@ function createInitWriteFiles(
 
 /**
  * Keep only the tool-specific files the repository's selected `aiTools` actually use. Tool-agnostic
- * files (config, docs, `.recall/`, `.github/`, the pre-commit hook) and `AGENTS.md` are always kept —
+ * files (config, docs, `.persist/`, `.github/`, the pre-commit hook) and `AGENTS.md` are always kept —
  * `AGENTS.md` is the portable floor that Claude imports and that Codex and Cursor auto-load.
  */
 function keepForTools(filePath: string, aiTools: readonly string[]): boolean {

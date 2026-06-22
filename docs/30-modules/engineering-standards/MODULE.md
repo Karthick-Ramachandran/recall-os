@@ -8,7 +8,8 @@ Engineering Standards Memory records how work must be done in this repository.
 
 - Engineering standards concept.
 - Everyday engineering rules.
-- Secrets, dependencies, documentation, git, releases, migrations, operations, and AI behavior standards.
+- Secrets, dependencies, documentation, git, releases, migrations, operations, and AI behavior
+  standards.
 - Repository rules override model preferences principle.
 
 ## Does Not Own
@@ -23,4 +24,5 @@ Engineering Standards Memory records how work must be done in this repository.
 
 P1.6 introduces `docs/60-engineering/` as the standards routing layer.
 
-Only three initial docs are created. Split-out standards docs should be added later only when needed.
+Only three initial docs are created. Split-out standards docs should be added later only when
+needed.

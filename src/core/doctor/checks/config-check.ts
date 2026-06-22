@@ -3,14 +3,14 @@ import { readFile } from "node:fs/promises";
 import {
   ConfigValidationError,
   parseConfig,
-  type RecallConfig,
+  type PersistConfig,
 } from "../../config/config-schema.js";
 import { CONFIG_PATH } from "../../config/load-config.js";
 import { resolveSafePath } from "../../filesystem/safe-path.js";
 import type { DoctorFinding } from "../doctor-check.js";
 
 export type ConfigCheckResult = {
-  config?: RecallConfig;
+  config?: PersistConfig;
   findings: DoctorFinding[];
 };
 
@@ -28,7 +28,7 @@ export async function checkConfig(rootDir: string): Promise<ConfigCheckResult> {
           {
             severity: "error",
             check: "config",
-            message: "Missing .recall/config.json.",
+            message: "Missing .persist/config.json.",
             path: CONFIG_PATH,
           },
         ],
@@ -62,7 +62,7 @@ export async function checkConfig(rootDir: string): Promise<ConfigCheckResult> {
         {
           severity: "info",
           check: "config",
-          message: "Recall OS config validates.",
+          message: "Persist OS config validates.",
           path: CONFIG_PATH,
         },
       ],

@@ -25,8 +25,8 @@ describe("guided command output", () => {
     const result = await runInitCommand(rootDir);
 
     expect(result.stdout).toContain("Next steps:");
-    expect(result.stdout).toContain("recall feature create");
-    expect(result.stdout).toContain("recall doctor");
+    expect(result.stdout).toContain("persist feature create");
+    expect(result.stdout).toContain("persist doctor");
   });
 
   it("adr create points at the file and what to fill", async () => {

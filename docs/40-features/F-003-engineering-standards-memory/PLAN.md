@@ -4,7 +4,8 @@
 
 Add Engineering Standards Memory as a docs-only memory pillar.
 
-Start with three documents under `docs/60-engineering/` and keep detailed rule categories inside `ENGINEERING_STANDARDS.md`.
+Start with three documents under `docs/60-engineering/` and keep detailed rule categories inside
+`ENGINEERING_STANDARDS.md`.
 
 ## Tasks
 

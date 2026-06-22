@@ -35,4 +35,4 @@ Build one task at a time with evidence.
 - Status: Complete.
 - Scope: Tests, regenerated examples, README, review, and completion report.
 - Acceptance: All quality gates recorded with results.
-- Tests: Full suite, typecheck, lint, format, build, pack, and `recall doctor`.
+- Tests: Full suite, typecheck, lint, format, build, pack, and `persist doctor`.

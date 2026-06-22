@@ -5,7 +5,8 @@ This is a documentation-only change, so verification is gate-based rather than u
 ## Checks
 
 - `pnpm format:check` passes for the new Markdown that falls under the format globs.
-- `pnpm test:run`, `pnpm typecheck`, `pnpm lint`, `pnpm build`, and `pnpm pack:check` pass unchanged.
+- `pnpm test:run`, `pnpm typecheck`, `pnpm lint`, `pnpm build`, and `pnpm pack:check` pass
+  unchanged.
 - `node dist/cli.js doctor` still passes, confirming no memory structure regressed.
 
 ## Manual Review

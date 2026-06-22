@@ -40,7 +40,8 @@ Symlink write:
 Template injection:
 
 - User input is rendered into templates in a way that executes logic.
-- Control: deterministic templates, escaped values where appropriate, no user-provided template execution in MVP.
+- Control: deterministic templates, escaped values where appropriate, no user-provided template
+  execution in MVP.
 
 Secret exposure:
 

@@ -18,7 +18,7 @@ Complete.
 - `tests/unit/doctor/doctor-standards-check.test.ts`
 - `tests/integration/doctor-command.test.ts`
 - `src/core/generator/generate-init.ts`
-- `docs/ai/RECALL_COMMANDS.md`
+- `docs/ai/PERSIST_COMMANDS.md`
 - `README.md`
 - `docs/00-product/PRODUCT_VISION.md`
 - `docs/00-product/ROADMAP.md`

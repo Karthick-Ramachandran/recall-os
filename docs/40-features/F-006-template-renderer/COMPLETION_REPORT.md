@@ -37,9 +37,12 @@ Complete.
 
 ## Remaining Risks
 
-- P3 does not load template files or write generated files. Future generator flows must connect rendered strings to safe write planning.
-- P3 does not support conditionals, loops, helpers, partials, or includes. Richer template behavior requires a future ADR.
-- P3 does not define markdown escaping policy. Generated document escaping can be addressed when concrete templates exist.
+- P3 does not load template files or write generated files. Future generator flows must connect
+  rendered strings to safe write planning.
+- P3 does not support conditionals, loops, helpers, partials, or includes. Richer template behavior
+  requires a future ADR.
+- P3 does not define markdown escaping policy. Generated document escaping can be addressed when
+  concrete templates exist.
 
 ## Docs Updated
 
@@ -55,4 +58,6 @@ Complete.
 
 ## Engineering Standards
 
-Engineering standards were followed. The change is scoped, tested, documented, and includes completion evidence. No network, telemetry, MCP runtime, cloud behavior, file write behavior, or new dependency was added.
+Engineering standards were followed. The change is scoped, tested, documented, and includes
+completion evidence. No network, telemetry, MCP runtime, cloud behavior, file write behavior, or new
+dependency was added.

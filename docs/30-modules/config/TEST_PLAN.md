@@ -23,5 +23,5 @@
 
 ## P10 Results
 
-- Config unit tests passed after the `.recall/config.json` rename.
+- Config unit tests passed after the `.persist/config.json` rename.
 - Init, Doctor, feature, ADR, module, and golden tests passed with the renamed config path.

@@ -6,20 +6,20 @@ Accepted
 
 ## Context
 
-Recall OS should generate AI agent skills so a repository gets reusable, durable workflows (write
-tests, create a PRD, review security, and so on). Skills follow the open Agent Skills standard, which
-allows many optional fields, supporting scripts, and Claude Code-specific extensions. Recall OS emits
-to two targets: `.claude/skills/` for Claude Code and `.agents/skills/` as the portable target for
-other Agent Skills-compatible tools.
+Persist OS should generate AI agent skills so a repository gets reusable, durable workflows (write
+tests, create a PRD, review security, and so on). Skills follow the open Agent Skills standard,
+which allows many optional fields, supporting scripts, and Claude Code-specific extensions. Persist
+OS emits to two targets: `.claude/skills/` for Claude Code and `.agents/skills/` as the portable
+target for other Agent Skills-compatible tools.
 
 ## Decision
 
 Generated skills use only the standard, portable Agent Skills fields and contain no scripts.
 
 - Frontmatter includes only `name` and `description`. `name` is validated against
-  `^[a-z0-9](-?[a-z0-9])*$`, is at most 64 characters, and matches the skill directory. `description`
-  is at most 1024 characters and includes "Use when" trigger language so agents invoke the skill at
-  the right moment.
+  `^[a-z0-9](-?[a-z0-9])*$`, is at most 64 characters, and matches the skill directory.
+  `description` is at most 1024 characters and includes "Use when" trigger language so agents invoke
+  the skill at the right moment.
 - The body routes to source-of-truth docs instead of duplicating them and stays well under the
   recommended size.
 - No scripts, no Claude Code-only fields, and no dynamic shell injection are generated, so the same
@@ -33,7 +33,7 @@ Generated skills use only the standard, portable Agent Skills fields and contain
 
 - Generate Claude Code-specific skills with dynamic context injection and scripts. Rejected: it
   breaks portability to the `.agents/skills` target and conflicts with the no-scripts rule.
-- Emit only to `.claude/skills/`. Rejected: the portable target is part of Recall OS's context
+- Emit only to `.claude/skills/`. Rejected: the portable target is part of Persist OS's context
   distribution strategy.
 - Free-form skill bodies. Rejected: a consistent section structure keeps generated skills reviewable
   and useful.
@@ -43,7 +43,7 @@ Generated skills use only the standard, portable Agent Skills fields and contain
 - Generated skills are valid Agent Skills and work across compatible tools unchanged.
 - Skills stay safe: no executable code is generated into a repository.
 - Richer Claude Code-specific features are intentionally out of scope for generation.
-- Recall OS can dogfood its own skill set by generating it from the catalog.
+- Persist OS can dogfood its own skill set by generating it from the catalog.
 
 ## Related Documents
 

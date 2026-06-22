@@ -2,13 +2,15 @@
 
 ## Purpose
 
-MCP can provide useful external context for AI-assisted development, but it is not required for Recall OS MVP.
+MCP can provide useful external context for AI-assisted development, but it is not required for
+Persist OS MVP.
 
-Recall OS should document how teams can use MCP safely without making external systems the architectural source of truth.
+Persist OS should document how teams can use MCP safely without making external systems the
+architectural source of truth.
 
 ## MVP Position
 
-Recall OS MVP:
+Persist OS MVP:
 
 - Does not require MCP.
 - Does not connect to MCP servers.

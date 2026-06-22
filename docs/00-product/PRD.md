@@ -1,26 +1,26 @@
-# PRD: Recall OS
+# PRD: Persist OS
 
 ## 1. Product Requirements Document
 
 ## 1.1 Product Summary
 
-Recall OS is a local-first open-source CLI that initializes and maintains AI-ready engineering
+Persist OS is a local-first open-source CLI that initializes and maintains AI-ready engineering
 memory inside software repositories.
 
-Recall OS is an Engineering Memory Operating System.
+Persist OS is an Engineering Memory Operating System.
 
 Core promise:
 
 ```txt
 AI can write the code.
-Recall OS makes sure the repository does not forget what it is doing.
+Persist OS makes sure the repository does not forget what it is doing.
 ```
 
 Simple explanation:
 
 ```txt
 Git tracks what changed.
-Recall OS tracks why it changed.
+Persist OS tracks why it changed.
 ```
 
 Durable product vision lives in:
@@ -51,9 +51,9 @@ It generates and manages:
 - Completion report templates
 - Optional preset guidance
 
-Recall OS should help humans and AI agents work from the same durable source of truth.
+Persist OS should help humans and AI agents work from the same durable source of truth.
 
-Recall OS is intentionally architecture-neutral.
+Persist OS is intentionally architecture-neutral.
 
 Its role is not to determine what architecture a team should adopt.
 
@@ -69,14 +69,14 @@ reviewable, AI-readable repository memory.
 A user should be able to run:
 
 ```bash
-npx recall init
+npx persist init
 ```
 
 and receive a professional engineering memory structure.
 
 ### Goal 2: Support AI-agent workflows
 
-Recall OS should generate files usable by:
+Persist OS should generate files usable by:
 
 - Claude Code
 - Codex
@@ -86,7 +86,7 @@ Recall OS should generate files usable by:
 
 ### Goal 3: Prevent architecture drift
 
-Recall OS should make undocumented architecture change visible.
+Persist OS should make undocumented architecture change visible.
 
 It should not prevent change.
 
@@ -115,7 +115,7 @@ Not random happy-path examples.
 
 ### Goal 5: Dogfood itself
 
-Recall OS’s own repository should use the same structure it generates.
+Persist OS’s own repository should use the same structure it generates.
 
 The project should prove its own usefulness by using:
 
@@ -165,7 +165,7 @@ Humans own final product intent, architecture decisions, risk acceptance, and me
 
 ## 1.3.5 Architecture neutral core
 
-Recall OS Core does not choose architecture.
+Persist OS Core does not choose architecture.
 
 It does not decide whether a repository should use Redis, Kafka, CloudWatch, Datadog, Supabase,
 Firebase, Auth0, Okta, Postgres, MongoDB, CQRS, event sourcing, Clean Architecture, or feature-first
@@ -174,7 +174,7 @@ architecture.
 Those choices may enter the repository through accepted repository decisions, organization memory,
 or optional presets.
 
-Recall OS records, distributes, validates, and protects those decisions.
+Persist OS records, distributes, validates, and protects those decisions.
 
 ## 1.3.6 Change is allowed
 
@@ -182,7 +182,7 @@ Architecture drift is not “change.”
 
 Architecture drift is undocumented change or mismatch with accepted repository memory.
 
-Drift is not difference from a Recall OS recommendation.
+Drift is not difference from a Persist OS recommendation.
 
 If a decision changes and the docs are updated, that is evolution.
 
@@ -190,15 +190,15 @@ If code changes and docs remain stale, that is drift.
 
 ## 1.3.7 Repository memory first
 
-Recall OS initializes repository memory, not application code.
+Persist OS initializes repository memory, not application code.
 
 Git initializes source control.
 
-Recall OS initializes repository memory.
+Persist OS initializes repository memory.
 
-Code may come before or after Recall OS.
+Code may come before or after Persist OS.
 
-`recall init` must work in an empty folder and must not require a Flutter app, Next.js app, Swift
+`persist init` must work in an empty folder and must not require a Flutter app, Next.js app, Swift
 package, Android project, backend service, or any other existing framework.
 
 ---
@@ -221,7 +221,7 @@ Engineering memory is the durable knowledge that lets a team or AI agent underst
 
 ## 1.4.2 Memory Engine
 
-The Memory Engine is Recall OS Core.
+The Memory Engine is Persist OS Core.
 
 It creates neutral structures for decisions, docs, review, testing, security, and drift detection.
 
@@ -271,7 +271,7 @@ Storage = S3
 Observability = OpenTelemetry
 ```
 
-Recall OS records organization memory so AI follows the team's decisions, not Recall OS's
+Persist OS records organization memory so AI follows the team's decisions, not Persist OS's
 preferences.
 
 ## 1.4.6 Engineering Standards Memory
@@ -294,9 +294,9 @@ It is valid before app code exists.
 Primary workflows:
 
 ```txt
-Greenfield: empty folder -> recall init -> app/framework later
-Existing repo: app exists -> recall init -> optional detected guidance later
-Legacy adoption: mature repo -> future recall adopt
+Greenfield: empty folder -> persist init -> app/framework later
+Existing repo: app exists -> persist init -> optional detected guidance later
+Legacy adoption: mature repo -> future persist adopt
 ```
 
 Git is recommended for normal development, but a Git repository must not be required for init.
@@ -421,17 +421,17 @@ If documents conflict, the agent must stop and report the conflict.
 ## 1.6.1 init
 
 ```bash
-recall init
-recall init --preset nextjs
-recall init --preset ios-swift --ai claude,codex
-recall init --mode standard
-recall init --dry-run
-recall init --force
+persist init
+persist init --preset nextjs
+persist init --preset ios-swift --ai claude,codex
+persist init --mode standard
+persist init --dry-run
+persist init --force
 ```
 
 Responsibilities:
 
-- Create `.recall/config.json`
+- Create `.persist/config.json`
 - Generate AI instruction files
 - Generate neutral docs structure by default
 - Generate selected preset guidance, when explicitly requested
@@ -441,19 +441,19 @@ Responsibilities:
 
 Semantics:
 
-- `recall init` initializes repository memory.
-- `recall init` must work in an empty folder.
+- `persist init` initializes repository memory.
+- `persist init` must work in an empty folder.
 - Existing app code is not required.
 - Existing framework files are not required.
 - A Git repository is optional, though recommended for normal development.
-- `recall init` must not generate production application code.
+- `persist init` must not generate production application code.
 
 ---
 
 ## 1.6.2 feature create
 
 ```bash
-recall feature create auth-provider
+persist feature create auth-provider
 ```
 
 Creates:
@@ -484,7 +484,7 @@ Rules:
 ## 1.6.3 adr create
 
 ```bash
-recall adr create auth-provider
+persist adr create auth-provider
 ```
 
 Creates:
@@ -506,7 +506,7 @@ Rules:
 ## 1.6.4 module create
 
 ```bash
-recall module create auth
+persist module create auth
 ```
 
 Creates:
@@ -530,7 +530,7 @@ Rules:
 ## 1.6.5 preset list
 
 ```bash
-recall preset list
+persist preset list
 ```
 
 Shows available presets:
@@ -547,7 +547,7 @@ flutter
 ## 1.6.6 doctor
 
 ```bash
-recall doctor
+persist doctor
 ```
 
 Checks repository health:
@@ -613,13 +613,13 @@ In architecture docs, presets are opinion packs.
 Presets may provide starter guidance and proposed ADRs, but they must not silently create accepted
 architecture decisions.
 
-`recall init --preset flutter` means neutral repository memory plus Flutter-aware guidance and
+`persist init --preset flutter` means neutral repository memory plus Flutter-aware guidance and
 proposed decisions.
 
 Presets must not silently accept architecture, state management, backend, folder structure, vendor,
 or infrastructure choices.
 
-The default `recall init` path remains neutral and architecture-opinion-free.
+The default `persist init` path remains neutral and architecture-opinion-free.
 
 ---
 
@@ -657,7 +657,7 @@ gemini-cli
 
 ## 1.9 Modes
 
-Recall OS should support generation modes.
+Persist OS should support generation modes.
 
 ## 1.9.1 Lite Mode
 
@@ -711,10 +711,10 @@ MVP may implement Standard first, but the config schema should support all three
 
 ## 1.10 Configuration Manifest
 
-Recall OS should create:
+Persist OS should create:
 
 ```txt
-.recall/config.json
+.persist/config.json
 ```
 
 Example:
@@ -743,7 +743,7 @@ Requirements:
 - Must track template version.
 - Must support future upgrades.
 - Must be read by every command.
-- Must not require architecture IDs that imply Recall OS owns the user's architecture.
+- Must not require architecture IDs that imply Persist OS owns the user's architecture.
 - P2 must not include decision indexes or organization standards.
 
 ---
@@ -785,7 +785,7 @@ Rules:
 
 ## 1.12 Security Requirements
 
-Recall OS is a local-first CLI.
+Persist OS is a local-first CLI.
 
 Security promises:
 
@@ -907,7 +907,7 @@ Definition of done for tests:
 
 ## 1.14 Generated Documents
 
-Recall OS should generate these docs.
+Persist OS should generate these docs.
 
 ```txt
 docs/
@@ -960,7 +960,7 @@ docs/
 
 ## 1.15 AI Skills
 
-Recall OS should generate Claude-style skill files and equivalent guidance for other AI tools.
+Persist OS should generate Claude-style skill files and equivalent guidance for other AI tools.
 
 Suggested skills:
 
@@ -1011,7 +1011,7 @@ Do not create giant knowledge dumps.
 
 ## 1.16 Plugin and Extension Model
 
-Recall OS should be designed so others can extend it.
+Persist OS should be designed so others can extend it.
 
 Future extensions may contribute:
 
@@ -1030,9 +1030,9 @@ Future directory model:
 
 ```txt
 plugins/
-  recall-plugin-android/
-  recall-plugin-security/
-  recall-plugin-enterprise/
+  persist-plugin-android/
+  persist-plugin-security/
+  persist-plugin-enterprise/
 ```
 
 Plugin safety rules:
@@ -1078,16 +1078,16 @@ become accepted decisions without human action.
 
 ## 1.18 Context Pack / Token Reduction Support
 
-Recall OS should eventually support:
+Persist OS should eventually support:
 
 ```bash
-recall context build
+persist context build
 ```
 
 Output:
 
 ```txt
-.recall/context/
+.persist/context/
   repo-summary.md
   architecture-summary.md
   module-map.md
@@ -1101,7 +1101,7 @@ Purpose:
 - Complement RTK-style token reduction tools.
 - Provide concise context packs derived from source-of-truth docs.
 
-Recall OS owns the durable memory.
+Persist OS owns the durable memory.
 
 Token tools can compress that memory.
 
@@ -1109,7 +1109,7 @@ Token tools can compress that memory.
 
 ## 1.19 Existing Repo Adoption
 
-Recall OS must support existing repositories.
+Persist OS must support existing repositories.
 
 Default behavior:
 
@@ -1122,10 +1122,10 @@ Default behavior:
 Future command:
 
 ```bash
-recall adopt
+persist adopt
 ```
 
-Adoption mode may suggest mapping existing docs, code structure, and technology signals into Recall
+Adoption mode may suggest mapping existing docs, code structure, and technology signals into Persist
 OS memory.
 
 Adoption must produce reviewable memory, proposed decisions, or guidance. It must not silently
@@ -1166,8 +1166,8 @@ Future config:
 Future commands:
 
 ```bash
-recall init --scope apps/web
-recall feature create billing --scope apps/web
+persist init --scope apps/web
+persist feature create billing --scope apps/web
 ```
 
 ---
@@ -1177,7 +1177,7 @@ recall feature create billing --scope apps/web
 Future command:
 
 ```bash
-recall upgrade
+persist upgrade
 ```
 
 Purpose:
@@ -1192,7 +1192,7 @@ Purpose:
 Generated files may include lightweight metadata:
 
 ```md
-<!-- recall:template=feature-prd version=0.1.0 mode=standard -->
+<!-- persist:template=feature-prd version=0.1.0 mode=standard -->
 ```
 
 Metadata should be minimal and not ugly.
@@ -1220,7 +1220,7 @@ Helpful output:
 
 ```txt
 Created:
-  .recall/config.json
+  .persist/config.json
   CLAUDE.md
   docs/10-architecture/ARCHITECTURE.md
 
@@ -1228,7 +1228,7 @@ Skipped:
   README.md already exists
 
 Next:
-  Run recall doctor
+  Run persist doctor
 ```
 
 Errors should be clear.
@@ -1244,7 +1244,7 @@ Good:
 ```txt
 Invalid feature name "../../evil".
 Feature names cannot contain path traversal.
-Try: recall feature create auth-provider
+Try: persist feature create auth-provider
 ```
 
 ---
@@ -1284,21 +1284,21 @@ Advanced template engines such as Eta are deferred until a future ADR shows they
 
 ## 1.24 MVP Acceptance Criteria
 
-Recall OS v0.1 is acceptable when:
+Persist OS v0.1 is acceptable when:
 
-- `recall init` creates expected docs.
-- `recall init` works in an empty folder.
+- `persist init` creates expected docs.
+- `persist init` works in an empty folder.
 - Existing files are skipped by default.
 - `--dry-run` writes nothing and shows intended changes.
 - `--force` overwrites only when explicit.
-- `.recall/config.json` is created and validated.
+- `.persist/config.json` is created and validated.
 - `feature create` creates feature docs.
 - `adr create` creates correctly numbered ADRs.
 - `module create` creates module memory docs.
 - `preset list` shows presets.
 - `doctor` reports repository memory health and standards evidence.
 - Built-in presets validate.
-- Default `recall init` generates neutral memory with no technology or architecture choices.
+- Default `persist init` generates neutral memory with no technology or architecture choices.
 - Preset-generated choices are proposed, not silently accepted.
 - Technology detection does not become accepted repository memory by itself.
 - Golden tests exist for generated outputs.
@@ -1342,6 +1342,6 @@ complex monorepo support
 
 The strongest first version is professional, local-first, safe, deterministic, and useful.
 
-Recall OS should prove one idea extremely well:
+Persist OS should prove one idea extremely well:
 
 > AI-built software needs durable engineering memory.

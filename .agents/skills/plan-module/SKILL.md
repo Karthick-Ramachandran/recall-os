@@ -1,6 +1,9 @@
 ---
 name: plan-module
-description: "Plan a module as a mini product by creating feature delivery docs, module memory, acceptance criteria, architecture impact, test plan, and ordered tasks before implementation. Use when asked to build, create, redesign, or materially change a module."
+description:
+  "Plan a module as a mini product by creating feature delivery docs, module memory, acceptance
+  criteria, architecture impact, test plan, and ordered tasks before implementation. Use when asked
+  to build, create, redesign, or materially change a module."
 ---
 
 # Skill: Plan Module
@@ -29,7 +32,8 @@ Turn a module request into a complete delivery workflow before implementation st
 
 ## Output Files
 
-- `docs/40-features/F-###-<module>-module/` delivery docs (PRD, ACCEPTANCE, ARCHITECTURE_IMPACT, PLAN, TASKS, TEST_PLAN, REVIEW, COMPLETION_REPORT).
+- `docs/40-features/F-###-<module>-module/` delivery docs (PRD, ACCEPTANCE, ARCHITECTURE_IMPACT,
+  PLAN, TASKS, TEST_PLAN, REVIEW, COMPLETION_REPORT).
 - `docs/30-modules/<module>/MODULE.md`
 - `docs/30-modules/<module>/TASKS.md`
 - `docs/30-modules/<module>/TEST_PLAN.md`
@@ -52,8 +56,10 @@ Stop and request human decision if:
 - The module ownership or public interface is unclear.
 - The module conflicts with accepted ADRs or architecture docs.
 - The module conflicts with engineering standards.
-- The module requires runtime network, telemetry, cloud, MCP, AI API, auth, secrets, storage, or file write behavior changes without ADR or security review.
-- The user asks to implement before PRD, acceptance, architecture impact, test plan, and tasks exist.
+- The module requires runtime network, telemetry, cloud, MCP, AI API, auth, secrets, storage, or
+  file write behavior changes without ADR or security review.
+- The user asks to implement before PRD, acceptance, architecture impact, test plan, and tasks
+  exist.
 
 ## Quality Bar
 

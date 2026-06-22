@@ -8,7 +8,7 @@
 
 ## Integration Tests
 
-- `recall mcp add figma` writes the memory doc and proposed ADR without an existing config.
+- `persist mcp add figma` writes the memory doc and proposed ADR without an existing config.
 - `--dry-run` writes nothing; existing files are skipped unless `--force`.
 
 ## Safety

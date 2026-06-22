@@ -9,20 +9,20 @@ detection, and broken golden output.
   multi-line or control-character entries.
 - `tests/unit/hooks/detect-gates.test.ts`: pnpm/npm/yarn lockfiles map to the right package manager;
   known scripts become proposed gates; no `package.json` yields an empty list.
-- `tests/unit/hooks/generate-hook.test.ts`: rendered hook has the shebang, runs `recall doctor`, and
-  includes each gate; empty gates render doctor only.
+- `tests/unit/hooks/generate-hook.test.ts`: rendered hook has the shebang, runs `persist doctor`,
+  and includes each gate; empty gates render doctor only.
 - `tests/unit/filesystem/write-file-safe.test.ts`: executable entries are written with the owner
   execute bit set.
 
 ## Integration Tests
 
-- `tests/integration/init-command.test.ts`: init creates an executable `.recall/hooks/pre-commit`
-  containing `recall doctor`; init output prints the `git config core.hooksPath` proposal; an
+- `tests/integration/init-command.test.ts`: init creates an executable `.persist/hooks/pre-commit`
+  containing `persist doctor`; init output prints the `git config core.hooksPath` proposal; an
   existing hook is skipped without `--force`.
 
 ## Golden Tests
 
-- `tests/golden/generated-*.test.ts`: updated file lists include `.recall/hooks/pre-commit`.
+- `tests/golden/generated-*.test.ts`: updated file lists include `.persist/hooks/pre-commit`.
 
 ## Safety
 

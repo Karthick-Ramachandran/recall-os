@@ -24,9 +24,10 @@ P9 validates deterministic memory structure and required sections.
 
 Semantic drift detection remains future work.
 
-## P10: Recall Paths
+## P10: Persist Paths
 
-Doctor treats `.recall/config.json` and `docs/ai/RECALL_COMMANDS.md` as required repository memory.
+Doctor treats `.persist/config.json` and `docs/ai/PERSIST_COMMANDS.md` as required repository
+memory.
 
 ## P12: Standards Evidence Checks
 

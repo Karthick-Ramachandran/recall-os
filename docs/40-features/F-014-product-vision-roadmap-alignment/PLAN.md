@@ -2,7 +2,7 @@
 
 ## Implementation Order
 
-1. Create feature memory with `recall feature create`.
+1. Create feature memory with `persist feature create`.
 2. Add product vision, positioning, and roadmap docs.
 3. Update README and root agent routing.
 4. Update PRD and build priority references.

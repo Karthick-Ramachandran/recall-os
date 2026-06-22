@@ -40,8 +40,10 @@ Complete.
 
 ## Remaining Risks
 
-- Package `bin` and release wiring remain deferred to P10, so command coverage is through `main(argv, io)`.
-- ADR drafts are concise starter memory; humans or agents still need to fill in context, decision, alternatives, consequences, and related docs.
+- Package `bin` and release wiring remain deferred to P10, so command coverage is through
+  `main(argv, io)`.
+- ADR drafts are concise starter memory; humans or agents still need to fill in context, decision,
+  alternatives, consequences, and related docs.
 - Proposed-to-accepted ADR review workflow is not implemented in P7.
 - Doctor drift detection is still future work.
 
@@ -54,6 +56,7 @@ Complete.
 
 ## Engineering Standards
 
-- No dependency, network, telemetry, MCP runtime, app code generation, package release behavior, or AI behavior was added.
+- No dependency, network, telemetry, MCP runtime, app code generation, package release behavior, or
+  AI behavior was added.
 - All writes route through the existing safe write plan and safe write execution pipeline.
 - Repository memory was updated before completion was claimed.

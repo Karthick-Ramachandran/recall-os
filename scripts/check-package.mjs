@@ -27,7 +27,7 @@ const requiredFiles = [
 
 const blockedPrefixes = [
   ".github/",
-  ".recall/",
+  ".persist/",
   ".agents/",
   ".claude/",
   "coverage/",

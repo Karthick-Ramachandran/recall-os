@@ -11,7 +11,7 @@ import { slugify } from "../../src/core/naming/slugify.js";
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-path-security-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "persist-path-security-"));
 });
 
 afterEach(async () => {

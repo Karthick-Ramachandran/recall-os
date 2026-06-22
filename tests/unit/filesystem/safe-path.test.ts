@@ -13,7 +13,7 @@ import {
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-safe-path-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "persist-safe-path-"));
 });
 
 afterEach(async () => {
@@ -23,7 +23,7 @@ afterEach(async () => {
 describe("normalizeOutputPath", () => {
   it("normalizes dot segments and preserves safe dot-directories", () => {
     expect(normalizeOutputPath("docs/./A.md")).toBe("docs/A.md");
-    expect(normalizeOutputPath(".recall/config.json")).toBe(".recall/config.json");
+    expect(normalizeOutputPath(".persist/config.json")).toBe(".persist/config.json");
   });
 
   it("rejects unsafe path syntax", () => {

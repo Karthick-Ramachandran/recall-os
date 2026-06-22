@@ -3,8 +3,8 @@
 ## Unit Tests
 
 - `createDefaultConfig` default `aiTools` is `["claude","codex","cursor"]`.
-- The file filter keeps/drops `CLAUDE.md`/`.claude/`/`.cursor/`/`.agents/` correctly per tool set, and
-  always keeps `AGENTS.md` and tool-agnostic files (docs, `.recall/`, `.github/`).
+- The file filter keeps/drops `CLAUDE.md`/`.claude/`/`.cursor/`/`.agents/` correctly per tool set,
+  and always keeps `AGENTS.md` and tool-agnostic files (docs, `.persist/`, `.github/`).
 
 ## Integration Tests
 

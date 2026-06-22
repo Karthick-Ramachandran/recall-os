@@ -25,7 +25,7 @@ describe("config schema", () => {
   });
 
   it("validates the dogfooded root config", () => {
-    const rawConfig = readFileSync(path.join(process.cwd(), ".recall", "config.json"), "utf8");
+    const rawConfig = readFileSync(path.join(process.cwd(), ".persist", "config.json"), "utf8");
 
     expect(parseConfig(JSON.parse(rawConfig))).toEqual(createDefaultConfig());
   });

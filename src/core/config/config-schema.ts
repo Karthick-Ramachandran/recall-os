@@ -20,7 +20,7 @@ export class ConfigValidationError extends Error {
   readonly issues: string[];
 
   constructor(issues: string[]) {
-    super(`Invalid Recall OS config: ${issues.join("; ")}`);
+    super(`Invalid Persist OS config: ${issues.join("; ")}`);
     this.name = "ConfigValidationError";
     this.issues = issues;
   }
@@ -60,7 +60,7 @@ const safeRelativePathSchema = z.string().transform((value, context) => {
   }
 });
 
-export const recallConfigSchema = z
+export const persistConfigSchema = z
   .object({
     version: versionSchema,
     templateVersion: versionSchema,
@@ -98,10 +98,10 @@ export const recallConfigSchema = z
     }
   });
 
-export type RecallConfig = z.infer<typeof recallConfigSchema>;
+export type PersistConfig = z.infer<typeof persistConfigSchema>;
 
-export function parseConfig(value: unknown): RecallConfig {
-  const result = recallConfigSchema.safeParse(value);
+export function parseConfig(value: unknown): PersistConfig {
+  const result = persistConfigSchema.safeParse(value);
 
   if (!result.success) {
     throw new ConfigValidationError(

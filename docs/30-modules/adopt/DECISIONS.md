@@ -17,4 +17,4 @@ observations, not decisions.
 
 ## Config Optional
 
-Adopt works with or without an existing Recall config, using default paths when none is present.
+Adopt works with or without an existing Persist config, using default paths when none is present.

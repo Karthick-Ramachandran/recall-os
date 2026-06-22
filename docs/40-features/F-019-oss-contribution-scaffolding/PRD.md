@@ -2,8 +2,8 @@
 
 ## Purpose
 
-Recall OS is open source but lacks the files contributors expect. There is no contribution guide, no
-security policy, no pull request template, and no issue templates. The decision is to grow preset
+Persist OS is open source but lacks the files contributors expect. There is no contribution guide,
+no security policy, no pull request template, and no issue templates. The decision is to grow preset
 coverage through community contributions rather than shipping every stack, so the path to contribute
 a preset must be documented and easy to follow.
 

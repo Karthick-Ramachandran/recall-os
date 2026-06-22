@@ -14,7 +14,7 @@ Complete.
 - `src/commands/init.ts`
 - `src/cli/main.ts`
 - `src/core/generator/generate-init.ts`
-- `docs/ai/RECALL_COMMANDS.md`
+- `docs/ai/PERSIST_COMMANDS.md`
 - `CONTRIBUTING.md`
 - `tests/integration/init-command.test.ts`
 - `docs/40-features/F-020-init-reinit-guard/` (new feature memory)
@@ -36,12 +36,12 @@ Complete.
 - `pnpm typecheck`, `pnpm lint`, and `pnpm format:check` passed.
 - `pnpm build` passed; `pnpm pack:check` validated 169 files.
 - `node dist/cli.js doctor` passed after this report was written.
-- Manual verification: `init --force` in a directory with `.recall/config.json` refused and
+- Manual verification: `init --force` in a directory with `.persist/config.json` refused and
   preserved an edited `AGENTS.md`; `init --force --reinit` regenerated it.
 
 ## Remaining Risks
 
-- The guard keys on `.recall/config.json`. A corrupted or partial installation without that file
+- The guard keys on `.persist/config.json`. A corrupted or partial installation without that file
   would not trigger the guard, though `--force` there is the intended fresh-overwrite case.
 
 ## Docs Updated

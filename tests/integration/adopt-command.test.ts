@@ -40,7 +40,7 @@ describe("adopt command", () => {
     const result = await runCommand(rootDir, ["adopt"]);
 
     expect(result.exitCode).toBe(0);
-    expect(result.stdout).toContain("Recall OS adopt complete.");
+    expect(result.stdout).toContain("Persist OS adopt complete.");
     expect(result.stdout).toContain("require human review");
 
     const report = await readFile(path.join(rootDir, "docs/adopt/ADOPTION_REPORT.md"), "utf8");

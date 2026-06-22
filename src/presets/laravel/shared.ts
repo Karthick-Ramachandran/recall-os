@@ -3,7 +3,7 @@ import type { PresetGuidance, PresetProposedDecision } from "../../core/presets/
 /**
  * Shared building blocks for the Laravel opinion packs. Three presets compose these: `laravel-react`
  * and `laravel-vue` (Inertia SPAs) and `laravel-api` (API/SPA backend). Every decision is *proposed*
- * — a human accepts it with `recall adr accept`. Nothing here is accepted truth.
+ * — a human accepts it with `persist adr accept`. Nothing here is accepted truth.
  */
 export type LaravelVariant = "react" | "vue" | "api";
 

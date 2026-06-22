@@ -39,8 +39,8 @@ Complete.
 
 ## Remaining Risks
 
-- Content completeness only checks feature PRD Purpose and In Scope; other sections and doc types are
-  not yet covered.
+- Content completeness only checks feature PRD Purpose and In Scope; other sections and doc types
+  are not yet covered.
 - Deeper semantic drift (decision mentioned without an ADR, module-ownership versus feature-plan) is
   still future work and intentionally deferred for its false-positive risk.
 
@@ -50,5 +50,5 @@ Complete.
 
 ## Engineering Standards
 
-Engineering standards were followed. The change is scoped, tested, deterministic, read-only, and adds
-no dependency, network, or capability.
+Engineering standards were followed. The change is scoped, tested, deterministic, read-only, and
+adds no dependency, network, or capability.

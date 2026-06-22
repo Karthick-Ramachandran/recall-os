@@ -14,7 +14,7 @@ against. This feature closes the propose -> accept loop.
 
 ## In Scope
 
-- Add `recall adr accept <name>`.
+- Add `persist adr accept <name>`.
 - Promote a `docs/adrs/proposed/ADR-PROPOSED-<slug>.md` to a numbered, accepted
   `docs/adrs/ADR-####-<slug>.md` and remove the proposal.
 - Accept an existing numbered Proposed ADR in place by flipping its status.
@@ -32,7 +32,7 @@ against. This feature closes the propose -> accept loop.
 
 ## Success Criteria
 
-- `recall adr accept kotlin-android-ui-compose` writes `ADR-0001-kotlin-android-ui-compose.md` with
+- `persist adr accept kotlin-android-ui-compose` writes `ADR-0001-kotlin-android-ui-compose.md` with
   `Status: Accepted`, rewrites the title to the ADR id, and removes the proposal.
 - An existing numbered Proposed ADR is accepted in place.
 - A missing name errors clearly.

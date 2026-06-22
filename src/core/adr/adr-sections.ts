@@ -1,8 +1,8 @@
 /**
  * The section headings every accepted ADR must contain. This is the single source of truth:
- * `recall doctor` validates against it, and every generator that emits a proposed ADR
- * (presets, `recall mcp add`, `recall adopt`) normalizes its body to include all of them — so a
- * proposed ADR stays healthy once a human promotes it with `recall adr accept`.
+ * `persist doctor` validates against it, and every generator that emits a proposed ADR
+ * (presets, `persist mcp add`, `persist adopt`) normalizes its body to include all of them — so a
+ * proposed ADR stays healthy once a human promotes it with `persist adr accept`.
  */
 export const REQUIRED_ADR_SECTIONS = [
   "## Status",

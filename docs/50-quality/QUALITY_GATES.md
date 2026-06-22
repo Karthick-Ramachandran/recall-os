@@ -4,7 +4,8 @@
 
 This document defines release readiness as evidence, not confidence.
 
-Recall OS should be judged by whether it helps humans and AI agents build safer software with clearer requirements, better tests, stronger review, and less architecture drift.
+Persist OS should be judged by whether it helps humans and AI agents build safer software with
+clearer requirements, better tests, stronger review, and less architecture drift.
 
 ## Gate 1: Product Usefulness
 
@@ -13,7 +14,7 @@ Release evidence must show:
 - Generated docs are short enough to use and specific enough to guide implementation.
 - Root agent files route to source-of-truth docs.
 - Feature, ADR, module, test, review, and completion workflows are connected.
-- Dogfooding improved Recall OS itself.
+- Dogfooding improved Persist OS itself.
 
 ## Gate 2: Security Posture
 
@@ -76,4 +77,5 @@ Use this scale during review:
 - `2`: usable with clear gaps.
 - `3`: release-ready with evidence.
 
-A public release should not proceed with any `0` in security, file writes, generated output, or CLI behavior.
+A public release should not proceed with any `0` in security, file writes, generated output, or CLI
+behavior.

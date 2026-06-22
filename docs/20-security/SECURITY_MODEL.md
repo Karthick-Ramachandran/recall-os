@@ -2,7 +2,7 @@
 
 ## Security Promise
 
-Recall OS MVP is local-first and deterministic.
+Persist OS MVP is local-first and deterministic.
 
 It must not:
 
@@ -54,4 +54,5 @@ MVP must use:
 
 ## Human Authority
 
-AI agents may draft plans, reviews, tests, and docs. Humans own architecture decisions, risk acceptance, and releases.
+AI agents may draft plans, reviews, tests, and docs. Humans own architecture decisions, risk
+acceptance, and releases.

@@ -8,7 +8,7 @@ Complete.
 
 - T1: Planned the feature and accepted ADR-0004 (portable, scriptless skills).
 - T2: Built the skill catalog and the SKILL.md renderer.
-- T3: Built dual-target generation, `recall skill create`, and `recall skill list`.
+- T3: Built dual-target generation, `persist skill create`, and `persist skill list`.
 - T4: Dogfooded by regenerating the repository's own skills, updated docs, and recorded evidence.
 
 ## Research
@@ -27,7 +27,7 @@ trigger language), portability via standard fields only, and keeping bodies smal
 - `docs/adrs/ADR-0004-skill-generation-portable-and-scriptless.md` (new)
 - `docs/30-modules/skills/` (new module memory)
 - `docs/40-features/F-023-skill-generation/` (new feature memory)
-- `docs/ai/RECALL_COMMANDS.md`, `README.md`
+- `docs/ai/PERSIST_COMMANDS.md`, `README.md`
 - `.claude/skills/*`, `.agents/skills/*` (regenerated from the tool — dogfood)
 - `examples/generated-*/` (regenerated command reference)
 

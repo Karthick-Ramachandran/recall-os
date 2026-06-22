@@ -10,7 +10,7 @@ and fixes for confirmed issues will be released as soon as practical.
 
 ## Security Model Summary
 
-Recall OS is local-first and deliberately small in attack surface. See
+Persist OS is local-first and deliberately small in attack surface. See
 `docs/20-security/SECURITY_MODEL.md` and `docs/20-security/THREAT_MODEL.md` for detail. In the
 current release the tool:
 
@@ -22,15 +22,15 @@ current release the tool:
 - never writes outside the project root, and refuses to write through symlinks.
 
 The one privileged capability is generating an executable git pre-commit hook at
-`.recall/hooks/pre-commit` during `recall init`. This is governed by
+`.persist/hooks/pre-commit` during `persist init`. This is governed by
 `docs/adrs/ADR-0002-pre-commit-hook-generation.md`:
 
 - the hook is written inside the project root through the safe write pipeline;
-- `recall init` proposes, but never runs, `git config core.hooksPath .recall/hooks`;
-- `preCommitGates` in `.recall/config.json` are executed by the hook as written and are trusted at
+- `persist init` proposes, but never runs, `git config core.hooksPath .persist/hooks`;
+- `preCommitGates` in `.persist/config.json` are executed by the hook as written and are trusted at
   the same level as `package.json` scripts; the config schema rejects multi-line and control
   characters.
 
 ## Supported Versions
 
-Recall OS is pre-1.0. Security fixes target the latest released version.
+Persist OS is pre-1.0. Security fixes target the latest released version.

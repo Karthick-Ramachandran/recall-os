@@ -20,7 +20,7 @@ export class PresetValidationError extends Error {
   readonly issues: string[];
 
   constructor(issues: string[]) {
-    super(`Invalid Recall OS preset: ${issues.join("; ")}`);
+    super(`Invalid Persist OS preset: ${issues.join("; ")}`);
     this.name = "PresetValidationError";
     this.issues = issues;
   }

@@ -5,9 +5,9 @@
 - `docs/00-product/PRODUCT_VISION.md` exists.
 - `docs/00-product/POSITIONING.md` exists.
 - `docs/00-product/ROADMAP.md` exists.
-- Product docs state that Recall OS is an Engineering Memory Operating System.
-- Product docs state the core promise: AI can write code, Recall OS keeps repository memory intact.
-- Product docs include: Git tracks what changed; Recall OS tracks why it changed.
+- Product docs state that Persist OS is an Engineering Memory Operating System.
+- Product docs state the core promise: AI can write code, Persist OS keeps repository memory intact.
+- Product docs include: Git tracks what changed; Persist OS tracks why it changed.
 
 ## Roadmap
 

@@ -16,7 +16,7 @@ describe("ADR number", () => {
   const roots: string[] = [];
 
   async function createRoot(): Promise<string> {
-    const rootDir = path.join(tmpdir(), `recall-adr-number-${randomUUID()}`);
+    const rootDir = path.join(tmpdir(), `persist-adr-number-${randomUUID()}`);
     roots.push(rootDir);
     await mkdir(rootDir, { recursive: true });
     return rootDir;

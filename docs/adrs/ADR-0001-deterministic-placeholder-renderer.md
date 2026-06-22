@@ -6,15 +6,17 @@ Accepted
 
 ## Context
 
-Recall OS needs template rendering before it can generate feature docs, ADRs, module memory, root agent files, and init output.
+Persist OS needs template rendering before it can generate feature docs, ADRs, module memory, root
+agent files, and init output.
 
-Earlier planning named Eta as the template engine. That adds more capability than P3 needs and introduces a larger trust boundary around template logic and execution semantics.
+Earlier planning named Eta as the template engine. That adds more capability than P3 needs and
+introduces a larger trust boundary around template logic and execution semantics.
 
 P3 needs deterministic document rendering, not a general-purpose template language.
 
 ## Decision
 
-Recall OS will implement an internal placeholder-only renderer for P3.
+Persist OS will implement an internal placeholder-only renderer for P3.
 
 Supported placeholders are simple safe identifiers:
 
@@ -23,11 +25,13 @@ Supported placeholders are simple safe identifiers:
 {{ name }}
 ```
 
-Context keys must match the same safe identifier rules and must not be `constructor`, `__proto__`, or `prototype`.
+Context keys must match the same safe identifier rules and must not be `constructor`, `__proto__`,
+or `prototype`.
 
 Supported context values are strings, numbers, and booleans.
 
-The renderer must reject execution markers, template logic, expressions, conditionals, loops, helpers, partials, includes, dot paths, and bracket paths.
+The renderer must reject execution markers, template logic, expressions, conditionals, loops,
+helpers, partials, includes, dot paths, and bracket paths.
 
 ## Alternatives Considered
 
@@ -46,7 +50,8 @@ Mustache-style templates:
 String replacement without validation:
 
 - Simple to implement.
-- Rejected because unsafe placeholder keys, missing values, and prototype-adjacent names should fail clearly.
+- Rejected because unsafe placeholder keys, missing values, and prototype-adjacent names should fail
+  clearly.
 
 ## Consequences
 

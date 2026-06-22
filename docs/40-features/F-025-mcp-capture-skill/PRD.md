@@ -13,13 +13,14 @@ skill, not runtime code.
 ## Problem
 
 - MCP context is ephemeral; without a capture step it is lost after the conversation.
-- `recall mcp add` produced a slot and a rule but no mechanism to fill the slot.
+- `persist mcp add` produced a slot and a rule but no mechanism to fill the slot.
 - Task tools like Jira and Linear are common MCP uses and should be supported.
 
 ## In Scope
 
 - Add a `capture-mcp-context` agent skill to the catalog.
-- Have `recall mcp add <server>` install the capture skill alongside the memory doc and proposed ADR.
+- Have `persist mcp add <server>` install the capture skill alongside the memory doc and proposed
+  ADR.
 - Add Jira to the known servers.
 - Update the skills strategy doc and tests.
 
@@ -35,8 +36,8 @@ skill, not runtime code.
 
 ## Success Criteria
 
-- `recall mcp add figma` installs `capture-mcp-context` into both skill targets.
+- `persist mcp add figma` installs `capture-mcp-context` into both skill targets.
 - The capture skill triggers on MCP/design/ticket work and routes context into
   `docs/ai/mcp/<server>.md` as proposed memory.
-- `recall mcp add jira` produces task-tool-aware memory.
+- `persist mcp add jira` produces task-tool-aware memory.
 - Captured context stays proposed; accepted decisions are promoted to ADRs.

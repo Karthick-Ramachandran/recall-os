@@ -16,5 +16,5 @@
 ## Safety
 
 - Checks remain deterministic, local, and read-only.
-- A healthy `recall init` repository still passes Doctor.
+- A healthy `persist init` repository still passes Doctor.
 - The existing repository (filled PRDs) still passes Doctor.

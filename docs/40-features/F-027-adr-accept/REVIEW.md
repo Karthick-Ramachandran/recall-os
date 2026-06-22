@@ -27,7 +27,7 @@ It closed the governance gap surfaced while reviewing the ADR feature: the tool 
 everywhere but could not accept one. Accept makes a proposal become source of truth, which is what
 drift is measured against.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
-Add `recall adr reject` with a recorded reason, and consider a Doctor check that flags long-standing
-proposals that have never been accepted or rejected.
+Add `persist adr reject` with a recorded reason, and consider a Doctor check that flags
+long-standing proposals that have never been accepted or rejected.

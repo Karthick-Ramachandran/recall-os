@@ -29,8 +29,8 @@
 
 ## P10 Results
 
-- Doctor tests passed after the `.recall/config.json` and `RECALL_COMMANDS.md` rename.
-- Binary integration tests verify built `recall doctor` succeeds after `recall init`.
+- Doctor tests passed after the `.persist/config.json` and `PERSIST_COMMANDS.md` rename.
+- Binary integration tests verify built `persist doctor` succeeds after `persist init`.
 
 ## P12 Tests
 

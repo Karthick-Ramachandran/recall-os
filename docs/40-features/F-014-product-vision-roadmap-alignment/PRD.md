@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Recall OS has reached a release-ready foundation through P10. The repository now needs durable
+Persist OS has reached a release-ready foundation through P10. The repository now needs durable
 product memory that states what the product is becoming, what it is not becoming, and what roadmap
 comes next.
 
@@ -32,7 +32,7 @@ Without durable product memory, future agents and contributors may optimize for 
 ## Non-Goals
 
 - Implementing drift detection.
-- Implementing `recall adopt`.
+- Implementing `persist adopt`.
 - Implementing organization memory runtime.
 - Adding new package dependencies.
 - Changing CLI behavior.
@@ -42,11 +42,11 @@ Without durable product memory, future agents and contributors may optimize for 
 
 AI can write the code.
 
-Recall OS makes sure the repository does not forget what it is doing.
+Persist OS makes sure the repository does not forget what it is doing.
 
 Git tracks what changed.
 
-Recall OS tracks why it changed.
+Persist OS tracks why it changed.
 
 ## Success Criteria
 

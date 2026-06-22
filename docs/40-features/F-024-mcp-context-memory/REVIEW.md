@@ -6,7 +6,8 @@ Passed.
 
 ## Scope Review
 
-- Adds an `mcp` concern and a `recall mcp add` command. Reuses config loading and the write pipeline.
+- Adds an `mcp` concern and a `persist mcp add` command. Reuses config loading and the write
+  pipeline.
 
 ## Correctness Review
 
@@ -27,7 +28,8 @@ Passed.
 Writing ADR-0005 first kept the offline, proposed-only boundary explicit, so the generator never
 imports live data or produces accepted memory.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
-Add a `capture-mcp-context` agent skill so agents are reliably prompted to record MCP-derived context
-into the generated memory, reusing skill generation under the same portable, scriptless rules.
+Add a `capture-mcp-context` agent skill so agents are reliably prompted to record MCP-derived
+context into the generated memory, reusing skill generation under the same portable, scriptless
+rules.

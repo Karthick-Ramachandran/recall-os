@@ -11,7 +11,7 @@
 
 ## Config Checks
 
-- Missing `.recall/config.json` is an error.
+- Missing `.persist/config.json` is an error.
 - Invalid JSON config is an error.
 - Schema-invalid config is an error.
 - Configured `docsDir`, `featuresDir`, `modulesDir`, and `adrDir` must exist.
@@ -22,24 +22,27 @@ Required files include:
 
 - `AGENTS.md`
 - `CLAUDE.md`
-- `docs/ai/RECALL_COMMANDS.md`
+- `docs/ai/PERSIST_COMMANDS.md`
 
-Required docs include product, architecture, security, quality, engineering, AI/MCP, and ADR index docs.
+Required docs include product, architecture, security, quality, engineering, AI/MCP, and ADR index
+docs.
 
 ## Memory Integrity Checks
 
 - Valid feature folders contain required feature docs.
 - Module folders contain `MODULE.md`, `TASKS.md`, `TEST_PLAN.md`, and `DECISIONS.md`.
 - Valid ADR files contain required ADR sections.
-- Malformed feature folders and malformed ADR files are ignored in P9 unless they block required docs.
+- Malformed feature folders and malformed ADR files are ignored in P9 unless they block required
+  docs.
 
 ## Init Command Memory
 
-- `init` generates `docs/ai/RECALL_COMMANDS.md`.
+- `init` generates `docs/ai/PERSIST_COMMANDS.md`.
 - Command reference lists `init`, `feature create`, `adr create`, `module create`, and `doctor`.
 - Command reference documents the AI completion gate.
 
 ## Runtime Boundary
 
 - No files are written by Doctor.
-- No network, telemetry, MCP runtime, AI API, cloud behavior, package binary wiring, JSON reporter, or auto-fix behavior is added.
+- No network, telemetry, MCP runtime, AI API, cloud behavior, package binary wiring, JSON reporter,
+  or auto-fix behavior is added.

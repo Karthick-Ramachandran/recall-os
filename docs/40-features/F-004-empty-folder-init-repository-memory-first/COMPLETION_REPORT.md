@@ -33,16 +33,18 @@ Complete.
 
 ## Remaining Risks
 
-- P1.7 is documentation-only; future runtime `init`, technology detection, preset rendering, and `adopt` behavior still require implementation and tests.
+- P1.7 is documentation-only; future runtime `init`, technology detection, preset rendering, and
+  `adopt` behavior still require implementation and tests.
 - Git is documented as optional for init, but runtime behavior is not implemented yet.
 
 ## Docs Updated
 
-- `recall init` is documented as valid in empty folders.
-- Recall OS is documented as repository memory first, not application generation.
+- `persist init` is documented as valid in empty folders.
+- Persist OS is documented as repository memory first, not application generation.
 - Greenfield, existing repository, and legacy adoption workflows are documented.
 - Presets and detected technologies remain guidance or proposed decisions unless accepted by humans.
 
 ## Engineering Standards
 
-Engineering standards were followed. No runtime code, config, CLI, MCP, template, dependency, network, telemetry, or generated app behavior changed.
+Engineering standards were followed. No runtime code, config, CLI, MCP, template, dependency,
+network, telemetry, or generated app behavior changed.

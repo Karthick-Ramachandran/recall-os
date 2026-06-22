@@ -2,7 +2,8 @@
 
 ## Package Boundary
 
-Recall OS will be distributed through npm. The package must be small, inspectable, and deterministic.
+Persist OS will be distributed through npm. The package must be small, inspectable, and
+deterministic.
 
 ## MVP Controls
 
@@ -29,4 +30,5 @@ Every release must record:
 
 ## Future Risks
 
-Community presets, plugins, remote registries, and MCP integrations expand the supply chain. Each requires RFC or ADR review before implementation.
+Community presets, plugins, remote registries, and MCP integrations expand the supply chain. Each
+requires RFC or ADR review before implementation.

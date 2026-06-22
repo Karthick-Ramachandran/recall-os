@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Recall OS should help repositories work better with AI coding tools by generating durable instructions, reusable workflows, and integration guidance.
+Persist OS should help repositories work better with AI coding tools by generating durable
+instructions, reusable workflows, and integration guidance.
 
 This includes:
 
@@ -12,9 +13,9 @@ This includes:
 - MCP integration guidance.
 - Tool-specific rules for Claude Code, Codex-compatible tools, Cursor, and future agents.
 
-Recall OS does not run agents itself in the MVP.
+Persist OS does not run agents itself in the MVP.
 
-Recall OS prepares the repository so agents can work safely.
+Persist OS prepares the repository so agents can work safely.
 
 ## AI Agent Instruction Files
 
@@ -38,11 +39,12 @@ AGENTS.md
 docs/ai/
 ```
 
-Root instruction files should stay short. They should point agents to durable source-of-truth documents instead of duplicating the entire handbook.
+Root instruction files should stay short. They should point agents to durable source-of-truth
+documents instead of duplicating the entire handbook.
 
 ## Agent Roles
 
-Recall OS-generated repositories should define common AI agent roles:
+Persist OS-generated repositories should define common AI agent roles:
 
 - Product Agent
 - Architecture Agent
@@ -78,7 +80,8 @@ AI can draft and execute parts of this workflow. Humans own final decisions.
 
 Skills are reusable AI workflows.
 
-Recall OS should generate Claude-style skill files where supported and portable Agent Skills-compatible workflow instructions for other tools.
+Persist OS should generate Claude-style skill files where supported and portable Agent
+Skills-compatible workflow instructions for other tools.
 
 MVP skills:
 
@@ -110,7 +113,8 @@ Skills should route agents to source-of-truth docs instead of copying those docs
 
 ## Module-As-Mini-Product Rule
 
-When a human asks an agent to build a module, the agent must treat that module as a mini product inside the repository.
+When a human asks an agent to build a module, the agent must treat that module as a mini product
+inside the repository.
 
 The workflow is:
 
@@ -128,22 +132,25 @@ Module request
 -> Module memory update
 ```
 
-A module request should create feature-level delivery docs under `docs/40-features/` and module memory under `docs/30-modules/` before implementation starts.
+A module request should create feature-level delivery docs under `docs/40-features/` and module
+memory under `docs/30-modules/` before implementation starts.
 
 ## Skill Targets
 
-Recall OS should generate:
+Persist OS should generate:
 
 - `.claude/skills/<skill>/SKILL.md` for Claude Code.
-- `.agents/skills/<skill>/SKILL.md` as Recall OS's portable/generic skill target for Codex-compatible or Agent Skills-compatible tools.
+- `.agents/skills/<skill>/SKILL.md` as Persist OS's portable/generic skill target for
+  Codex-compatible or Agent Skills-compatible tools.
 
-Do not claim `.agents/skills` is required by every tool. Treat it as the portable target Recall OS emits.
+Do not claim `.agents/skills` is required by every tool. Treat it as the portable target Persist OS
+emits.
 
 ## MCP Strategy
 
 MCP stands for Model Context Protocol.
 
-Recall OS should not require MCP in MVP.
+Persist OS should not require MCP in MVP.
 
 MCP may provide external context from tools like:
 
@@ -172,7 +179,7 @@ If MCP data conflicts with repo docs, the agent must stop and report the conflic
 
 ## MVP Requirement
 
-For MVP, Recall OS should:
+For MVP, Persist OS should:
 
 - Generate `CLAUDE.md`.
 - Generate `AGENTS.md`.

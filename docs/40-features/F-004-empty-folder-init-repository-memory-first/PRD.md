@@ -2,25 +2,26 @@
 
 ## Purpose
 
-Lock the product decision that Recall OS initializes repository memory, not application code.
+Lock the product decision that Persist OS initializes repository memory, not application code.
 
-Recall OS must work before the first line of app code exists.
+Persist OS must work before the first line of app code exists.
 
 ## Problem
 
-If `recall init` requires an existing Flutter, Next.js, Swift, Android, or other app, Recall OS becomes tied to implementation frameworks.
+If `persist init` requires an existing Flutter, Next.js, Swift, Android, or other app, Persist OS
+becomes tied to implementation frameworks.
 
 That weakens the architecture-neutral memory engine position.
 
 ## Decision
 
-`recall init` must work in an empty folder as a first-class workflow.
+`persist init` must work in an empty folder as a first-class workflow.
 
 Git initializes source control.
 
-Recall OS initializes repository memory.
+Persist OS initializes repository memory.
 
-Code may come before or after Recall OS.
+Code may come before or after Persist OS.
 
 ## Users
 
@@ -35,27 +36,28 @@ Code may come before or after Recall OS.
 ```bash
 mkdir expense-tracker
 cd expense-tracker
-recall init
+persist init
 ```
 
-Recall OS creates neutral repository memory. The app framework may be created later.
+Persist OS creates neutral repository memory. The app framework may be created later.
 
 ### Existing Repository
 
 ```bash
 cd existing-app
-recall init
+persist init
 ```
 
-Recall OS initializes neutral memory and may later offer detected guidance.
+Persist OS initializes neutral memory and may later offer detected guidance.
 
-Technology detection may suggest guidance, but detection must not become accepted repository memory by itself.
+Technology detection may suggest guidance, but detection must not become accepted repository memory
+by itself.
 
 ### Legacy Adoption
 
 ```bash
 cd mature-repo
-recall adopt
+persist adopt
 ```
 
 `adopt` is future scope. It may create repository memory from existing systems after review.
@@ -63,7 +65,7 @@ recall adopt
 ## In Scope
 
 - Document empty-folder init as first-class.
-- Document `recall init` as neutral repository memory.
+- Document `persist init` as neutral repository memory.
 - Document preset behavior as guidance and proposed decisions.
 - Document technology detection as guidance only.
 - Add module memory for repository init and repository memory semantics.
@@ -81,7 +83,7 @@ recall adopt
 ## Success Criteria
 
 - Product docs say empty-folder init is supported.
-- Architecture docs say Recall OS initializes memory independent of app code.
+- Architecture docs say Persist OS initializes memory independent of app code.
 - Preset docs say `--preset` produces guidance or proposed ADRs, not accepted decisions.
 - Existing-repo detection is guidance only.
 - P1.7 changes no runtime behavior.

@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a problem with Recall OS
+about: Report a problem with Persist OS
 title: "bug: "
 labels: bug
 ---
@@ -21,12 +21,12 @@ labels: bug
 
 ## Environment
 
-- Recall OS version:
+- Persist OS version:
 - Node version:
 - OS:
 
 ## Doctor output (if relevant)
 
 ```txt
-<!-- paste `recall doctor` output -->
+<!-- paste `persist doctor` output -->
 ```

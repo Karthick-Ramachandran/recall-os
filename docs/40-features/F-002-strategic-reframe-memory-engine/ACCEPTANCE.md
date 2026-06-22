@@ -2,9 +2,10 @@
 
 ## Positioning
 
-- Product docs describe Recall OS as an architecture-neutral memory engine.
-- Product docs do not imply Recall OS chooses Redis, Kafka, Supabase, Datadog, Auth0, Postgres, or similar technology choices.
-- `recall init` is documented as the neutral default path.
+- Product docs describe Persist OS as an architecture-neutral memory engine.
+- Product docs do not imply Persist OS chooses Redis, Kafka, Supabase, Datadog, Auth0, Postgres, or
+  similar technology choices.
+- `persist init` is documented as the neutral default path.
 
 ## Presets
 
@@ -23,7 +24,7 @@
 ## Drift
 
 - Drift is defined as mismatch with accepted repository memory.
-- Drift is not defined as mismatch with a Recall OS recommendation.
+- Drift is not defined as mismatch with a Persist OS recommendation.
 
 ## Scope
 

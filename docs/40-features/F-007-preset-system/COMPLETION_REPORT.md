@@ -36,8 +36,10 @@ Complete.
 ## Remaining Risks
 
 - P4 does not implement CLI preset commands. `preset list` comes later.
-- P4 does not generate files from presets. Future init/generator work must route through safe write planning.
-- Built-in preset content is intentionally minimal. Rich framework guidance is deferred until real usage proves the model.
+- P4 does not generate files from presets. Future init/generator work must route through safe write
+  planning.
+- Built-in preset content is intentionally minimal. Rich framework guidance is deferred until real
+  usage proves the model.
 
 ## Docs Updated
 
@@ -50,4 +52,6 @@ Complete.
 
 ## Engineering Standards
 
-Engineering standards were followed. The change is scoped, tested, documented, and includes completion evidence. No dependency, network, telemetry, MCP runtime, cloud behavior, file write behavior, CLI behavior, or generated production app code was added.
+Engineering standards were followed. The change is scoped, tested, documented, and includes
+completion evidence. No dependency, network, telemetry, MCP runtime, cloud behavior, file write
+behavior, CLI behavior, or generated production app code was added.

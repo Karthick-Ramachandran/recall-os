@@ -3,9 +3,11 @@
 ## Unit Tests
 
 - `slugify` normalizes valid names.
-- `slugify` rejects empty input, path separators, traversal, null bytes, control chars, Windows reserved names, trailing dot/space, and empty normalized output.
-- `resolveSafePath` accepts safe relative paths and `.recall/config.json`.
-- `resolveSafePath` rejects absolute paths, backslashes, `..`, empty segments, null bytes, control chars, and root escapes.
+- `slugify` rejects empty input, path separators, traversal, null bytes, control chars, Windows
+  reserved names, trailing dot/space, and empty normalized output.
+- `resolveSafePath` accepts safe relative paths and `.persist/config.json`.
+- `resolveSafePath` rejects absolute paths, backslashes, `..`, empty segments, null bytes, control
+  chars, and root escapes.
 - `createWritePlan` preserves caller input order.
 - `createWritePlan` detects duplicate normalized destinations.
 - `createWritePlan` classifies create, skip, overwrite, and error entries.

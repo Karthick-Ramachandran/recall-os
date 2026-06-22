@@ -9,7 +9,7 @@ write.
 
 1. Add `reinit?: boolean` to `InitOptions` and `EXISTING_INSTALLATION` to `InitErrorCode`.
 2. In `initProject`, before resolving the preset, refuse when `force && !reinit` and
-   `.recall/config.json` exists.
+   `.persist/config.json` exists.
 3. Add `--reinit` to the CLI init command and pass it through.
 4. Document `--reinit` in the command reference, generator template, and contribution guide.
 5. Add integration tests for refuse and allow paths.
@@ -17,4 +17,4 @@ write.
 ## Out Of Scope
 
 - Interactive prompts.
-- Detecting non-Recall content.
+- Detecting non-Persist content.

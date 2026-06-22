@@ -2,14 +2,14 @@
 
 ## Purpose
 
-Adopt owns onboarding an existing repository into Recall OS by inspecting it and producing reviewable,
-proposed memory.
+Adopt owns onboarding an existing repository into Persist OS by inspecting it and producing
+reviewable, proposed memory.
 
 ## Owns
 
 - Read-only repository inspection (`RepoSignals`).
 - Generation of the adoption report and proposed framework ADRs.
-- The `recall adopt` command orchestration.
+- The `persist adopt` command orchestration.
 
 ## Does Not Own
 
@@ -34,4 +34,4 @@ never executes repository code and never produces accepted memory.
 
 Governed by ADR-0003. Adopt inspects read-only, infers conservatively, and emits an adoption report
 plus proposed ADRs, all `Proposed` and requiring human acceptance. Works with or without an existing
-Recall config, using default paths when none is present.
+Persist config, using default paths when none is present.

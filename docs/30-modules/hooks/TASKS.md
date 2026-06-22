@@ -13,5 +13,5 @@
 
 ## Future
 
-- A `recall hooks sync` command to regenerate the hook from edited config.
+- A `persist hooks sync` command to regenerate the hook from edited config.
 - A Doctor check for hook-versus-config drift.

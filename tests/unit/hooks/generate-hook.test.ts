@@ -16,19 +16,19 @@ describe("renderPreCommitHook", () => {
     expect(renderPreCommitHook([]).startsWith("#!/bin/sh\n")).toBe(true);
   });
 
-  it("runs recall doctor", () => {
-    expect(renderPreCommitHook([])).toContain("\nrecall doctor\n");
+  it("runs persist doctor", () => {
+    expect(renderPreCommitHook([])).toContain("\npersist doctor\n");
   });
 
-  it("runs only recall doctor when there are no gates", () => {
+  it("runs only persist doctor when there are no gates", () => {
     const hook = renderPreCommitHook([]);
     expect(hook).not.toContain("pnpm");
     expect(hook).not.toContain("npm run");
   });
 
-  it("appends each configured gate in order after recall doctor", () => {
+  it("appends each configured gate in order after persist doctor", () => {
     const hook = renderPreCommitHook(["pnpm run test", "pnpm run typecheck"]);
-    const doctorIndex = hook.indexOf("recall doctor");
+    const doctorIndex = hook.indexOf("persist doctor");
     const testIndex = hook.indexOf("pnpm run test");
     const typecheckIndex = hook.indexOf("pnpm run typecheck");
 
@@ -41,20 +41,20 @@ describe("renderPreCommitHook", () => {
   });
 
   it("exposes the tracked hook path", () => {
-    expect(PRE_COMMIT_HOOK_PATH).toBe(".recall/hooks/pre-commit");
+    expect(PRE_COMMIT_HOOK_PATH).toBe(".persist/hooks/pre-commit");
   });
 });
 
 describe("renderPrePushHook", () => {
-  it("starts with a POSIX sh shebang and runs recall doctor", () => {
+  it("starts with a POSIX sh shebang and runs persist doctor", () => {
     const hook = renderPrePushHook([]);
     expect(hook.startsWith("#!/bin/sh\n")).toBe(true);
-    expect(hook).toContain("\nrecall doctor\n");
+    expect(hook).toContain("\npersist doctor\n");
   });
 
-  it("appends each configured gate in order after recall doctor", () => {
+  it("appends each configured gate in order after persist doctor", () => {
     const hook = renderPrePushHook(["pnpm run test", "pnpm run typecheck"]);
-    expect(hook.indexOf("recall doctor")).toBeLessThan(hook.indexOf("pnpm run test"));
+    expect(hook.indexOf("persist doctor")).toBeLessThan(hook.indexOf("pnpm run test"));
     expect(hook.indexOf("pnpm run test")).toBeLessThan(hook.indexOf("pnpm run typecheck"));
   });
 
@@ -63,7 +63,7 @@ describe("renderPrePushHook", () => {
   });
 
   it("exposes the tracked pre-push hook path", () => {
-    expect(PRE_PUSH_HOOK_PATH).toBe(".recall/hooks/pre-push");
+    expect(PRE_PUSH_HOOK_PATH).toBe(".persist/hooks/pre-push");
   });
 
   it("renders a read-only SessionStart hook that emits valid additionalContext JSON", () => {

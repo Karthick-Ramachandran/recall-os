@@ -14,7 +14,7 @@ Acceptance:
 
 Tests:
 
-- `recall doctor`
+- `persist doctor`
 
 ## T2: Add Product Vision Docs
 

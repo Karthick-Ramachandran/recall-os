@@ -30,7 +30,7 @@ describe("ADR create command", () => {
     const result = await runCommand(rootDir, ["adr", "create", "cache-policy"]);
 
     expect(result.exitCode).toBe(1);
-    expect(result.stderr).toContain("Run `recall init` first.");
+    expect(result.stderr).toContain("Run `persist init` first.");
     expect(await listRelativeFiles(rootDir)).toEqual([]);
   });
 
@@ -42,7 +42,7 @@ describe("ADR create command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("Recall OS ADR create complete.");
+    expect(result.stdout).toContain("Persist OS ADR create complete.");
     expect(result.stdout).toContain("ADR: docs/adrs/ADR-0001-deterministic-cache-policy.md");
     expect(
       await readGeneratedFile(rootDir, "docs/adrs/ADR-0001-deterministic-cache-policy.md"),
@@ -94,7 +94,7 @@ describe("ADR create command", () => {
     const result = await runCommand(rootDir, ["adr", "create", "cache-policy", "--dry-run"]);
 
     expect(result.exitCode).toBe(0);
-    expect(result.stdout).toContain("Recall OS ADR create dry run complete.");
+    expect(result.stdout).toContain("Persist OS ADR create dry run complete.");
     expect(result.stdout).toContain("Planned creates:");
     expect(await listRelativeFiles(rootDir)).not.toContain("docs/adrs/ADR-0001-cache-policy.md");
   });
@@ -117,7 +117,7 @@ describe("ADR create command", () => {
   it("uses configured adrDir", async () => {
     const rootDir = await createRoot("adr-configured-dir");
     await runInitCommand(rootDir);
-    const configPath = path.join(rootDir, ".recall/config.json");
+    const configPath = path.join(rootDir, ".persist/config.json");
     const config = JSON.parse(await readFile(configPath, "utf8")) as Record<string, unknown>;
     config.adrDir = "memory/adrs";
     await writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");

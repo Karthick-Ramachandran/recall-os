@@ -4,7 +4,8 @@
 
 These rules define how AI agents should behave when working in this repository.
 
-They apply to Claude, Codex-compatible tools, Cursor, Copilot-style agents, and future AI coding tools.
+They apply to Claude, Codex-compatible tools, Cursor, Copilot-style agents, and future AI coding
+tools.
 
 ## Core Principle
 
@@ -30,7 +31,8 @@ Stop and request human decision if:
 - A request asks to bypass auth, authorization, security review, or tests.
 - A dependency is needed without review.
 - A migration is needed but not documented.
-- Network, telemetry, cloud, runtime MCP, remote templates, auth, secrets, storage, or file write behavior changes without review.
+- Network, telemetry, cloud, runtime MCP, remote templates, auth, secrets, storage, or file write
+  behavior changes without review.
 - Completion evidence is missing.
 
 ## Work Rules

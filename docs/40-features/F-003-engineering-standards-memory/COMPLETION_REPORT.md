@@ -18,8 +18,10 @@ Complete.
 - Added `docs/60-engineering/AI_AGENT_RULES.md`.
 - Added `docs/60-engineering/CODE_REVIEW_RULES.md`.
 - Added feature docs under `docs/40-features/F-003-engineering-standards-memory/`.
-- Added module memory under `docs/30-modules/engineering-standards/` and `docs/30-modules/agent-rules/`.
-- Updated product docs, memory engine docs, project structure docs, root agent files, AI strategy docs, quality review docs, and skill templates.
+- Added module memory under `docs/30-modules/engineering-standards/` and
+  `docs/30-modules/agent-rules/`.
+- Updated product docs, memory engine docs, project structure docs, root agent files, AI strategy
+  docs, quality review docs, and skill templates.
 
 ## Tests Run
 
@@ -35,7 +37,8 @@ Complete.
 ## Remaining Risks
 
 - P1.6 is documentation-only; there is no runtime enforcement yet.
-- Additional split-out standards docs are intentionally deferred until the standards document grows or ownership requires it.
+- Additional split-out standards docs are intentionally deferred until the standards document grows
+  or ownership requires it.
 
 ## Docs Updated
 
@@ -46,4 +49,5 @@ Complete.
 
 ## Engineering Standards
 
-Engineering standards were followed. No runtime code, config, CLI, MCP, template, dependency, or generated app behavior changed.
+Engineering standards were followed. No runtime code, config, CLI, MCP, template, dependency, or
+generated app behavior changed.

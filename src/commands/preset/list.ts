@@ -23,7 +23,7 @@ export function listPresetEntries(): PresetListResult {
 }
 
 export function formatPresetListResult(result: PresetListResult): string {
-  const lines = ["Recall OS presets", ""];
+  const lines = ["Persist OS presets", ""];
 
   for (const preset of result.presets) {
     lines.push(`- ${preset.id}: ${preset.name}`);

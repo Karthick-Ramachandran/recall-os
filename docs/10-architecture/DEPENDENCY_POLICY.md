@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Dependencies should make Recall OS safer, simpler, or more maintainable. They should not expand the MVP trust boundary without review.
+Dependencies should make Persist OS safer, simpler, or more maintainable. They should not expand the
+MVP trust boundary without review.
 
 ## MVP Allowed Categories
 
@@ -32,8 +33,9 @@ A dependency should have:
 - Active maintenance.
 - Minimal transitive risk.
 - Deterministic behavior.
-- No hidden network calls in Recall OS runtime.
+- No hidden network calls in Persist OS runtime.
 
 ## Generated Output
 
-Recall OS must not install dependencies into target projects during MVP. It may generate documentation describing recommended stack dependencies, but it must not run install commands.
+Persist OS must not install dependencies into target projects during MVP. It may generate
+documentation describing recommended stack dependencies, but it must not run install commands.

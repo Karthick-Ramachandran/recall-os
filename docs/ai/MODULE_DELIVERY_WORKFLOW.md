@@ -2,12 +2,13 @@
 
 ## Purpose
 
-Module work should be handled like a mini product inside the repository, not as a request to immediately write files.
+Module work should be handled like a mini product inside the repository, not as a request to
+immediately write files.
 
 When a user says:
 
 ```txt
-Build the preset module for Recall OS.
+Build the preset module for Persist OS.
 ```
 
 The agent must first create or update the feature delivery docs and module memory.
@@ -44,7 +45,8 @@ docs/40-features/F-###-<module>-module/
   COMPLETION_REPORT.md
 ```
 
-Use the feature docs to define why the module exists, how it behaves, how it is tested, and how work is executed.
+Use the feature docs to define why the module exists, how it behaves, how it is tested, and how work
+is executed.
 
 ## Required Module Memory
 
@@ -58,7 +60,8 @@ docs/30-modules/<module>/
   DECISIONS.md
 ```
 
-Use module memory to preserve ownership, public interfaces, boundaries, tests, and durable decisions for future agents.
+Use module memory to preserve ownership, public interfaces, boundaries, tests, and durable decisions
+for future agents.
 
 ## Planning Questions
 

@@ -2,7 +2,7 @@
 
 ## Default Policy
 
-Recall OS must skip existing files by default.
+Persist OS must skip existing files by default.
 
 The default write policy is:
 
@@ -22,7 +22,7 @@ MVP must support:
 
 ## Safety Rules
 
-Recall OS must:
+Persist OS must:
 
 - Never delete user files during init.
 - Never overwrite without `--force`.

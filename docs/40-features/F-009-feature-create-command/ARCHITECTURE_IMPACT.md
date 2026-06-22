@@ -16,7 +16,9 @@ P6 adds command orchestration for feature memory creation.
 
 Command code loads config, calls naming/generator/filesystem modules, and formats output.
 
-Feature creation is idempotent by slug. If `F-###-auth-provider` already exists, `feature create auth-provider` targets that folder and lets the write policy skip or overwrite existing files. New feature slugs receive the next number after the highest valid feature folder.
+Feature creation is idempotent by slug. If `F-###-auth-provider` already exists,
+`feature create auth-provider` targets that folder and lets the write policy skip or overwrite
+existing files. New feature slugs receive the next number after the highest valid feature folder.
 
 ## Module Boundary Check
 

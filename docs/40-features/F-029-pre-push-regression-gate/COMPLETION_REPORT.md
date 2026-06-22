@@ -12,19 +12,19 @@ Complete.
 - `tests/golden/generated-generic.test.ts` — new file added to the exact list.
 - `tests/integration/init-command.test.ts` — asserts both hooks.
 - `tests/unit/hooks/generate-hook.test.ts` — new `renderPrePushHook` tests.
-- `examples/*/.recall/hooks/pre-push` — refreshed.
+- `examples/*/.persist/hooks/pre-push` — refreshed.
 
 ## Tests Run
 
 - `pnpm test:run`, `pnpm typecheck`, `pnpm lint`, `pnpm format:check`, `pnpm pack:check`.
-- `recall doctor` on this repository.
+- `persist doctor` on this repository.
 
 ## Results
 
 - 271 tests pass (56 files), including 4 new `renderPrePushHook` tests.
 - typecheck, lint, format pass.
 - Regression proof: default `init` output differs from published 0.3.1 by exactly one added file
-  (`.recall/hooks/pre-push`) — nothing else changed.
+  (`.persist/hooks/pre-push`) — nothing else changed.
 
 ## Skipped
 
@@ -32,5 +32,5 @@ Complete.
 
 ## Remaining Risks
 
-- Follow-up: a `prePushGates` split (heavy suite at push, light checks at commit) and a "code changed
-  without tests" heuristic — separate, later tasks.
+- Follow-up: a `prePushGates` split (heavy suite at push, light checks at commit) and a "code
+  changed without tests" heuristic — separate, later tasks.

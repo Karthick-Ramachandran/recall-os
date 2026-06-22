@@ -2,15 +2,17 @@
 
 ## Purpose
 
-Implement `recall feature create <name>` so users can create feature memory before implementation work starts.
+Implement `persist feature create <name>` so users can create feature memory before implementation
+work starts.
 
 P6 turns the feature delivery workflow into a command.
 
 ## Problem
 
-Recall OS can initialize repository memory, but it cannot yet create repeatable feature folders.
+Persist OS can initialize repository memory, but it cannot yet create repeatable feature folders.
 
-Without feature-create support, users and agents can skip PRD, acceptance, architecture impact, test plan, tasks, review, and completion evidence.
+Without feature-create support, users and agents can skip PRD, acceptance, architecture impact, test
+plan, tasks, review, and completion evidence.
 
 ## Decision
 
@@ -43,11 +45,12 @@ Feature docs are starter memory. Humans and agents fill in the substance after c
 
 ## Success Criteria
 
-- Command requires initialized Recall OS config.
+- Command requires initialized Persist OS config.
 - Command creates `F-###-<slug>` feature folders.
 - Numbering starts at `F-001`.
 - Numbering increments from valid existing feature folders.
-- Re-running the same feature slug targets the existing feature folder instead of creating duplicate feature memory.
+- Re-running the same feature slug targets the existing feature folder instead of creating duplicate
+  feature memory.
 - Malformed feature folders are ignored.
 - Unsafe names are rejected.
 - Existing files are skipped by default.

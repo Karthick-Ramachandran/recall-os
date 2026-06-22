@@ -2,27 +2,29 @@
 
 ## Purpose
 
-Add the core config manifest that future commands will read instead of guessing repository paths and defaults.
+Add the core config manifest that future commands will read instead of guessing repository paths and
+defaults.
 
 P2 keeps config boring and useful.
 
 ## Problem
 
-Future commands need a stable local config file for repository memory settings, output directories, AI targets, and write policy.
+Future commands need a stable local config file for repository memory settings, output directories,
+AI targets, and write policy.
 
 Without a config manifest, commands will duplicate defaults and drift from each other.
 
 ## Decision
 
-Recall OS will use:
+Persist OS will use:
 
 ```txt
-.recall/config.json
+.persist/config.json
 ```
 
 P2 implements schema validation, defaults, loading, and safe writing.
 
-P2 also dogfoods the manifest with Recall OS's own root config.
+P2 also dogfoods the manifest with Persist OS's own root config.
 
 ## In Scope
 
@@ -30,7 +32,7 @@ P2 also dogfoods the manifest with Recall OS's own root config.
 - Default neutral config.
 - Config load helper.
 - Config write helper using the existing safe write pipeline.
-- Root `.recall/config.json`.
+- Root `.persist/config.json`.
 - Config module memory and feature docs.
 
 ## Non-Goals

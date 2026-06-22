@@ -80,15 +80,15 @@ async function changedFiles(rootDir: string, base: string | undefined): Promise<
 
 export function formatGuardResult(result: GuardResult): string {
   if (result.status === "skipped") {
-    return `Recall OS guard skipped: ${result.reason}.\n`;
+    return `Persist OS guard skipped: ${result.reason}.\n`;
   }
 
   if (result.status === "ok") {
-    return "Recall OS guard passed: changed source is accompanied by test changes.\n";
+    return "Persist OS guard passed: changed source is accompanied by test changes.\n";
   }
 
   const lines = [
-    "Recall OS guard failed: source changed without any accompanying test changes.",
+    "Persist OS guard failed: source changed without any accompanying test changes.",
     "",
     "Source files changed with no test changes:",
     ...result.sourceFiles.map((file) => `- ${file}`),

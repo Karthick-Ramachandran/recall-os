@@ -8,7 +8,7 @@
 
 - Done: Add known-server hints.
 - Done: Add MCP memory and proposed-ADR generation.
-- Done: Add the `recall mcp add` command.
+- Done: Add the `persist mcp add` command.
 - Done: Add unit and integration tests.
 - Done: Install the `capture-mcp-context` skill from `mcp add` and add Jira (F-025).
 

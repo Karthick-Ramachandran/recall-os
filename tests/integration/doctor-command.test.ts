@@ -11,7 +11,7 @@ import {
   runCommand,
   runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { RecallConfig } from "../../src/core/config/config-schema.js";
+import type { PersistConfig } from "../../src/core/config/config-schema.js";
 
 describe("doctor command", () => {
   const roots: string[] = [];
@@ -44,14 +44,14 @@ describe("doctor command", () => {
     const result = await runCommand(rootDir, ["doctor"]);
 
     expect(result.exitCode).toBe(2);
-    expect(result.stdout).toContain("Missing .recall/config.json.");
+    expect(result.stdout).toContain("Missing .persist/config.json.");
     expect(result.stdout).toContain("Result: FAILED");
   });
 
   it("returns two when config is invalid", async () => {
     const rootDir = await createRoot("doctor-invalid-config");
-    await mkdir(path.join(rootDir, ".recall"), { recursive: true });
-    await writeFile(path.join(rootDir, ".recall/config.json"), "{", "utf8");
+    await mkdir(path.join(rootDir, ".persist"), { recursive: true });
+    await writeFile(path.join(rootDir, ".persist/config.json"), "{", "utf8");
 
     const result = await runCommand(rootDir, ["doctor"]);
 
@@ -62,19 +62,19 @@ describe("doctor command", () => {
   it("returns two when required root or AI docs are missing", async () => {
     const rootDir = await createRoot("doctor-missing-root-ai");
     await runInitCommand(rootDir);
-    await rm(path.join(rootDir, "docs/ai/RECALL_COMMANDS.md"));
+    await rm(path.join(rootDir, "docs/ai/PERSIST_COMMANDS.md"));
 
     const result = await runCommand(rootDir, ["doctor"]);
 
     expect(result.exitCode).toBe(2);
-    expect(result.stdout).toContain("docs/ai/RECALL_COMMANDS.md");
+    expect(result.stdout).toContain("docs/ai/PERSIST_COMMANDS.md");
   });
 
   it("returns two when configured directories are missing", async () => {
     const rootDir = await createRoot("doctor-missing-configured-dir");
     await runInitCommand(rootDir);
-    const configPath = path.join(rootDir, ".recall/config.json");
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const configPath = path.join(rootDir, ".persist/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     config.featuresDir = "missing/features";
     await writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");
 
@@ -281,13 +281,13 @@ Example consequence text.
     const rootDir = await createRoot("doctor-command-reference");
     await runInitCommand(rootDir);
 
-    const commandReference = await readGeneratedFile(rootDir, "docs/ai/RECALL_COMMANDS.md");
+    const commandReference = await readGeneratedFile(rootDir, "docs/ai/PERSIST_COMMANDS.md");
 
-    expect(commandReference).toContain("recall init");
-    expect(commandReference).toContain("recall preset list");
-    expect(commandReference).toContain("recall feature create <name>");
-    expect(commandReference).toContain("recall adr create <title>");
-    expect(commandReference).toContain("recall module create <name>");
-    expect(commandReference).toContain("recall doctor");
+    expect(commandReference).toContain("persist init");
+    expect(commandReference).toContain("persist preset list");
+    expect(commandReference).toContain("persist feature create <name>");
+    expect(commandReference).toContain("persist adr create <title>");
+    expect(commandReference).toContain("persist module create <name>");
+    expect(commandReference).toContain("persist doctor");
   });
 });

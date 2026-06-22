@@ -8,7 +8,7 @@ import {
   removeTempRoot,
   runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { RecallConfig } from "../../src/core/config/config-schema.js";
+import type { PersistConfig } from "../../src/core/config/config-schema.js";
 
 const VARIANTS = [
   {
@@ -55,7 +55,7 @@ describe("laravel init golden output", () => {
       expect(files).toContain(variant.frameworkAdr);
       expect(files).toContain(variant.frontendAdr);
 
-      const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+      const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
       expect(config.preset).toBe(variant.preset);
 
       const guidance = await readGeneratedFile(rootDir, variant.guidancePath);

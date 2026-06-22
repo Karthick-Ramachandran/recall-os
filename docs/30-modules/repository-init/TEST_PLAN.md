@@ -2,7 +2,7 @@
 
 ## P1.7 Docs Verification
 
-- Confirm `recall init` is documented as valid in empty folders.
+- Confirm `persist init` is documented as valid in empty folders.
 - Confirm no existing app code or framework is required.
 - Confirm Git is optional for init.
 - Confirm presets remain optional opinion packs.
@@ -19,12 +19,12 @@
 
 ## P9 Runtime Tests
 
-- Done: Init generates `docs/ai/RECALL_COMMANDS.md`.
+- Done: Init generates `docs/ai/PERSIST_COMMANDS.md`.
 - Done: Command reference lists current commands and Doctor.
 - Done: Init golden tests include command-reference and index docs.
 
 ## P10 Runtime Tests
 
-- Done: Init generates `.recall/config.json`.
-- Done: Built `recall init` works in an empty directory.
-- Done: Generated command reference lists `recall preset list`.
+- Done: Init generates `.persist/config.json`.
+- Done: Built `persist init` works in an empty directory.
+- Done: Generated command reference lists `persist preset list`.

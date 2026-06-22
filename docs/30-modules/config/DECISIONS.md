@@ -23,8 +23,8 @@ defines a stronger indexing model.
 
 Config writes must use the existing safe write planning and execution path.
 
-## P10: Recall Config Path
+## P10: Persist Config Path
 
-P10 uses `.recall/config.json` as the only supported config path.
+P10 uses `.persist/config.json` as the only supported config path.
 
 No compatibility shim is added for the pre-public config path.

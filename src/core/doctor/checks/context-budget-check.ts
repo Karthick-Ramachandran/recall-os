@@ -5,7 +5,7 @@ import type { DoctorCheckContext, DoctorFinding } from "../doctor-check.js";
 
 // Files an AI tool loads into context every session (auto-loaded, not on-demand). Whichever exist for
 // the repo's selected tools count toward the budget.
-const ALWAYS_LOADED = ["CLAUDE.md", "AGENTS.md", ".cursor/rules/recall-memory.mdc"];
+const ALWAYS_LOADED = ["CLAUDE.md", "AGENTS.md", ".cursor/rules/persist-memory.mdc"];
 
 // Generous ceiling: a fresh repo's always-loaded set is a few KB, so real repos never trip this; it
 // only fires when the per-session memory has bloated, which buries the signal and wastes the budget.

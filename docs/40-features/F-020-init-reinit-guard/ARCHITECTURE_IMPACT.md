@@ -10,7 +10,7 @@ No other module changes.
 
 - `InitOptions` gains `reinit?: boolean`.
 - `InitError` gains the `EXISTING_INSTALLATION` code.
-- `initProject` refuses when `force` is set, `reinit` is not, and `.recall/config.json` exists.
+- `initProject` refuses when `force` is set, `reinit` is not, and `.persist/config.json` exists.
 - The CLI exposes `--reinit`.
 
 ## Decision Records

@@ -16,7 +16,8 @@
 - `createTemplateContext` rejects non-string, non-number, and non-boolean values.
 - Missing placeholder values fail with `TemplateRenderError`.
 - Invalid placeholder names fail with `TemplateRenderError`.
-- Dot paths, bracket paths, expressions, conditionals, loops, partials, includes, and helpers are rejected.
+- Dot paths, bracket paths, expressions, conditionals, loops, partials, includes, and helpers are
+  rejected.
 
 ## Security Boundary
 

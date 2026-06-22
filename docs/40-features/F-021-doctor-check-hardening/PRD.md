@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Before `recall doctor` can be trusted as a gate, its heuristic checks must be solid. Two weaknesses
+Before `persist doctor` can be trusted as a gate, its heuristic checks must be solid. Two weaknesses
 exist: the drift check flags `ADR-####` tokens even inside illustrative code blocks (a false
 positive hit on this project's own docs), and nothing flags feature scaffolds that were generated
 but never filled in.

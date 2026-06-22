@@ -9,7 +9,7 @@ const adrReferencePattern = /ADR-\d{4,}/giu;
 /**
  * Deterministic, local, read-only superseded-reference check.
  *
- * When a decision changes, `recall adr supersede` marks the old ADR "Accepted — superseded by …" and
+ * When a decision changes, `persist adr supersede` marks the old ADR "Accepted — superseded by …" and
  * records a new accepted ADR. This check flags feature or module memory that still cites the
  * superseded ADR as authority, so the reasoning trail gets updated instead of silently going stale.
  * It only fires when a superseded ADR exists and is still referenced — a repository with none stays

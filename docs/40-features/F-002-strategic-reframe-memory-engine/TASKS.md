@@ -45,7 +45,7 @@ Scope:
 
 Acceptance:
 
-- Recall OS is described as architecture-neutral.
+- Persist OS is described as architecture-neutral.
 - Drift is described as mismatch with accepted repository memory.
 - Neutral init is the primary path.
 
@@ -62,7 +62,7 @@ Acceptance:
 
 - Presets are described as opinion packs.
 - Preset-generated decisions are proposed, not accepted.
-- Future config language avoids mandatory architecture ownership by Recall OS.
+- Future config language avoids mandatory architecture ownership by Persist OS.
 
 ## T4: Verify And Review
 

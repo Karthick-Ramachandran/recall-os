@@ -1,6 +1,6 @@
-# Recall OS Agent Instructions
+# Persist OS Agent Instructions
 
-Recall OS creates durable engineering memory for AI-assisted software development.
+Persist OS creates durable engineering memory for AI-assisted software development.
 
 This file is intentionally short. Use it as routing guidance, not as the full project handbook.
 
@@ -31,7 +31,7 @@ For implementation constraints, read:
 - `docs/60-engineering/AI_AGENT_RULES.md`
 - `docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md`
 - `docs/ai/MODULE_DELIVERY_WORKFLOW.md`
-- `docs/ai/RECALL_COMMANDS.md`
+- `docs/ai/PERSIST_COMMANDS.md`
 
 ## Module Work Rule
 
@@ -46,7 +46,7 @@ Tasks come after PRD, acceptance criteria, architecture impact, and test plan.
 
 ## Architecture Neutrality
 
-Recall OS Core records, distributes, validates, and protects decisions. It does not make
+Persist OS Core records, distributes, validates, and protects decisions. It does not make
 architecture or technology choices for users.
 
 Presets are CLI-level presets and architecture-level opinion packs. Preset suggestions must be
@@ -98,7 +98,7 @@ Before claiming implementation work is complete, run:
 
 - `pnpm test:run`
 - `pnpm typecheck`
-- `recall doctor` when the CLI binary is available
+- `persist doctor` when the CLI binary is available
 
 Fix Doctor errors before claiming completion. Address Doctor warnings or record why they are
 acceptable.

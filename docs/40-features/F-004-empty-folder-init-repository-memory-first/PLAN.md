@@ -2,7 +2,8 @@
 
 ## Approach
 
-Document the empty-folder init decision as a product and architecture principle before runtime init implementation.
+Document the empty-folder init decision as a product and architecture principle before runtime init
+implementation.
 
 ## Tasks
 

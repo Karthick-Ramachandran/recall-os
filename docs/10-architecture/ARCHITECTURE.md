@@ -1,18 +1,23 @@
-# Recall OS Architecture
+# Persist OS Architecture
 
 ## Purpose
 
-Recall OS is a local-first CLI that initializes and maintains AI-ready engineering memory inside a repository.
+Persist OS is a local-first CLI that initializes and maintains AI-ready engineering memory inside a
+repository.
 
-It generates durable documents, templates, and agent guidance. It does not generate production application code and does not run AI agents in the MVP.
+It generates durable documents, templates, and agent guidance. It does not generate production
+application code and does not run AI agents in the MVP.
 
-Recall OS Core is architecture-neutral. It records, distributes, validates, and protects architecture decisions; it does not decide which architecture, stack, vendor, or infrastructure a repository should use.
+Persist OS Core is architecture-neutral. It records, distributes, validates, and protects
+architecture decisions; it does not decide which architecture, stack, vendor, or infrastructure a
+repository should use.
 
-Recall OS initializes repository memory. It does not require application code to exist first.
+Persist OS initializes repository memory. It does not require application code to exist first.
 
 ## Architectural Style
 
-Recall OS should be a deterministic TypeScript CLI with a small core and declarative generation model.
+Persist OS should be a deterministic TypeScript CLI with a small core and declarative generation
+model.
 
 Core responsibilities:
 
@@ -23,9 +28,11 @@ Core responsibilities:
 - Report clear CLI results.
 - Run repository health checks.
 
-`recall init` should work in empty folders, existing repositories, and non-Git directories. Git is recommended for normal development but is not required for repository memory initialization.
+`persist init` should work in empty folders, existing repositories, and non-Git directories. Git is
+recommended for normal development but is not required for repository memory initialization.
 
-The command layer should orchestrate behavior. Core modules should contain the business rules and be testable without invoking the CLI process.
+The command layer should orchestrate behavior. Core modules should contain the business rules and be
+testable without invoking the CLI process.
 
 ## MVP Runtime Boundary
 
@@ -42,7 +49,8 @@ MVP runtime must remain local and deterministic:
 ## Primary Modules
 
 - `cli`: command registration, output, exit codes, and top-level errors.
-- `commands`: command-specific orchestration for init, feature, ADR, module, preset, and doctor flows.
+- `commands`: command-specific orchestration for init, feature, ADR, module, preset, and doctor
+  flows.
 - `core/config`: config schema, defaults, load, and write behavior.
 - `core/filesystem`: safe path validation, write planning, conflict policy, and safe writes.
 - `core/generator`: template rendering and document generation flows.

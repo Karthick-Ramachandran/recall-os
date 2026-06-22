@@ -21,9 +21,9 @@ Passed.
 
 The decision to stop shipping every stack and instead document a contribution path keeps core small
 and shifts breadth to the community. The contribution guide also encodes the lesson from the F-017
-incident: never run `recall init` in the repository root.
+incident: never run `persist init` in the repository root.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
-Add a CODE_OF_CONDUCT and consider whether external preset loading is ever in scope (it would need an
-ADR because of the no-remote-templates rule).
+Add a CODE_OF_CONDUCT and consider whether external preset loading is ever in scope (it would need
+an ADR because of the no-remote-templates rule).

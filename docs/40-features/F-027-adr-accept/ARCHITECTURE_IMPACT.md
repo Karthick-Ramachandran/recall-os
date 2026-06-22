@@ -2,7 +2,7 @@
 
 ## Affected Modules
 
-- `cli`: registers `recall adr accept`.
+- `cli`: registers `persist adr accept`.
 - `adr-workflow`: the accept/promote command logic.
 
 Reuses `config`, `filesystem` (write pipeline + safe-path), and `naming` (adr-number, slugify).

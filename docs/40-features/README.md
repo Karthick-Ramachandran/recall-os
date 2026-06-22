@@ -1,8 +1,10 @@
 # Feature Memory
 
-Feature memory records requirements, acceptance criteria, plans, tests, reviews, and completion evidence.
+Feature memory records requirements, acceptance criteria, plans, tests, reviews, and completion
+evidence.
 
-Module work also starts here. A request like `Build the preset module` should create a feature folder such as `F-###-preset-module/` before any implementation task begins.
+Module work also starts here. A request like `Build the preset module` should create a feature
+folder such as `F-###-preset-module/` before any implementation task begins.
 
 Future feature folders should use:
 
@@ -19,6 +21,9 @@ docs/40-features/F-###-<feature>/
   COMPLETION_REPORT.md
 ```
 
-Agents should not implement meaningful feature work without a feature plan or clear source-of-truth reference.
+Agents should not implement meaningful feature work without a feature plan or clear source-of-truth
+reference.
 
-For module work, the feature folder should define the module brief, use cases, acceptance criteria, architecture impact, test plan, and task breakdown. Module memory under `docs/30-modules/` records what future agents need to remember after or during implementation.
+For module work, the feature folder should define the module brief, use cases, acceptance criteria,
+architecture impact, test plan, and task breakdown. Module memory under `docs/30-modules/` records
+what future agents need to remember after or during implementation.

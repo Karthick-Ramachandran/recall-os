@@ -22,6 +22,6 @@ P4 does not load template files, render preset outputs, write files, or execute 
 
 ## P10: Preset List Reads Registry Only
 
-`recall preset list` reads the existing built-in registry and formats output.
+`persist preset list` reads the existing built-in registry and formats output.
 
 It does not apply presets or write files.

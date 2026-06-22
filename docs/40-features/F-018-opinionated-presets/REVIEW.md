@@ -25,10 +25,10 @@ Passed.
 
 ## Dogfooding Review
 
-### Did Recall OS-generated docs help implementation?
+### Did Persist OS-generated docs help implementation?
 
-Yes. The opinion-pack architecture memory already encoded the non-authority rule, so enrichment was a
-content task with a clear neutrality boundary.
+Yes. The opinion-pack architecture memory already encoded the non-authority rule, so enrichment was
+a content task with a clear neutrality boundary.
 
 ### Did the workflow catch any issue?
 
@@ -36,7 +36,7 @@ The preset registry and golden tests caught every assumption: the registry id-li
 guidance wording assertion, and the proposed-status checks all had to be satisfied, which kept the
 enrichment honest.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
 Enrich the remaining stubs (Flutter) and add the deferred stacks (Java/Spring Boot, React Native,
 Node/NestJS) under the same content standard. Consider a doctor check that flags preset guidance

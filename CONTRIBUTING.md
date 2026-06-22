@@ -1,6 +1,6 @@
-# Contributing to Recall OS
+# Contributing to Persist OS
 
-Thanks for your interest in Recall OS. This project is a local-first CLI that creates and validates
+Thanks for your interest in Persist OS. This project is a local-first CLI that creates and validates
 AI-ready repository memory. It is architecture-neutral: it records, distributes, validates, and
 protects decisions, and it does not make architecture choices for users.
 
@@ -30,7 +30,8 @@ node dist/cli.js doctor
 ```
 
 Do not claim a change is complete without listing the files changed, the commands run, the results,
-any skipped checks, and remaining risks. This is the same evidence standard the tool itself enforces.
+any skipped checks, and remaining risks. This is the same evidence standard the tool itself
+enforces.
 
 ## How Work Is Structured
 
@@ -59,16 +60,16 @@ Read `docs/10-architecture/OPINION_PACKS.md` for the full content standard, then
    - at least four proposed ADRs at `docs/adrs/proposed/ADR-PROPOSED-<id>-<topic>.md`, each with
      Status, Context, Decision, Alternatives, and Consequences, all `Proposed`.
 3. Register the preset in `src/core/presets/preset-registry.ts`.
-4. Add a unit test (see `tests/unit/presets/opinionated-presets.test.ts`) and a golden test
-   (see `tests/golden/generated-*.test.ts`).
-5. Add an example under `examples/generated-<id>/` by running
-   `recall init --preset <id>` inside that folder, plus a short `README.md`. To regenerate an
-   existing example folder, use `recall init --preset <id> --force --reinit`.
+4. Add a unit test (see `tests/unit/presets/opinionated-presets.test.ts`) and a golden test (see
+   `tests/golden/generated-*.test.ts`).
+5. Add an example under `examples/generated-<id>/` by running `persist init --preset <id>` inside
+   that folder, plus a short `README.md`. To regenerate an existing example folder, use
+   `persist init --preset <id> --force --reinit`.
 6. Run the completion gate.
 
 Use the existing `kotlin-android` and `python-fastapi` presets as references.
 
-> Run `recall init` only inside an empty target folder or an existing example folder. Running it in
+> Run `persist init` only inside an empty target folder or an existing example folder. Running it in
 > the repository root will overwrite this repository's own memory.
 
 ## Commit And Branch Hygiene

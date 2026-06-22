@@ -47,5 +47,5 @@ Presets may suggest. Presets must not silently decide.
 Any decision-like content in a preset must remain proposed until a human accepts it in repository
 memory.
 
-P10 exposes built-in presets through `recall preset list` without changing preset validation or
+P10 exposes built-in presets through `persist preset list` without changing preset validation or
 write behavior.

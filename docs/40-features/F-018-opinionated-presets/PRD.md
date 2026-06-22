@@ -42,9 +42,10 @@ opinionated while keeping the neutrality guarantee.
 
 ## Success Criteria
 
-- `kotlin-android` and `python-fastapi` presets exist, validate, and appear in `recall preset list`.
+- `kotlin-android` and `python-fastapi` presets exist, validate, and appear in
+  `persist preset list`.
 - `ios-swift` and `nextjs` presets carry rich guidance and multiple proposed ADRs.
 - Every preset-generated decision has status `Proposed`.
 - Each opinionated preset follows the documented content standard.
-- A healthy `recall init --preset <id>` still passes Doctor.
+- A healthy `persist init --preset <id>` still passes Doctor.
 - Existing golden anchors for `ios-swift` and `nextjs` continue to hold.

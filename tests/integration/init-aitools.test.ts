@@ -25,7 +25,7 @@ describe("init --ai-tools selection", () => {
 
     expect(files).toContain("CLAUDE.md");
     expect(files).toContain("AGENTS.md");
-    expect(files).toContain(".cursor/rules/recall-memory.mdc");
+    expect(files).toContain(".cursor/rules/persist-memory.mdc");
     expect(files.some((file) => file.startsWith(".claude/skills/"))).toBe(true);
     expect(files.some((file) => file.startsWith(".agents/skills/"))).toBe(true);
   });
@@ -59,10 +59,10 @@ describe("init --ai-tools selection", () => {
     await runInitCommand(rootDir, ["--ai-tools", "cursor"]);
     const files = await listRelativeFiles(rootDir);
 
-    expect(files).toContain(".recall/config.json");
+    expect(files).toContain(".persist/config.json");
     expect(files).toContain("docs/00-product/PRD.md");
-    expect(files).toContain(".github/workflows/recall.yml");
-    expect(files).toContain(".cursor/rules/recall-memory.mdc");
+    expect(files).toContain(".github/workflows/persist.yml");
+    expect(files).toContain(".cursor/rules/persist-memory.mdc");
   });
 
   it("--ai-tools cursor includes the portable Agent Skills so Cursor has skills", async () => {
@@ -70,7 +70,7 @@ describe("init --ai-tools selection", () => {
     await runInitCommand(rootDir, ["--ai-tools", "cursor"]);
     const files = await listRelativeFiles(rootDir);
 
-    expect(files).toContain(".cursor/rules/recall-memory.mdc");
+    expect(files).toContain(".cursor/rules/persist-memory.mdc");
     // Cursor has no skills format of its own; it consumes the portable Agent Skills.
     expect(files.some((file) => file.startsWith(".agents/skills/"))).toBe(true);
     // Still no Claude-specific files.

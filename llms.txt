@@ -1,71 +1,71 @@
-# Recall OS
+# Persist OS
 
-> Recall OS is a local-first, architecture-neutral CLI that turns a repository into durable,
+> Persist OS is a local-first, architecture-neutral CLI that turns a repository into durable,
 > AI-ready engineering memory — the *why* behind the code — and validates that memory with a
-> deterministic `recall doctor`. No network calls, no telemetry, no AI API calls, no code generation.
+> deterministic `persist doctor`. No network calls, no telemetry, no AI API calls, no code generation.
 
-Recall OS writes structured, reviewable memory (product intent, architecture decisions, module
+Persist OS writes structured, reviewable memory (product intent, architecture decisions, module
 ownership, testing and security expectations, AI agent rules) into plain files that live next to the
-code and survive every session boundary. The agent does the semantic thinking; Recall OS keeps the
+code and survive every session boundary. The agent does the semantic thinking; Persist OS keeps the
 memory and checks the evidence. It generates agent skills and a SessionStart hook so a fresh AI
 session reliably loads that memory.
 
 Key principles for an agent reading this project:
 
 - Repository memory in `docs/` is the durable source of truth; chat history is not.
-- Recall OS is architecture-neutral: presets and adopt only *propose* decisions; a human accepts
-  them with `recall adr accept`. Never encode a stack choice as accepted truth on your own.
+- Persist OS is architecture-neutral: presets and adopt only *propose* decisions; a human accepts
+  them with `persist adr accept`. Never encode a stack choice as accepted truth on your own.
 - Repository rules override model preferences. If sources conflict, stop and report the conflict.
-- `recall doctor` is deterministic, offline, and read-only — it checks that memory is present,
+- `persist doctor` is deterministic, offline, and read-only — it checks that memory is present,
   consistent, and evidenced, not whether the architecture is good.
 
 ## Start here
 
-- [README](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/README.md): What it is, install, quickstart, commands, and what Doctor checks.
-- [Philosophy](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/PHILOSOPHY.md): Why it exists and the deliberate bet on discipline over magic.
-- [Recall Commands](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/ai/RECALL_COMMANDS.md): Every CLI command, options, and the completion gate.
-- [AI Agent Rules](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/60-engineering/AI_AGENT_RULES.md): How an agent must behave in a Recall OS repository.
+- [README](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/README.md): What it is, install, quickstart, commands, and what Doctor checks.
+- [Philosophy](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/PHILOSOPHY.md): Why it exists and the deliberate bet on discipline over magic.
+- [Persist Commands](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/ai/PERSIST_COMMANDS.md): Every CLI command, options, and the completion gate.
+- [AI Agent Rules](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/60-engineering/AI_AGENT_RULES.md): How an agent must behave in a Persist OS repository.
 
 ## Architecture
 
-- [Architecture](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/10-architecture/ARCHITECTURE.md): System design and the deterministic CLI pipeline.
-- [Memory Engine](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/10-architecture/MEMORY_ENGINE.md): The repository memory model and source-of-truth ordering.
-- [Opinion Packs](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/10-architecture/OPINION_PACKS.md): How presets propose stack decisions without accepting them.
-- [File Write Policy](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/10-architecture/FILE_WRITE_POLICY.md): Non-destructive, skip-existing, force-to-overwrite write rules.
-- [Repository Decisions](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/10-architecture/REPOSITORY_DECISIONS.md): Repo-level decisions that override model preference.
+- [Architecture](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/10-architecture/ARCHITECTURE.md): System design and the deterministic CLI pipeline.
+- [Memory Engine](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/10-architecture/MEMORY_ENGINE.md): The repository memory model and source-of-truth ordering.
+- [Opinion Packs](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/10-architecture/OPINION_PACKS.md): How presets propose stack decisions without accepting them.
+- [File Write Policy](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/10-architecture/FILE_WRITE_POLICY.md): Non-destructive, skip-existing, force-to-overwrite write rules.
+- [Repository Decisions](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/10-architecture/REPOSITORY_DECISIONS.md): Repo-level decisions that override model preference.
 
 ## AI agents, skills, and MCP
 
-- [AI Agents, Skills, and MCP Strategy](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md): How agent entry points, skills, and MCP relate to durable memory.
-- [MCP Strategy](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/ai/MCP_STRATEGY.md): Why MCP context is captured offline as proposed memory.
-- [Skill Authoring Guide](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/ai/SKILL_AUTHORING_GUIDE.md): How the generated, scriptless agent skills are structured.
-- [Module Delivery Workflow](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/ai/MODULE_DELIVERY_WORKFLOW.md): The mini product workflow each module follows.
+- [AI Agents, Skills, and MCP Strategy](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md): How agent entry points, skills, and MCP relate to durable memory.
+- [MCP Strategy](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/ai/MCP_STRATEGY.md): Why MCP context is captured offline as proposed memory.
+- [Skill Authoring Guide](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/ai/SKILL_AUTHORING_GUIDE.md): How the generated, scriptless agent skills are structured.
+- [Module Delivery Workflow](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/ai/MODULE_DELIVERY_WORKFLOW.md): The mini product workflow each module follows.
 
 ## Quality and engineering
 
-- [Quality Gates](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/50-quality/QUALITY_GATES.md): The completion-evidence gate and required checks.
-- [Engineering Standards](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/60-engineering/ENGINEERING_STANDARDS.md): Baseline rules that repository memory enforces.
-- [Testing Strategy](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/50-quality/TESTING_STRATEGY.md): How tests derive from acceptance, risk, and boundaries.
-- [Definition of Done](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/50-quality/DEFINITION_OF_DONE.md): What "complete" requires before it can be claimed.
+- [Quality Gates](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/50-quality/QUALITY_GATES.md): The completion-evidence gate and required checks.
+- [Engineering Standards](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/60-engineering/ENGINEERING_STANDARDS.md): Baseline rules that repository memory enforces.
+- [Testing Strategy](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/50-quality/TESTING_STRATEGY.md): How tests derive from acceptance, risk, and boundaries.
+- [Definition of Done](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/50-quality/DEFINITION_OF_DONE.md): What "complete" requires before it can be claimed.
 
 ## Security
 
-- [Security Model](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/20-security/SECURITY_MODEL.md): The local-first, no-network, no-secret-handling stance.
-- [Threat Model](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/20-security/THREAT_MODEL.md): Risks the tool defends against (path traversal, symlinks, overwrites).
-- [Privacy](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/20-security/PRIVACY.md): What never leaves the machine.
+- [Security Model](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/20-security/SECURITY_MODEL.md): The local-first, no-network, no-secret-handling stance.
+- [Threat Model](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/20-security/THREAT_MODEL.md): Risks the tool defends against (path traversal, symlinks, overwrites).
+- [Privacy](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/20-security/PRIVACY.md): What never leaves the machine.
 
 ## Decisions (accepted ADRs)
 
-- [ADR-0001: Deterministic placeholder renderer](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/adrs/ADR-0001-deterministic-placeholder-renderer.md)
-- [ADR-0002: Pre-commit hook generation](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/adrs/ADR-0002-pre-commit-hook-generation.md)
-- [ADR-0003: recall adopt proposes, not accepts](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/adrs/ADR-0003-recall-adopt-proposes-not-accepts.md)
-- [ADR-0004: Skill generation is portable and scriptless](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/adrs/ADR-0004-skill-generation-portable-and-scriptless.md)
-- [ADR-0005: MCP context memory is proposed and offline](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/adrs/ADR-0005-mcp-context-memory-is-proposed-and-offline.md)
-- [ADR-0006: adr accept promotes and removes the proposal](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/adrs/ADR-0006-adr-accept-promotes-and-removes-the-proposal.md)
+- [ADR-0001: Deterministic placeholder renderer](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/adrs/ADR-0001-deterministic-placeholder-renderer.md)
+- [ADR-0002: Pre-commit hook generation](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/adrs/ADR-0002-pre-commit-hook-generation.md)
+- [ADR-0003: persist adopt proposes, not accepts](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/adrs/ADR-0003-persist-adopt-proposes-not-accepts.md)
+- [ADR-0004: Skill generation is portable and scriptless](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/adrs/ADR-0004-skill-generation-portable-and-scriptless.md)
+- [ADR-0005: MCP context memory is proposed and offline](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/adrs/ADR-0005-mcp-context-memory-is-proposed-and-offline.md)
+- [ADR-0006: adr accept promotes and removes the proposal](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/adrs/ADR-0006-adr-accept-promotes-and-removes-the-proposal.md)
 
 ## Optional
 
-- [Product Vision](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/00-product/PRODUCT_VISION.md): Where Recall OS is headed.
-- [Positioning](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/00-product/POSITIONING.md): How it differs from templates, RAG, and hosted memory.
-- [Contributing](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/CONTRIBUTING.md): How to contribute, including adding a preset.
-- [Security Policy](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/SECURITY.md): How to report vulnerabilities.
+- [Product Vision](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/00-product/PRODUCT_VISION.md): Where Persist OS is headed.
+- [Positioning](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/00-product/POSITIONING.md): How it differs from templates, RAG, and hosted memory.
+- [Contributing](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/CONTRIBUTING.md): How to contribute, including adding a preset.
+- [Security Policy](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/SECURITY.md): How to report vulnerabilities.

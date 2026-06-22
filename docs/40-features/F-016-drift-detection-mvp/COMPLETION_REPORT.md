@@ -25,7 +25,7 @@ Complete.
 - `docs/30-modules/doctor/TEST_PLAN.md`
 - `docs/00-product/ROADMAP.md`
 - `docs/00-product/PRODUCT_VISION.md`
-- `docs/ai/RECALL_COMMANDS.md`
+- `docs/ai/PERSIST_COMMANDS.md`
 - `README.md`
 - `docs/40-features/F-016-drift-detection-mvp/` (new feature memory)
 
@@ -49,9 +49,9 @@ Complete.
 - `pnpm format:check` passed after formatting `README.md`.
 - `pnpm build` passed.
 - `pnpm pack:check` passed and validated 100 package files.
-- During verification, the new drift check correctly flagged that this feature's own
-  `ACCEPTANCE.md` referenced example ADR numbers that do not exist. The acceptance doc was rewritten
-  to use non-numeric placeholders, after which `node dist/cli.js doctor` passed.
+- During verification, the new drift check correctly flagged that this feature's own `ACCEPTANCE.md`
+  referenced example ADR numbers that do not exist. The acceptance doc was rewritten to use
+  non-numeric placeholders, after which `node dist/cli.js doctor` passed.
 
 ## Remaining Risks
 

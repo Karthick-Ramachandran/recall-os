@@ -2,15 +2,18 @@
 
 ## Purpose
 
-Add the core preset system that models optional opinion packs without turning Recall OS Core into an architecture generator.
+Add the core preset system that models optional opinion packs without turning Persist OS Core into
+an architecture generator.
 
 P4 proves the preset contract with minimal built-in content.
 
 ## Problem
 
-Future `init --preset <name>` flows need a validated way to describe optional stack-aware guidance, template destinations, and proposed decisions.
+Future `init --preset <name>` flows need a validated way to describe optional stack-aware guidance,
+template destinations, and proposed decisions.
 
-Without a preset contract, future commands may treat framework suggestions as accepted repository memory or bypass safe destination validation.
+Without a preset contract, future commands may treat framework suggestions as accepted repository
+memory or bypass safe destination validation.
 
 ## Decision
 
@@ -44,7 +47,7 @@ Presets may suggest. Presets must not silently decide.
 ## Non-Goals
 
 - CLI commands.
-- `recall init`.
+- `persist init`.
 - Template file loading.
 - File writes.
 - Runtime preset execution.

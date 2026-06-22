@@ -9,7 +9,7 @@ import { createWritePlan } from "../../../src/core/filesystem/write-plan.js";
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-write-plan-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "persist-write-plan-"));
 });
 
 afterEach(async () => {

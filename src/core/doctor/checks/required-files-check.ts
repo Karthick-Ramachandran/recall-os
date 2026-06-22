@@ -19,7 +19,7 @@ const requiredDocs = [
   "60-engineering/AI_AGENT_RULES.md",
   "ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md",
   "ai/MCP_STRATEGY.md",
-  "ai/RECALL_COMMANDS.md",
+  "ai/PERSIST_COMMANDS.md",
 ];
 
 export async function checkRequiredFiles(context: DoctorCheckContext): Promise<DoctorFinding[]> {

@@ -40,7 +40,7 @@ Scope:
 Acceptance:
 
 - Empty-folder init is first-class.
-- Recall OS is a repository memory layer, not an app generator.
+- Persist OS is a repository memory layer, not an app generator.
 - Presets and detection remain guidance/proposed decisions only.
 
 ## T3: Sync Root Product Docs

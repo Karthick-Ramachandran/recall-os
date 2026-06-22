@@ -9,7 +9,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 const execFileAsync = promisify(execFile);
 const cliPath = path.join(process.cwd(), "dist", "cli.js");
 
-describe("built recall binary", () => {
+describe("built persist binary", () => {
   const roots: string[] = [];
 
   beforeAll(async () => {
@@ -21,7 +21,7 @@ describe("built recall binary", () => {
   });
 
   async function createRoot(prefix: string): Promise<string> {
-    const rootDir = await mkdtemp(path.join(os.tmpdir(), `recall-binary-${prefix}-`));
+    const rootDir = await mkdtemp(path.join(os.tmpdir(), `persist-binary-${prefix}-`));
     roots.push(rootDir);
     return rootDir;
   }
@@ -29,7 +29,7 @@ describe("built recall binary", () => {
   it("runs help from the built CLI entrypoint", async () => {
     const { stdout } = await execFileAsync(process.execPath, [cliPath, "--help"]);
 
-    expect(stdout).toContain("Usage: recall");
+    expect(stdout).toContain("Usage: persist");
     expect(stdout).toContain("doctor");
   });
 
@@ -39,7 +39,7 @@ describe("built recall binary", () => {
     const initResult = await execFileAsync(process.execPath, [cliPath, "init"], {
       cwd: rootDir,
     });
-    expect(initResult.stdout).toContain("Recall OS init complete.");
+    expect(initResult.stdout).toContain("Persist OS init complete.");
 
     const doctorResult = await execFileAsync(process.execPath, [cliPath, "doctor"], {
       cwd: rootDir,

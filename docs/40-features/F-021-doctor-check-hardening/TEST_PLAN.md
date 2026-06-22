@@ -9,6 +9,6 @@
 
 ## Regression
 
-- The repository's own `recall doctor` still passes (its feature PRDs are filled).
+- The repository's own `persist doctor` still passes (its feature PRDs are filled).
 - `pnpm test:run`, `pnpm typecheck`, `pnpm lint`, `pnpm format:check`, `pnpm build`,
   `pnpm pack:check`.

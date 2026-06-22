@@ -4,16 +4,16 @@ Acceptance criteria are behavior-level and testable.
 
 ## Hook generation
 
-- `recall init` creates `.recall/hooks/pre-commit`.
+- `persist init` creates `.persist/hooks/pre-commit`.
 - The created hook file is executable (owner execute bit set).
 - The hook content starts with a `#!/bin/sh` shebang.
-- The hook runs `recall doctor`.
-- The hook runs each command listed in `preCommitGates`, in order, after `recall doctor`.
-- With no configured gates, the hook runs only `recall doctor`.
+- The hook runs `persist doctor`.
+- The hook runs each command listed in `preCommitGates`, in order, after `persist doctor`.
+- With no configured gates, the hook runs only `persist doctor`.
 
 ## Detection and config
 
-- A new `preCommitGates` string array exists in `.recall/config.json` and defaults to empty.
+- A new `preCommitGates` string array exists in `.persist/config.json` and defaults to empty.
 - In a repository with a `package.json` `test` script and a `pnpm-lock.yaml`, detection seeds
   `preCommitGates` with `pnpm run test`.
 - In a repository with a `package-lock.json`, detection uses `npm run <script>`.
@@ -22,12 +22,12 @@ Acceptance criteria are behavior-level and testable.
 
 ## Safety and neutrality
 
-- `recall init` prints the activation command `git config core.hooksPath .recall/hooks` and does not
-  execute it.
-- A pre-existing `.recall/hooks/pre-commit` is skipped without `--force` and overwritten only with
+- `persist init` prints the activation command `git config core.hooksPath .persist/hooks` and does
+  not execute it.
+- A pre-existing `.persist/hooks/pre-commit` is skipped without `--force` and overwritten only with
   `--force`.
 - The hook path resolves within the project root; writing is refused otherwise.
-- No git configuration is modified by `recall init`.
+- No git configuration is modified by `persist init`.
 
 ## Regression safety
 

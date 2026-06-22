@@ -8,7 +8,8 @@ Feature workflow owns the repository-memory process for planning and completing 
 
 - Feature folder shape.
 - Required feature docs.
-- Relationship between PRD, acceptance, architecture impact, test plan, tasks, review, and completion evidence.
+- Relationship between PRD, acceptance, architecture impact, test plan, tasks, review, and
+  completion evidence.
 - Rerun semantics for feature memory creation.
 
 ## Does Not Own
@@ -23,7 +24,7 @@ Feature workflow owns the repository-memory process for planning and completing 
 
 ## Public Interface Direction
 
-`recall feature create <name>` creates feature memory before implementation work begins.
+`persist feature create <name>` creates feature memory before implementation work begins.
 
 ## Current Decision
 
@@ -31,4 +32,5 @@ P6 creates concise starter feature docs.
 
 Feature substance should be filled in by humans or agents after the structure exists.
 
-Rerunning a feature create command for an existing slug should target the existing feature folder so write policy controls skip or overwrite behavior.
+Rerunning a feature create command for an existing slug should target the existing feature folder so
+write policy controls skip or overwrite behavior.

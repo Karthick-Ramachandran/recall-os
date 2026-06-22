@@ -13,13 +13,15 @@
 
 P5 introduces the first command workflow.
 
-The command layer parses options and reports results. Core modules still own config creation, generation plans, preset validation, and safe write execution.
+The command layer parses options and reports results. Core modules still own config creation,
+generation plans, preset validation, and safe write execution.
 
 ## Dependency Impact
 
 P5 adds Commander for CLI parsing.
 
-Commander is allowed by the dependency policy under CLI parsing and does not change the MVP runtime trust boundary.
+Commander is allowed by the dependency policy under CLI parsing and does not change the MVP runtime
+trust boundary.
 
 ## File Write Impact
 
@@ -45,4 +47,5 @@ Controls:
 
 No new ADR is required.
 
-The existing architecture already defines Recall OS as a local-first CLI and identifies Commander as the CLI framework.
+The existing architecture already defines Persist OS as a local-first CLI and identifies Commander
+as the CLI framework.

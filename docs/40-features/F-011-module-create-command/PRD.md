@@ -2,15 +2,18 @@
 
 ## Purpose
 
-Implement `recall module create <name>` so repositories can create module memory before or during implementation work.
+Implement `persist module create <name>` so repositories can create module memory before or during
+implementation work.
 
 P8 makes module ownership, boundaries, tests, and decisions repeatable through the CLI.
 
 ## Problem
 
-Recall OS can create repository memory, feature memory, and ADR drafts, but it cannot yet create module memory through the CLI.
+Persist OS can create repository memory, feature memory, and ADR drafts, but it cannot yet create
+module memory through the CLI.
 
-Without module-create support, users and agents may skip the durable ownership and boundary docs that help future work avoid drift.
+Without module-create support, users and agents may skip the durable ownership and boundary docs
+that help future work avoid drift.
 
 ## Decision
 
@@ -43,7 +46,7 @@ Teams should use `feature create` separately when planning feature work.
 
 ## Success Criteria
 
-- Command requires initialized Recall OS config.
+- Command requires initialized Persist OS config.
 - Command creates `<modulesDir>/<slug>/` module memory.
 - Generated module memory includes `MODULE.md`, `TASKS.md`, `TEST_PLAN.md`, and `DECISIONS.md`.
 - Unsafe names are rejected.

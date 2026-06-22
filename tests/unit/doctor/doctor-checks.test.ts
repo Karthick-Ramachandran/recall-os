@@ -17,9 +17,9 @@ describe("doctor checks", () => {
   }
 
   async function writeConfig(rootDir: string): Promise<void> {
-    await mkdir(path.join(rootDir, ".recall"), { recursive: true });
+    await mkdir(path.join(rootDir, ".persist"), { recursive: true });
     await writeFile(
-      path.join(rootDir, ".recall/config.json"),
+      path.join(rootDir, ".persist/config.json"),
       `${JSON.stringify(createDefaultConfig(), null, 2)}\n`,
       "utf8",
     );
@@ -38,15 +38,15 @@ describe("doctor checks", () => {
       expect.objectContaining({
         severity: "error",
         check: "config",
-        path: ".recall/config.json",
+        path: ".persist/config.json",
       }),
     );
   });
 
   it("reports invalid JSON config as an error", async () => {
     const rootDir = await createRoot("doctor-invalid-json-unit");
-    await mkdir(path.join(rootDir, ".recall"), { recursive: true });
-    await writeFile(path.join(rootDir, ".recall/config.json"), "{", "utf8");
+    await mkdir(path.join(rootDir, ".persist"), { recursive: true });
+    await writeFile(path.join(rootDir, ".persist/config.json"), "{", "utf8");
 
     const report = await runDoctor(rootDir);
 

@@ -24,7 +24,7 @@ Passed.
 
 ## Dogfooding Review
 
-### Did Recall OS-generated docs help implementation?
+### Did Persist OS-generated docs help implementation?
 
 Yes. The doctor module memory and the P12 standards check provided a precise pattern to follow,
 which kept the new check consistent with existing conventions.
@@ -48,7 +48,7 @@ None blocking.
 
 ### Did the workflow catch any issue?
 
-Yes. After implementation, `recall doctor` flagged that this feature's own `ACCEPTANCE.md` cited
+Yes. After implementation, `persist doctor` flagged that this feature's own `ACCEPTANCE.md` cited
 example ADR numbers that do not exist. This was the new drift check correctly detecting drift in the
 repository's own memory. The acceptance doc was rewritten to use non-numeric placeholders.
 
@@ -56,7 +56,7 @@ repository's own memory. The acceptance doc was rewritten to use non-numeric pla
 
 No. The doc workflow added overhead but caught a real self-referential issue.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
 Consider whether drift checks should ignore identifiers inside fenced code blocks or clearly marked
 examples, so documentation can cite example ADR numbers without being flagged.

@@ -195,7 +195,7 @@ async function findNumberedAdr(
 
 export function formatAdrAcceptResult(result: AdrAcceptResult): string {
   const lines = [
-    result.dryRun ? "Recall OS ADR accept dry run complete." : "Recall OS ADR accept complete.",
+    result.dryRun ? "Persist OS ADR accept dry run complete." : "Persist OS ADR accept complete.",
     `Accepted: ${result.acceptedPath}`,
   ];
 
@@ -238,7 +238,7 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new AdrAcceptError(
         "CONFIG_REQUIRED",
-        "Recall OS config not found or invalid. Run `recall init` first.",
+        "Persist OS config not found or invalid. Run `persist init` first.",
         [error.message],
       );
     }

@@ -123,7 +123,7 @@ async function findAcceptedAdr(
     throw new AdrSupersedeError(
       "NOT_ACCEPTED",
       `ADR ${match.name} is not Accepted, so there is nothing to supersede.`,
-      ["Only an accepted decision can be superseded. Accept it first with `recall adr accept`."],
+      ["Only an accepted decision can be superseded. Accept it first with `persist adr accept`."],
     );
   }
 
@@ -161,8 +161,8 @@ async function write(
 export function formatAdrSupersedeResult(result: AdrSupersedeResult): string {
   const lines = [
     result.dryRun
-      ? "Recall OS ADR supersede dry run complete."
-      : "Recall OS ADR supersede complete.",
+      ? "Persist OS ADR supersede dry run complete."
+      : "Persist OS ADR supersede complete.",
     `Superseded: ${result.oldPath} (now marked superseded by ${result.newRef})`,
     `New decision: ${result.newPath}`,
   ];
@@ -173,7 +173,7 @@ export function formatAdrSupersedeResult(result: AdrSupersedeResult): string {
     appendNextSteps(lines, [
       `Fill ${result.newPath}: Context (what changed), Decision, Alternatives, Consequences.`,
       `${result.oldRef} stays in history as superseded; update any memory that still relies on it.`,
-      "Run `recall doctor` — it flags memory that still references the superseded decision.",
+      "Run `persist doctor` — it flags memory that still references the superseded decision.",
     ]);
   }
 
@@ -203,7 +203,7 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new AdrSupersedeError(
         "CONFIG_REQUIRED",
-        "Recall OS config not found or invalid. Run `recall init` first.",
+        "Persist OS config not found or invalid. Run `persist init` first.",
         [error.message],
       );
     }

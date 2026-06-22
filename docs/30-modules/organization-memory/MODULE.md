@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Organization memory captures standards imported or adopted from a company, team, platform group, or enterprise.
+Organization memory captures standards imported or adopted from a company, team, platform group, or
+enterprise.
 
 ## Owns
 

@@ -9,7 +9,7 @@ Skills owns generation of portable, scriptless AI agent skills for a repository.
 - The built-in skill catalog (the documented MVP workflows).
 - Rendering a skill definition into a valid Agent Skills SKILL.md.
 - Dual-target generation to `.claude/skills/` and `.agents/skills/`.
-- The `recall skill create` and `recall skill list` commands.
+- The `persist skill create` and `persist skill list` commands.
 
 ## Does Not Own
 
@@ -26,8 +26,8 @@ Skills owns generation of portable, scriptless AI agent skills for a repository.
 
 ## Boundaries
 
-Skills produces Markdown instructions only. It never generates executable code and writes through the
-safe, non-destructive pipeline.
+Skills produces Markdown instructions only. It never generates executable code and writes through
+the safe, non-destructive pipeline.
 
 ## Current Decision
 

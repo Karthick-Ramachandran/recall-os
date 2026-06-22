@@ -2,8 +2,8 @@
 
 ## ADR-0005: Proposed And Offline
 
-`recall mcp add` never connects to MCP servers, makes no network calls, and imports no live data. It
-generates static, reviewable memory.
+`persist mcp add` never connects to MCP servers, makes no network calls, and imports no live data.
+It generates static, reviewable memory.
 
 ## Proposed, Not Accepted
 

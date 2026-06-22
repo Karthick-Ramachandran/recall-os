@@ -58,7 +58,8 @@ Scope:
 
 Acceptance:
 
-- Tests cover built-ins, unsafe inputs, duplicate destinations, accepted decisions, unknown keys, and registry behavior.
+- Tests cover built-ins, unsafe inputs, duplicate destinations, accepted decisions, unknown keys,
+  and registry behavior.
 
 ## T4: Verify And Complete
 

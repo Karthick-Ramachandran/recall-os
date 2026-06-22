@@ -14,11 +14,11 @@
 ## T3: Generation and command
 
 - Status: Complete.
-- Scope: Dual-target generation, `recall skill create`, and `recall skill list`.
+- Scope: Dual-target generation, `persist skill create`, and `persist skill list`.
 - Tests: Generation unit tests and command integration tests.
 
 ## T4: Dogfood and docs
 
 - Status: Complete.
 - Scope: Regenerate the repository's own skills, update README and command reference, completion.
-- Tests: Full suite, typecheck, lint, format, build, pack, and `recall doctor`.
+- Tests: Full suite, typecheck, lint, format, build, pack, and `persist doctor`.

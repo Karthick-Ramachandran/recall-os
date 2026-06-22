@@ -11,8 +11,8 @@ let rootDir: string;
 let outsideDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-symlink-security-root-"));
-  outsideDir = await mkdtemp(path.join(os.tmpdir(), "recall-symlink-security-outside-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "persist-symlink-security-root-"));
+  outsideDir = await mkdtemp(path.join(os.tmpdir(), "persist-symlink-security-outside-"));
 });
 
 afterEach(async () => {

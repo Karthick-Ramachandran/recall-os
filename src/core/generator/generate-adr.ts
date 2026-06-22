@@ -100,7 +100,7 @@ What improves, what worsens, and what risks remain?
 `;
 
 /**
- * Render a new, accepted ADR that supersedes an existing one. Used by `recall adr supersede`: a human
+ * Render a new, accepted ADR that supersedes an existing one. Used by `persist adr supersede`: a human
  * recording a changed decision, so the new ADR is Accepted and carries a `## Supersedes` link back to
  * the decision it replaces.
  */

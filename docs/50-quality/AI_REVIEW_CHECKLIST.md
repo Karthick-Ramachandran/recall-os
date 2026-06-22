@@ -2,7 +2,8 @@
 
 ## Purpose
 
-AI review should catch missing reasoning, unsafe behavior, weak tests, and stale docs. It should not merely summarize the diff.
+AI review should catch missing reasoning, unsafe behavior, weak tests, and stale docs. It should not
+merely summarize the diff.
 
 ## Review Questions
 

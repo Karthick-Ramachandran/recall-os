@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-013-recall-os-package-release/`
+- `docs/40-features/F-013-persist-os-package-release/`
 
 ## Tasks
 
@@ -21,6 +21,6 @@
 - Done: Add module create integration tests.
 - Done: Route `doctor` to command orchestration.
 - Done: Add Doctor integration tests.
-- Done: Add packaged `recall` binary entrypoint.
+- Done: Add packaged `persist` binary entrypoint.
 - Done: Route `preset list` to command orchestration.
 - Done: Add binary and preset-list integration tests.

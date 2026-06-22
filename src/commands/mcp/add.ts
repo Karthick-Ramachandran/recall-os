@@ -55,7 +55,7 @@ export async function mcpAdd(options: McpAddOptions): Promise<McpAddResult> {
   if (plan.hasErrors) {
     throw new McpAddError(
       "WRITE_PLAN_ERROR",
-      "Recall OS mcp add write plan contains errors.",
+      "Persist OS mcp add write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
         .map((entry) => `${entry.path}: ${entry.reason}`),
@@ -75,7 +75,7 @@ export async function mcpAdd(options: McpAddOptions): Promise<McpAddResult> {
 
 export function formatMcpAddResult(result: McpAddResult): string {
   const lines = [
-    result.dryRun ? "Recall OS mcp add dry run complete." : "Recall OS mcp add complete.",
+    result.dryRun ? "Persist OS mcp add dry run complete." : "Persist OS mcp add complete.",
     `MCP memory: ${result.docPath} (proposed — review before adopting)`,
     "Capture skill installed so agents record durable MCP context into this memory.",
   ];

@@ -1,6 +1,9 @@
 ---
 name: security-review
-description: "Review a change for file write safety, path traversal, symlink risk, overwrite behavior, dependencies, secrets, telemetry, network, MCP, and supply chain risk. Use when reviewing a change for security before it is accepted."
+description:
+  "Review a change for file write safety, path traversal, symlink risk, overwrite behavior,
+  dependencies, secrets, telemetry, network, MCP, and supply chain risk. Use when reviewing a change
+  for security before it is accepted."
 ---
 
 # Skill: Security Review
@@ -43,11 +46,13 @@ Find security risks before a change is accepted.
 
 Stop and request human decision if:
 
-- Runtime network, telemetry, cloud, MCP, AI API, auth, secrets, storage, or file write behavior changes without ADR or security review.
+- Runtime network, telemetry, cloud, MCP, AI API, auth, secrets, storage, or file write behavior
+  changes without ADR or security review.
 - Existing files can be overwritten by default.
 - Writes can escape the project root.
 - Secrets could be read, logged, or generated into docs.
-- Engineering standards are bypassed for secrets, dependencies, migrations, tests, or completion evidence.
+- Engineering standards are bypassed for secrets, dependencies, migrations, tests, or completion
+  evidence.
 
 ## Quality Bar
 

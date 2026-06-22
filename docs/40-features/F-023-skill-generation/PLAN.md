@@ -2,8 +2,8 @@
 
 ## Approach
 
-Add a `skills` concern (catalog + render + generate) and a thin `recall skill` command group, reusing
-the safe write pipeline. Skills are portable and scriptless (ADR-0004).
+Add a `skills` concern (catalog + render + generate) and a thin `persist skill` command group,
+reusing the safe write pipeline. Skills are portable and scriptless (ADR-0004).
 
 ## Steps
 

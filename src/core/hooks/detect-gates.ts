@@ -13,7 +13,7 @@ const KNOWN_SCRIPTS = ["test", "typecheck", "lint"] as const;
  *
  * Reads `package.json` scripts and the lockfile to suggest `<pm> run <script>` commands. Returns an
  * empty list when no JavaScript toolchain is detected. The result is a proposal the user reviews in
- * `.recall/config.json`; it is not an accepted decision.
+ * `.persist/config.json`; it is not an accepted decision.
  */
 export async function detectPreCommitGates(rootDir: string): Promise<string[]> {
   const packageJsonPath = path.join(rootDir, "package.json");

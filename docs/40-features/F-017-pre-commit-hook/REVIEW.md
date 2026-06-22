@@ -12,7 +12,7 @@ Passed.
 
 ## Correctness Review
 
-- The hook is executable, starts with a shebang, runs `recall doctor`, then configured gates.
+- The hook is executable, starts with a shebang, runs `persist doctor`, then configured gates.
 - Detection is neutral: proposes gates only from `package.json` scripts and the lockfile, empty
   otherwise.
 - Generation is non-destructive: an existing hook is skipped unless `--force`.
@@ -27,7 +27,7 @@ Passed.
 
 ## Dogfooding Review
 
-### Did Recall OS-generated docs help implementation?
+### Did Persist OS-generated docs help implementation?
 
 Yes. The ADR workflow forced the neutrality conflict (auto-detected gates) to be resolved as
 proposed config rather than hardcoded core, before any code was written.
@@ -44,7 +44,7 @@ Yes, two.
   preset junk was removed. No curated content was lost. This reinforces the project's own thesis:
   committed repository memory makes mistakes recoverable.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
-Consider warning when `recall init` runs in a non-empty repository root, and add a `recall hooks
-sync` command plus a Doctor check for hook-versus-config drift.
+Consider warning when `persist init` runs in a non-empty repository root, and add a
+`persist hooks sync` command plus a Doctor check for hook-versus-config drift.

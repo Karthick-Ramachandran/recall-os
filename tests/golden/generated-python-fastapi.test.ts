@@ -8,7 +8,7 @@ import {
   removeTempRoot,
   runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { RecallConfig } from "../../src/core/config/config-schema.js";
+import type { PersistConfig } from "../../src/core/config/config-schema.js";
 
 describe("python-fastapi init golden output", () => {
   let rootDir: string | undefined;
@@ -29,7 +29,7 @@ describe("python-fastapi init golden output", () => {
       "docs/adrs/proposed/ADR-PROPOSED-python-fastapi-framework.md",
     );
 
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     expect(config.preset).toBe("python-fastapi");
 
     expect(
