@@ -2,23 +2,23 @@
 
 ## One-Line Positioning
 
-Recall OS is an Engineering Memory Operating System for AI-assisted software development.
+Persist OS is an Engineering Memory Operating System for AI-assisted software development.
 
 ## Core Promise
 
 AI can write the code.
 
-Recall OS makes sure the repository does not forget what it is doing.
+Persist OS makes sure the repository does not forget what it is doing.
 
 ## Simple Explanation
 
 Git tracks what changed.
 
-Recall OS tracks why it changed.
+Persist OS tracks why it changed.
 
 ## Audience
 
-Recall OS is for teams and developers who use AI coding tools but need durable engineering memory.
+Persist OS is for teams and developers who use AI coding tools but need durable engineering memory.
 
 Primary users:
 
@@ -30,12 +30,12 @@ Primary users:
 
 ## Differentiation
 
-Recall OS does not compete with AI coding agents.
+Persist OS does not compete with AI coding agents.
 
 It gives agents a durable source of truth and gives humans a way to validate whether memory still
 matches the work.
 
-## What Recall OS Is
+## What Persist OS Is
 
 - Repository memory layer.
 - Engineering discipline system.
@@ -44,7 +44,7 @@ matches the work.
 - Future drift detection system.
 - Future organization memory platform.
 
-## What Recall OS Is Not
+## What Persist OS Is Not
 
 - AI coding agent.
 - App generator.
@@ -57,8 +57,8 @@ matches the work.
 
 ## Category Bet
 
-If AI agents always remembered everything, Recall OS would matter less.
+If AI agents always remembered everything, Persist OS would matter less.
 
 They do not.
 
-Recall OS exists because models are temporary and repositories are permanent.
+Persist OS exists because models are temporary and repositories are permanent.

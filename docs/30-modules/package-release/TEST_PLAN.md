@@ -3,9 +3,9 @@
 ## P10 Tests
 
 - Build produces a runnable CLI entrypoint.
-- Built `recall --help` succeeds.
-- Built `recall init` creates `.recall/config.json` in an empty directory.
-- Built `recall doctor` succeeds after init.
+- Built `persist --help` succeeds.
+- Built `persist init` creates `.persist/config.json` in an empty directory.
+- Built `persist doctor` succeeds after init.
 - Package dry-run includes release files and excludes source-only or local artifacts.
 - CI includes lint, format check, typecheck, tests, build, and pack check.
 

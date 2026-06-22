@@ -7,8 +7,8 @@
 
 ## Integration Tests
 
-- `tests/integration/mcp-command.test.ts`: `recall mcp add figma` installs the capture skill into the
-  Claude target and reports it.
+- `tests/integration/mcp-command.test.ts`: `persist mcp add figma` installs the capture skill into
+  the Claude target and reports it.
 
 ## Regression
 

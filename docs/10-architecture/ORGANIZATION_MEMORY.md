@@ -2,9 +2,11 @@
 
 ## Purpose
 
-Organization memory captures standards that come from a company, team, platform group, or enterprise environment.
+Organization memory captures standards that come from a company, team, platform group, or enterprise
+environment.
 
-This is where Recall OS can support serious teams without encoding Recall OS's own architecture opinions.
+This is where Persist OS can support serious teams without encoding Persist OS's own architecture
+opinions.
 
 ## Examples
 
@@ -18,15 +20,16 @@ An organization may define:
 - CI = internal build platform.
 - Secrets = internal vault.
 
-Recall OS records those decisions so AI agents follow the organization's architecture, not Recall OS's preferences.
+Persist OS records those decisions so AI agents follow the organization's architecture, not Persist
+OS's preferences.
 
 ## Future Commands
 
 Future commands may include:
 
 ```bash
-recall adopt
-recall import standards
+persist adopt
+persist import standards
 ```
 
 These are not MVP runtime requirements.
@@ -59,6 +62,8 @@ Adopting organization memory may require:
 
 ## Drift Rule
 
-If organization memory is accepted into a repository, drift means mismatch with that accepted memory.
+If organization memory is accepted into a repository, drift means mismatch with that accepted
+memory.
 
-Recall OS does not decide whether Kafka, Okta, Datadog, or internal systems are good choices. It helps the repository remain consistent with the accepted organization standards.
+Persist OS does not decide whether Kafka, Okta, Datadog, or internal systems are good choices. It
+helps the repository remain consistent with the accepted organization standards.

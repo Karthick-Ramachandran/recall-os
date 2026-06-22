@@ -11,7 +11,7 @@ import {
   removeTempRoot,
   runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { RecallConfig } from "../../src/core/config/config-schema.js";
+import type { PersistConfig } from "../../src/core/config/config-schema.js";
 
 describe("init command", () => {
   const roots: string[] = [];
@@ -32,10 +32,10 @@ describe("init command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("Recall OS init complete.");
+    expect(result.stdout).toContain("Persist OS init complete.");
     expect(result.stdout).toContain("Created:");
 
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     expect(config.preset).toBeNull();
     expect(await readGeneratedFile(rootDir, "AGENTS.md")).toContain("repository memory");
     expect(await readGeneratedFile(rootDir, "docs/10-architecture/ARCHITECTURE.md")).toContain(
@@ -49,7 +49,7 @@ describe("init command", () => {
     const files = await listRelativeFiles(rootDir);
 
     expect(result.exitCode).toBe(0);
-    expect(files).toContain(".recall/config.json");
+    expect(files).toContain(".persist/config.json");
     expect(files).not.toContain(".git/config");
   });
 
@@ -70,7 +70,7 @@ describe("init command", () => {
     const result = await runInitCommand(rootDir, ["--dry-run"]);
 
     expect(result.exitCode).toBe(0);
-    expect(result.stdout).toContain("Recall OS init dry run complete.");
+    expect(result.stdout).toContain("Persist OS init dry run complete.");
     expect(result.stdout).toContain("Planned creates:");
     expect(await listRelativeFiles(rootDir)).toEqual([]);
   });
@@ -92,30 +92,30 @@ describe("init command", () => {
     const result = await runInitCommand(rootDir);
 
     expect(result.exitCode).toBe(0);
-    expect(result.stdout).toContain("Pre-commit and pre-push hooks written to .recall/hooks/");
-    expect(result.stdout).toContain("git config core.hooksPath .recall/hooks");
+    expect(result.stdout).toContain("Pre-commit and pre-push hooks written to .persist/hooks/");
+    expect(result.stdout).toContain("git config core.hooksPath .persist/hooks");
 
     for (const name of ["pre-commit", "pre-push"]) {
-      const hookPath = path.join(rootDir, `.recall/hooks/${name}`);
+      const hookPath = path.join(rootDir, `.persist/hooks/${name}`);
       const hook = await readFile(hookPath, "utf8");
       expect(hook.startsWith("#!/bin/sh")).toBe(true);
-      expect(hook).toContain("recall doctor");
+      expect(hook).toContain("persist doctor");
       expect((await stat(hookPath)).mode & 0o100).toBe(0o100);
     }
 
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     expect(config.preCommitGates).toEqual([]);
   });
 
   it("skips an existing pre-commit hook unless forced", async () => {
     const rootDir = await createRoot("init-hook-skip");
-    await mkdir(path.join(rootDir, ".recall/hooks"), { recursive: true });
-    await writeFile(path.join(rootDir, ".recall/hooks/pre-commit"), "#!/bin/sh\ncustom\n", "utf8");
+    await mkdir(path.join(rootDir, ".persist/hooks"), { recursive: true });
+    await writeFile(path.join(rootDir, ".persist/hooks/pre-commit"), "#!/bin/sh\ncustom\n", "utf8");
 
     const result = await runInitCommand(rootDir);
 
     expect(result.exitCode).toBe(0);
-    expect(await readFile(path.join(rootDir, ".recall/hooks/pre-commit"), "utf8")).toBe(
+    expect(await readFile(path.join(rootDir, ".persist/hooks/pre-commit"), "utf8")).toBe(
       "#!/bin/sh\ncustom\n",
     );
   });
@@ -129,7 +129,7 @@ describe("init command", () => {
 
     expect(result.exitCode).toBe(1);
     expect(result.stderr).toContain(
-      "Refusing to re-initialize an existing Recall OS installation.",
+      "Refusing to re-initialize an existing Persist OS installation.",
     );
     expect(result.stderr).toContain("--reinit");
     expect(await readFile(path.join(rootDir, "AGENTS.md"), "utf8")).toBe("custom agents\n");
@@ -162,7 +162,7 @@ describe("init command", () => {
 
     expect(result.exitCode).toBe(0);
 
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     expect(config.preset).toBe("nextjs");
     expect(await readGeneratedFile(rootDir, "docs/ai/presets/nextjs-guidance.md")).toContain(
       "proposed guidance",
@@ -185,6 +185,6 @@ describe("init command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(await readFile(path.join(rootDir, "src", "index.ts"), "utf8")).toBe("export {};\n");
-    expect(await readGeneratedFile(rootDir, ".recall/config.json")).toContain('"preset": null');
+    expect(await readGeneratedFile(rootDir, ".persist/config.json")).toContain('"preset": null');
   });
 });

@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Opinion packs are optional presets that provide starter guidance without becoming architecture truth by default.
+Opinion packs are optional presets that provide starter guidance without becoming architecture truth
+by default.
 
 ## Owns
 

@@ -2,15 +2,18 @@
 
 ## Purpose
 
-Implement `recall doctor` so Recall OS can validate whether repository memory is healthy enough for AI-assisted work.
+Implement `persist doctor` so Persist OS can validate whether repository memory is healthy enough
+for AI-assisted work.
 
-P9 turns Recall OS from only creating memory into also protecting memory.
+P9 turns Persist OS from only creating memory into also protecting memory.
 
 ## Problem
 
-Recall OS can create repository, feature, ADR, and module memory, but it cannot yet verify whether that memory remains structurally healthy.
+Persist OS can create repository, feature, ADR, and module memory, but it cannot yet verify whether
+that memory remains structurally healthy.
 
-Without Doctor, AI agents and humans can claim completion while required repository memory is missing, invalid, or incomplete.
+Without Doctor, AI agents and humans can claim completion while required repository memory is
+missing, invalid, or incomplete.
 
 ## Decision
 
@@ -18,11 +21,12 @@ P9 adds a read-only Doctor command.
 
 Doctor validates config, required files, required docs, and generated memory structure.
 
-P9 also adds generated command-reference memory so agents can discover how to use Recall OS from repository docs.
+P9 also adds generated command-reference memory so agents can discover how to use Persist OS from
+repository docs.
 
 ## In Scope
 
-- `recall doctor` command.
+- `persist doctor` command.
 - Doctor severity model: `error`, `warning`, `info`.
 - Exit codes: `0` healthy, `1` warnings only, `2` errors.
 - Config existence, JSON parsing, and schema validation checks.
@@ -31,7 +35,7 @@ P9 also adds generated command-reference memory so agents can discover how to us
 - Feature folder required docs.
 - Module folder required docs.
 - ADR required sections.
-- Generated `docs/ai/RECALL_COMMANDS.md`.
+- Generated `docs/ai/PERSIST_COMMANDS.md`.
 - Agent instruction updates that describe Doctor as an AI completion gate.
 - Unit and integration tests.
 
@@ -51,7 +55,8 @@ P9 also adds generated command-reference memory so agents can discover how to us
 - Healthy initialized repositories pass Doctor.
 - Missing config fails Doctor.
 - Invalid config fails Doctor.
-- Missing root, AI, baseline docs, configured dirs, feature docs, module docs, or ADR sections fail Doctor.
+- Missing root, AI, baseline docs, configured dirs, feature docs, module docs, or ADR sections fail
+  Doctor.
 - Doctor output is grouped by severity and actionable.
 - Doctor returns `0`, `1`, or `2` based on findings.
 - Init generates local command-reference memory.

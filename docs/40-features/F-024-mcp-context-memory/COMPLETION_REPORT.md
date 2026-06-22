@@ -8,7 +8,7 @@ Complete.
 
 - T1: Planned the feature and accepted ADR-0005 (proposed and offline).
 - T2: Implemented known-server hints and MCP memory + proposed-ADR generation.
-- T3: Added the `recall mcp add` command and CLI wiring.
+- T3: Added the `persist mcp add` command and CLI wiring.
 - T4: Added module memory, docs, tests, and completion evidence.
 
 ## Files Changed
@@ -20,7 +20,7 @@ Complete.
 - `docs/adrs/ADR-0005-mcp-context-memory-is-proposed-and-offline.md` (new)
 - `docs/30-modules/mcp/` (new module memory)
 - `docs/40-features/F-024-mcp-context-memory/` (new feature memory)
-- `docs/ai/RECALL_COMMANDS.md`, `README.md`
+- `docs/ai/PERSIST_COMMANDS.md`, `README.md`
 - `examples/generated-*/` (regenerated command reference)
 
 ## Tests Run
@@ -39,7 +39,7 @@ Complete.
 - `pnpm typecheck`, `pnpm lint`, and `pnpm format:check` passed.
 - `pnpm build` passed; `pnpm pack:check` validated 169 files.
 - `node dist/cli.js doctor` passed after this report was written.
-- Manual verification: `recall mcp add figma` generated `docs/ai/mcp/figma.md` (design-context
+- Manual verification: `persist mcp add figma` generated `docs/ai/mcp/figma.md` (design-context
   purpose, Captured Context, source-of-truth rule) and a proposed adoption ADR, offline.
 
 ## Remaining Risks

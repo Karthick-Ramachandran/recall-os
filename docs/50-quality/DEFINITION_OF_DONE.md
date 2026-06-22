@@ -2,7 +2,7 @@
 
 ## Done Means Evidence Exists
 
-A Recall OS task is not done because an agent says it is done.
+A Persist OS task is not done because an agent says it is done.
 
 Done requires:
 

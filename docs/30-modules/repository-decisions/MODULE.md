@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Repository decisions capture accepted architecture, product, security, dependency, and workflow decisions for one repository.
+Repository decisions capture accepted architecture, product, security, dependency, and workflow
+decisions for one repository.
 
 ## Owns
 
@@ -12,7 +13,7 @@ Repository decisions capture accepted architecture, product, security, dependenc
 
 ## Does Not Own
 
-- Recall OS Core opinions.
+- Persist OS Core opinions.
 - Organization-wide standards unless adopted into the repository.
 - Preset suggestions before acceptance.
 

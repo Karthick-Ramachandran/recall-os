@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Repository init defines what `recall init` means.
+Repository init defines what `persist init` means.
 
 It initializes repository memory, not application code.
 
@@ -27,11 +27,11 @@ It initializes repository memory, not application code.
 CLI behavior:
 
 ```bash
-recall init
-recall init --preset <name>
+persist init
+persist init --preset <name>
 ```
 
-`recall init` should be valid in an empty folder and should not require existing app code or a
+`persist init` should be valid in an empty folder and should not require existing app code or a
 framework.
 
 ## Current Decision
@@ -40,7 +40,7 @@ P5 implements repository memory init.
 
 Git initializes source control.
 
-Recall OS initializes repository memory.
+Persist OS initializes repository memory.
 
-P9 adds local command-reference memory so humans and AI agents can discover available Recall OS
+P9 adds local command-reference memory so humans and AI agents can discover available Persist OS
 workflows after init.

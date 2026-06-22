@@ -1,4 +1,4 @@
-import { parseConfig, type RecallConfig } from "./config-schema.js";
+import { parseConfig, type PersistConfig } from "./config-schema.js";
 
 const DEFAULT_CONFIG = {
   version: "0.1.0",
@@ -13,9 +13,9 @@ const DEFAULT_CONFIG = {
   adrDir: "docs/adrs",
   writePolicy: "skip-existing",
   preCommitGates: [],
-} satisfies RecallConfig;
+} satisfies PersistConfig;
 
-export function createDefaultConfig(overrides: Partial<RecallConfig> = {}): RecallConfig {
+export function createDefaultConfig(overrides: Partial<PersistConfig> = {}): PersistConfig {
   return parseConfig({
     ...DEFAULT_CONFIG,
     aiTools: [...DEFAULT_CONFIG.aiTools],

@@ -7,7 +7,7 @@
 
 ## Integration Tests
 
-- This repository's own `recall doctor` stays PASSED (no false positives from either check).
+- This repository's own `persist doctor` stays PASSED (no false positives from either check).
 
 ## Security Tests
 

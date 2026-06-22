@@ -27,12 +27,13 @@ No new ADR is required.
 
 ## Security Impact
 
-- No new capability. Presets remain static content rendered through the existing safe write pipeline.
+- No new capability. Presets remain static content rendered through the existing safe write
+  pipeline.
 - Preset destinations are validated and confined to the project root, unchanged from prior behavior.
 - No network, telemetry, dependency installation, or code execution is introduced.
 
 ## Compatibility
 
 - Existing presets keep their ids, destinations, and golden anchors; content is added, not removed.
-- `recall preset list` output grows by two presets.
+- `persist preset list` output grows by two presets.
 - Committed examples grow to include the two new presets and the enriched guidance.

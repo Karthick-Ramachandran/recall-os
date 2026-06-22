@@ -48,21 +48,21 @@ ${renderProposedDecisions(adrDir, signals)}
 ## Review Checklist
 
 - [ ] Confirm the detected languages and package manager (and the source each was read from).
-- [ ] Confirm where tests were detected, or point Recall at the right location if it is wrong.
+- [ ] Confirm where tests were detected, or point Persist at the right location if it is wrong.
 - [ ] Accept or reject each proposed framework ADR under \`${adrDir}/proposed/\`.
-- [ ] Run \`recall init\` to establish neutral repository memory if it does not exist yet.
-- [ ] Record any decision you accept with \`recall adr create\` or by accepting the proposed ADR.
+- [ ] Run \`persist init\` to establish neutral repository memory if it does not exist yet.
+- [ ] Record any decision you accept with \`persist adr create\` or by accepting the proposed ADR.
 
 ## Notes
 
-This report was produced by \`recall adopt\` through read-only inspection of manifest and marker
+This report was produced by \`persist adopt\` through read-only inspection of manifest and marker
 files. No repository code was executed and no decision was accepted automatically.
 `;
 }
 
 function renderProposedDecisions(adrDir: string, signals: RepoSignals): string {
   if (signals.frameworks.length === 0) {
-    return "- No framework decisions were inferred. Add decisions with `recall adr create` as needed.";
+    return "- No framework decisions were inferred. Add decisions with `persist adr create` as needed.";
   }
 
   return signals.frameworks
@@ -83,7 +83,7 @@ Proposed
 
 ## Context
 
-\`recall adopt\` detected ${framework} in this repository through read-only inspection.
+\`persist adopt\` detected ${framework} in this repository through read-only inspection.
 
 ## Decision
 

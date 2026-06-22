@@ -2,9 +2,10 @@
 
 ## Purpose
 
-Recall OS skills are focused reusable workflows for AI coding agents.
+Persist OS skills are focused reusable workflows for AI coding agents.
 
-They should help agents perform specific engineering jobs without loading the entire project handbook into context.
+They should help agents perform specific engineering jobs without loading the entire project
+handbook into context.
 
 ## Required Structure
 

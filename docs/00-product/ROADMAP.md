@@ -2,7 +2,7 @@
 
 ## Current State
 
-Recall OS has reached the first release-ready foundation.
+Persist OS has reached the first release-ready foundation.
 
 Completed capabilities:
 
@@ -16,17 +16,17 @@ Completed capabilities:
 - Doctor drift checks for ADR reference integrity in feature and module memory.
 - Pre-commit hook generation that enforces Doctor and configured gates at commit time.
 - AI command memory.
-- Packaged `recall` CLI build.
+- Packaged `persist` CLI build.
 - README, examples, CI, release-candidate workflow, and package validation.
 
 ## Release Foundation
 
 The current release foundation proves:
 
-- Recall OS can create memory.
-- Recall OS can validate memory structure.
-- Recall OS can run as a packaged CLI.
-- Recall OS can dogfood its own feature, module, review, and completion workflow.
+- Persist OS can create memory.
+- Persist OS can validate memory structure.
+- Persist OS can run as a packaged CLI.
+- Persist OS can dogfood its own feature, module, review, and completion workflow.
 
 ## Next Product Priority: Deepen Drift Detection
 
@@ -93,7 +93,7 @@ Still future work:
 
 ### P14: Legacy Adoption Planning
 
-Define `recall adopt` as a reviewable memory extraction workflow for existing repositories.
+Define `persist adopt` as a reviewable memory extraction workflow for existing repositories.
 
 Adoption must produce proposed memory, not silently accepted truth.
 
@@ -106,7 +106,7 @@ Organization memory must remain explicit and reviewable.
 
 ## Non-Roadmap
 
-Recall OS should not pursue:
+Persist OS should not pursue:
 
 - AI coding agent runtime.
 - IDE replacement.

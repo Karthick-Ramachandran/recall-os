@@ -2,7 +2,7 @@
 
 ## Affected Modules
 
-- `cli`: registers `recall skill create` and `recall skill list`.
+- `cli`: registers `persist skill create` and `persist skill list`.
 - `skills` (new): skill catalog, rendering, and generation.
 
 Reuses `filesystem` (write pipeline) and `naming` (slugify) only.
@@ -11,7 +11,7 @@ Reuses `filesystem` (write pipeline) and `naming` (slugify) only.
 
 - New `src/core/skills/skill-catalog.ts`, `render-skill.ts`, and `generate-skill.ts`.
 - New `src/commands/skill/create.ts` and `src/commands/skill/list.ts`.
-- `recall skill create <name>` writes a valid SKILL.md to both skill targets, non-destructively.
+- `persist skill create <name>` writes a valid SKILL.md to both skill targets, non-destructively.
 
 ## Decision Records
 
@@ -20,8 +20,8 @@ Reuses `filesystem` (write pipeline) and `naming` (slugify) only.
 ## Security Impact
 
 - Generated skills contain no scripts and no executable code; they are plain Markdown instructions.
-- Writes reuse the safe pipeline: confined to the project root, symlink-protected, non-destructive by
-  default.
+- Writes reuse the safe pipeline: confined to the project root, symlink-protected, non-destructive
+  by default.
 - No network, telemetry, dependency, or runtime agent behavior is added.
 
 ## Compatibility

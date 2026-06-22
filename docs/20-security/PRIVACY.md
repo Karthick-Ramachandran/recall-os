@@ -2,7 +2,7 @@
 
 ## MVP Privacy Promise
 
-Recall OS MVP does not collect, transmit, or store user analytics.
+Persist OS MVP does not collect, transmit, or store user analytics.
 
 It must not:
 
@@ -16,7 +16,7 @@ It must not:
 
 ## Local Files
 
-Recall OS writes generated docs and config into the current repository only.
+Persist OS writes generated docs and config into the current repository only.
 
 Future implementation must clearly report every created, skipped, or conflicted file.
 

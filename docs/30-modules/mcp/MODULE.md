@@ -9,7 +9,7 @@ MCP-derived context into the repository.
 
 - Known-server purpose and data hints.
 - Generation of the per-server MCP memory doc and a proposed adoption ADR.
-- The `recall mcp add` command.
+- The `persist mcp add` command.
 
 ## Does Not Own
 
@@ -30,5 +30,5 @@ safe, non-destructive pipeline.
 
 ## Current Decision
 
-Governed by ADR-0005. `recall mcp add` is offline, pre-fills known servers, and emits a memory doc
+Governed by ADR-0005. `persist mcp add` is offline, pre-fills known servers, and emits a memory doc
 plus a proposed adoption ADR. Captured context and the decision stay proposed until accepted.

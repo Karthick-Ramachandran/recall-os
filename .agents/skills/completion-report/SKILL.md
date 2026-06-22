@@ -1,6 +1,9 @@
 ---
 name: completion-report
-description: "Write a completion report with files changed, tests run, results, skipped checks, docs updated, remaining risks, and release readiness notes. Use when recording evidence that a task or feature is complete and ready for review."
+description:
+  "Write a completion report with files changed, tests run, results, skipped checks, docs updated,
+  remaining risks, and release readiness notes. Use when recording evidence that a task or feature
+  is complete and ready for review."
 ---
 
 # Skill: Completion Report

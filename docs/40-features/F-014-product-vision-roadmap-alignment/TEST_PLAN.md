@@ -2,8 +2,8 @@
 
 ## Manual Review
 
-- Product docs state what Recall OS is.
-- Product docs state what Recall OS is not.
+- Product docs state what Persist OS is.
+- Product docs state what Persist OS is not.
 - README includes the core promise and simple explanation.
 - Roadmap points next toward drift detection, governance, legacy adoption, and organization memory.
 - Anti-scope rejects AI agent runtime, IDE competition, app generation, model hosting, and cloud

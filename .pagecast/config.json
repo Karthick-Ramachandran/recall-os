@@ -1,10 +1,10 @@
 {
   "pages": {
-    "projectName": "recall-os",
+    "projectName": "persist-os",
     "accountId": "33361aca2dce258166a4459936e51ce3",
     "accountName": "Karthiram165@gmail.com's Account",
     "branch": "main",
-    "baseUrl": "https://recall-os.pages.dev"
+    "baseUrl": "https://persist-os.pages.dev"
   },
   "feedback": null,
   "badge": true,

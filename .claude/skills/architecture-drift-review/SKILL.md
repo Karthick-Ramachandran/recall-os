@@ -1,6 +1,8 @@
 ---
 name: architecture-drift-review
-description: "Review a change for undocumented architecture, dependency, module, security, testing, or documentation drift. Use when checking whether a change diverges from accepted repository memory."
+description:
+  "Review a change for undocumented architecture, dependency, module, security, testing, or
+  documentation drift. Use when checking whether a change diverges from accepted repository memory."
 ---
 
 # Skill: Architecture Drift Review
@@ -9,7 +11,7 @@ description: "Review a change for undocumented architecture, dependency, module,
 
 Find changes that diverge from accepted repository memory.
 
-Drift is not difference from a Recall OS recommendation. Recall OS is architecture-neutral.
+Drift is not difference from a Persist OS recommendation. Persist OS is architecture-neutral.
 
 ## Inputs
 
@@ -61,12 +63,13 @@ Stop and request human decision if:
 - An accepted ADR conflicts with the implementation.
 - The implementation conflicts with engineering standards.
 - A dependency was added without ADR consideration.
-- Authentication, authorization, storage, networking, secrets, telemetry, cloud, runtime MCP, or file write behavior changed without security review.
+- Authentication, authorization, storage, networking, secrets, telemetry, cloud, runtime MCP, or
+  file write behavior changed without security review.
 - Feature behavior changed without a PRD or change request update.
 
 ## Quality Bar
 
 - Findings distinguish drift from documented evolution.
-- Findings compare against accepted repository memory, not Recall OS preferences.
+- Findings compare against accepted repository memory, not Persist OS preferences.
 - Each blocker names the missing source-of-truth update.
 - Review output is concrete enough to act on.

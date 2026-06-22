@@ -21,7 +21,7 @@ Build one task at a time. Do not start the next task until the current task has 
 
 - Status: Complete.
 - Scope: `src/core/hooks/detect-gates.ts` and `src/core/hooks/generate-hook.ts`.
-- Acceptance: Neutral detection seeds proposed gates; hook renders `recall doctor` plus gates.
+- Acceptance: Neutral detection seeds proposed gates; hook renders `persist doctor` plus gates.
 - Tests: Unit tests for detection and rendering.
 - Do not: Execute repository content during detection.
 
@@ -38,5 +38,5 @@ Build one task at a time. Do not start the next task until the current task has 
 - Status: Complete.
 - Scope: Module memory, product docs, regenerated examples, review, and completion report.
 - Acceptance: All quality gates recorded with results.
-- Tests: Full suite, typecheck, lint, format, build, pack, and `recall doctor`.
+- Tests: Full suite, typecheck, lint, format, build, pack, and `persist doctor`.
 - Do not: Claim completion without evidence.

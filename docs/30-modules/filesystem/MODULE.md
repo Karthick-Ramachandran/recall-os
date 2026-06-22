@@ -2,7 +2,8 @@
 
 ## Purpose
 
-The filesystem module owns safe path resolution, write planning, conflict handling, and safe file writes.
+The filesystem module owns safe path resolution, write planning, conflict handling, and safe file
+writes.
 
 ## Owns
 

@@ -40,5 +40,5 @@ Build one task at a time. Do not start the next task until the current task has 
 - Status: Complete.
 - Scope: Review notes, drift review, and completion report with evidence.
 - Acceptance: All quality gates recorded with results.
-- Tests: Full suite, typecheck, lint, format, build, pack, and `recall doctor`.
+- Tests: Full suite, typecheck, lint, format, build, pack, and `persist doctor`.
 - Do not: Claim completion without evidence.

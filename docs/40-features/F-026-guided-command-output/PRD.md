@@ -2,10 +2,10 @@
 
 ## Purpose
 
-New users do not know what Recall OS creates or what to do with it. Commands listed created paths but
-did not explain what each artifact is for or what to do next. This feature makes every create command
-guide the user — like a framework scaffolder that tells you exactly which file it made, where it is,
-and what to do with it.
+New users do not know what Persist OS creates or what to do with it. Commands listed created paths
+but did not explain what each artifact is for or what to do next. This feature makes every create
+command guide the user — like a framework scaffolder that tells you exactly which file it made,
+where it is, and what to do with it.
 
 ## Problem
 

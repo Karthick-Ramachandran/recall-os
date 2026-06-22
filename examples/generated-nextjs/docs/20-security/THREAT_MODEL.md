@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft — replace the prompts below with this repository's real analysis as it grows. `recall doctor`
+Draft — replace the prompts below with this repository's real analysis as it grows. `persist doctor`
 flags these as warnings once the repository has real work (a feature, module, or accepted decision).
 
 ## Assets

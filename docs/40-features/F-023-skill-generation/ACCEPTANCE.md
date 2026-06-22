@@ -2,9 +2,9 @@
 
 ## Command
 
-- `recall skill create <name>` writes `<name>/SKILL.md` to both `.claude/skills/` and
+- `persist skill create <name>` writes `<name>/SKILL.md` to both `.claude/skills/` and
   `.agents/skills/`, with identical content.
-- `recall skill list` lists the catalog skills.
+- `persist skill list` lists the catalog skills.
 - `--dry-run` writes nothing; existing skills are skipped unless `--force`.
 - An invalid skill name is rejected with a clear error.
 
@@ -23,7 +23,7 @@
 
 ## Dogfooding
 
-- The repository's own skills can be regenerated from the catalog with `recall skill create`.
+- The repository's own skills can be regenerated from the catalog with `persist skill create`.
 
 ## Regression
 

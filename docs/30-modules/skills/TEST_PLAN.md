@@ -8,7 +8,7 @@
 
 ## Integration Tests
 
-- `recall skill create` writes both targets; `recall skill list` lists the catalog.
+- `persist skill create` writes both targets; `persist skill list` lists the catalog.
 - `--dry-run` writes nothing; existing skills are skipped unless `--force`.
 
 ## Results

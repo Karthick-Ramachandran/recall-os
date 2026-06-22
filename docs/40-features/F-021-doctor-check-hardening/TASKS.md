@@ -16,4 +16,4 @@
 
 - Status: Complete.
 - Scope: Wire into Doctor, run gates, confirm the repository still passes.
-- Tests: Full suite, typecheck, lint, format, build, pack, and `recall doctor`.
+- Tests: Full suite, typecheck, lint, format, build, pack, and `persist doctor`.

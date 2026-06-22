@@ -2,8 +2,8 @@
 
 ## Purpose
 
-The generator module owns deterministic rendering and future document generation plans for Recall OS
-repository memory.
+The generator module owns deterministic rendering and future document generation plans for Persist
+OS repository memory.
 
 ## Owns
 

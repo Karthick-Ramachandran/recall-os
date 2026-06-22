@@ -63,7 +63,7 @@ export async function checkContent(context: DoctorCheckContext): Promise<DoctorF
   );
 
   // Force the foundational security docs to be filled, but only once the repository has real work.
-  // A bare `recall init` stays green; a project with a feature, module, or accepted decision must
+  // A bare `persist init` stays green; a project with a feature, module, or accepted decision must
   // not leave its threat model and security model as untouched stubs.
   const hasWork = featureFolders.length > 0 || moduleFolders.length > 0 || acceptedAdrs.length > 0;
 

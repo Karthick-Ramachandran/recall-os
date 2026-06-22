@@ -46,7 +46,8 @@ pnpm typecheck
 ## Results
 
 - `pnpm install`: passed and generated `pnpm-lock.yaml`.
-- First `pnpm test:run`: failed on test expectation mismatches for macOS realpath behavior and trailing-space slug rejection.
+- First `pnpm test:run`: failed on test expectation mismatches for macOS realpath behavior and
+  trailing-space slug rejection.
 - Final `pnpm test:run`: passed, 8 test files, 32 tests.
 - `pnpm typecheck`: passed.
 

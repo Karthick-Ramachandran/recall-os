@@ -1,6 +1,6 @@
-# Recall OS Claude Instructions
+# Persist OS Claude Instructions
 
-Recall OS is a local-first TypeScript CLI that creates AI-ready engineering memory for software
+Persist OS is a local-first TypeScript CLI that creates AI-ready engineering memory for software
 repositories.
 
 Read these first before non-trivial work:
@@ -22,14 +22,14 @@ Read these first before non-trivial work:
 - `docs/60-engineering/AI_AGENT_RULES.md`
 - `docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md`
 - `docs/ai/MODULE_DELIVERY_WORKFLOW.md`
-- `docs/ai/RECALL_COMMANDS.md`
+- `docs/ai/PERSIST_COMMANDS.md`
 
 ## Working Rules
 
 - Respect the approved milestone scope. Do not add runtime behavior outside the current plan.
 - Treat module work as a mini product workflow: PRD, acceptance, architecture impact, test plan,
   tasks, implementation, completion report, drift review, then module memory update.
-- Recall OS Core is architecture-neutral. Do not encode architecture or technology choices as core
+- Persist OS Core is architecture-neutral. Do not encode architecture or technology choices as core
   truth.
 - Presets are user-facing CLI presets and architecture-level opinion packs; they may propose
   choices, not silently accept them.
@@ -69,7 +69,7 @@ Before claiming implementation work is complete, run:
 
 - `pnpm test:run`
 - `pnpm typecheck`
-- `recall doctor` when the CLI binary is available
+- `persist doctor` when the CLI binary is available
 
 Fix Doctor errors before claiming completion. Address Doctor warnings or record why they are
 acceptable.

@@ -72,8 +72,8 @@ export async function createModule(options: ModuleCreateOptions): Promise<Module
 export function formatModuleCreateResult(result: ModuleCreateResult): string {
   const lines = [
     result.dryRun
-      ? "Recall OS module create dry run complete."
-      : "Recall OS module create complete.",
+      ? "Persist OS module create dry run complete."
+      : "Persist OS module create complete.",
     `Module: ${result.modulePath}`,
   ];
 
@@ -111,7 +111,7 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new ModuleCreateError(
         "CONFIG_REQUIRED",
-        "Recall OS config not found or invalid. Run `recall init` first.",
+        "Persist OS config not found or invalid. Run `persist init` first.",
         [error.message],
       );
     }

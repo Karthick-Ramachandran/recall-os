@@ -78,7 +78,7 @@ export async function createAdr(options: AdrCreateOptions): Promise<AdrCreateRes
 
 export function formatAdrCreateResult(result: AdrCreateResult): string {
   const lines = [
-    result.dryRun ? "Recall OS ADR create dry run complete." : "Recall OS ADR create complete.",
+    result.dryRun ? "Persist OS ADR create dry run complete." : "Persist OS ADR create complete.",
     `ADR: ${result.adrPath}`,
   ];
 
@@ -116,7 +116,7 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new AdrCreateError(
         "CONFIG_REQUIRED",
-        "Recall OS config not found or invalid. Run `recall init` first.",
+        "Persist OS config not found or invalid. Run `persist init` first.",
         [error.message],
       );
     }

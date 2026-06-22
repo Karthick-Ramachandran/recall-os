@@ -13,7 +13,7 @@ export type SkillDefinition = {
 };
 
 /**
- * Built-in catalog of Recall OS workflow skills.
+ * Built-in catalog of Persist OS workflow skills.
  *
  * Each skill is portable (standard Agent Skills fields only) and contains no scripts, so the same
  * SKILL.md works across Claude Code and other Agent Skills-compatible tools. Descriptions include
@@ -361,7 +361,7 @@ export const SKILL_CATALOG: SkillDefinition[] = [
       "Review a change for undocumented architecture, dependency, module, security, testing, or documentation drift. Use when checking whether a change diverges from accepted repository memory.",
     purpose: [
       "Find changes that diverge from accepted repository memory.",
-      "Drift is not difference from a Recall OS recommendation. Recall OS is architecture-neutral.",
+      "Drift is not difference from a Persist OS recommendation. Persist OS is architecture-neutral.",
     ],
     inputs: ["Change summary or diff.", "Feature docs.", "Module docs.", "ADRs.", "Test results."],
     requiredReading: [
@@ -409,7 +409,7 @@ export const SKILL_CATALOG: SkillDefinition[] = [
     ],
     qualityBar: [
       "Findings distinguish drift from documented evolution.",
-      "Findings compare against accepted repository memory, not Recall OS preferences.",
+      "Findings compare against accepted repository memory, not Persist OS preferences.",
       "Each blocker names the missing source-of-truth update.",
       "Review output is concrete enough to act on.",
     ],
@@ -535,11 +535,11 @@ export const SKILL_CATALOG: SkillDefinition[] = [
     ],
     outputFiles: [
       "The Captured Context section of `docs/ai/mcp/<server>.md`.",
-      "An ADR via `recall adr create` when a captured decision is accepted.",
+      "An ADR via `persist adr create` when a captured decision is accepted.",
     ],
     process: [
       "Identify the MCP server and the durable facts worth remembering (design tokens, component mappings, ticket acceptance criteria, recurring error signatures).",
-      "If `docs/ai/mcp/<server>.md` does not exist, create it with `recall mcp add <server>`.",
+      "If `docs/ai/mcp/<server>.md` does not exist, create it with `persist mcp add <server>`.",
       "Record the durable context in the Captured Context section as proposed memory, with enough detail to reuse.",
       "Capture decisions, mappings, and constraints, not raw exports or full dumps.",
       "Treat MCP content as context, not truth; if it conflicts with accepted memory, stop and report.",

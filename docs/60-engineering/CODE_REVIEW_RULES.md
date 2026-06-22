@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Code review should verify that the change follows repository memory, not just that code appears to work.
+Code review should verify that the change follows repository memory, not just that code appears to
+work.
 
 ## Review Priorities
 
@@ -44,4 +45,5 @@ Avoid vague feedback that does not name the violated rule or expected correction
 
 ## Approval Standard
 
-Do not approve a change that violates accepted repository memory unless the relevant docs, ADRs, or standards are updated and accepted.
+Do not approve a change that violates accepted repository memory unless the relevant docs, ADRs, or
+standards are updated and accepted.

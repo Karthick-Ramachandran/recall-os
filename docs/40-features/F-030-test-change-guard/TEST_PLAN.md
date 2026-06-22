@@ -9,7 +9,7 @@
 
 ## Integration Tests
 
-- In a temp git repo: staging `src/x.ts` alone → `recall guard --source src` exits 1; staging
+- In a temp git repo: staging `src/x.ts` alone → `persist guard --source src` exits 1; staging
   `src/x.ts` + `src/x.test.ts` → exits 0.
 
 ## Security Tests

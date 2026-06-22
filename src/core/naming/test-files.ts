@@ -1,6 +1,6 @@
 /**
- * Cross-ecosystem test-file detection, shared by `recall adopt` (does this repo have tests?) and
- * `recall guard` (did this change include tests?). Filename patterns cover Go, JS/TS, Python, JVM,
+ * Cross-ecosystem test-file detection, shared by `persist adopt` (does this repo have tests?) and
+ * `persist guard` (did this change include tests?). Filename patterns cover Go, JS/TS, Python, JVM,
  * PHP, and Ruby; a path under a conventional test directory also counts.
  */
 export const TEST_FILE_PATTERNS = [

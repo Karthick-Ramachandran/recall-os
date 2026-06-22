@@ -27,8 +27,8 @@ Scope:
 
 Acceptance:
 
-- Init generates `docs/ai/RECALL_COMMANDS.md`.
-- Command reference documents current Recall OS commands and Doctor completion gate.
+- Init generates `docs/ai/PERSIST_COMMANDS.md`.
+- Command reference documents current Persist OS commands and Doctor completion gate.
 
 ## T2: Implement Doctor Core
 

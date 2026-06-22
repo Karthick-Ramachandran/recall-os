@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The config module owns `.recall/config.json` schema, defaults, loading, and safe writing.
+The config module owns `.persist/config.json` schema, defaults, loading, and safe writing.
 
 ## Owns
 
@@ -25,7 +25,7 @@ The config module owns `.recall/config.json` schema, defaults, loading, and safe
 
 ## Public Interfaces
 
-- `RecallConfig`
+- `PersistConfig`
 - `MemoryProfile`
 - `AiToolTarget`
 - `ConfigWritePolicy`
@@ -41,4 +41,4 @@ P2 keeps config boring and useful.
 The config manifest records repository memory settings and paths, but not decisions or organization
 standards yet.
 
-P10 renames the config path to `.recall/config.json` and public config type to `RecallConfig`.
+P10 renames the config path to `.persist/config.json` and public config type to `PersistConfig`.

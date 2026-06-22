@@ -2,11 +2,13 @@
 
 ## Summary
 
-Recall OS should be positioned as an architecture-neutral AI engineering memory platform.
+Persist OS should be positioned as an architecture-neutral AI engineering memory platform.
 
-It should not be understood as an architecture starter kit that tells users which infrastructure, cloud, database, auth provider, or architecture style to use.
+It should not be understood as an architecture starter kit that tells users which infrastructure,
+cloud, database, auth provider, or architecture style to use.
 
-Recall OS records, distributes, validates, and protects the architecture decisions a user, repository, organization, or explicitly selected preset provides.
+Persist OS records, distributes, validates, and protects the architecture decisions a user,
+repository, organization, or explicitly selected preset provides.
 
 ## Users
 
@@ -17,12 +19,12 @@ Recall OS records, distributes, validates, and protects the architecture decisio
 
 ## Goals
 
-- Make `recall init` neutral by default.
+- Make `persist init` neutral by default.
 - Keep `preset` as the CLI term.
 - Define presets architecturally as opinion packs.
 - Distinguish Memory Engine, Repository Decisions, Opinion Packs, and Organization Memory.
 - Redefine drift as mismatch with accepted repository memory.
-- Remove language implying Recall OS Core makes architecture choices.
+- Remove language implying Persist OS Core makes architecture choices.
 
 ## Non-Goals
 
@@ -35,8 +37,9 @@ Recall OS records, distributes, validates, and protects the architecture decisio
 
 ## Strategic Principle
 
-Recall OS is intentionally architecture-neutral.
+Persist OS is intentionally architecture-neutral.
 
 Its role is not to determine what architecture a team should adopt.
 
-Its role is to ensure that architecture decisions, regardless of their content, become durable, reviewable, AI-readable repository memory.
+Its role is to ensure that architecture decisions, regardless of their content, become durable,
+reviewable, AI-readable repository memory.

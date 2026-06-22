@@ -20,7 +20,8 @@
 
 ## Regression Tests
 
-Existing init, feature create, and ADR create tests must continue to pass after shared write-summary helper extraction.
+Existing init, feature create, and ADR create tests must continue to pass after shared write-summary
+helper extraction.
 
 ## Verification
 

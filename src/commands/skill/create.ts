@@ -45,7 +45,7 @@ export async function createSkill(options: SkillCreateOptions): Promise<SkillCre
   if (plan.hasErrors) {
     throw new SkillCreateError(
       "WRITE_PLAN_ERROR",
-      "Recall OS skill create write plan contains errors.",
+      "Persist OS skill create write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
         .map((entry) => `${entry.path}: ${entry.reason}`),
@@ -65,7 +65,9 @@ export async function createSkill(options: SkillCreateOptions): Promise<SkillCre
 
 export function formatSkillCreateResult(result: SkillCreateResult): string {
   const lines = [
-    result.dryRun ? "Recall OS skill create dry run complete." : "Recall OS skill create complete.",
+    result.dryRun
+      ? "Persist OS skill create dry run complete."
+      : "Persist OS skill create complete.",
     `Skill: ${result.slug}${result.fromCatalog ? " (from catalog)" : " (skeleton — fill it in)"}`,
   ];
 

@@ -3,7 +3,7 @@
 ## Purpose
 
 The package-release module owns build, package validation, CI release checks, package metadata, and
-release evidence for Recall OS.
+release evidence for Persist OS.
 
 ## Owns
 
@@ -28,7 +28,7 @@ release evidence for Recall OS.
 
 - Package scripts for build, lint, format check, tests, typecheck, and pack check.
 - npm package metadata.
-- `recall` CLI binary after build.
+- `persist` CLI binary after build.
 
 ## Boundaries
 

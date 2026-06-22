@@ -31,8 +31,8 @@ evidence, not cross-references between memory and accepted decisions.
 - Add a read-only drift check to Doctor.
 - Detect feature and module memory that references an `ADR-####` identifier with no matching ADR
   file (dangling decision reference).
-- Detect feature and module memory that references an ADR whose status is not accepted
-  (reliance on a proposed decision).
+- Detect feature and module memory that references an ADR whose status is not accepted (reliance on
+  a proposed decision).
 - Keep findings deterministic and local.
 - Add unit and integration tests for drift checks.
 - Update Doctor module memory, product roadmap, product vision, and completion evidence.

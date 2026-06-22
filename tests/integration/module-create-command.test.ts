@@ -30,7 +30,7 @@ describe("module create command", () => {
     const result = await runCommand(rootDir, ["module", "create", "billing"]);
 
     expect(result.exitCode).toBe(1);
-    expect(result.stderr).toContain("Run `recall init` first.");
+    expect(result.stderr).toContain("Run `persist init` first.");
     expect(await listRelativeFiles(rootDir)).toEqual([]);
   });
 
@@ -42,7 +42,7 @@ describe("module create command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("Recall OS module create complete.");
+    expect(result.stdout).toContain("Persist OS module create complete.");
     expect(result.stdout).toContain("Module: docs/30-modules/billing");
     expect(await listRelativeFiles(path.join(rootDir, "docs/30-modules/billing"))).toEqual([
       "DECISIONS.md",
@@ -88,7 +88,7 @@ describe("module create command", () => {
     const result = await runCommand(rootDir, ["module", "create", "billing", "--dry-run"]);
 
     expect(result.exitCode).toBe(0);
-    expect(result.stdout).toContain("Recall OS module create dry run complete.");
+    expect(result.stdout).toContain("Persist OS module create dry run complete.");
     expect(result.stdout).toContain("Planned creates:");
     expect(await listRelativeFiles(rootDir)).not.toContain("docs/30-modules/billing/MODULE.md");
   });
@@ -111,7 +111,7 @@ describe("module create command", () => {
   it("uses configured modulesDir", async () => {
     const rootDir = await createRoot("module-configured-dir");
     await runInitCommand(rootDir);
-    const configPath = path.join(rootDir, ".recall/config.json");
+    const configPath = path.join(rootDir, ".persist/config.json");
     const config = JSON.parse(await readFile(configPath, "utf8")) as Record<string, unknown>;
     config.modulesDir = "memory/modules";
     await writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");

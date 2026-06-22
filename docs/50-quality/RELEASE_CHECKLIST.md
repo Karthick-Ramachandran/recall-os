@@ -2,7 +2,8 @@
 
 ## Release Gate
 
-A release requires evidence for build, tests, security posture, generated output, package contents, and documentation.
+A release requires evidence for build, tests, security posture, generated output, package contents,
+and documentation.
 
 ## Required Evidence
 

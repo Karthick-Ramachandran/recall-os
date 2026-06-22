@@ -2,10 +2,10 @@
 
 ## New presets
 
-- `recall preset list` includes `kotlin-android` and `python-fastapi`.
-- `recall init --preset kotlin-android` writes Kotlin guidance and proposed ADRs under
+- `persist preset list` includes `kotlin-android` and `python-fastapi`.
+- `persist init --preset kotlin-android` writes Kotlin guidance and proposed ADRs under
   `docs/adrs/proposed/`.
-- `recall init --preset python-fastapi` writes FastAPI guidance and proposed ADRs under
+- `persist init --preset python-fastapi` writes FastAPI guidance and proposed ADRs under
   `docs/adrs/proposed/`.
 
 ## Opinionated content

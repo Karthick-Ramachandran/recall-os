@@ -8,7 +8,8 @@
 
 `core/generator` owns deterministic template rendering.
 
-It must not write files directly. Future generators will combine rendered content with the filesystem write-plan and safe-write modules.
+It must not write files directly. Future generators will combine rendered content with the
+filesystem write-plan and safe-write modules.
 
 ## ADR Impact
 
@@ -30,14 +31,18 @@ Advanced templating engines are deferred until a future ADR shows they are neces
 
 Template rendering remains local and deterministic.
 
-P3 reduces template-injection risk by rejecting execution markers, logic syntax, nested paths, expressions, and prototype-adjacent keys.
+P3 reduces template-injection risk by rejecting execution markers, logic syntax, nested paths,
+expressions, and prototype-adjacent keys.
 
 ## File Write Impact
 
 No file write behavior changes.
 
-The renderer accepts strings and returns strings. It does not load files, write files, or bypass `core/filesystem`.
+The renderer accepts strings and returns strings. It does not load files, write files, or bypass
+`core/filesystem`.
 
 ## Agent Memory Impact
 
-P3 documents that agent instructions are routing files, not reliable memory guarantees. Durable memory remains in `docs/`, and future doctor and drift review workflows should validate repository memory after agent work.
+P3 documents that agent instructions are routing files, not reliable memory guarantees. Durable
+memory remains in `docs/`, and future doctor and drift review workflows should validate repository
+memory after agent work.

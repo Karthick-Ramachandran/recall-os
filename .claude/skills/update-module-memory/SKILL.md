@@ -1,6 +1,9 @@
 ---
 name: update-module-memory
-description: "Update module memory docs after module behavior, ownership, boundaries, tests, risks, or decisions change. Use when a module's behavior, ownership, boundaries, tests, risks, or decisions change."
+description:
+  "Update module memory docs after module behavior, ownership, boundaries, tests, risks, or
+  decisions change. Use when a module's behavior, ownership, boundaries, tests, risks, or decisions
+  change."
 ---
 
 # Skill: Update Module Memory
@@ -34,8 +37,10 @@ Keep module docs accurate so agents do not rediscover ownership, boundaries, tes
 ## Process
 
 1. Identify affected modules.
-2. Confirm module memory is linked to feature delivery docs when the module is new or materially changed.
-3. Update module purpose, responsibilities, non-responsibilities, public interfaces, and boundaries when behavior changes.
+2. Confirm module memory is linked to feature delivery docs when the module is new or materially
+   changed.
+3. Update module purpose, responsibilities, non-responsibilities, public interfaces, and boundaries
+   when behavior changes.
 4. Update task status only when supported by completion evidence.
 5. Update test expectations when risks or behavior change.
 6. Record decisions or link ADRs when architecture changes.

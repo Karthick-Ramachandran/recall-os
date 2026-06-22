@@ -1,6 +1,9 @@
 ---
 name: write-tests
-description: "Write meaningful tests from acceptance criteria, risk, security invariants, module boundaries, and regression history. Use when adding or updating tests, writing a test plan, or covering a new feature or bug fix."
+description:
+  "Write meaningful tests from acceptance criteria, risk, security invariants, module boundaries,
+  and regression history. Use when adding or updating tests, writing a test plan, or covering a new
+  feature or bug fix."
 ---
 
 # Skill: Write Tests
@@ -34,7 +37,8 @@ Create professional tests that prove important behavior, not random happy paths.
 ## Process
 
 1. Map acceptance criteria to test cases.
-2. Add risk-based tests for unsafe paths, overwrites, symlinks, config validation, generated output, and CLI behavior as relevant.
+2. Add risk-based tests for unsafe paths, overwrites, symlinks, config validation, generated output,
+   and CLI behavior as relevant.
 3. Prefer unit tests for pure logic and integration tests for command behavior.
 4. Add golden tests for generated docs and templates.
 5. Name tests by behavior.
@@ -45,7 +49,8 @@ Create professional tests that prove important behavior, not random happy paths.
 Stop and request human decision if:
 
 - Requirements are not testable.
-- The requested test would require runtime network, telemetry, cloud, MCP, or AI API behavior without review.
+- The requested test would require runtime network, telemetry, cloud, MCP, or AI API behavior
+  without review.
 - Security-sensitive behavior lacks a documented expected result.
 - The test approach conflicts with engineering standards.
 

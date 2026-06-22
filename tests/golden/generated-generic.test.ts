@@ -8,7 +8,7 @@ import {
   removeTempRoot,
   runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { RecallConfig } from "../../src/core/config/config-schema.js";
+import type { PersistConfig } from "../../src/core/config/config-schema.js";
 
 describe("generic init golden output", () => {
   let rootDir: string | undefined;
@@ -50,11 +50,11 @@ describe("generic init golden output", () => {
       ".claude/skills/security-review/SKILL.md",
       ".claude/skills/update-module-memory/SKILL.md",
       ".claude/skills/write-tests/SKILL.md",
-      ".cursor/rules/recall-memory.mdc",
-      ".github/workflows/recall.yml",
-      ".recall/config.json",
-      ".recall/hooks/pre-commit",
-      ".recall/hooks/pre-push",
+      ".cursor/rules/persist-memory.mdc",
+      ".github/workflows/persist.yml",
+      ".persist/config.json",
+      ".persist/hooks/pre-commit",
+      ".persist/hooks/pre-push",
       "AGENTS.md",
       "CLAUDE.md",
       "docs/00-product/BRD.md",
@@ -73,11 +73,11 @@ describe("generic init golden output", () => {
       "docs/adrs/README.md",
       "docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md",
       "docs/ai/MCP_STRATEGY.md",
+      "docs/ai/PERSIST_COMMANDS.md",
       "docs/ai/presets/generic-guidance.md",
-      "docs/ai/RECALL_COMMANDS.md",
     ]);
 
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     expect(config.preset).toBe("generic");
     expect(await readGeneratedFile(rootDir, "docs/ai/presets/generic-guidance.md")).toContain(
       "neutral repository memory",

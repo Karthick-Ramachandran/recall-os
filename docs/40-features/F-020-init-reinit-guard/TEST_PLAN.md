@@ -10,7 +10,7 @@
 
 ## Manual Verification
 
-- Built CLI refuses `init --force` in a directory with `.recall/config.json` and proceeds with
+- Built CLI refuses `init --force` in a directory with `.persist/config.json` and proceeds with
   `--reinit`.
 
 ## Regression

@@ -1,4 +1,4 @@
-# Recall OS
+# Persist OS
 
 **Durable, AI-ready engineering memory for your repository — and a deterministic `doctor` that
 proves it stays healthy.**
@@ -9,22 +9,22 @@ proves it stays healthy.**
 ![Telemetry](https://img.shields.io/badge/telemetry-none-success)
 ![Network](https://img.shields.io/badge/network%20calls-none-success)
 
-Recall OS is a local-first CLI that turns a repository into the source of truth for **why** it is
+Persist OS is a local-first CLI that turns a repository into the source of truth for **why** it is
 built the way it is. It creates structured, reviewable memory — product intent, architecture
 decisions, module ownership, testing and security expectations, AI agent rules — and then
-**validates** that memory with `recall doctor`. Architecture-neutral. No network, no telemetry, no
+**validates** that memory with `persist doctor`. Architecture-neutral. No network, no telemetry, no
 code generation.
 
-[Website](https://recall-os.pages.dev) · [Install](#install) · [Quickstart](#quickstart) ·
+[Website](https://persist-os.pages.dev) · [Install](#install) · [Quickstart](#quickstart) ·
 [Commands](#commands) · [What Doctor Checks](#what-doctor-checks) · [Presets](#presets) ·
 [Why I built this](PHILOSOPHY.md) · [Contributing](CONTRIBUTING.md)
 
-![Recall OS — guided memory creation, ADR acceptance, and the doctor gate](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/media/recall-demo.gif)
+![Persist OS — guided memory creation, ADR acceptance, and the doctor gate](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/media/persist-demo.gif)
 
 ---
 
 AI can write code fast, but its context is temporary — it forgets decisions, compacts conversations,
-and drifts from earlier intent. Git records **what** changed. Recall OS records **why**, in a form
+and drifts from earlier intent. Git records **what** changed. Persist OS records **why**, in a form
 humans and agents can re-read and validate before and after work.
 
 ```txt
@@ -36,24 +36,24 @@ When these questions live in the repository instead of a chat window, the reposi
 them.
 
 > **Not a vector memory engine.** Tools like supermemory or mem0 _retrieve_ information with
-> embeddings; Recall OS writes the **decisions** themselves — reviewable files, not vectors — and
+> embeddings; Persist OS writes the **decisions** themselves — reviewable files, not vectors — and
 > checks they stay consistent. They're complementary, not competitors. →
 > [Why I built this](PHILOSOPHY.md)
 
-## Why Recall OS
+## Why Persist OS
 
 - **Memory that outlives the conversation.** Decisions, constraints, and ownership are committed to
   the repo, not trapped in an agent's context window.
-- **A gate, not just docs.** `recall doctor` is deterministic and returns an exit code, so "is this
+- **A gate, not just docs.** `persist doctor` is deterministic and returns an exit code, so "is this
   work actually finished and consistent?" becomes a check you can run in a hook or CI.
-- **Decisions change safely.** When a decision changes, `recall adr supersede` records it (the old
+- **Decisions change safely.** When a decision changes, `persist adr supersede` records it (the old
   ADR is marked superseded, the new one links back) and Doctor flags any memory still citing the old
   one — so the trail stays auditable instead of silently contradicted. The generated agent rules
   even carry the CLI commands inline, so your AI tool uses them itself.
 - **Fights context rot.** Doctor warns when the always-loaded memory bloats into a wall of text, or
   when it still points at `src/` code that changed long after the memory did — so memory stays a
   lean, current map, not a stale dump.
-- **Architecture-neutral by design.** Recall OS records and protects _your_ decisions. It never
+- **Architecture-neutral by design.** Persist OS records and protects _your_ decisions. It never
   silently picks a framework, database, or pattern for you.
 - **Local-first and private.** No network calls, no telemetry, no AI API calls, no remote templates.
   It runs entirely on your machine.
@@ -65,78 +65,78 @@ them.
 Run it without installing — the quickest way to try it:
 
 ```bash
-npx recall-os@latest init
+npx persist-os@latest init
 ```
 
-Every command works the same way: `npx recall-os <command>` (e.g. `npx recall-os doctor`).
+Every command works the same way: `npx persist-os <command>` (e.g. `npx persist-os doctor`).
 
 Or install the CLI globally:
 
 ```bash
-npm install -g recall-os
-recall --help
+npm install -g persist-os
+persist --help
 ```
 
 (Requires Node.js >= 20. Published at
-[npmjs.com/package/recall-os](https://www.npmjs.com/package/recall-os).)
+[npmjs.com/package/persist-os](https://www.npmjs.com/package/persist-os).)
 
 ## Quickstart
 
 ```bash
 # 1. Create repository memory (architecture-neutral, or pick an opinion pack)
-recall init
-recall init --preset kotlin-android   # optional, proposes stack decisions
+persist init
+persist init --preset kotlin-android   # optional, proposes stack decisions
 
 # 2. Capture intent and decisions as you work
-recall feature create checkout
-recall adr create payment-provider
-recall adr accept payment-provider    # promote a proposal to accepted memory
+persist feature create checkout
+persist adr create payment-provider
+persist adr accept payment-provider    # promote a proposal to accepted memory
 
 # 3. Bring an MCP server's context into durable memory (offline)
-recall mcp add figma
+persist mcp add figma
 
 # 4. Validate the memory is healthy and complete
-recall doctor
+persist doctor
 ```
 
 Every command guides you — it names the file it created, where it is, and what to do next.
 
-Generate files only for the AI tools you use: `recall init --ai-tools claude,cursor` (default: all
+Generate files only for the AI tools you use: `persist init --ai-tools claude,cursor` (default: all
 of `claude`, `codex`, `cursor`; `AGENTS.md` is always written).
 
-`recall init` also generates tracked **pre-commit and pre-push hooks** in `.recall/hooks/` that run
-`recall doctor` plus any gates you configure. The pre-push hook is the final regression gate before
-code leaves your machine (it catches commits made with `--no-verify` or before the hook was active).
-Enable them once per clone — Recall OS proposes the command but never runs it for you:
+`persist init` also generates tracked **pre-commit and pre-push hooks** in `.persist/hooks/` that
+run `persist doctor` plus any gates you configure. The pre-push hook is the final regression gate
+before code leaves your machine (it catches commits made with `--no-verify` or before the hook was
+active). Enable them once per clone — Persist OS proposes the command but never runs it for you:
 
 ```bash
-git config core.hooksPath .recall/hooks
+git config core.hooksPath .persist/hooks
 ```
 
 ## Commands
 
-| Command                            | Purpose                                                                        |
-| ---------------------------------- | ------------------------------------------------------------------------------ |
-| `recall init`                      | Create neutral repository memory (and a pre-commit hook).                      |
-| `recall init --preset <id>`        | Add an opinion pack: rich guidance and proposed ADRs.                          |
-| `recall init --ai-tools <list>`    | Generate files only for the AI tools you use (claude, codex, cursor, generic). |
-| `recall adopt`                     | Inspect an existing repo and propose reviewable memory.                        |
-| `recall preset list`               | List built-in presets.                                                         |
-| `recall feature create <name>`     | Scaffold feature memory (PRD, acceptance, tests, review).                      |
-| `recall adr create <title>`        | Create a proposed architecture decision record.                                |
-| `recall adr accept <name>`         | Promote a proposed ADR to accepted source-of-truth.                            |
-| `recall adr supersede <old> <new>` | Record a changed decision: mark the old ADR superseded by a new accepted ADR.  |
-| `recall module create <name>`      | Scaffold module memory (ownership, boundaries, tests).                         |
-| `recall skill create <name>`       | Generate a portable AI agent skill (Claude + Agent Skills).                    |
-| `recall skill list`                | List the built-in agent skill catalog.                                         |
-| `recall mcp add <server>`          | Generate offline, proposed memory for an MCP server.                           |
-| `recall doctor`                    | Validate memory health, evidence, and drift.                                   |
-| `recall guard --source <dirs>`     | Fail when staged source changed without tests (add to your gates to enforce).  |
+| Command                             | Purpose                                                                        |
+| ----------------------------------- | ------------------------------------------------------------------------------ |
+| `persist init`                      | Create neutral repository memory (and a pre-commit hook).                      |
+| `persist init --preset <id>`        | Add an opinion pack: rich guidance and proposed ADRs.                          |
+| `persist init --ai-tools <list>`    | Generate files only for the AI tools you use (claude, codex, cursor, generic). |
+| `persist adopt`                     | Inspect an existing repo and propose reviewable memory.                        |
+| `persist preset list`               | List built-in presets.                                                         |
+| `persist feature create <name>`     | Scaffold feature memory (PRD, acceptance, tests, review).                      |
+| `persist adr create <title>`        | Create a proposed architecture decision record.                                |
+| `persist adr accept <name>`         | Promote a proposed ADR to accepted source-of-truth.                            |
+| `persist adr supersede <old> <new>` | Record a changed decision: mark the old ADR superseded by a new accepted ADR.  |
+| `persist module create <name>`      | Scaffold module memory (ownership, boundaries, tests).                         |
+| `persist skill create <name>`       | Generate a portable AI agent skill (Claude + Agent Skills).                    |
+| `persist skill list`                | List the built-in agent skill catalog.                                         |
+| `persist mcp add <server>`          | Generate offline, proposed memory for an MCP server.                           |
+| `persist doctor`                    | Validate memory health, evidence, and drift.                                   |
+| `persist guard --source <dirs>`     | Fail when staged source changed without tests (add to your gates to enforce).  |
 
 ## What Doctor Checks
 
-`recall doctor` is the part that makes Recall OS more than a template. Every check is deterministic,
-local, and read-only.
+`persist doctor` is the part that makes Persist OS more than a template. Every check is
+deterministic, local, and read-only.
 
 | Category            | Detects                                                                                     | Severity     |
 | ------------------- | ------------------------------------------------------------------------------------------- | ------------ |
@@ -157,10 +157,10 @@ Exit codes:  0 = healthy   1 = warnings only   2 = errors
 Because it returns an exit code, Doctor drops straight into the completion loop:
 
 ```bash
-pnpm test:run && pnpm typecheck && recall doctor
+pnpm test:run && pnpm typecheck && persist doctor
 ```
 
-Use it locally via the generated pre-commit hook, or add `recall doctor` as a step in CI.
+Use it locally via the generated pre-commit hook, or add `persist doctor` as a step in CI.
 
 ## Presets
 
@@ -184,17 +184,17 @@ Adding a preset is a small contribution — see [CONTRIBUTING.md](CONTRIBUTING.m
 
 ## How It Works
 
-![How Recall OS works: you capture intent, decisions, ownership, standards, and security with recall init / feature / adr / module; it writes durable, reviewable memory under docs/ and .recall/config.json that humans review in pull requests and agents re-read every session; recall doctor validates it deterministically, returning exit code 0, 1, or 2 for a pre-commit hook or CI gate.](https://raw.githubusercontent.com/Karthick-Ramachandran/recall-os/main/docs/media/how-it-works.png)
+![How Persist OS works: you capture intent, decisions, ownership, standards, and security with persist init / feature / adr / module; it writes durable, reviewable memory under docs/ and .persist/config.json that humans review in pull requests and agents re-read every session; persist doctor validates it deterministically, returning exit code 0, 1, or 2 for a pre-commit hook or CI gate.](https://raw.githubusercontent.com/Karthick-Ramachandran/persist-os/main/docs/media/how-it-works.png)
 
 ## How agents load the memory
 
-Writing memory only helps if the agent reads it, so `recall init` wires each tool with its own
+Writing memory only helps if the agent reads it, so `persist init` wires each tool with its own
 native mechanism:
 
 | Tool            | How memory loads                                                                                                           |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | **Claude Code** | `CLAUDE.md` (auto) imports `AGENTS.md`; a SessionStart hook injects a live map of accepted ADRs and modules every session. |
-| **Cursor**      | `.cursor/rules/recall-memory.mdc` is an always-apply rule that loads the memory rules into every request.                  |
+| **Cursor**      | `.cursor/rules/persist-memory.mdc` is an always-apply rule that loads the memory rules into every request.                 |
 | **Codex**       | `AGENTS.md` is auto-discovered and loaded.                                                                                 |
 
 The portable guarantee across every tool is `AGENTS.md` plus the generated Agent Skills
@@ -203,7 +203,7 @@ and `AGENTS.md` carry the same rules everywhere else.
 
 ## Repository Memory
 
-Recall OS creates a memory structure under `docs/` and `.recall/config.json`, with an explicit
+Persist OS creates a memory structure under `docs/` and `.persist/config.json`, with an explicit
 source-of-truth order:
 
 ```txt
@@ -218,7 +218,7 @@ If external context or chat history conflicts with repository memory, **reposito
 
 ## Local-First Guarantees
 
-Recall OS does not:
+Persist OS does not:
 
 - make network calls at runtime;
 - collect telemetry;
@@ -251,13 +251,13 @@ pnpm build
 pnpm pack:check
 ```
 
-Run the gates above and `recall doctor` before claiming work is complete. See
+Run the gates above and `persist doctor` before claiming work is complete. See
 [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow and how to add a preset, and
 [SECURITY.md](SECURITY.md) for the security model.
 
 ## Acknowledgments
 
-The [landing page](https://recall-os.pages.dev) is deployed with
+The [landing page](https://persist-os.pages.dev) is deployed with
 [Pagecast](https://github.com/Amal-David/pagecast) — thank you.
 
 ## License

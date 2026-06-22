@@ -7,8 +7,8 @@ Doctor currently verifies whether repository memory exists and has the required 
 P12 extends Doctor into the first deterministic governance layer. It should report when repository
 memory claims work is complete but lacks the evidence required by engineering standards.
 
-This moves Recall OS from memory creation toward memory protection without attempting semantic drift
-detection yet.
+This moves Persist OS from memory creation toward memory protection without attempting semantic
+drift detection yet.
 
 ## Problem
 

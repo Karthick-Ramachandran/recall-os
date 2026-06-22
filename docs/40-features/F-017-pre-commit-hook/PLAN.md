@@ -16,7 +16,7 @@ the toolchain choice in user config so core stays neutral.
    scripts and a lockfile, return proposed `<pm> run <script>` commands for known scripts, or an
    empty list when no toolchain is detected.
 4. Add `src/core/hooks/generate-hook.ts` with `renderPreCommitHook(gates)` and the hooks path
-   constant, producing a `#!/bin/sh` script that runs `recall doctor` then each gate.
+   constant, producing a `#!/bin/sh` script that runs `persist doctor` then each gate.
 5. Wire init: detect gates, seed config, add the executable hook file to the write plan, and append
    the activation proposal to init output.
 
@@ -27,6 +27,6 @@ the toolchain choice in user config so core stays neutral.
 
 ## Out Of Scope
 
-- A `recall hooks` subcommand.
+- A `persist hooks` subcommand.
 - Doctor detection of hook-versus-config drift.
 - Automatic git configuration.

@@ -15,8 +15,8 @@
 
   <rect x="1" y="1" width="1238" height="468" rx="18" fill="#0b1021" stroke="#222a44" stroke-width="2"/>
 
-  <text x="40" y="46" font-size="26" font-weight="700" fill="#e6edf3">How Recall OS works</text>
-  <text x="40" y="72" font-size="14" class="muted">Create and validate durable memory under <tspan class="mono" fill="#a6b0d4">docs/</tspan> and <tspan class="mono" fill="#a6b0d4">.recall/</tspan> — git tracks what changed, Recall tracks why.</text>
+  <text x="40" y="46" font-size="26" font-weight="700" fill="#e6edf3">How Persist OS works</text>
+  <text x="40" y="72" font-size="14" class="muted">Create and validate durable memory under <tspan class="mono" fill="#a6b0d4">docs/</tspan> and <tspan class="mono" fill="#a6b0d4">.persist/</tspan> — git tracks what changed, Persist tracks why.</text>
 
   <!-- Inputs -->
   <text x="40" y="116" font-size="12" letter-spacing="1" class="muted">WHAT YOU KNOW</text>
@@ -37,7 +37,7 @@
 
   <!-- Capture commands -->
   <rect x="250" y="150" width="250" height="120" rx="12" fill="#121a30" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="375" y="186" text-anchor="middle" class="mono" font-size="16" font-weight="700" fill="#38bdf8">recall</text>
+  <text x="375" y="186" text-anchor="middle" class="mono" font-size="16" font-weight="700" fill="#38bdf8">persist</text>
   <text x="375" y="212" text-anchor="middle" class="mono" font-size="13" fill="#e6edf3">init · feature · adr · module</text>
   <text x="375" y="238" text-anchor="middle" font-size="12" class="muted">capture intent &amp; decisions</text>
 
@@ -45,7 +45,7 @@
 
   <!-- Memory store -->
   <rect x="560" y="150" width="270" height="120" rx="12" fill="#121a30" stroke="#818cf8" stroke-width="1.5"/>
-  <text x="695" y="194" text-anchor="middle" class="mono" font-size="15" fill="#c7d2fe">docs/ + .recall/config.json</text>
+  <text x="695" y="194" text-anchor="middle" class="mono" font-size="15" fill="#c7d2fe">docs/ + .persist/config.json</text>
   <text x="695" y="220" text-anchor="middle" font-size="12" class="muted">durable, reviewable memory</text>
   <text x="695" y="240" text-anchor="middle" font-size="12" class="muted">source of truth over chat history</text>
 
@@ -60,7 +60,7 @@
   <!-- Validate / gate row -->
   <path class="arrow" d="M695,270 L695,318" marker-end="url(#arrow)"/>
   <rect x="560" y="320" width="270" height="74" rx="12" fill="#121a30" stroke="#34d399" stroke-width="1.5"/>
-  <text x="695" y="354" text-anchor="middle" class="mono" font-size="16" font-weight="700" fill="#34d399">recall doctor</text>
+  <text x="695" y="354" text-anchor="middle" class="mono" font-size="16" font-weight="700" fill="#34d399">persist doctor</text>
   <text x="695" y="377" text-anchor="middle" font-size="12" class="muted">deterministic, local, read-only</text>
 
   <path class="arrow" d="M830,357 L876,357" marker-end="url(#arrow)"/>

@@ -10,7 +10,7 @@ import { executeWritePlan } from "../../src/core/filesystem/write-file-safe.js";
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-overwrite-security-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "persist-overwrite-security-"));
 });
 
 afterEach(async () => {

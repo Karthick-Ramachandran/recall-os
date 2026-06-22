@@ -7,7 +7,7 @@ Complete.
 ## Tasks Completed
 
 - T1: Planned the feature and accepted ADR-0006 (promote and remove the proposal).
-- T2: Implemented `recall adr accept` and wired it into the CLI.
+- T2: Implemented `persist adr accept` and wired it into the CLI.
 - T3: Updated module memory, command reference, README, and recorded completion evidence.
 
 ## Files Changed
@@ -19,7 +19,7 @@ Complete.
 - `docs/adrs/ADR-0006-adr-accept-promotes-and-removes-the-proposal.md` (new)
 - `docs/30-modules/adr-workflow/MODULE.md`
 - `docs/40-features/F-027-adr-accept/` (new feature memory)
-- `docs/ai/RECALL_COMMANDS.md`, `README.md`
+- `docs/ai/PERSIST_COMMANDS.md`, `README.md`
 - `examples/generated-*/` (regenerated command reference)
 
 ## Tests Run
@@ -46,7 +46,7 @@ Complete.
 
 - The single delete is scoped to the named proposal, resolved within the project root, only on real
   runs; it is the only delete in the tool.
-- `recall adr reject` is deferred.
+- `persist adr reject` is deferred.
 
 ## Docs Updated
 

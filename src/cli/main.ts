@@ -50,7 +50,7 @@ export function createCliProgram(
   const program = new Command();
 
   program
-    .name("recall")
+    .name("persist")
     .description("Initialize and maintain repository memory for AI-assisted software work.")
     .exitOverride()
     .configureOutput({
@@ -60,7 +60,7 @@ export function createCliProgram(
 
   program
     .command("init")
-    .description("Initialize Recall OS repository memory.")
+    .description("Initialize Persist OS repository memory.")
     .option("--preset <id>", "Apply optional preset guidance and proposed decisions.")
     .option(
       "--ai-tools <list>",
@@ -68,7 +68,7 @@ export function createCliProgram(
     )
     .option("--dry-run", "Show planned writes without writing files.")
     .option("--force", "Overwrite existing files explicitly.")
-    .option("--reinit", "Allow --force to overwrite an existing Recall OS installation.")
+    .option("--reinit", "Allow --force to overwrite an existing Persist OS installation.")
     .action(
       async (options: {
         preset?: string;
@@ -117,7 +117,9 @@ export function createCliProgram(
       stdout.write(formatAdoptResult(result));
     });
 
-  const featureCommand = program.command("feature").description("Manage Recall OS feature memory.");
+  const featureCommand = program
+    .command("feature")
+    .description("Manage Persist OS feature memory.");
 
   featureCommand
     .command("create")
@@ -136,7 +138,7 @@ export function createCliProgram(
       stdout.write(formatFeatureCreateResult(result));
     });
 
-  const adrCommand = program.command("adr").description("Manage Recall OS ADR memory.");
+  const adrCommand = program.command("adr").description("Manage Persist OS ADR memory.");
 
   adrCommand
     .command("create")
@@ -195,7 +197,7 @@ export function createCliProgram(
       },
     );
 
-  const moduleCommand = program.command("module").description("Manage Recall OS module memory.");
+  const moduleCommand = program.command("module").description("Manage Persist OS module memory.");
 
   moduleCommand
     .command("create")
@@ -216,7 +218,7 @@ export function createCliProgram(
 
   program
     .command("doctor")
-    .description("Check whether Recall OS repository memory is healthy.")
+    .description("Check whether Persist OS repository memory is healthy.")
     .action(async () => {
       const result = await doctorProject({ rootDir: cwd });
 
@@ -244,7 +246,7 @@ export function createCliProgram(
       state.exitCode = result.exitCode;
     });
 
-  const mcpCommand = program.command("mcp").description("Manage Recall OS MCP context memory.");
+  const mcpCommand = program.command("mcp").description("Manage Persist OS MCP context memory.");
 
   mcpCommand
     .command("add")
@@ -263,7 +265,7 @@ export function createCliProgram(
       stdout.write(formatMcpAddResult(result));
     });
 
-  const skillCommand = program.command("skill").description("Manage Recall OS agent skills.");
+  const skillCommand = program.command("skill").description("Manage Persist OS agent skills.");
 
   skillCommand
     .command("create")
@@ -289,7 +291,7 @@ export function createCliProgram(
       stdout.write(formatSkillListResult());
     });
 
-  const presetCommand = program.command("preset").description("Inspect Recall OS presets.");
+  const presetCommand = program.command("preset").description("Inspect Persist OS presets.");
 
   presetCommand
     .command("list")

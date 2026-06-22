@@ -12,4 +12,4 @@
 - Status: Complete.
 - Scope: Command reference, generator template, contribution guide; regenerate examples.
 - Acceptance: Docs describe `--reinit`; gates pass.
-- Tests: Full suite, typecheck, lint, format, build, pack, and `recall doctor`.
+- Tests: Full suite, typecheck, lint, format, build, pack, and `persist doctor`.

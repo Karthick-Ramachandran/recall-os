@@ -6,7 +6,8 @@
 - Collapses repeated separators into one hyphen.
 - Enforces max length.
 - Rejects empty input.
-- Rejects `.`, `..`, traversal, separators, null bytes, control chars, Windows reserved names, trailing dot, and trailing space.
+- Rejects `.`, `..`, traversal, separators, null bytes, control chars, Windows reserved names,
+  trailing dot, and trailing space.
 
 ## Feature Number Tests
 

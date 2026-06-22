@@ -4,7 +4,8 @@
 
 Build preset contracts plus minimal built-in content.
 
-Keep P4 focused on validation and registry behavior. Rich framework content belongs to later work after the model proves useful.
+Keep P4 focused on validation and registry behavior. Rich framework content belongs to later work
+after the model proves useful.
 
 ## Tasks
 

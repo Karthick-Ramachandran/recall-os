@@ -12,7 +12,8 @@ Complete.
 - Added `doctor` command wiring through `main(argv, io)`.
 - Added Doctor unit and integration tests.
 - Updated root agent docs to describe Doctor as a completion gate when the CLI binary is available.
-- Backfilled `CHANGE_REQUESTS.md` in existing feature memory folders so Doctor validates the current repo shape.
+- Backfilled `CHANGE_REQUESTS.md` in existing feature memory folders so Doctor validates the current
+  repo shape.
 
 ## Files Changed
 
@@ -30,7 +31,7 @@ Complete.
 - `docs/40-features/F-009-feature-create-command/CHANGE_REQUESTS.md`
 - `docs/40-features/F-010-adr-create-command/CHANGE_REQUESTS.md`
 - `docs/40-features/F-011-module-create-command/CHANGE_REQUESTS.md`
-- `docs/ai/RECALL_COMMANDS.md`
+- `docs/ai/PERSIST_COMMANDS.md`
 - `docs/30-modules/doctor/`
 - `docs/30-modules/agent-rules/`
 - `docs/30-modules/cli/`
@@ -58,17 +59,21 @@ Complete.
 
 ## Remaining Risks
 
-- Package `bin` wiring remains P10 scope, so this milestone validates Doctor through `main(argv, io)` integration tests.
-- P9 Doctor checks deterministic memory structure only. Semantic architecture drift, dependency drift, stale completion content, JSON reporting, and auto-fix remain future scope.
+- Package `bin` wiring remains P10 scope, so this milestone validates Doctor through
+  `main(argv, io)` integration tests.
+- P9 Doctor checks deterministic memory structure only. Semantic architecture drift, dependency
+  drift, stale completion content, JSON reporting, and auto-fix remain future scope.
 
 ## Docs Updated
 
 - P9 feature docs and Doctor module memory are complete.
 - CLI, generator, repository-init, and agent-rules module memory were updated.
-- Root agent docs now route to `docs/ai/RECALL_COMMANDS.md` and document Doctor as a completion gate.
+- Root agent docs now route to `docs/ai/PERSIST_COMMANDS.md` and document Doctor as a completion
+  gate.
 
 ## Engineering Standards
 
-- No network, telemetry, MCP runtime, AI API, cloud behavior, package bin, JSON reporter, or auto-fix behavior was added.
+- No network, telemetry, MCP runtime, AI API, cloud behavior, package bin, JSON reporter, or
+  auto-fix behavior was added.
 - Doctor is read-only.
 - Generated command-reference memory is local and deterministic.

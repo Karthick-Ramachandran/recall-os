@@ -6,7 +6,8 @@ Passed.
 
 ## Scope Review
 
-- Adds a `skills` concern and a `recall skill` command group. Reuses the write pipeline and slugify.
+- Adds a `skills` concern and a `persist skill` command group. Reuses the write pipeline and
+  slugify.
 
 ## Correctness Review
 
@@ -27,7 +28,7 @@ The research step confirmed the official format and surfaced the "Use when" trig
 which improved every generated description over the prior hand-authored ones. The repository's own
 skills are now generated from the catalog rather than hand-authored.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
 Add MCP context-capture skills (for example a design-context skill for Figma) so MCP-derived context
 is recorded into durable memory, under the same portable, scriptless rules.

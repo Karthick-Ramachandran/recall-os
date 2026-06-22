@@ -1,16 +1,16 @@
-# Recall OS Project Structure and Build Priority
+# Persist OS Project Structure and Build Priority
 
 ## 1. Project Structure
 
-Recall OS should dogfood the memory structure it generates.
+Persist OS should dogfood the memory structure it generates.
 
-Recall OS Core is architecture-neutral. It records, distributes, validates, and protects decisions;
+Persist OS Core is architecture-neutral. It records, distributes, validates, and protects decisions;
 it does not make architecture choices for users.
 
 Recommended repository structure:
 
 ```txt
-recall/
+persist/
   README.md
   LICENSE
   package.json
@@ -24,7 +24,7 @@ recall/
   CLAUDE.md
   AGENTS.md
 
-  .recall/
+  .persist/
     config.json
 
   .cursor/
@@ -358,7 +358,7 @@ AGENTS.md
 
 Why first:
 
-Recall OS must prove its own idea by using the same system to build itself.
+Persist OS must prove its own idea by using the same system to build itself.
 
 No implementation before repo constitution.
 
@@ -425,7 +425,7 @@ tests/unit/config/load-config.test.ts
 
 Acceptance criteria:
 
-- Creates `.recall/config.json`.
+- Creates `.persist/config.json`.
 - Validates config.
 - Rejects invalid config.
 - Does not store secrets.
@@ -533,10 +533,10 @@ tests/golden/generated-flutter.test.ts
 
 Acceptance criteria:
 
-- `recall init` creates config and docs.
-- Neutral `recall init` creates memory docs without architecture or technology choices.
-- `recall init` works in an empty folder.
-- `recall init` does not require existing app code, framework files, or Git.
+- `persist init` creates config and docs.
+- Neutral `persist init` creates memory docs without architecture or technology choices.
+- `persist init` works in an empty folder.
+- `persist init` does not require existing app code, framework files, or Git.
 - `--preset nextjs` uses the Next.js preset as optional opinion-pack guidance.
 - Preset guidance and detected technologies do not become accepted repository memory by themselves.
 - Existing files are skipped.
@@ -674,7 +674,7 @@ Acceptance criteria:
 
 Reason:
 
-Doctor turns Recall OS from generator into maintainable system.
+Doctor turns Persist OS from generator into maintainable system.
 
 ---
 
@@ -709,15 +709,15 @@ For OSS reputation, README and examples are part of the product.
 
 # 3. Dogfooding Evaluation Plan
 
-Recall OS should evaluate itself by using its own workflow.
+Persist OS should evaluate itself by using its own workflow.
 
 ## 3.1 Evaluation Question
 
-Can Recall OS help build Recall OS better?
+Can Persist OS help build Persist OS better?
 
 ## 3.2 Evaluation Method
 
-For every feature built in Recall OS:
+For every feature built in Persist OS:
 
 1. Create feature folder.
 2. Write PRD.
@@ -730,7 +730,7 @@ For every feature built in Recall OS:
 9. Run tests.
 10. Write completion report.
 11. Run drift review.
-12. Review whether Recall OS’s generated structure helped.
+12. Review whether Persist OS’s generated structure helped.
 
 ## 3.3 Evaluation Template
 
@@ -739,7 +739,7 @@ Add this to each feature review:
 ```md
 # Dogfooding Review
 
-## Did Recall OS-generated docs help implementation?
+## Did Persist OS-generated docs help implementation?
 
 ## Which docs were useful?
 
@@ -753,12 +753,12 @@ Add this to each feature review:
 
 ## Did the workflow slow us down unnecessarily?
 
-## What should Recall OS improve before public release?
+## What should Persist OS improve before public release?
 ```
 
 ## 3.4 Success Signal
 
-Recall OS is useful if its own generated system catches:
+Persist OS is useful if its own generated system catches:
 
 - Missing tests
 - Unsafe file writes
@@ -777,9 +777,9 @@ If it cannot help build itself, it is not ready to help other projects.
 Use this as the first implementation prompt:
 
 ```md
-You are building Recall OS, an open-source TypeScript CLI.
+You are building Persist OS, an open-source TypeScript CLI.
 
-Recall OS creates and maintains an AI-ready engineering memory layer inside software repositories.
+Persist OS creates and maintains an AI-ready engineering memory layer inside software repositories.
 
 Read these documents first:
 
@@ -866,15 +866,15 @@ Do not start with AI generation.
 
 Start with safe, deterministic, boring engineering.
 
-That is what will make Recall OS respected.
+That is what will make Persist OS respected.
 
 After P10, the product should stay focused on the core thesis:
 
 ```txt
 Git tracks what changed.
-Recall OS tracks why it changed.
+Persist OS tracks why it changed.
 ```
 
 The next milestones should deepen memory, discipline, governance, and drift detection. They should
-not turn Recall OS into an AI coding agent, IDE competitor, app generator, architecture generator,
+not turn Persist OS into an AI coding agent, IDE competitor, app generator, architecture generator,
 agent runtime, model host, or cloud execution platform.

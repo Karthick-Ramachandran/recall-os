@@ -2,23 +2,26 @@
 
 ## Purpose
 
-Recall OS Core is an architecture-neutral memory engine.
+Persist OS Core is an architecture-neutral memory engine.
 
-It does not decide which architecture, framework, cloud provider, database, queue, auth provider, observability stack, or deployment model a project should use.
+It does not decide which architecture, framework, cloud provider, database, queue, auth provider,
+observability stack, or deployment model a project should use.
 
-Recall OS records, distributes, validates, and protects architecture decisions once humans, repository owners, organizations, or explicitly selected presets define them.
+Persist OS records, distributes, validates, and protects architecture decisions once humans,
+repository owners, organizations, or explicitly selected presets define them.
 
 ## Strategic Position
 
-Recall OS is intentionally architecture-neutral.
+Persist OS is intentionally architecture-neutral.
 
 Its role is not to determine what architecture a team should adopt.
 
-Its role is to ensure that architecture decisions, regardless of their content, become durable, reviewable, AI-readable repository memory.
+Its role is to ensure that architecture decisions, regardless of their content, become durable,
+reviewable, AI-readable repository memory.
 
 ## What Core Knows
 
-Recall OS Core knows how to create and maintain:
+Persist OS Core knows how to create and maintain:
 
 - ADRs.
 - PRDs.
@@ -36,7 +39,7 @@ Recall OS Core knows how to create and maintain:
 
 ## What Core Does Not Know
 
-Recall OS Core must not encode product infrastructure choices such as:
+Persist OS Core must not encode product infrastructure choices such as:
 
 - Redis.
 - Kafka.
@@ -55,7 +58,7 @@ Recall OS Core must not encode product infrastructure choices such as:
 - Clean Architecture.
 - Feature-first architecture.
 
-Those may be valid choices, but they are not Recall OS Core decisions.
+Those may be valid choices, but they are not Persist OS Core decisions.
 
 ## Memory Pillars
 
@@ -77,7 +80,8 @@ Repository memory includes:
 3. Opinion Packs
 4. Organization Memory
 
-The memory engine remains stable across all users. Solo founders, startups, OSS maintainers, and enterprises bring their own decisions into the same memory system.
+The memory engine remains stable across all users. Solo founders, startups, OSS maintainers, and
+enterprises bring their own decisions into the same memory system.
 
 ## Source-Of-Truth Order
 
@@ -97,26 +101,28 @@ The memory engine remains stable across all users. Solo founders, startups, OSS 
 The primary path is:
 
 ```bash
-recall init
+persist init
 ```
 
-This should generate a neutral engineering memory structure with no technology opinions and no architecture opinions.
+This should generate a neutral engineering memory structure with no technology opinions and no
+architecture opinions.
 
 It must work in an empty folder.
 
 Git initializes source control.
 
-Recall OS initializes repository memory.
+Persist OS initializes repository memory.
 
-Code may come before or after Recall OS.
+Code may come before or after Persist OS.
 
-Optional presets may add stack-aware guidance, but they must not silently create accepted architecture decisions.
+Optional presets may add stack-aware guidance, but they must not silently create accepted
+architecture decisions.
 
 ## Init Workflows
 
-1. Greenfield: empty folder -> `recall init` -> app/framework later.
-2. Existing repository: app exists -> neutral `recall init` -> optional detected guidance later.
-3. Legacy adoption: mature repo -> future `recall adopt`.
+1. Greenfield: empty folder -> `persist init` -> app/framework later.
+2. Existing repository: app exists -> neutral `persist init` -> optional detected guidance later.
+3. Legacy adoption: mature repo -> future `persist adopt`.
 
 Technology detection may provide guidance, suggest opinion packs, or draft proposed decisions.
 
@@ -126,16 +132,19 @@ Technology detection must not become accepted repository memory by itself.
 
 Root agent instruction files are entry points, not guarantees.
 
-Recall OS must assume AI agents may forget context, continue after compaction, skip re-reading root instructions, or behave differently across vendors.
+Persist OS must assume AI agents may forget context, continue after compaction, skip re-reading root
+instructions, or behave differently across vendors.
 
 Durable repository memory belongs in `docs/`.
 
-Future review and `doctor` workflows should validate repository memory after agent work instead of assuming the agent remembered every instruction.
+Future review and `doctor` workflows should validate repository memory after agent work instead of
+assuming the agent remembered every instruction.
 
 ## Drift Definition
 
-Architecture drift is not difference from a Recall OS recommendation.
+Architecture drift is not difference from a Persist OS recommendation.
 
 Architecture drift is difference from accepted repository memory.
 
-Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, and internal enterprise systems are all equally valid when they are accepted repository or organization decisions.
+Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, and internal enterprise systems are all
+equally valid when they are accepted repository or organization decisions.

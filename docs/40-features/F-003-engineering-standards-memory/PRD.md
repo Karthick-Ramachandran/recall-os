@@ -2,13 +2,17 @@
 
 ## Summary
 
-Recall OS should treat engineering standards as first-class repository memory.
+Persist OS should treat engineering standards as first-class repository memory.
 
-Engineering Standards Memory captures how work must be done in a repository, including secrets handling, dependency review, documentation discipline, git hygiene, release evidence, migrations, operations, and AI agent behavior.
+Engineering Standards Memory captures how work must be done in a repository, including secrets
+handling, dependency review, documentation discipline, git hygiene, release evidence, migrations,
+operations, and AI agent behavior.
 
 ## Problem
 
-Current memory docs capture product intent, architecture decisions, module ownership, testing, and security assumptions, but everyday engineering discipline is scattered across security, quality, dependency, and agent docs.
+Current memory docs capture product intent, architecture decisions, module ownership, testing, and
+security assumptions, but everyday engineering discipline is scattered across security, quality,
+dependency, and agent docs.
 
 AI agents need one durable place to learn repository rules like:
 

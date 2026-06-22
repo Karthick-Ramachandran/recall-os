@@ -41,8 +41,10 @@ Complete.
 
 ## Remaining Risks
 
-- Package `bin` and release wiring remain deferred to P10, so command coverage is through `main(argv, io)`.
-- Feature docs are concise starter memory; humans or agents still need to fill in PRD, acceptance, architecture impact, test plan, tasks, review, and completion substance.
+- Package `bin` and release wiring remain deferred to P10, so command coverage is through
+  `main(argv, io)`.
+- Feature docs are concise starter memory; humans or agents still need to fill in PRD, acceptance,
+  architecture impact, test plan, tasks, review, and completion substance.
 - Doctor drift detection is still future work.
 
 ## Docs Updated

@@ -2,10 +2,10 @@
 
 ## Target Structure
 
-Recall OS should dogfood the structure it generates.
+Persist OS should dogfood the structure it generates.
 
 ```txt
-recall/
+persist/
   CLAUDE.md
   AGENTS.md
   docs/

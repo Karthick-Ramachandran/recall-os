@@ -4,7 +4,8 @@
 
 Implement Doctor as a read-only core health check.
 
-Keep command code focused on orchestration and let `core/doctor` own checks, findings, report formatting, and exit-code mapping.
+Keep command code focused on orchestration and let `core/doctor` own checks, findings, report
+formatting, and exit-code mapping.
 
 ## Tasks
 

@@ -16,7 +16,7 @@ It validates whether repository memory is structurally healthy enough for AI-ass
 - Standards checks for completion evidence, review evidence, ADR consequences, and security impact
   notes.
 - Deterministic drift checks for ADR reference integrity in feature and module memory.
-- Recall command memory health checks.
+- Persist command memory health checks.
 
 ## Does Not Own
 
@@ -62,4 +62,4 @@ P13 adds the first deterministic drift checks:
 Semantic drift detection (natural-language contradiction, module-ownership comparison, code-to-doc
 drift) remains future work.
 
-P10 updates Doctor checks for `.recall/config.json` and `docs/ai/RECALL_COMMANDS.md`.
+P10 updates Doctor checks for `.persist/config.json` and `docs/ai/PERSIST_COMMANDS.md`.

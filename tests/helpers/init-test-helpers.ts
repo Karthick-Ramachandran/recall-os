@@ -12,7 +12,7 @@ export type InitCommandRun = {
 };
 
 export async function createTempRoot(prefix: string): Promise<string> {
-  return mkdtemp(path.join(os.tmpdir(), `recall-${prefix}-`));
+  return mkdtemp(path.join(os.tmpdir(), `persist-${prefix}-`));
 }
 
 export async function removeTempRoot(rootDir: string): Promise<void> {

@@ -38,7 +38,8 @@ Complete.
 
 ## Remaining Risks
 
-- P5 does not add package `bin` or build/release wiring. Installed binary behavior remains P10 scope.
+- P5 does not add package `bin` or build/release wiring. Installed binary behavior remains P10
+  scope.
 - P5 uses concise in-code templates. Rich generated docs and template files remain future work.
 - P5 does not implement technology detection or `preset list`.
 
@@ -52,4 +53,6 @@ Complete.
 
 ## Engineering Standards
 
-Engineering standards were followed. The change is scoped, tested, documented, and includes completion evidence. No network, telemetry, MCP runtime, cloud behavior, AI API behavior, remote templates, or production application code was added.
+Engineering standards were followed. The change is scoped, tested, documented, and includes
+completion evidence. No network, telemetry, MCP runtime, cloud behavior, AI API behavior, remote
+templates, or production application code was added.

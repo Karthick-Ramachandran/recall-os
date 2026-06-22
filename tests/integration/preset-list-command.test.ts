@@ -19,7 +19,7 @@ describe("preset list command", () => {
 
     expect(result.exitCode).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("Recall OS presets");
+    expect(result.stdout).toContain("Persist OS presets");
     expect(result.stdout).toMatch(/- flutter:.*\n.*- generic:.*\n.*- ios-swift:.*\n.*- nextjs:/s);
   });
 });

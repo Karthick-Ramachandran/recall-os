@@ -11,7 +11,8 @@ Passed.
 - No module drift found. `core/presets` owns schema, validation, and registry behavior.
 - No security drift found. Preset destinations are validated and accepted decisions are rejected.
 - No testing drift found. Unit tests cover schema, validation, and registry behavior.
-- No documentation drift found. Feature docs, preset module memory, and opinion-pack docs were updated.
+- No documentation drift found. Feature docs, preset module memory, and opinion-pack docs were
+  updated.
 
 ## Review Checklist
 
@@ -21,6 +22,7 @@ Passed.
 - Passed: Unsafe destinations are rejected.
 - Passed: Duplicate normalized destinations are rejected.
 - Passed: No dependency was added.
-- Passed: No CLI, init, file write, network, telemetry, MCP runtime, AI API, or cloud behavior was added.
+- Passed: No CLI, init, file write, network, telemetry, MCP runtime, AI API, or cloud behavior was
+  added.
 - Passed: Tests cover acceptance criteria.
 - Passed: Module memory is updated.

@@ -7,7 +7,7 @@ Complete.
 ## Tasks Completed
 
 - T1: Added the `capture-mcp-context` skill to the catalog.
-- T2: Wired `recall mcp add` to install the capture skill and added Jira as a known server.
+- T2: Wired `persist mcp add` to install the capture skill and added Jira as a known server.
 - T3: Updated the strategy doc and command reference, dogfooded the capture skill, and recorded
   completion evidence.
 
@@ -17,7 +17,7 @@ Complete.
 - `src/core/mcp/known-servers.ts`
 - `src/commands/mcp/add.ts`
 - `tests/unit/skills/skill-catalog.test.ts`, `tests/integration/mcp-command.test.ts`
-- `docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md`, `docs/ai/RECALL_COMMANDS.md`,
+- `docs/ai/AI_AGENTS_SKILLS_MCP_STRATEGY.md`, `docs/ai/PERSIST_COMMANDS.md`,
   `src/core/generator/generate-init.ts`
 - `docs/30-modules/mcp/TASKS.md`
 - `docs/40-features/F-025-mcp-capture-skill/` (new feature memory)
@@ -40,8 +40,9 @@ Complete.
 - `pnpm typecheck`, `pnpm lint`, and `pnpm format:check` passed.
 - `pnpm build` passed; `pnpm pack:check` validated 169 files.
 - `node dist/cli.js doctor` passed after this report was written.
-- Manual verification: `recall mcp add figma` wrote the memory doc, the proposed ADR, and the
-  `capture-mcp-context` skill to both targets; `recall mcp add jira` produced task-tool-aware memory.
+- Manual verification: `persist mcp add figma` wrote the memory doc, the proposed ADR, and the
+  `capture-mcp-context` skill to both targets; `persist mcp add jira` produced task-tool-aware
+  memory.
 
 ## Remaining Risks
 

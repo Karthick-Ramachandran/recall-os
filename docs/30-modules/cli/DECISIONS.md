@@ -50,7 +50,7 @@ and report content.
 
 ## P10: Packaged Binary
 
-P10 exposes the CLI through the `recall` binary.
+P10 exposes the CLI through the `persist` binary.
 
 The binary delegates to the same `main(argv, io)` entrypoint used by integration tests.
 

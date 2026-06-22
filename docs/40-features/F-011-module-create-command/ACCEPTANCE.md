@@ -3,7 +3,7 @@
 ## Command Behavior
 
 - `module create <name>` creates module memory under configured `modulesDir`.
-- Command requires `.recall/config.json`.
+- Command requires `.persist/config.json`.
 - Command fails clearly when config is missing.
 - Module names are slugified.
 - Unsafe module names are rejected.
@@ -34,4 +34,5 @@ Created module folders include:
 ## Runtime Boundary
 
 - No app code is generated.
-- No package `bin`, build, release, doctor, technology detection, network, telemetry, MCP runtime, AI API, or cloud behavior is added.
+- No package `bin`, build, release, doctor, technology detection, network, telemetry, MCP runtime,
+  AI API, or cloud behavior is added.

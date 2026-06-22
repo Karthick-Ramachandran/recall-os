@@ -13,7 +13,7 @@ import {
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-write-file-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "persist-write-file-"));
 });
 
 afterEach(async () => {
@@ -36,12 +36,12 @@ describe("executeWritePlan", () => {
   it("writes executable entries with the owner execute bit set", async () => {
     const plan = createWritePlan({
       rootDir,
-      files: [{ path: ".recall/hooks/pre-commit", content: "#!/bin/sh\n", executable: true }],
+      files: [{ path: ".persist/hooks/pre-commit", content: "#!/bin/sh\n", executable: true }],
     });
 
     await executeWritePlan(plan);
 
-    const mode = (await stat(path.join(rootDir, ".recall/hooks/pre-commit"))).mode;
+    const mode = (await stat(path.join(rootDir, ".persist/hooks/pre-commit"))).mode;
     expect(mode & 0o100).toBe(0o100);
   });
 

@@ -23,11 +23,11 @@ Passed.
 
 ### Did the workflow catch any issue?
 
-It closed the gap raised in review: `recall mcp add` previously produced a memory slot with no
-mechanism to fill it. The capture skill completes the cycle using the skill generation already built,
-rather than adding runtime behavior.
+It closed the gap raised in review: `persist mcp add` previously produced a memory slot with no
+mechanism to fill it. The capture skill completes the cycle using the skill generation already
+built, rather than adding runtime behavior.
 
-### What should Recall OS improve before public release?
+### What should Persist OS improve before public release?
 
 Consider a Doctor check that an `docs/ai/mcp/<server>.md` with adopted status has captured context,
 and broaden known servers.

@@ -2,15 +2,19 @@
 
 ## Purpose
 
-Add the core template renderer that future Recall OS generators will use to produce deterministic repository memory documents.
+Add the core template renderer that future Persist OS generators will use to produce deterministic
+repository memory documents.
 
-P3 deliberately implements placeholder-only rendering. It does not add Eta or any template engine that can execute logic.
+P3 deliberately implements placeholder-only rendering. It does not add Eta or any template engine
+that can execute logic.
 
 ## Problem
 
-Recall OS will eventually generate PRDs, ADRs, module memory, agent instructions, and review docs. Those generated artifacts need a small rendering primitive before higher-level generators can exist.
+Persist OS will eventually generate PRDs, ADRs, module memory, agent instructions, and review docs.
+Those generated artifacts need a small rendering primitive before higher-level generators can exist.
 
-If rendering supports code execution, template logic, includes, or remote templates too early, the MVP trust boundary expands before the product has command-level safeguards and review workflows.
+If rendering supports code execution, template logic, includes, or remote templates too early, the
+MVP trust boundary expands before the product has command-level safeguards and review workflows.
 
 ## Decision
 
@@ -23,13 +27,16 @@ Templates are plain strings with placeholders such as:
 {{ name }}
 ```
 
-Context keys and placeholder keys must be simple safe identifiers. Values are strings, numbers, or booleans and are rendered with deterministic string conversion.
+Context keys and placeholder keys must be simple safe identifiers. Values are strings, numbers, or
+booleans and are rendered with deterministic string conversion.
 
 ## Agent Memory Insight
 
 Root agent files such as `AGENTS.md` and `CLAUDE.md` are entry points, not guarantees.
 
-Recall OS must assume agents may forget context, continue after compaction, or fail to re-read root instructions. Durable repository memory belongs in `docs/`, where humans, agents, review workflows, and future `doctor` checks can re-read and validate it.
+Persist OS must assume agents may forget context, continue after compaction, or fail to re-read root
+instructions. Durable repository memory belongs in `docs/`, where humans, agents, review workflows,
+and future `doctor` checks can re-read and validate it.
 
 Models are temporary. Repositories are permanent.
 

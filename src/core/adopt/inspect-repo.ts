@@ -172,7 +172,7 @@ export async function inspectRepo(rootDir: string): Promise<RepoSignals> {
 
 /**
  * Human-readable summary of the inferred signals, with the source each was read from so a reviewer
- * can confirm or correct it. Shared by `recall adopt` (which persists it) and `recall init` (which
+ * can confirm or correct it. Shared by `persist adopt` (which persists it) and `persist init` (which
  * surfaces it). Every line is proposed, never accepted.
  */
 export function summarizeSignals(signals: RepoSignals): string[] {
@@ -200,7 +200,7 @@ export function summarizeSignals(signals: RepoSignals): string[] {
 
   lines.push(
     signals.testsEvidence === null
-      ? "- Tests: none detected — if tests exist, point Recall at them by correcting this report"
+      ? "- Tests: none detected — if tests exist, point Persist at them by correcting this report"
       : `- Tests: detected via ${signals.testsEvidence}`,
   );
 

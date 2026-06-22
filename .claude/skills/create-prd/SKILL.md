@@ -1,6 +1,9 @@
 ---
 name: create-prd
-description: "Create or update a feature PRD with user intent, scope, acceptance criteria, non-goals, security notes, test expectations, and source-of-truth links. Use when starting a feature, drafting or updating a PRD, or defining acceptance criteria."
+description:
+  "Create or update a feature PRD with user intent, scope, acceptance criteria, non-goals, security
+  notes, test expectations, and source-of-truth links. Use when starting a feature, drafting or
+  updating a PRD, or defining acceptance criteria."
 ---
 
 # Skill: Create PRD
@@ -43,7 +46,8 @@ Stop and request human decision if:
 
 - Product intent is contradictory.
 - A requested behavior conflicts with an accepted ADR.
-- The feature adds network, telemetry, AI API, cloud, MCP runtime, auth, secrets, or file write behavior without explicit approval.
+- The feature adds network, telemetry, AI API, cloud, MCP runtime, auth, secrets, or file write
+  behavior without explicit approval.
 - Scope is too broad to define testable acceptance criteria.
 
 ## Quality Bar

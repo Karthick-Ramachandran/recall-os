@@ -2,7 +2,7 @@
 
 ## Goal
 
-Recall OS must make file writes predictable, reviewable, and non-destructive.
+Persist OS must make file writes predictable, reviewable, and non-destructive.
 
 ## Rules
 

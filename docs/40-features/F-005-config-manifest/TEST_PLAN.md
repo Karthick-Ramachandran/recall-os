@@ -11,14 +11,14 @@
 - Unknown top-level keys are rejected.
 - Decision index keys are rejected.
 - Organization standards key is rejected.
-- `writeConfig` creates `.recall/config.json`.
+- `writeConfig` creates `.persist/config.json`.
 - Existing config is skipped by default.
 - Dry run writes nothing.
 - Force overwrite works through the safe write policy.
 
 ## Manual Review
 
-- Root `.recall/config.json` validates.
+- Root `.persist/config.json` validates.
 - Root config contains no secrets and no decision indexes.
 - No CLI command is added.
 - No template renderer is added.

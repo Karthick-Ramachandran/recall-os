@@ -8,31 +8,31 @@ import {
 
 describe("renderTemplate", () => {
   it("renders basic placeholders", () => {
-    const context = createTemplateContext({ name: "Recall OS" });
+    const context = createTemplateContext({ name: "Persist OS" });
 
-    expect(renderTemplate("Project: {{name}}", context)).toBe("Project: Recall OS");
+    expect(renderTemplate("Project: {{name}}", context)).toBe("Project: Persist OS");
   });
 
   it("renders placeholders with surrounding whitespace", () => {
-    const context = createTemplateContext({ name: "Recall OS" });
+    const context = createTemplateContext({ name: "Persist OS" });
 
-    expect(renderTemplate("Project: {{ name }}", context)).toBe("Project: Recall OS");
+    expect(renderTemplate("Project: {{ name }}", context)).toBe("Project: Persist OS");
   });
 
   it("renders repeated placeholders consistently", () => {
-    const context = createTemplateContext({ name: "Recall OS" });
+    const context = createTemplateContext({ name: "Persist OS" });
 
-    expect(renderTemplate("{{name}} / {{ name }}", context)).toBe("Recall OS / Recall OS");
+    expect(renderTemplate("{{name}} / {{ name }}", context)).toBe("Persist OS / Persist OS");
   });
 
   it("renders string, number, and boolean values deterministically", () => {
     const context = createTemplateContext({
-      name: "Recall OS",
+      name: "Persist OS",
       version: 3,
       enabled: true,
     });
 
-    expect(renderTemplate("{{name}} {{version}} {{enabled}}", context)).toBe("Recall OS 3 true");
+    expect(renderTemplate("{{name}} {{version}} {{enabled}}", context)).toBe("Persist OS 3 true");
   });
 
   it("renders multiline values as text", () => {
@@ -48,7 +48,7 @@ describe("renderTemplate", () => {
   });
 
   it("fails clearly on missing values", () => {
-    const context = createTemplateContext({ name: "Recall OS" });
+    const context = createTemplateContext({ name: "Persist OS" });
 
     expect(() => renderTemplate("{{missing}}", context)).toThrow(TemplateRenderError);
     expect(() => renderTemplate("{{missing}}", context)).toThrow(
@@ -57,7 +57,7 @@ describe("renderTemplate", () => {
   });
 
   it("fails clearly on invalid placeholder syntax", () => {
-    const context = createTemplateContext({ name: "Recall OS" });
+    const context = createTemplateContext({ name: "Persist OS" });
 
     expect(() => renderTemplate("{{}}", context)).toThrow(TemplateRenderError);
     expect(() => renderTemplate("{{user.name}}", context)).toThrow(TemplateRenderError);
@@ -68,7 +68,7 @@ describe("renderTemplate", () => {
   });
 
   it("rejects logic and execution syntax", () => {
-    const context = createTemplateContext({ name: "Recall OS" });
+    const context = createTemplateContext({ name: "Persist OS" });
 
     for (const template of [
       "<%= name %>",
@@ -82,7 +82,7 @@ describe("renderTemplate", () => {
   });
 
   it("rejects prototype-adjacent placeholder keys", () => {
-    const context = createTemplateContext({ name: "Recall OS" });
+    const context = createTemplateContext({ name: "Persist OS" });
 
     for (const key of ["constructor", "__proto__", "prototype"]) {
       expect(() => renderTemplate(`{{${key}}}`, context)).toThrow(TemplateRenderError);
@@ -109,7 +109,7 @@ describe("createTemplateContext", () => {
 
   it("validates context values before rendering", () => {
     expect(() => createTemplateContext({ name: null })).toThrow(TemplateRenderError);
-    expect(() => createTemplateContext({ name: ["Recall OS"] })).toThrow(TemplateRenderError);
+    expect(() => createTemplateContext({ name: ["Persist OS"] })).toThrow(TemplateRenderError);
     expect(() => createTemplateContext({ name: { nested: true } })).toThrow(TemplateRenderError);
   });
 
@@ -118,7 +118,7 @@ describe("createTemplateContext", () => {
       TemplateRenderError,
     );
     expect(() =>
-      createTemplateContext(["Recall OS"] as unknown as Record<string, unknown>),
+      createTemplateContext(["Persist OS"] as unknown as Record<string, unknown>),
     ).toThrow(TemplateRenderError);
   });
 });

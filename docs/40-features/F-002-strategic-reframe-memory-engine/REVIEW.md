@@ -14,10 +14,12 @@ Review areas:
 ## Findings
 
 - No runtime behavior changed.
-- Core docs now state Recall OS is architecture-neutral.
-- `recall init` is documented as neutral by default.
+- Core docs now state Persist OS is architecture-neutral.
+- `persist init` is documented as neutral by default.
 - `preset` remains the CLI term and is defined architecturally as an opinion pack.
-- Preset-generated architecture choices are documented as proposed or optional, not silently accepted.
-- Drift is now documented as mismatch with accepted repository memory, not mismatch with Recall OS recommendations.
+- Preset-generated architecture choices are documented as proposed or optional, not silently
+  accepted.
+- Drift is now documented as mismatch with accepted repository memory, not mismatch with Persist OS
+  recommendations.
 - Root `PRD.md`, `BRD.md`, and `priority.md` match canonical product docs under `docs/00-product/`.
 - Existing tests and typecheck pass.

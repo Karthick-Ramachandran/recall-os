@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-- `docs/40-features/F-013-recall-os-package-release/`
+- `docs/40-features/F-013-persist-os-package-release/`
 
 ## Tasks
 

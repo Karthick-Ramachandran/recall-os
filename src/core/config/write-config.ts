@@ -1,7 +1,7 @@
 import type { WriteResult } from "../filesystem/write-file-safe.js";
 import { executeWritePlan } from "../filesystem/write-file-safe.js";
 import { createWritePlan } from "../filesystem/write-plan.js";
-import { parseConfig, type ConfigWritePolicy, type RecallConfig } from "./config-schema.js";
+import { parseConfig, type ConfigWritePolicy, type PersistConfig } from "./config-schema.js";
 import { CONFIG_PATH } from "./load-config.js";
 
 export type WriteConfigOptions = {
@@ -12,7 +12,7 @@ export type WriteConfigOptions = {
 
 export async function writeConfig(
   rootDir: string,
-  config: RecallConfig,
+  config: PersistConfig,
   options: WriteConfigOptions = {},
 ): Promise<WriteResult> {
   const validatedConfig = parseConfig(config);

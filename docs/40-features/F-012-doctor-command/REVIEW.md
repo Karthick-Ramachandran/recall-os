@@ -13,7 +13,8 @@ Passed.
 - Passed: Exit codes follow `0`, `1`, `2`.
 - Passed: Missing memory structure is an error.
 - Passed: Generated command reference is local and deterministic.
-- Passed: No network, telemetry, MCP runtime, AI API, cloud behavior, package bin, JSON reporter, or auto-fix is added.
+- Passed: No network, telemetry, MCP runtime, AI API, cloud behavior, package bin, JSON reporter, or
+  auto-fix is added.
 - Passed: Tests cover acceptance criteria.
 - Passed: Module memory is updated.
 

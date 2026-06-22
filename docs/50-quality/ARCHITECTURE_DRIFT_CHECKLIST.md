@@ -2,13 +2,16 @@
 
 ## Definition
 
-Architecture drift is undocumented change, mismatch with accepted repository memory, or mismatch with accepted engineering standards.
+Architecture drift is undocumented change, mismatch with accepted repository memory, or mismatch
+with accepted engineering standards.
 
-Change is acceptable when the docs are updated. Drift happens when code, dependencies, security posture, module boundaries, or generated behavior change without source-of-truth updates.
+Change is acceptable when the docs are updated. Drift happens when code, dependencies, security
+posture, module boundaries, or generated behavior change without source-of-truth updates.
 
-Drift is not difference from a Recall OS recommendation.
+Drift is not difference from a Persist OS recommendation.
 
-Recall OS is architecture-neutral. Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, and internal systems are all valid when accepted by repository or organization memory.
+Persist OS is architecture-neutral. Redis, Kafka, CloudWatch, Datadog, Supabase, Firebase, and
+internal systems are all valid when accepted by repository or organization memory.
 
 ## Review Areas
 
@@ -29,7 +32,8 @@ Stop and request human decision if:
 - Implementation conflicts with an accepted ADR.
 - Implementation conflicts with engineering standards.
 - New dependency is added without ADR consideration.
-- Network, telemetry, auth, secrets, storage, or file write behavior changes without security review.
+- Network, telemetry, auth, secrets, storage, or file write behavior changes without security
+  review.
 - Feature behavior changes without PRD or change request update.
 
 ## Output

@@ -2,9 +2,9 @@
 
 ## P1.7: Empty-Folder Init Is First-Class
 
-`recall init` must work in an empty folder.
+`persist init` must work in an empty folder.
 
-Recall OS does not require an app framework before initializing repository memory.
+Persist OS does not require an app framework before initializing repository memory.
 
 ## P1.7: Git Is Optional
 
@@ -12,7 +12,7 @@ A Git repository is recommended for normal development, but it must not be requi
 
 ## P1.7: Init Does Not Generate App Code
 
-`recall init` creates repository memory only.
+`persist init` creates repository memory only.
 
 It must not generate Flutter, Next.js, Swift, Android, backend, or other production application
 code.
@@ -25,16 +25,16 @@ Package `bin`, build, and release wiring remain P10 scope.
 
 ## P5: Minimal Useful Skeleton
 
-P5 generates a concise neutral memory skeleton, not the full Recall OS dogfood tree.
+P5 generates a concise neutral memory skeleton, not the full Persist OS dogfood tree.
 
 ## P9: Init Includes AI Command Memory
 
-Init generates `docs/ai/RECALL_COMMANDS.md` locally.
+Init generates `docs/ai/PERSIST_COMMANDS.md` locally.
 
-This file helps agents and humans understand available Recall OS commands without network access.
+This file helps agents and humans understand available Persist OS commands without network access.
 
-## P10: Recall OS Init Output
+## P10: Persist OS Init Output
 
-Init output uses Recall OS naming and `.recall/config.json`.
+Init output uses Persist OS naming and `.persist/config.json`.
 
 No compatibility output is generated for the pre-public name.

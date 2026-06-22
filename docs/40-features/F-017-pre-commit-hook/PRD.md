@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Make `recall doctor` enforceable at commit time. Today Doctor only runs when someone remembers to
+Make `persist doctor` enforceable at commit time. Today Doctor only runs when someone remembers to
 run it. A generated git pre-commit hook lets the repository block commits that fail Doctor or the
 repository's own gates.
 
@@ -17,10 +17,10 @@ distributing an enforced gate into the developer's git workflow.
 
 ## In Scope
 
-- Generate a tracked pre-commit hook at `.recall/hooks/pre-commit` during `recall init`.
-- Run `recall doctor` plus a configured `preCommitGates` list from `.recall/config.json`.
+- Generate a tracked pre-commit hook at `.persist/hooks/pre-commit` during `persist init`.
+- Run `persist doctor` plus a configured `preCommitGates` list from `.persist/config.json`.
 - Seed `preCommitGates` from neutral, proposed toolchain detection.
-- Propose, but never run, `git config core.hooksPath .recall/hooks`.
+- Propose, but never run, `git config core.hooksPath .persist/hooks`.
 - Keep generation non-destructive: skip an existing hook unless `--force`.
 - Add the `preCommitGates` config field with validation.
 - Add the ability to write an executable file safely within the project root.
@@ -32,7 +32,7 @@ distributing an enforced gate into the developer's git workflow.
 - No hardcoded toolchain commands in the hook.
 - No installation of dependencies into the target repository.
 - No network, telemetry, MCP runtime, AI API, or cloud behavior.
-- No new `recall hooks` subcommand in this feature.
+- No new `persist hooks` subcommand in this feature.
 
 ## Users
 
@@ -42,11 +42,11 @@ distributing an enforced gate into the developer's git workflow.
 
 ## Success Criteria
 
-- `recall init` creates an executable `.recall/hooks/pre-commit`.
-- The hook runs `recall doctor` and each configured gate.
+- `persist init` creates an executable `.persist/hooks/pre-commit`.
+- The hook runs `persist doctor` and each configured gate.
 - `preCommitGates` is seeded by detection as proposed values and is editable.
 - Detection stays neutral: no toolchain is encoded into core; an undetected toolchain yields an
   empty gate list.
-- `recall init` prints the activation command and does not run it.
+- `persist init` prints the activation command and does not run it.
 - An existing hook is skipped unless `--force`.
-- The hook never writes outside `.recall/hooks` and never escapes the project root.
+- The hook never writes outside `.persist/hooks` and never escapes the project root.

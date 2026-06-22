@@ -10,7 +10,7 @@ import { generateMcpFiles } from "../../../src/core/mcp/generate-mcp.js";
 import { listPresets } from "../../../src/core/presets/preset-registry.js";
 
 /**
- * Regression: a proposed ADR that stops at "## Consequences" fails `recall doctor` the moment a
+ * Regression: a proposed ADR that stops at "## Consequences" fails `persist doctor` the moment a
  * human accepts it (Doctor requires "## Related Documents"). Every generator that emits a proposed
  * ADR must therefore produce all required sections, so the propose -> accept cycle stays green.
  */

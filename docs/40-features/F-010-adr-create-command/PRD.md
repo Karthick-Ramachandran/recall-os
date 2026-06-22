@@ -2,15 +2,17 @@
 
 ## Purpose
 
-Implement `recall adr create <title>` so repositories can create architecture decision drafts before decisions become accepted repository memory.
+Implement `persist adr create <title>` so repositories can create architecture decision drafts
+before decisions become accepted repository memory.
 
 P7 turns ADR drafting into a repeatable local command.
 
 ## Problem
 
-Recall OS records architecture decisions, but it cannot yet create ADR files through the CLI.
+Persist OS records architecture decisions, but it cannot yet create ADR files through the CLI.
 
-Without ADR create support, users and agents can skip the structure needed to capture context, decision, alternatives, consequences, and related docs.
+Without ADR create support, users and agents can skip the structure needed to capture context,
+decision, alternatives, consequences, and related docs.
 
 ## Decision
 
@@ -44,11 +46,12 @@ Generated ADRs are drafts. Humans own final acceptance.
 
 ## Success Criteria
 
-- Command requires initialized Recall OS config.
+- Command requires initialized Persist OS config.
 - Command creates `ADR-####-<slug>.md` files.
 - Numbering starts at `ADR-0001`.
 - Numbering increments from valid existing ADR files.
-- Re-running the same ADR slug targets the existing ADR file instead of creating duplicate decision memory.
+- Re-running the same ADR slug targets the existing ADR file instead of creating duplicate decision
+  memory.
 - Malformed ADR files are ignored.
 - Unsafe titles are rejected.
 - Existing files are skipped by default.

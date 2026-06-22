@@ -82,8 +82,8 @@ export async function createFeature(options: FeatureCreateOptions): Promise<Feat
 export function formatFeatureCreateResult(result: FeatureCreateResult): string {
   const lines = [
     result.dryRun
-      ? "Recall OS feature create dry run complete."
-      : "Recall OS feature create complete.",
+      ? "Persist OS feature create dry run complete."
+      : "Persist OS feature create complete.",
     `Feature: ${result.featurePath}`,
   ];
 
@@ -96,7 +96,7 @@ export function formatFeatureCreateResult(result: FeatureCreateResult): string {
     appendNextSteps(lines, [
       `Start in ${result.featurePath}: write PRD.md (why) and ACCEPTANCE.md (how you will know it works).`,
       "Then PLAN.md, TASKS.md, and TEST_PLAN.md before you implement.",
-      "Run `recall doctor` to check the memory is complete.",
+      "Run `persist doctor` to check the memory is complete.",
     ]);
   }
 
@@ -122,7 +122,7 @@ async function loadRequiredConfig(rootDir: string) {
     if (error instanceof ConfigLoadError || error instanceof ConfigValidationError) {
       throw new FeatureCreateError(
         "CONFIG_REQUIRED",
-        "Recall OS config not found or invalid. Run `recall init` first.",
+        "Persist OS config not found or invalid. Run `persist init` first.",
         [error.message],
       );
     }

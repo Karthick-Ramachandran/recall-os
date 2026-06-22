@@ -2,7 +2,8 @@
 
 ## Command Behavior
 
-- `init` creates `.recall/config.json`, `AGENTS.md`, `CLAUDE.md`, and neutral repository memory docs.
+- `init` creates `.persist/config.json`, `AGENTS.md`, `CLAUDE.md`, and neutral repository memory
+  docs.
 - `init` works in an empty folder.
 - `init` works outside Git repositories.
 - `init --preset <id>` uses the built-in preset registry.
@@ -14,8 +15,10 @@
 
 ## Generated Memory
 
-- Neutral init creates concise placeholder docs under product, architecture, security, quality, engineering, AI, and ADR directories.
-- Neutral init does not choose architecture, framework, database, vendor, hosting, or state management.
+- Neutral init creates concise placeholder docs under product, architecture, security, quality,
+  engineering, AI, and ADR directories.
+- Neutral init does not choose architecture, framework, database, vendor, hosting, or state
+  management.
 - Preset guidance remains optional.
 - Preset proposed decisions remain proposed.
 - No preset output is treated as accepted repository memory.

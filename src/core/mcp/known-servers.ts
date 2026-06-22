@@ -6,7 +6,7 @@ export type KnownServer = {
 
 /**
  * Purpose and data hints for well-known MCP servers, drawn from the MCP strategy guidance. Used to
- * pre-fill generated MCP memory. Recall OS never connects to these servers; this is static guidance.
+ * pre-fill generated MCP memory. Persist OS never connects to these servers; this is static guidance.
  */
 const KNOWN_SERVERS: Record<string, KnownServer> = {
   figma: {

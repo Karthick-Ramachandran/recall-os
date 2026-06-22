@@ -2,13 +2,14 @@
 
 ## Purpose
 
-Implement `recall init` as the first real product workflow.
+Implement `persist init` as the first real product workflow.
 
 The command initializes repository memory. It does not generate application code.
 
 ## Problem
 
-Recall OS has safe writes, config, rendering, and presets, but users cannot yet initialize a repository memory structure through a command.
+Persist OS has safe writes, config, rendering, and presets, but users cannot yet initialize a
+repository memory structure through a command.
 
 P5 connects those foundations into a minimal, useful init flow.
 
@@ -16,7 +17,8 @@ P5 connects those foundations into a minimal, useful init flow.
 
 P5 adds testable Commander-based CLI wiring and init orchestration.
 
-Package `bin`, build, release, and npm publish wiring are deferred to release work so P5 does not introduce a broken binary.
+Package `bin`, build, release, and npm publish wiring are deferred to release work so P5 does not
+introduce a broken binary.
 
 ## In Scope
 

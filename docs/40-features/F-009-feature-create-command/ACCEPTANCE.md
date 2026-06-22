@@ -3,7 +3,7 @@
 ## Command Behavior
 
 - `feature create <name>` creates a feature folder under configured `featuresDir`.
-- Command requires `.recall/config.json`.
+- Command requires `.persist/config.json`.
 - Command fails clearly when config is missing.
 - Feature names are slugified.
 - Unsafe feature names are rejected.
@@ -35,4 +35,5 @@ Created feature folders include:
 ## Runtime Boundary
 
 - No app code is generated.
-- No package `bin`, build, release, ADR create, module create, doctor, technology detection, network, telemetry, MCP runtime, AI API, or cloud behavior is added.
+- No package `bin`, build, release, ADR create, module create, doctor, technology detection,
+  network, telemetry, MCP runtime, AI API, or cloud behavior is added.

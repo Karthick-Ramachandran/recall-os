@@ -2,7 +2,8 @@
 
 ## Principle
 
-Command code should orchestrate. Core modules should own decisions and be testable without shelling out to the CLI.
+Command code should orchestrate. Core modules should own decisions and be testable without shelling
+out to the CLI.
 
 ## Boundaries
 
@@ -18,7 +19,7 @@ Command code should orchestrate. Core modules should own decisions and be testab
 
 `core/config`
 
-- Owns `.recall/config.json` schema, defaults, load, and write.
+- Owns `.persist/config.json` schema, defaults, load, and write.
 - Must not store secrets.
 
 `core/filesystem`

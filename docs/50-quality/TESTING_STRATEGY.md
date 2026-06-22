@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Recall OS tests should prove behavior that matters: safe writes, deterministic generation, useful docs, and predictable CLI output.
+Persist OS tests should prove behavior that matters: safe writes, deterministic generation, useful
+docs, and predictable CLI output.
 
 ## Test Levels
 

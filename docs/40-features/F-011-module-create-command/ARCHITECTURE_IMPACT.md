@@ -16,7 +16,8 @@ P8 adds command orchestration for module memory creation.
 
 Command code loads config, calls naming/generator/filesystem modules, and formats output.
 
-P8 also extracts repeated write-summary output formatting into a small command helper without changing command behavior.
+P8 also extracts repeated write-summary output formatting into a small command helper without
+changing command behavior.
 
 ## Module Boundary Check
 

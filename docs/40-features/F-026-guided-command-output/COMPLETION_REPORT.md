@@ -49,5 +49,5 @@ Complete.
 
 ## Engineering Standards
 
-Engineering standards were followed. The change is presentation-only, scoped, and tested, and adds no
-new files, capabilities, dependencies, network, or telemetry.
+Engineering standards were followed. The change is presentation-only, scoped, and tested, and adds
+no new files, capabilities, dependencies, network, or telemetry.

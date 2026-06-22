@@ -23,13 +23,13 @@ changes.
 The documented decision is:
 
 ```txt
-Recall OS initializes repository memory.
+Persist OS initializes repository memory.
 Application code may come before or after.
 ```
 
 ## Future Runtime Direction
 
-Future `recall init` should:
+Future `persist init` should:
 
 - Work in empty directories.
 - Not require a Git repository.

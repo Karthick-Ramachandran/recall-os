@@ -49,7 +49,7 @@ describe("doctor context-budget check", () => {
     const rootDir = await createRoot("budget-cursor");
     const cursorDir = path.join(rootDir, ".cursor/rules");
     await mkdir(cursorDir, { recursive: true });
-    await writeFile(path.join(cursorDir, "recall-memory.mdc"), "y".repeat(25 * 1024), "utf8");
+    await writeFile(path.join(cursorDir, "persist-memory.mdc"), "y".repeat(25 * 1024), "utf8");
 
     const findings = await checkContextBudget({ rootDir, config: createDefaultConfig() });
 

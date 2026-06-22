@@ -8,7 +8,7 @@
 
 ## Integration Tests
 
-- `recall adopt` proposes memory without an existing config.
+- `persist adopt` proposes memory without an existing config.
 - `--dry-run` writes nothing.
 - Existing adoption report is skipped unless `--force`.
 

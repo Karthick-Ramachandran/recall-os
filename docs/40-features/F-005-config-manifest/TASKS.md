@@ -48,7 +48,7 @@ Status: Done
 Scope:
 
 - `tests/unit/config/`
-- `.recall/config.json`
+- `.persist/config.json`
 
 Acceptance:
 

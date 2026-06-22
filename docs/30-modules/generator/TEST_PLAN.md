@@ -61,7 +61,7 @@
 
 ## P9 Tests
 
-- Init generation includes `docs/ai/RECALL_COMMANDS.md`.
+- Init generation includes `docs/ai/PERSIST_COMMANDS.md`.
 - Init generation includes `docs/30-modules/README.md`.
 - Init generation includes `docs/40-features/README.md`.
 - Command reference lists current commands and the Doctor completion gate.
@@ -76,7 +76,7 @@
 ## P10 Tests
 
 - Golden tests verify renamed init output and command memory.
-- Doctor integration tests verify generated command memory includes `recall preset list`.
+- Doctor integration tests verify generated command memory includes `persist preset list`.
 
 ## P10 Results
 

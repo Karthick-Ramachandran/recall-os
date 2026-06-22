@@ -14,7 +14,7 @@
 ## T3: Command and CLI
 
 - Status: Complete.
-- Scope: `recall mcp add` command and CLI registration.
+- Scope: `persist mcp add` command and CLI registration.
 - Tests: Integration tests.
 
 ## T4: Docs, memory, completion

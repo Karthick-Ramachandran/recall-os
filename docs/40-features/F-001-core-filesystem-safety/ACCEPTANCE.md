@@ -6,12 +6,13 @@
 - Slugs contain only lowercase `a-z`, `0-9`, and single hyphens.
 - Slugs have no leading or trailing hyphen.
 - Slugs are at most 80 characters.
-- Empty input, `.`, `..`, path separators, traversal input, null bytes, control chars, Windows reserved names, and names ending in dot or space are rejected.
+- Empty input, `.`, `..`, path separators, traversal input, null bytes, control chars, Windows
+  reserved names, and names ending in dot or space are rejected.
 
 ## Safe Paths
 
 - Relative forward-slash paths are accepted.
-- Dot-directories like `.recall/config.json` are accepted.
+- Dot-directories like `.persist/config.json` are accepted.
 - Absolute paths are rejected.
 - Backslashes are rejected.
 - `..` segments are rejected.

@@ -6,7 +6,8 @@ Complete.
 
 ## Tasks Completed
 
-- T1: Documented the opinionated-preset content standard in OPINION_PACKS.md and planned the feature.
+- T1: Documented the opinionated-preset content standard in OPINION_PACKS.md and planned the
+  feature.
 - T2: Added the `kotlin-android` preset with rich guidance and six proposed ADRs.
 - T3: Added the `python-fastapi` preset with rich guidance and five proposed ADRs.
 - T4: Enriched `ios-swift` and `nextjs` with five proposed ADRs each, preserving golden anchors.
@@ -45,7 +46,7 @@ Complete.
 - `pnpm build` passed; `pnpm pack:check` validated 169 package files (up from 104 for the new
   presets, ADRs, and example trees).
 - `node dist/cli.js doctor` passed after this report was written.
-- `recall preset list` shows all six presets, with the four opinionated packs marked accordingly.
+- `persist preset list` shows all six presets, with the four opinionated packs marked accordingly.
 
 ## Remaining Risks
 
@@ -60,5 +61,5 @@ Complete.
 ## Engineering Standards
 
 Engineering standards were followed. The change is scoped, tested, and documented. Neutrality is
-preserved structurally: every preset decision is `Proposed`. No schema change, dependency,
-network, telemetry, or generated production app code was introduced.
+preserved structurally: every preset decision is `Proposed`. No schema change, dependency, network,
+telemetry, or generated production app code was introduced.

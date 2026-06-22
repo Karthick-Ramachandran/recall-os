@@ -8,7 +8,7 @@ import {
   removeTempRoot,
   runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { RecallConfig } from "../../src/core/config/config-schema.js";
+import type { PersistConfig } from "../../src/core/config/config-schema.js";
 
 describe("nextjs init golden output", () => {
   let rootDir: string | undefined;
@@ -29,7 +29,7 @@ describe("nextjs init golden output", () => {
       "docs/adrs/proposed/ADR-PROPOSED-nextjs-framework.md",
     );
 
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     expect(config.preset).toBe("nextjs");
     expect(await readGeneratedFile(rootDir, "docs/ai/presets/nextjs-guidance.md")).toContain(
       "guidance",

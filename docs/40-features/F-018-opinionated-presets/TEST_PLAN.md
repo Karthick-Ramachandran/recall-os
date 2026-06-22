@@ -18,7 +18,7 @@ anchors, and duplicate destinations.
 
 ## Integration Tests
 
-- `recall preset list` includes the two new presets.
+- `persist preset list` includes the two new presets.
 
 ## Regression
 

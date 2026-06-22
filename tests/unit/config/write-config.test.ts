@@ -10,7 +10,7 @@ import { writeConfig } from "../../../src/core/config/write-config.js";
 let rootDir: string;
 
 beforeEach(async () => {
-  rootDir = await mkdtemp(path.join(os.tmpdir(), "recall-config-write-"));
+  rootDir = await mkdtemp(path.join(os.tmpdir(), "persist-config-write-"));
 });
 
 afterEach(async () => {
@@ -18,26 +18,26 @@ afterEach(async () => {
 });
 
 async function readWrittenConfig(): Promise<string> {
-  return readFile(path.join(rootDir, ".recall", "config.json"), "utf8");
+  return readFile(path.join(rootDir, ".persist", "config.json"), "utf8");
 }
 
 describe("writeConfig", () => {
-  it("creates .recall/config.json", async () => {
+  it("creates .persist/config.json", async () => {
     const config = createDefaultConfig();
 
     const result = await writeConfig(rootDir, config);
 
-    expect(result.created).toEqual([".recall/config.json"]);
+    expect(result.created).toEqual([".persist/config.json"]);
     await expect(readWrittenConfig()).resolves.toBe(`${JSON.stringify(config, null, 2)}\n`);
   });
 
   it("skips existing config by default", async () => {
-    await mkdir(path.join(rootDir, ".recall"), { recursive: true });
-    await writeFile(path.join(rootDir, ".recall", "config.json"), "existing", "utf8");
+    await mkdir(path.join(rootDir, ".persist"), { recursive: true });
+    await writeFile(path.join(rootDir, ".persist", "config.json"), "existing", "utf8");
 
     const result = await writeConfig(rootDir, createDefaultConfig());
 
-    expect(result.skipped).toEqual([".recall/config.json"]);
+    expect(result.skipped).toEqual([".persist/config.json"]);
     await expect(readWrittenConfig()).resolves.toBe("existing");
   });
 
@@ -45,18 +45,18 @@ describe("writeConfig", () => {
     const result = await writeConfig(rootDir, createDefaultConfig(), { dryRun: true });
 
     expect(result.dryRun).toBe(true);
-    expect(result.created).toEqual([".recall/config.json"]);
+    expect(result.created).toEqual([".persist/config.json"]);
     await expect(readWrittenConfig()).rejects.toThrow();
   });
 
   it("overwrites only with explicit force", async () => {
-    await mkdir(path.join(rootDir, ".recall"), { recursive: true });
-    await writeFile(path.join(rootDir, ".recall", "config.json"), "existing", "utf8");
+    await mkdir(path.join(rootDir, ".persist"), { recursive: true });
+    await writeFile(path.join(rootDir, ".persist", "config.json"), "existing", "utf8");
     const config = createDefaultConfig({ aiTools: ["claude", "codex", "cursor"] });
 
     const result = await writeConfig(rootDir, config, { force: true });
 
-    expect(result.overwritten).toEqual([".recall/config.json"]);
+    expect(result.overwritten).toEqual([".persist/config.json"]);
     await expect(readWrittenConfig()).resolves.toBe(`${JSON.stringify(config, null, 2)}\n`);
   });
 

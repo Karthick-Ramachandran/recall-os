@@ -8,7 +8,7 @@ import {
   removeTempRoot,
   runInitCommand,
 } from "../helpers/init-test-helpers.js";
-import type { RecallConfig } from "../../src/core/config/config-schema.js";
+import type { PersistConfig } from "../../src/core/config/config-schema.js";
 
 describe("iOS Swift init golden output", () => {
   let rootDir: string | undefined;
@@ -29,7 +29,7 @@ describe("iOS Swift init golden output", () => {
       "docs/adrs/proposed/ADR-PROPOSED-ios-swift-platform.md",
     );
 
-    const config = await readGeneratedJson<RecallConfig>(rootDir, ".recall/config.json");
+    const config = await readGeneratedJson<PersistConfig>(rootDir, ".persist/config.json");
     expect(config.preset).toBe("ios-swift");
     expect(await readGeneratedFile(rootDir, "docs/ai/presets/ios-swift-guidance.md")).toContain(
       "proposed guidance",

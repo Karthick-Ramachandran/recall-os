@@ -48,13 +48,13 @@ Humans or agents fill in module substance after the module memory folder exists.
 
 ## P9: Command Reference Is Local Memory
 
-P9 adds `docs/ai/RECALL_COMMANDS.md` to init output.
+P9 adds `docs/ai/PERSIST_COMMANDS.md` to init output.
 
 This document is generated locally from in-code starter content. It must not be downloaded from the
 network in MVP.
 
-## P10: Recall Command Memory
+## P10: Persist Command Memory
 
-P10 renames generated command memory to `docs/ai/RECALL_COMMANDS.md`.
+P10 renames generated command memory to `docs/ai/PERSIST_COMMANDS.md`.
 
-The command reference includes `recall preset list` and remains local generated memory.
+The command reference includes `persist preset list` and remains local generated memory.

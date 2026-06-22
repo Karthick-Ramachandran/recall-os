@@ -19,8 +19,8 @@ No other module changes behavior. Filesystem, config, generator, presets, and na
 
 No new ADR is required.
 
-- The direction is already accepted repository memory: Product Vision Level 4 and Roadmap P13
-  define drift detection as the next product step.
+- The direction is already accepted repository memory: Product Vision Level 4 and Roadmap P13 define
+  drift detection as the next product step.
 - The implementation reuses the existing Doctor check architecture (one check module returning
   `DoctorFinding[]`, wired into `runDoctor`), which is already covered by accepted decisions for the
   deterministic, local, read-only design.

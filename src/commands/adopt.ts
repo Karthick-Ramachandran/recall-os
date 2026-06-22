@@ -47,7 +47,7 @@ export async function adoptProject(options: AdoptOptions): Promise<AdoptResult> 
   if (plan.hasErrors) {
     throw new AdoptError(
       "WRITE_PLAN_ERROR",
-      "Recall OS adopt write plan contains errors.",
+      "Persist OS adopt write plan contains errors.",
       plan.entries
         .filter((entry) => entry.action === "error")
         .map((entry) => `${entry.path}: ${entry.reason}`),
@@ -66,7 +66,7 @@ export async function adoptProject(options: AdoptOptions): Promise<AdoptResult> 
 
 export function formatAdoptResult(result: AdoptResult): string {
   const lines = [
-    result.dryRun ? "Recall OS adopt dry run complete." : "Recall OS adopt complete.",
+    result.dryRun ? "Persist OS adopt dry run complete." : "Persist OS adopt complete.",
     "Inferred signals are proposed and require human review.",
     `Languages: ${formatList(result.signals.languages)}`,
     `Package manager: ${result.signals.packageManager ?? "none detected"}`,
@@ -81,7 +81,7 @@ export function formatAdoptResult(result: AdoptResult): string {
   if (!result.dryRun) {
     appendNextSteps(lines, [
       "Review docs/adopt/ADOPTION_REPORT.md — everything in it is proposed.",
-      "Run `recall init` to establish neutral repository memory if it does not exist yet.",
+      "Run `persist init` to establish neutral repository memory if it does not exist yet.",
       "Accept or reject each proposed ADR under docs/adrs/proposed/.",
     ]);
   }

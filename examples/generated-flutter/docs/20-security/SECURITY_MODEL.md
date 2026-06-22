@@ -3,7 +3,7 @@
 ## Status
 
 Draft — fill the prompted sections below with this repository's real model as it grows.
-`recall doctor` flags these as warnings once the repository has real work (a feature, module, or
+`persist doctor` flags these as warnings once the repository has real work (a feature, module, or
 accepted decision).
 
 ## Baseline Rules
