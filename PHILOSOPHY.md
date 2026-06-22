@@ -81,6 +81,12 @@ memory pointing at a decision that was never accepted, an empty template, a "don
 Those are objective — Doctor can say "this is broken" because checking it doesn't need any
 understanding of the code.
 
+People call the slow version of this "context rot" — memory that piles up until it is bloated,
+stale, or quietly wrong. Two parts of that are checkable without understanding the code, so Doctor
+checks them: it warns when the always-loaded files grow into a wall of text (the memory should stay
+a map, not a dump), and — inside a git repository — when memory still points at code that changed
+long after the memory last did. Both are nudges to look, not verdicts.
+
 What it doesn't catch is the subtler kind. An ADR says PostgreSQL after the team quietly moved to
 MySQL: the file's still there, the references still resolve, everything passes — and the memory is
 quietly wrong. I haven't solved that, and I'm not going to pretend a deterministic check can.

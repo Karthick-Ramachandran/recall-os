@@ -50,6 +50,9 @@ them.
   ADR is marked superseded, the new one links back) and Doctor flags any memory still citing the old
   one — so the trail stays auditable instead of silently contradicted. The generated agent rules
   even carry the CLI commands inline, so your AI tool uses them itself.
+- **Fights context rot.** Doctor warns when the always-loaded memory bloats into a wall of text, or
+  when it still points at `src/` code that changed long after the memory did — so memory stays a
+  lean, current map, not a stale dump.
 - **Architecture-neutral by design.** Recall OS records and protects _your_ decisions. It never
   silently picks a framework, database, or pattern for you.
 - **Local-first and private.** No network calls, no telemetry, no AI API calls, no remote templates.
