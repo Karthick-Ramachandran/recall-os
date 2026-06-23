@@ -113,6 +113,25 @@ contradiction between two decisions. It was the decision I never wrote down at a
   silently. And it guarantees the reasoning is **captured, consistent, and backed by evidence** —
   the part teams almost always lose, and the part everything else builds on.
 
+## When it's worth it — and when it isn't
+
+A tool that won't tell you when _not_ to use it isn't being honest, so here's the line I draw.
+
+Persist OS earns its keep when the software is meant to **last** — when someone will inherit and
+keep building on it later: a teammate, a real engineering team, a fresh agent next week, or just
+future you. That's when losing the _why_ actually costs something, and when durable, reviewed memory
+pays back the small discipline it asks for.
+
+If you're spiking an idea, throwing together a one-day prototype, or building something you'll
+delete next week — **skip it.** There's no second session to hand off to, so the memory never gets
+read back; it's pure overhead, and the value is all deferred to a future that a throwaway doesn't
+have. Don't pay a discipline tax for code that won't live to benefit from it.
+
+The name is the test: use it for what should _persist_. The moment a prototype turns into something
+you actually want to keep, that's when to run `persist init` and start writing the why down — and
+even then, keep it proportional: a small change just gets built; a real feature or decision is what
+gets written down.
+
 ## The short version
 
 This is a personal tool that grew up. It improves how I build software indirectly — through
