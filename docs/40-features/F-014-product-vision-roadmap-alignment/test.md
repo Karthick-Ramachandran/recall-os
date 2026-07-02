@@ -1,0 +1,1 @@
+Retrieval - today it shows up in two places: reloaded into the agent's context every session (ambient, not a wiki you grep), and at the gate in pre-commit/CI. Inline in the PR diff, or at the 2am incident specifically - not yet. That's probably the gap I think about most after reading your stuff.

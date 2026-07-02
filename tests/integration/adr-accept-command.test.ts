@@ -56,6 +56,19 @@ describe("adr accept command", () => {
     expect(adr).toContain("## Status\n\nAccepted");
   });
 
+  it("accepts using the full ADR-####-<slug> filename, not only the bare slug", async () => {
+    const rootDir = await createRoot("adr-accept-filename");
+    await runInitCommand(rootDir);
+    await runCommand(rootDir, ["adr", "create", "use-postgres"]);
+
+    // The review friction: passing the printed filename should work, not just the bare slug.
+    const result = await runCommand(rootDir, ["adr", "accept", "ADR-0001-use-postgres.md"]);
+
+    expect(result.exitCode).toBe(0);
+    const adr = await readFile(path.join(rootDir, "docs/adrs/ADR-0001-use-postgres.md"), "utf8");
+    expect(adr).toContain("## Status\n\nAccepted");
+  });
+
   it("fails clearly when no matching proposal exists", async () => {
     const rootDir = await createRoot("adr-accept-missing");
     await runInitCommand(rootDir);

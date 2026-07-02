@@ -216,7 +216,12 @@ export function formatAdrAcceptResult(result: AdrAcceptResult): string {
 }
 
 function createSlug(name: string): string {
-  const withoutPrefix = name.replace(/^ADR-PROPOSED-/iu, "");
+  // Accept the bare slug, the proposed filename (ADR-PROPOSED-<slug>), or the accepted
+  // filename (ADR-####-<slug>), with or without a trailing `.md`. All resolve to the slug.
+  const withoutPrefix = name
+    .replace(/\.md$/iu, "")
+    .replace(/^ADR-PROPOSED-/iu, "")
+    .replace(/^ADR-\d{3,}-/iu, "");
   try {
     return slugify(withoutPrefix);
   } catch (error) {
