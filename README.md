@@ -166,7 +166,9 @@ Because it returns an exit code, Doctor drops straight into the completion loop:
 pnpm test:run && pnpm typecheck && persist doctor
 ```
 
-Use it locally via the generated pre-commit hook, or add `persist doctor` as a step in CI.
+Use it locally via the generated pre-commit hook, or add `persist doctor` as a step in CI. Add
+`--json` (`persist doctor --json`) for a stable, machine-readable report — handy for CI artifacts,
+hooks, and agent handoffs.
 
 ## Presets
 

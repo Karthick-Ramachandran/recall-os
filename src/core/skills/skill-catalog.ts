@@ -139,7 +139,6 @@ export const SKILL_CATALOG: SkillDefinition[] = [
       "`docs/20-security/SECURITY_MODEL.md`",
       "`docs/50-quality/TESTING_STRATEGY.md`",
       "`docs/60-engineering/ENGINEERING_STANDARDS.md`",
-      "`docs/ai/MODULE_DELIVERY_WORKFLOW.md`",
       "Relevant ADRs under `docs/adrs/`",
     ],
     outputFiles: [
@@ -434,7 +433,6 @@ export const SKILL_CATALOG: SkillDefinition[] = [
     ],
     requiredReading: [
       "`docs/60-engineering/ENGINEERING_STANDARDS.md`",
-      "`docs/ai/MODULE_DELIVERY_WORKFLOW.md`",
       "Relevant `docs/30-modules/<module>/MODULE.md`",
       "Relevant `docs/30-modules/<module>/DECISIONS.md`",
       "Relevant feature docs and ADRs.",

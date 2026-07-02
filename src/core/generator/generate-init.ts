@@ -623,8 +623,11 @@ which promotes a proposal into an accepted ADR here.
     path: ".github/workflows/persist.yml",
     content: `name: Persist OS
 
+# Run once per change: on pull requests, and on pushes to the default branch.
+# This avoids Doctor running twice for the same PR (branch push + pull_request event).
 on:
   push:
+    branches: [main]
   pull_request:
 
 jobs:
